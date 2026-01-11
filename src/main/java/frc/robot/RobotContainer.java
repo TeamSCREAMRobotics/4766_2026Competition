@@ -2,8 +2,7 @@
 // Open Source Software; you can modify and/or share it under the terms of
 // the WPILib BSD license file in the root directory of this project.
 
-// TODO: Update Pathplanner for 2026 when released. Changed the year manually in the file for now so
-// it builds.
+// TODO: Update ScreamLib once finished
 // TODO: Complete swerve generator for 2026 robot and import
 
 package frc.robot;
