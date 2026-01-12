@@ -5,4 +5,29 @@
 package frc.robot;
 
 /** Add your docs here. */
-public class Constants {}
+public class Constants {
+
+    public class DriveTrainConstants{
+
+    }
+
+    public class VisionConstants{
+
+    }
+
+    public class IntakeConstants{
+
+    }
+
+    public class ShooterConstants{
+
+    }
+
+    public class ClimberConstants{
+
+    }
+
+    public class AgitatorConstants{
+        
+    }
+}
