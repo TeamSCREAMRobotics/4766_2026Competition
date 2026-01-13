@@ -18,8 +18,6 @@ public class Constants {
   public class ClimberConstants {}
 
   public class AgitatorConstants {
-    public final static int agitatorMotor = 0;
-    
-    
+    public static final int agitatorMotor = 0;
   }
 }
