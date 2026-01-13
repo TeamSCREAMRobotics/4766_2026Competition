@@ -12,7 +12,6 @@ import com.ctre.phoenix6.controls.VoltageOut;
 import com.ctre.phoenix6.hardware.TalonFX;
 import com.ctre.phoenix6.signals.InvertedValue;
 import com.ctre.phoenix6.signals.NeutralModeValue;
-
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 import frc.robot.Constants.ShooterConstants;
@@ -20,13 +19,14 @@ import frc.robot.Constants.ShooterConstants;
 public class ShooterHood extends SubsystemBase {
   /** Creates a new ShooterHood. */
   TalonFX pivotMotor = new TalonFX(Constants.ShooterConstants.pivotMotorID);
-  
+
   Slot0Configs hoodPivotSlot0 = new Slot0Configs();
   TalonFXConfiguration motorConfigs = new TalonFXConfiguration();
   MotionMagicConfigs hoodPivotMagicConfigs = new MotionMagicConfigs();
-  
+
   VoltageOut m_request = new VoltageOut(0);
   MotionMagicVoltage m_magicRequest = new MotionMagicVoltage(0);
+
   public ShooterHood() {
     motorConfigs.MotorOutput.NeutralMode = NeutralModeValue.Coast;
     motorConfigs.MotorOutput.Inverted = InvertedValue.Clockwise_Positive;
@@ -52,7 +52,8 @@ public class ShooterHood extends SubsystemBase {
   }
 
   public boolean IsAtSetpoint(double setpoint) {
-    return pivotMotor.getPosition().getValueAsDouble() <= setpoint + 0.005 && pivotMotor.getPosition().getValueAsDouble() >= setpoint - 0.005;
+    return pivotMotor.getPosition().getValueAsDouble() <= setpoint + 0.005
+        && pivotMotor.getPosition().getValueAsDouble() >= setpoint - 0.005;
   }
 
   @Override
