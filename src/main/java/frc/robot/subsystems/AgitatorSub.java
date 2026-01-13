@@ -4,11 +4,23 @@
 
 package frc.robot.subsystems;
 
+import com.ctre.phoenix6.controls.VoltageOut;
+import com.ctre.phoenix6.hardware.TalonFX;
+
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import frc.robot.Constants;
 
 public class AgitatorSub extends SubsystemBase {
+
+  TalonFX agitatorMotor = new TalonFX(Constants.AgitatorConstants.agitatorMotor);
+  VoltageOut m_request = new VoltageOut(0);
   /** Creates a new AgitatorSub. */
-  public AgitatorSub() {}
+  public AgitatorSub() {
+  }
+
+  public void RunAgitator(double Voltage) {
+    agitatorMotor.setControl(m_request.withOutput(Voltage));
+  }
 
   @Override
   public void periodic() {
