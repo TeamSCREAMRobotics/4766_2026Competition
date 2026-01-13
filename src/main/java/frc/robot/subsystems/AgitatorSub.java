@@ -23,7 +23,7 @@ public class AgitatorSub extends SubsystemBase {
 
   public boolean hasFuel() {
     return true;
-    //change when detection method is found
+    // change when detection method is found
   }
 
   @Override

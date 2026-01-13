@@ -30,6 +30,6 @@ public class Constants {
   public class ClimberConstants {}
 
   public class AgitatorConstants {
-    public final static int agitatorMotorID = 0;
+    public static final int agitatorMotorID = 0;
   }
 }
