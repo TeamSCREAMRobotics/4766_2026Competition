@@ -4,11 +4,36 @@
 
 package frc.robot.subsystems;
 
+import com.ctre.phoenix6.signals.InvertedValue;
+import com.ctre.phoenix6.signals.MotorAlignmentValue;
+import com.ctre.phoenix6.signals.NeutralModeValue;
+
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import frc.robot.Constants;
 
 public class ShooterSub extends SubsystemBase {
+  TalonFX shooterMotor = new TalonFX(Constants.ShooterConstants.shooterMoterID);
+  TalonFX shooterFollower = new TalonFX(Constants.ShooterConstants.shooterFollowerID);
+  //Follower might not be needed
+  
+  VoltageOut m_request = new VoltageOut(0);
   /** Creates a new ShooterSub. */
-  public ShooterSub() {}
+  public ShooterSub() {
+    TalonFXConfiguration shooterConfig = new TalonFXConfiguration();
+    //subject to change
+    shooterConfig.MotorOutput.NeutralMode = NeutralModeValue.Brake;
+    shooterConfig.MotorOutput.Inverted = InvertedValue.Clockwise_Positive;
+    shooterMotor.getConfigurator().apply(shooterConfig);
+    shooterFollower.setControl(new Follower(shooterMotor.getDeviceID(), MotorAlignmentValue.Aligned));
+  }
+
+  public void runShooter(double voltage) {
+    shooterMotor.setControl(m_request.withOutput(voltage));
+  }
+
+  public double returnVelocity() {
+    return shooterMotor.getVelocity().getValueAsDouble();
+  }
 
   @Override
   public void periodic() {

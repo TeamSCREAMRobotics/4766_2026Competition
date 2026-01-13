@@ -12,7 +12,7 @@ import frc.robot.Constants;
 
 public class AgitatorSub extends SubsystemBase {
 
-  TalonFX agitatorMotor = new TalonFX(Constants.AgitatorConstants.agitatorMotor);
+  TalonFX agitatorMotor = new TalonFX(Constants.AgitatorConstants.agitatorMotorID);
   VoltageOut m_request = new VoltageOut(0);
   /** Creates a new AgitatorSub. */
   public AgitatorSub() {
@@ -20,6 +20,11 @@ public class AgitatorSub extends SubsystemBase {
 
   public void RunAgitator(double Voltage) {
     agitatorMotor.setControl(m_request.withOutput(Voltage));
+  }
+
+  public boolean hasFuel() {
+    return true;
+    //change when detection method is found
   }
 
   @Override

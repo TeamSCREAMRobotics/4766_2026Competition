@@ -13,13 +13,14 @@ public class Constants {
 
   public class IntakeConstants {}
 
-  public class ShooterConstants {}
+  public class ShooterConstants {
+    public static final int shooterMoterID = 0;
+    public static final int shooterFollowerID = 0;
+  }
 
   public class ClimberConstants {}
 
   public class AgitatorConstants {
-    public final static int agitatorMotor = 0;
-    
-    
+    public final static int agitatorMotorID = 0;
   }
 }
