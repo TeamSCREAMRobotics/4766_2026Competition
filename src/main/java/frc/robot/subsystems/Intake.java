@@ -9,6 +9,7 @@ import com.ctre.phoenix6.configs.TalonFXConfiguration;
 import com.ctre.phoenix6.controls.Follower;
 import com.ctre.phoenix6.controls.VoltageOut;
 import com.ctre.phoenix6.hardware.TalonFX;
+import com.ctre.phoenix6.signals.MotorAlignmentValue;
 import com.ctre.phoenix6.signals.NeutralModeValue;
 import com.ctre.phoenix6.swerve.utility.PhoenixPIDController;
 
@@ -17,16 +18,26 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 
 public class Intake extends SubsystemBase {
-TalonFX intakeFollower = new TalonFX(Constants.IntakeConstants.intakeFollower);
-TalonFX intakeMaster = new TalonFX(Constants.IntakeConstants.intakeMasterID);
-VoltageOut m_request = new VoltageOut(0);
-TalonFXConfiguration intakeConfig = new TalonFXConfiguration();
+private TalonFX intakeFollower = new TalonFX(Constants.IntakeConstants.intakeFollower);
+private TalonFX intakeMaster = new TalonFX(Constants.IntakeConstants.intakeMasterID);
+private VoltageOut m_request = new VoltageOut(0); //m_request == make request
+private TalonFXConfiguration intakeConfig = new TalonFXConfiguration();
 
   /** Creates a new Intake. */
   public Intake() {
    intakeConfig.MotorOutput.NeutralMode = NeutralModeValue.Brake;
-   intakeMaster.setControl(new Follower(Constants.IntakeConstants.intakeMasterID, ));
-    
+   intakeMaster.getConfigurator().apply(intakeConfig);
+   intakeFollower.setControl(new Follower(Constants.IntakeConstants.intakeMasterID, MotorAlignmentValue.Aligned));
+  }
+
+//runs intake from voltage
+  public void runIntake() {
+    intakeMaster.setControl(m_request);
+  }
+
+//reset position of intake to 0
+  public void resetIntake() {
+    intakeMaster.setPosition(0);
   }
 
   @Override
