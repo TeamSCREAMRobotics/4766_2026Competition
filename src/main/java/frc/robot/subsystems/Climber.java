@@ -9,6 +9,8 @@ import com.ctre.phoenix6.configs.TalonFXConfiguration;
 import com.ctre.phoenix6.controls.VoltageOut;
 import com.ctre.phoenix6.hardware.TalonFX;
 import com.ctre.phoenix6.signals.NeutralModeValue;
+
+import dev.doglog.DogLog;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 
@@ -35,20 +37,21 @@ public class Climber extends SubsystemBase {
     climbermotor.getConfigurator().apply(climberConfigs);
   }
 
-  public void resetPose() {
+  public void resetClimberPose() {
     climbermotor.setPosition(0);
   }
 
-  public double getPose() {
+  public double getClimberPose() {
     return climbermotor.getPosition().getValueAsDouble();
   }
 
-  public void goToSetpoint(double setpoint) {
+  public void climberGoToSetpoint(double setpoint) {
     climbermotor.setControl(m_request.withOutput(setpoint));
   }
 
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
+    DogLog.log("Climber Pose: ", getClimberPose());
   }
 }
