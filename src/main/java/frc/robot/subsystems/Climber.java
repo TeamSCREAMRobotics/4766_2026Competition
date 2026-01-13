@@ -9,15 +9,15 @@ import com.ctre.phoenix6.configs.TalonFXConfiguration;
 import com.ctre.phoenix6.controls.VoltageOut;
 import com.ctre.phoenix6.hardware.TalonFX;
 import com.ctre.phoenix6.signals.NeutralModeValue;
-
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 
 public class Climber extends SubsystemBase {
-    TalonFX climbermotor = new TalonFX(Constants.ClimberConstants.climbermotorID);
-    VoltageOut m_request = new VoltageOut(0); 
-    TalonFXConfiguration climberConfigs = new TalonFXConfiguration();
-    Slot0Configs climberPIDConfigs = new Slot0Configs();
+  TalonFX climbermotor = new TalonFX(Constants.ClimberConstants.climbermotorID);
+  VoltageOut m_request = new VoltageOut(0);
+  TalonFXConfiguration climberConfigs = new TalonFXConfiguration();
+  Slot0Configs climberPIDConfigs = new Slot0Configs();
+
   /** Creates a new Climber. */
   public Climber() {
     climberConfigs.MotorOutput.NeutralMode = NeutralModeValue.Brake;
@@ -31,18 +31,19 @@ public class Climber extends SubsystemBase {
     climberPIDConfigs.kV = Constants.ClimberConstants.kV;
     climberPIDConfigs.kG = Constants.ClimberConstants.kG;
 
-      climberConfigs.Slot0 = climberPIDConfigs;
-      climbermotor.getConfigurator().apply(climberConfigs);
+    climberConfigs.Slot0 = climberPIDConfigs;
+    climbermotor.getConfigurator().apply(climberConfigs);
   }
 
-  public void resetPose(){
+  public void resetPose() {
     climbermotor.setPosition(0);
   }
 
-  public double getPose(){
+  public double getPose() {
     return climbermotor.getPosition().getValueAsDouble();
   }
-  public void goToSetpoint(double setpoint){
+
+  public void goToSetpoint(double setpoint) {
     climbermotor.setControl(m_request.withOutput(setpoint));
   }
 
