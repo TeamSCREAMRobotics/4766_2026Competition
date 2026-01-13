@@ -12,13 +12,19 @@ public class Constants {
   public class VisionConstants {}
 
   public class IntakeConstants {
-    public static final int intakemotorID = 21;
+    public static final int intakeMasterID = 21;
+    public static final int intakeFollower = 22;
   }
 
   public class ShooterConstants {}
 
   public class ClimberConstants {
     public static final int climbermotorID = 20;
+    public static final int kP = 0;
+    public static final int kI = 0;
+    public static final int kD = 0;
+    public static final int kV = 0;
+    public static final int kG = 0;
   }
 
   public class AgitatorConstants {}
