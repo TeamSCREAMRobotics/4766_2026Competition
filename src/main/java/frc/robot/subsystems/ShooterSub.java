@@ -11,24 +11,25 @@ import com.ctre.phoenix6.hardware.TalonFX;
 import com.ctre.phoenix6.signals.InvertedValue;
 import com.ctre.phoenix6.signals.MotorAlignmentValue;
 import com.ctre.phoenix6.signals.NeutralModeValue;
-
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 
 public class ShooterSub extends SubsystemBase {
   TalonFX shooterMotor = new TalonFX(Constants.ShooterConstants.shooterMoterID);
   TalonFX shooterFollower = new TalonFX(Constants.ShooterConstants.shooterFollowerID);
-  //Follower might not be needed
-  
+  // Follower might not be needed
+
   VoltageOut m_request = new VoltageOut(0);
+
   /** Creates a new ShooterSub. */
   public ShooterSub() {
     TalonFXConfiguration shooterConfig = new TalonFXConfiguration();
-    //subject to change
+    // subject to change
     shooterConfig.MotorOutput.NeutralMode = NeutralModeValue.Brake;
     shooterConfig.MotorOutput.Inverted = InvertedValue.Clockwise_Positive;
     shooterMotor.getConfigurator().apply(shooterConfig);
-    shooterFollower.setControl(new Follower(shooterMotor.getDeviceID(), MotorAlignmentValue.Aligned));
+    shooterFollower.setControl(
+        new Follower(shooterMotor.getDeviceID(), MotorAlignmentValue.Aligned));
   }
 
   public void runShooter(double voltage) {
