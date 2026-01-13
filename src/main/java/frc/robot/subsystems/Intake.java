@@ -6,6 +6,7 @@ package frc.robot.subsystems;
 
 import com.ctre.phoenix6.configs.Slot0Configs;
 import com.ctre.phoenix6.configs.TalonFXConfiguration;
+import com.ctre.phoenix6.controls.Follower;
 import com.ctre.phoenix6.controls.VoltageOut;
 import com.ctre.phoenix6.hardware.TalonFX;
 import com.ctre.phoenix6.signals.NeutralModeValue;
@@ -23,8 +24,9 @@ TalonFXConfiguration intakeConfig = new TalonFXConfiguration();
 
   /** Creates a new Intake. */
   public Intake() {
-    intakeMaster.
-  intakeConfig.MotorOutput.NeutralMode = NeutralModeValue.Brake;
+   intakeConfig.MotorOutput.NeutralMode = NeutralModeValue.Brake;
+   intakeMaster.setControl(new Follower(Constants.IntakeConstants.intakeMasterID, ));
+    
   }
 
   @Override
