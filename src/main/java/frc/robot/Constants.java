@@ -16,6 +16,15 @@ public class Constants {
   public class ShooterConstants {
     public static final int shooterMoterID = 0;
     public static final int shooterFollowerID = 0;
+
+    public static final int pivotMotorID = 0;
+    public static final double kG = 0.0;
+    public static final double kV = 0.0;
+    public static final double kP = 0.0;
+    public static final double kI = 0.0;
+    public static final double kD = 0.0;
+    public static final double kMagicAcceleration = 0.0;
+    public static final double kMagicCruiseVelocity = 0.0;
   }
 
   public class ClimberConstants {}

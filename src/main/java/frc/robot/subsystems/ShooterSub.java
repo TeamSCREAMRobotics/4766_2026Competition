@@ -19,11 +19,12 @@ public class ShooterSub extends SubsystemBase {
   TalonFX shooterMotor = new TalonFX(Constants.ShooterConstants.shooterMoterID);
   TalonFX shooterFollower = new TalonFX(Constants.ShooterConstants.shooterFollowerID);
   //Follower might not be needed
+
+  TalonFXConfiguration shooterConfig = new TalonFXConfiguration();
   
   VoltageOut m_request = new VoltageOut(0);
   /** Creates a new ShooterSub. */
   public ShooterSub() {
-    TalonFXConfiguration shooterConfig = new TalonFXConfiguration();
     //subject to change
     shooterConfig.MotorOutput.NeutralMode = NeutralModeValue.Brake;
     shooterConfig.MotorOutput.Inverted = InvertedValue.Clockwise_Positive;
