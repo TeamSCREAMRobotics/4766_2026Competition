@@ -14,14 +14,12 @@ public class Shoot extends Command {
 
   double voltage;
 
-
   /** Creates a new Shooter. */
   public Shoot(ShooterSub shooter, double v) {
     s_Shooter = shooter;
-    
+
     voltage = v;
-    
-    
+
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(s_Shooter);
   }
@@ -35,7 +33,7 @@ public class Shoot extends Command {
   public void execute() {
     s_Shooter.runShooter(voltage);
   }
-  
+
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
