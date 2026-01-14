@@ -12,6 +12,7 @@ import frc.robot.subsystems.Climber;
 public class RunClimber extends Command {
   Climber m_Climber;
   Double m_setpoint;
+
   /** Creates a new RunClimber. */
   public RunClimber(Climber climber, Double setpoint) {
     m_Climber = climber;

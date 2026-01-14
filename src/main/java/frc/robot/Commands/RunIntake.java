@@ -10,6 +10,7 @@ import frc.robot.subsystems.Intake;
 /* You should consider using the more terse Command factories API instead https://docs.wpilib.org/en/stable/docs/software/commandbased/organizing-command-based.html#defining-commands */
 public class RunIntake extends Command {
   Intake m_intake;
+
   /** Creates a new RunIntake. */
   public RunIntake(Intake intake) {
     m_intake = intake;

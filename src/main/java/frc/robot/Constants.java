@@ -26,7 +26,7 @@ public class Constants {
     public static final int kV = 0;
     public static final int kG = 0;
     public static final int climberTopSetpoint = 0;
-    public static final int climberLowSetpoint = 0; 
+    public static final int climberLowSetpoint = 0;
   }
 
   public class AgitatorConstants {}
