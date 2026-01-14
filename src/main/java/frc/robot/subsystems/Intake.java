@@ -16,7 +16,7 @@ import frc.robot.Constants;
 public class Intake extends SubsystemBase {
   private TalonFX intakeFollower = new TalonFX(Constants.IntakeConstants.intakeFollower);
   private TalonFX intakeMaster = new TalonFX(Constants.IntakeConstants.intakeMasterID);
-  private VoltageOut m_request = new VoltageOut(0); // m_request == make request
+  private VoltageOut m_request = new VoltageOut(1); // m_request == make request
   private TalonFXConfiguration intakeConfig = new TalonFXConfiguration();
 
   /** Creates a new Intake. */
