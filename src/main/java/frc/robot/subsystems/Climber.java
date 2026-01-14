@@ -48,16 +48,14 @@ public class Climber extends SubsystemBase {
     climbermotor.setControl(m_request.withOutput(setpoint));
   }
 
-  public boolean climberIsFinished(double setpoint){
-    return climbermotor.getPosition().getValueAsDouble() >= setpoint -0.0005 &&
-     climbermotor.getPosition().getValueAsDouble() <= setpoint + 0.0005;
+  public boolean climberIsFinished(double setpoint) {
+    return climbermotor.getPosition().getValueAsDouble() >= setpoint - 0.0005
+        && climbermotor.getPosition().getValueAsDouble() <= setpoint + 0.0005;
   }
-
 
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
     DogLog.log("Climber Pose: ", getClimberPose());
-    
   }
 }
