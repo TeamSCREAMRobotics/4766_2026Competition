@@ -5,20 +5,18 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.Command;
-import frc.robot.subsystems.ShooterHood;
+import frc.robot.subsystems.AgitatorSub;
 
 /* You should consider using the more terse Command factories API instead https://docs.wpilib.org/en/stable/docs/software/commandbased/organizing-command-based.html#defining-commands */
-public class HoodPivot extends Command {
+public class Agitate extends Command {
+  AgitatorSub s_agitator;
+  double Voltage;
+  /** Creates a new Agitate. */
+  public Agitate(AgitatorSub agitator, double voltage) {
+    s_agitator = agitator;
+    Voltage = voltage;
 
-  ShooterHood s_hood;
-  double Setpoint;
-
-  /** Creates a new HoodPivot. */
-  public HoodPivot(ShooterHood hood, double setpoint) {
-    s_hood = hood;
-    Setpoint = setpoint;
-
-    addRequirements(hood);
+    addRequirements(agitator);
     // Use addRequirements() here to declare subsystem dependencies.
   }
 
@@ -29,17 +27,18 @@ public class HoodPivot extends Command {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    s_hood.PivotToSetpoint(Setpoint);
-
+    s_agitator.RunAgitator(Voltage);
   }
 
   // Called once the command ends or is interrupted.
   @Override
-  public void end(boolean interrupted) {}
+  public void end(boolean interrupted) {
+    s_agitator.RunAgitator(0);
+  }
 
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    return s_hood.IsAtSetpoint(Setpoint);
+    return false;
   }
 }
