@@ -30,7 +30,6 @@ public class HoodPivot extends Command {
   @Override
   public void execute() {
     s_hood.PivotToSetpoint(Setpoint);
-
   }
 
   // Called once the command ends or is interrupted.
