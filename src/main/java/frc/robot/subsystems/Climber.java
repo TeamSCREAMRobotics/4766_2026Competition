@@ -36,23 +36,25 @@ public class Climber extends SubsystemBase {
     climbermotor.getConfigurator().apply(climberConfigs);
   }
 
+  // This resets the climber position to 0
   public void resetClimberPose() {
     climbermotor.setPosition(0);
   }
-
+  // This returns the climbers current position of the climber
   public double getClimberPose() {
     return climbermotor.getPosition().getValueAsDouble();
   }
-
+  // This goes to the requested setpoint of "setpoint"
   public void climberGoToSetpoint(double setpoint) {
     climbermotor.setControl(m_request.withOutput(setpoint));
   }
-
-  public boolean climberIsFinished(double setpoint) {
-    return climbermotor.getPosition().getValueAsDouble() >= setpoint - 0.0005
-        && climbermotor.getPosition().getValueAsDouble() <= setpoint + 0.0005;
+  // This tells you when the climber has finished going to the position given
+  public boolean climberIsFinished(double setpoint){
+    return climbermotor.getPosition().getValueAsDouble() >= setpoint -0.0005 &&
+     climbermotor.getPosition().getValueAsDouble() <= setpoint + 0.0005;
   }
 
+  // Dog Log(overall logging)
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
