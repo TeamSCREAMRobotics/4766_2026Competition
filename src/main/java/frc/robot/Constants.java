@@ -4,6 +4,8 @@
 
 package frc.robot;
 
+import edu.wpi.first.math.interpolation.InterpolatingDoubleTreeMap;
+
 /** Add your docs here. */
 public class Constants {
 
@@ -25,6 +27,26 @@ public class Constants {
     public static final double kD = 0.0;
     public static final double kMagicAcceleration = 0.0;
     public static final double kMagicCruiseVelocity = 0.0;
+
+    public static final InterpolatingDoubleTreeMap HOOD_MAP = new InterpolatingDoubleTreeMap();
+    static{
+      //placeholder values before testing
+      //(distance to hub, hood angle)
+      HOOD_MAP.put(1.0, 10.0);
+      HOOD_MAP.put(2.0, 20.0);
+      HOOD_MAP.put(3.0, 30.0);
+      HOOD_MAP.put(4.0, 40.0);
+    }
+    public static final InterpolatingDoubleTreeMap VELOCITY_MAP = new InterpolatingDoubleTreeMap();
+    static{
+      //placeholder values before testing
+      //(distance to hub, flywheel voltage)
+      VELOCITY_MAP.put(1.0, 1.0);
+      VELOCITY_MAP.put(2.0, 3.0);
+      VELOCITY_MAP.put(3.0, 5.0);
+      VELOCITY_MAP.put(4.0, 6.5);
+    }
+
   }
 
   public class ClimberConstants {}
