@@ -82,7 +82,7 @@ public class RobotContainer {
                             * MaxAngularRate) // Drive counterclockwise with negative X (left)
             ));
 
-    joystick.x().whileTrue(new Shoot(s_Shooter, 4.0)).whileFalse(new Shoot(s_Shooter, 0.0));
+    joystick.x().whileTrue(new Shoot(s_Shooter, 1.0)).whileFalse(new Shoot(s_Shooter, 0.0));
 
     // Idle while the robot is disabled. This ensures the configured
     // neutral mode is applied to the drive motors while disabled.
