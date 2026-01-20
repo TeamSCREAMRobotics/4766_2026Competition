@@ -14,7 +14,7 @@ public class Constants {
   public class IntakeConstants {}
 
   public class ShooterConstants {
-    public static final int shooterMoterID = 7;//testing on testbed
+    public static final int shooterMoterID = 7; // testing on testbed
     public static final int shooterFollowerID = 0;
 
     public static final int pivotMotorID = 0;
