@@ -18,4 +18,14 @@ public class Constants {
   public class ClimberConstants {}
 
   public class AgitatorConstants {}
+
+  public class SimulationConstants {
+    public static double fuelDiameter = 0.15;
+
+    public static double NEUTRAL_ZONE_XMIN = 7.425;
+    public static double NEUTRAL_ZONE_YMIN = 1.7625, NEUTRAL_ZONE_YMAX = 6.2375;
+
+    public static int NEUTRAL_ZONE_NUMFUEL = 372;
+    public static int DEPOT_NUMFUEL = 24;
+  }
 }
