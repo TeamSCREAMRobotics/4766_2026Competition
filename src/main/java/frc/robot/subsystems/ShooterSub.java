@@ -19,8 +19,6 @@ public class ShooterSub extends SubsystemBase {
   TalonFX shooterFollower1 = new TalonFX(Constants.ShooterConstants.shooterFollower1ID);
   TalonFX shooterFollower2 = new TalonFX(Constants.ShooterConstants.shooterFollower2ID);
 
-  
-
   TalonFXConfiguration shooterConfig = new TalonFXConfiguration();
 
   VoltageOut m_request = new VoltageOut(0);
@@ -33,11 +31,10 @@ public class ShooterSub extends SubsystemBase {
     shooterConfig.MotorOutput.NeutralMode = NeutralModeValue.Brake;
     shooterConfig.MotorOutput.Inverted = InvertedValue.Clockwise_Positive;
     shooterMotor.getConfigurator().apply(shooterConfig);
-        shooterFollower1.setControl(
-            new Follower(shooterMotor.getDeviceID(), MotorAlignmentValue.Aligned));
-        shooterFollower2.setControl(
-            new Follower(shooterMotor.getDeviceID(), MotorAlignmentValue.Aligned));
-        
+    shooterFollower1.setControl(
+        new Follower(shooterMotor.getDeviceID(), MotorAlignmentValue.Aligned));
+    shooterFollower2.setControl(
+        new Follower(shooterMotor.getDeviceID(), MotorAlignmentValue.Aligned));
   }
 
   public void runShooter(double voltage) {

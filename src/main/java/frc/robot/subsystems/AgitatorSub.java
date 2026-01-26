@@ -11,7 +11,6 @@ import com.ctre.phoenix6.hardware.TalonFX;
 import com.ctre.phoenix6.signals.InvertedValue;
 import com.ctre.phoenix6.signals.MotorAlignmentValue;
 import com.ctre.phoenix6.signals.NeutralModeValue;
-
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 
@@ -25,11 +24,10 @@ public class AgitatorSub extends SubsystemBase {
   /** Creates a new AgitatorSub. */
   public AgitatorSub() {
     motorConfig.MotorOutput.NeutralMode = NeutralModeValue.Coast;
-    motorConfig.MotorOutput.Inverted = InvertedValue.Clockwise_Positive;//placeholder
+    motorConfig.MotorOutput.Inverted = InvertedValue.Clockwise_Positive; // placeholder
 
     agitatorMotor.getConfigurator().apply(motorConfig);
     kickerMotor.setControl(new Follower(agitatorMotor.getDeviceID(), MotorAlignmentValue.Aligned));
-
   }
 
   public void RunAgitator(double Voltage) {
