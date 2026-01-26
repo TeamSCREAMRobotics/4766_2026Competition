@@ -17,7 +17,8 @@ public class Constants {
 
   public class ShooterConstants {
     public static final int shooterMoterID = 7; // testing on testbed
-    public static final int shooterFollowerID = 0;
+    public static final int shooterFollower1ID = 0;
+    public static final int shooterFollower2ID = 0;
 
     public static final int pivotMotorID = 0;
     public static final double kG = 0.0;
@@ -55,5 +56,6 @@ public class Constants {
 
   public class AgitatorConstants {
     public static final int agitatorMotorID = 0;
+    public static final int kickerMotorID = 0;
   }
 }
