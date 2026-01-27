@@ -16,11 +16,14 @@ public class Constants {
   public class IntakeConstants {}
 
   public class ShooterConstants {
-    public static final int shooterMoterID = 7; // testing on testbed
-    public static final int shooterFollower1ID = 0;
-    public static final int shooterFollower2ID = 0;
+    public static final int LshooterMoterID = 7; // testing on testbed
+    public static final int MshooterMotorID = 0;
+    public static final int RshooterMotorID = 0;
+    public static final int shooterCANID = 0;
 
     public static final int pivotMotorID = 0;
+    public static final int pivotCanID = 0;
+
     public static final double kG = 0.0;
     public static final double kV = 0.0;
     public static final double kP = 0.0;
@@ -40,15 +43,37 @@ public class Constants {
       HOOD_MAP.put(4.0, 40.0);
     }
 
-    public static final InterpolatingDoubleTreeMap VELOCITY_MAP = new InterpolatingDoubleTreeMap();
+    public static final InterpolatingDoubleTreeMap LSHOOTER_VELOCITY_MAP = new InterpolatingDoubleTreeMap();
 
     static {
       // placeholder values before testing
       // (distance to hub, flywheel voltage)
-      VELOCITY_MAP.put(1.0, 1.0);
-      VELOCITY_MAP.put(2.0, 3.0);
-      VELOCITY_MAP.put(3.0, 5.0);
-      VELOCITY_MAP.put(4.0, 6.5);
+      LSHOOTER_VELOCITY_MAP.put(1.0, 1.0);
+      LSHOOTER_VELOCITY_MAP.put(2.0, 3.0);
+      LSHOOTER_VELOCITY_MAP.put(3.0, 5.0);
+      LSHOOTER_VELOCITY_MAP.put(4.0, 6.5);
+    }
+
+    public static final InterpolatingDoubleTreeMap MSHOOTER_VELOCITY_MAP = new InterpolatingDoubleTreeMap();
+
+    static {
+      // placeholder values before testing
+      // (distance to hub, flywheel voltage)
+      MSHOOTER_VELOCITY_MAP.put(1.0, 1.0);
+      MSHOOTER_VELOCITY_MAP.put(2.0, 3.0);
+      MSHOOTER_VELOCITY_MAP.put(3.0, 5.0);
+      MSHOOTER_VELOCITY_MAP.put(4.0, 6.5);
+    }
+
+    public static final InterpolatingDoubleTreeMap RSHOOTER_VELOCITY_MAP = new InterpolatingDoubleTreeMap();
+
+    static {
+      // placeholder values before testing
+      // (distance to hub, flywheel voltage)
+      RSHOOTER_VELOCITY_MAP.put(1.0, 1.0);
+      RSHOOTER_VELOCITY_MAP.put(2.0, 3.0);
+      RSHOOTER_VELOCITY_MAP.put(3.0, 5.0);
+      RSHOOTER_VELOCITY_MAP.put(4.0, 6.5);
     }
   }
 
