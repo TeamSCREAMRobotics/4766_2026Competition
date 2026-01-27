@@ -15,7 +15,6 @@ import com.ctre.phoenix6.hardware.TalonFX;
 import com.ctre.phoenix6.signals.InvertedValue;
 import com.ctre.phoenix6.signals.NeutralModeValue;
 import com.ctre.phoenix6.signals.SensorDirectionValue;
-
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 import frc.robot.Constants.ShooterConstants;
@@ -23,6 +22,7 @@ import frc.robot.Constants.ShooterConstants;
 public class ShooterHood extends SubsystemBase {
   /** Creates a new ShooterHood. */
   TalonFX pivotMotor = new TalonFX(Constants.ShooterConstants.pivotMotorID);
+
   CANcoder PivotEncoder = new CANcoder(Constants.ShooterConstants.pivotCanID);
 
   Slot0Configs hoodPivotSlot0 = new Slot0Configs();
@@ -34,9 +34,10 @@ public class ShooterHood extends SubsystemBase {
   MotionMagicVoltage m_magicRequest = new MotionMagicVoltage(0);
 
   public ShooterHood() {
-    encoderConfig.MagnetSensor.MagnetOffset = 0;// placeholder
+    encoderConfig.MagnetSensor.MagnetOffset = 0; // placeholder
     encoderConfig.MagnetSensor.AbsoluteSensorDiscontinuityPoint = 1;
-    encoderConfig.MagnetSensor.SensorDirection = SensorDirectionValue.CounterClockwise_Positive;// placeholder
+    encoderConfig.MagnetSensor.SensorDirection =
+        SensorDirectionValue.CounterClockwise_Positive; // placeholder
 
     PivotEncoder.getConfigurator().apply(encoderConfig);
 

@@ -43,7 +43,8 @@ public class Constants {
       HOOD_MAP.put(4.0, 40.0);
     }
 
-    public static final InterpolatingDoubleTreeMap LSHOOTER_VELOCITY_MAP = new InterpolatingDoubleTreeMap();
+    public static final InterpolatingDoubleTreeMap LSHOOTER_VELOCITY_MAP =
+        new InterpolatingDoubleTreeMap();
 
     static {
       // placeholder values before testing
@@ -54,7 +55,8 @@ public class Constants {
       LSHOOTER_VELOCITY_MAP.put(4.0, 6.5);
     }
 
-    public static final InterpolatingDoubleTreeMap MSHOOTER_VELOCITY_MAP = new InterpolatingDoubleTreeMap();
+    public static final InterpolatingDoubleTreeMap MSHOOTER_VELOCITY_MAP =
+        new InterpolatingDoubleTreeMap();
 
     static {
       // placeholder values before testing
@@ -65,7 +67,8 @@ public class Constants {
       MSHOOTER_VELOCITY_MAP.put(4.0, 6.5);
     }
 
-    public static final InterpolatingDoubleTreeMap RSHOOTER_VELOCITY_MAP = new InterpolatingDoubleTreeMap();
+    public static final InterpolatingDoubleTreeMap RSHOOTER_VELOCITY_MAP =
+        new InterpolatingDoubleTreeMap();
 
     static {
       // placeholder values before testing

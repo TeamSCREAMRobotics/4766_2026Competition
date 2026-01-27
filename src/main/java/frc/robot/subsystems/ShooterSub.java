@@ -36,7 +36,7 @@ public class ShooterSub extends SubsystemBase {
   }
 
   public boolean hasFuel() {
-    return shooterCAN.getIsDetected().getValue(); 
+    return shooterCAN.getIsDetected().getValue();
   }
 
   public void runShooter(double LVoltage, double MVoltage, double RVoltage) {
