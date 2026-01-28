@@ -49,6 +49,14 @@ public class ShooterSub extends SubsystemBase {
     return MshooterMotor.getVelocity().getValueAsDouble();
   }
 
+  public double returnLeftVelocity(){
+    return LshooterMotor.getVelocity().getValueAsDouble();
+  }
+
+  public double returnRightVelocity() {
+    return RshooterMotor.getVelocity().getValueAsDouble();
+  }
+
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
