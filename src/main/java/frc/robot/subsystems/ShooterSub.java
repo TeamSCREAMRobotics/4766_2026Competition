@@ -49,7 +49,7 @@ public class ShooterSub extends SubsystemBase {
     return MshooterMotor.getVelocity().getValueAsDouble();
   }
 
-  public double returnLeftVelocity(){
+  public double returnLeftVelocity() {
     return LshooterMotor.getVelocity().getValueAsDouble();
   }
 
