@@ -9,16 +9,16 @@ import frc.robot.subsystems.ShooterSub;
 
 /* You should consider using the more terse Command factories API instead https://docs.wpilib.org/en/stable/docs/software/commandbased/organizing-command-based.html#defining-commands */
 public class ShootRight extends Command {
-    
+
   ShooterSub s_Shooter;
 
   double voltage;
- 
+
   /** Creates a new ShootRight. */
   public ShootRight(ShooterSub shooter, double v) {
     s_Shooter = shooter;
 
-    voltage = v; 
+    voltage = v;
 
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(s_Shooter);
@@ -31,8 +31,8 @@ public class ShootRight extends Command {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    s_Shooter.runShooter(0,0, voltage);
-    //running only right shooter motor
+    s_Shooter.runShooter(0, 0, voltage);
+    // running only right shooter motor
   }
 
   // Called once the command ends or is interrupted.

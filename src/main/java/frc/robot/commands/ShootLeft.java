@@ -10,7 +10,7 @@ import frc.robot.subsystems.ShooterSub;
 /* You should consider using the more terse Command factories API instead https://docs.wpilib.org/en/stable/docs/software/commandbased/organizing-command-based.html#defining-commands */
 public class ShootLeft extends Command {
 
-   ShooterSub s_Shooter;
+  ShooterSub s_Shooter;
 
   double voltage;
 
