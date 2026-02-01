@@ -64,13 +64,13 @@ public class ShooterHood extends SubsystemBase {
     pivotMotor.setControl(m_magicRequest.withPosition(setpoint));
   }
 
-public void PivotToZero() {
-  pivotMotor.setControl(m_magicRequest.withPosition(0));
-}
+  public void PivotToZero() {
+    pivotMotor.setControl(m_magicRequest.withPosition(0));
+  }
 
-public boolean IsAtZero() {
-  return pivotMotor.getPosition().getValueAsDouble() <= 0.005;
-}
+  public boolean IsAtZero() {
+    return pivotMotor.getPosition().getValueAsDouble() <= 0.005;
+  }
 
   public boolean IsAtSetpoint(double setpoint) {
     return pivotMotor.getPosition().getValueAsDouble() <= setpoint + 0.005
