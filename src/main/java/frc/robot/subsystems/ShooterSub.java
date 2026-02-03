@@ -15,7 +15,6 @@ import frc.robot.Constants;
 
 public class ShooterSub extends SubsystemBase {
   TalonFX LshooterMotor = new TalonFX(Constants.ShooterConstants.LshooterMoterID);
-  TalonFX MshooterMotor = new TalonFX(Constants.ShooterConstants.MshooterMotorID);
   TalonFX RshooterMotor = new TalonFX(Constants.ShooterConstants.RshooterMotorID);
   CANrange shooterCAN = new CANrange(Constants.ShooterConstants.shooterCANID);
 
@@ -31,7 +30,6 @@ public class ShooterSub extends SubsystemBase {
     shooterConfig.MotorOutput.NeutralMode = NeutralModeValue.Brake;
     shooterConfig.MotorOutput.Inverted = InvertedValue.Clockwise_Positive;
     LshooterMotor.getConfigurator().apply(shooterConfig);
-    MshooterMotor.getConfigurator().apply(shooterConfig);
     RshooterMotor.getConfigurator().apply(shooterConfig);
   }
 
@@ -39,14 +37,9 @@ public class ShooterSub extends SubsystemBase {
     return shooterCAN.getIsDetected().getValue();
   }
 
-  public void runShooter(double LVoltage, double MVoltage, double RVoltage) {
+  public void runShooter(double LVoltage, double RVoltage) {
     LshooterMotor.setControl(m_request.withOutput(LVoltage));
-    MshooterMotor.setControl(m_request.withOutput(MVoltage));
     RshooterMotor.setControl(m_request.withOutput(RVoltage));
-  }
-
-  public double returnMiddleVelocity() {
-    return MshooterMotor.getVelocity().getValueAsDouble();
   }
 
   public double returnLeftVelocity() {
