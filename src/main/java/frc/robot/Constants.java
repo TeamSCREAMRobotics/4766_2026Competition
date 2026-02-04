@@ -12,8 +12,8 @@ public class Constants {
   public class VisionConstants {}
 
   public class IntakeConstants {
-    public static final int intakeMasterID = 21;
-    public static final int intakeFollower = 22;
+    public static final int intakeMasterID = 6;
+    public static final int intakeFollower = 7;
   }
 
   public class ShooterConstants {}

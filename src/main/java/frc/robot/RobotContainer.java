@@ -20,6 +20,7 @@ import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.RobotModeTriggers;
 import edu.wpi.first.wpilibj2.command.sysid.SysIdRoutine.Direction;
 import frc.robot.generated.TunerConstants;
+import frc.robot.subsystems.Climber;
 import frc.robot.subsystems.CommandSwerveDrivetrain;
 
 public class RobotContainer {
@@ -42,6 +43,7 @@ public class RobotContainer {
       new SwerveRequest.RobotCentric().withDriveRequestType(DriveRequestType.OpenLoopVoltage);
 
   private final Telemetry logger = new Telemetry(MaxSpeed);
+  private final Climber m_climber = new Climber();
 
   private final CommandXboxController joystick = new CommandXboxController(0);
 
@@ -53,8 +55,9 @@ public class RobotContainer {
   public RobotContainer() {
     autoChooser = AutoBuilder.buildAutoChooser("Tests");
     SmartDashboard.putData("Auto Mode", autoChooser);
-
+    SmartDashboard.getNumber("Climber Pose", m_climber.getClimberPose());
     configureBindings();
+    
 
     // Warmup PathPlanner to avoid Java pauses
     FollowPathCommand.warmupCommand().schedule();
@@ -110,7 +113,7 @@ public class RobotContainer {
 
     // Reset the field-centric heading on left bumper press.
     joystick.leftBumper().onTrue(drivetrain.runOnce(drivetrain::seedFieldCentric));
-
+    
     drivetrain.registerTelemetry(logger::telemeterize);
   }
 
