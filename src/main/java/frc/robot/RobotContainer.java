@@ -57,7 +57,6 @@ public class RobotContainer {
     SmartDashboard.putData("Auto Mode", autoChooser);
     SmartDashboard.getNumber("Climber Pose", m_climber.getClimberPose());
     configureBindings();
-    
 
     // Warmup PathPlanner to avoid Java pauses
     FollowPathCommand.warmupCommand().schedule();
@@ -113,7 +112,7 @@ public class RobotContainer {
 
     // Reset the field-centric heading on left bumper press.
     joystick.leftBumper().onTrue(drivetrain.runOnce(drivetrain::seedFieldCentric));
-    
+
     drivetrain.registerTelemetry(logger::telemeterize);
   }
 
