@@ -192,12 +192,12 @@ public class Arena2026Rebuilt3D extends SimulatedArena3D implements Arena2026 {
             4.0, // angular damping (high rolling resistance)
             0.1 // restitution
             );
-    this.neutralFuelCount = 408;
-    added = 0;
+    this.neutralFuelCount = 320;
     boolean test = added < neutralFuelCount;
     System.out.println("piecesAvaliable: " + test);
     while (added < neutralFuelCount) {
-      System.out.println("Attempted to place neutralFuel "+ (added));
+      if(added == 320) added = 0;
+      System.out.println("Attempted to place neutralFuel " + added);
       for (int i = 0; i < 4; i++) {
         if (added >= neutralFuelCount) break;
 
