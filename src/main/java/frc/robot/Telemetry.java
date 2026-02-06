@@ -46,6 +46,7 @@ public class Telemetry {
       driveStateTable.getStructTopic("Pose", Pose2d.struct).publish();
   private final StructPublisher<ChassisSpeeds> driveSpeeds =
       driveStateTable.getStructTopic("Speeds", ChassisSpeeds.struct).publish();
+
   private final StructArrayPublisher<SwerveModuleState> driveModuleStates =
       driveStateTable.getStructArrayTopic("ModuleStates", SwerveModuleState.struct).publish();
   private final StructArrayPublisher<SwerveModuleState> driveModuleTargets =

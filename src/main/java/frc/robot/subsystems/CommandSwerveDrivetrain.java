@@ -225,6 +225,7 @@ public class CommandSwerveDrivetrain extends TunerSwerveDrivetrain implements Su
    * @return Command to run
    */
   public Command applyRequest(Supplier<SwerveRequest> requestSupplier) {
+
     return run(() -> this.setControl(requestSupplier.get()));
   }
 
@@ -279,20 +280,20 @@ public class CommandSwerveDrivetrain extends TunerSwerveDrivetrain implements Su
     if (mapleSimSwerveDrivetrain != null)
       DogLog.log(
           "Drive/SimulationPose",
-          mapleSimSwerveDrivetrain.mapleSimDrive.getSimulatedDriveTrainPose());
+          mapleSimSwerveDrivetrain.mapleSimDrive.getSimulatedDriveTrainPose3dGroundRelative());
   }
 
-  private MapleSimSwerveDrivetrain mapleSimSwerveDrivetrain = null;
+  public MapleSimSwerveDrivetrain mapleSimSwerveDrivetrain = null;
 
   private void startSimThread() {
     mapleSimSwerveDrivetrain =
         new MapleSimSwerveDrivetrain(
             Seconds.of(kSimLoopPeriod),
             Pounds.of(115),
-            Inches.of(30),
-            Inches.of(30),
+            Inches.of(20.75),
+            Inches.of(20.75),
             DCMotor.getKrakenX60(1),
-            DCMotor.getFalcon500(1),
+            DCMotor.getKrakenX60(1),
             1.2,
             getModuleLocations(),
             getPigeon2(),

@@ -5,14 +5,13 @@
 package frc.robot;
 
 import com.ctre.phoenix6.HootAutoReplay;
+
 import dev.doglog.DogLog;
 import edu.wpi.first.math.util.Units;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
-import frc.robot.Constants.SimulationConstants;
-import frc.robot.simulation.MapleSimFuelPlacer;
-import org.ironmaple.simulation.SimulatedArena;
+import org.ironmaple.simulation.*;
 
 public class Robot extends TimedRobot {
   private Command m_autonomousCommand;
@@ -105,22 +104,11 @@ public class Robot extends TimedRobot {
   public void testExit() {}
 
   @Override
-  public void simulationInit() {
-    MapleSimFuelPlacer fuelPlacer = new MapleSimFuelPlacer();
-
-    fuelPlacer.placeFuel(
-        SimulationConstants.NEUTRAL_ZONE_XMIN,
-        SimulationConstants.NEUTRAL_ZONE_YMIN,
-        SimulationConstants.NEUTRAL_ZONE_YMAX,
-        SimulationConstants.NEUTRAL_ZONE_NUMFUEL);
-
-    fuelPlacer.placeFuel(0.075, 5.575, 6.3, 24);
-  }
+  public void simulationInit() {}
+  ;
 
   @Override
   public void simulationPeriodic() {
-
-    DogLog.log(
-        "FieldSimulation/Fuel", SimulatedArena.getInstance().getGamePiecesArrayByType("Fuel"));
+    DogLog.log("Simulation/Fuel", SimulatedArena3D.getInstance().getGamePiecesArrayByType("Fuel"));
   }
 }

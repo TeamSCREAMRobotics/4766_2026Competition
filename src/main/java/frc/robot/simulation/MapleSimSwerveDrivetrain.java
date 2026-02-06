@@ -23,12 +23,13 @@ import com.ctre.phoenix6.swerve.SwerveModule;
 import com.ctre.phoenix6.swerve.SwerveModuleConstants;
 import edu.wpi.first.math.geometry.Pose2d;
 import edu.wpi.first.math.geometry.Translation2d;
+import edu.wpi.first.math.kinematics.ChassisSpeeds;
 import edu.wpi.first.math.system.plant.DCMotor;
 import edu.wpi.first.units.measure.*;
 import edu.wpi.first.wpilibj.RobotBase;
-import org.ironmaple.simulation.SimulatedArena;
+import org.ironmaple.simulation.SimulatedArena3D;
 import org.ironmaple.simulation.drivesims.COTS;
-import org.ironmaple.simulation.drivesims.SwerveDriveSimulation;
+import org.ironmaple.simulation.drivesims.SwerveDriveSimulation3D;
 import org.ironmaple.simulation.drivesims.SwerveModuleSimulation;
 import org.ironmaple.simulation.drivesims.configs.DriveTrainSimulationConfig;
 import org.ironmaple.simulation.drivesims.configs.SwerveModuleSimulationConfig;
@@ -48,7 +49,7 @@ import org.ironmaple.simulation.motorsims.SimulatedMotorController;
 public class MapleSimSwerveDrivetrain {
   private final Pigeon2SimState pigeonSim;
   private final SimSwerveModule[] simModules;
-  public final SwerveDriveSimulation mapleSimDrive;
+  public final SwerveDriveSimulation3D mapleSimDrive;
 
   /**
    *
@@ -107,14 +108,16 @@ public class MapleSimSwerveDrivetrain {
                     Meters.of(moduleConstants[0].WheelRadius),
                     KilogramSquareMeters.of(moduleConstants[0].SteerInertia),
                     wheelCOF));
-    mapleSimDrive = new SwerveDriveSimulation(simulationConfig, new Pose2d());
+    mapleSimDrive = new SwerveDriveSimulation3D(simulationConfig, new Pose2d());
 
     SwerveModuleSimulation[] moduleSimulations = mapleSimDrive.getModules();
     for (int i = 0; i < this.simModules.length; i++)
       simModules[i] = new SimSwerveModule(moduleConstants[0], moduleSimulations[i], modules[i]);
 
-    SimulatedArena.overrideSimulationTimings(simPeriod, 1);
-    SimulatedArena.getInstance().addDriveTrainSimulation(mapleSimDrive);
+    SimulatedArena3D.resetInstance();
+
+    SimulatedArena3D.overrideSimulationTimings(simPeriod, 1);
+    mapleSimDrive.registerWithArena(SimulatedArena3D.getInstance(), new Pose2d());
   }
 
   /**
@@ -126,12 +129,18 @@ public class MapleSimSwerveDrivetrain {
    * including motors and the IMU.
    */
   public void update() {
-    SimulatedArena.getInstance().simulationPeriodic();
-    pigeonSim.setRawYaw(mapleSimDrive.getSimulatedDriveTrainPose().getRotation().getMeasure());
+    SimulatedArena3D.getInstance().simulationPeriodic();
+    pigeonSim.setRawYaw(
+        mapleSimDrive.getSimulatedDriveTrainPose3dGroundRelative().getRotation().getMeasureAngle());
     pigeonSim.setAngularVelocityZ(
         RadiansPerSecond.of(
-            mapleSimDrive.getDriveTrainSimulatedChassisSpeedsRobotRelative()
+            mapleSimDrive.getDriveTrainSimulatedChassisSpeedsFieldRelative()
                 .omegaRadiansPerSecond));
+  }
+
+  public void setSpeed(ChassisSpeeds speeds) {
+
+    mapleSimDrive.setRobotSpeeds(speeds);
   }
 
   /**
@@ -268,17 +277,17 @@ public class MapleSimSwerveDrivetrain {
         // Adjust steer motor PID gains for simulation
         .withSteerMotorGains(
             new Slot0Configs()
-                .withKP(70)
+                .withKP(150)
                 .withKI(0)
                 .withKD(4.5)
-                .withKS(0)
+                .withKS(0.1)
                 .withKV(1.91)
                 .withKA(0)
                 .withStaticFeedforwardSign(StaticFeedforwardSignValue.UseClosedLoopSign))
         .withSteerMotorGearRatio(16.0)
         // Adjust friction voltages
-        .withDriveFrictionVoltage(Volts.of(0.1))
-        .withSteerFrictionVoltage(Volts.of(0.05))
+        .withDriveFrictionVoltage(Volts.of(0.2))
+        .withSteerFrictionVoltage(Volts.of(0.2))
         // Adjust steer inertia
         .withSteerInertia(KilogramSquareMeters.of(0.05));
   }

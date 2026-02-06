@@ -3,6 +3,7 @@ plugins {
     id "edu.wpi.first.GradleRIO" version "2026.1.1"
     id("com.diffplug.spotless") version "6.25.0"
     id("io.freefair.lombok") version "8.12.2"
+    
 }
 
 java {
@@ -75,6 +76,13 @@ dependencies {
 
     testImplementation 'org.junit.jupiter:junit-jupiter:5.10.1'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+
+    implementation(
+            group: "com.github.stephengold",
+            name: "jolt-jni-Windows64",
+            version: "3.5.2",
+            classifier: "ReleaseSp"
+    )
 }
 
 test {
