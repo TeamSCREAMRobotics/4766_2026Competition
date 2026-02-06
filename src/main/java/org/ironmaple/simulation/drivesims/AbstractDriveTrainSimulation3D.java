@@ -9,7 +9,6 @@ import edu.wpi.first.math.geometry.Rotation3d;
 import edu.wpi.first.math.geometry.Translation3d;
 import edu.wpi.first.math.kinematics.ChassisSpeeds;
 import org.dyn4j.dynamics.Body;
-import org.dyn4j.geometry.Geometry;
 import org.dyn4j.geometry.MassType;
 import org.ironmaple.simulation.SimulatedArena3D;
 import org.ironmaple.simulation.drivesims.configs.DriveTrainSimulationConfig;
@@ -70,8 +69,6 @@ public abstract class AbstractDriveTrainSimulation3D extends Body
     /* width and height in world reference is flipped */
     final double WIDTH_IN_WORLD_REFERENCE = config.bumperLengthX.in(Meters),
         HEIGHT_IN_WORLD_REFERENCE = config.bumperWidthY.in(Meters);
-
-    
 
     super.setMass(MassType.NORMAL);
     super.setLinearDamping(0.1);

@@ -192,17 +192,17 @@ public class Arena2026Rebuilt3D extends SimulatedArena3D implements Arena2026 {
             4.0, // angular damping (high rolling resistance)
             0.1 // restitution
             );
-    this.neutralFuelCount = 320;
+    this.neutralFuelCount = 30;
     boolean test = added < neutralFuelCount;
     System.out.println("piecesAvaliable: " + test);
     while (added < neutralFuelCount) {
-      if(added == 320) added = 0;
+      if (added == 320){ System.out.println("Overflow occured");added = 0; neutralFuelCount -= 320;}
       System.out.println("Attempted to place neutralFuel " + added);
       for (int i = 0; i < 4; i++) {
         if (added >= neutralFuelCount) break;
 
         java.util.List<Translation2d> q = quadrants.get(i);
-        if (indices[i] < q.size()) {
+        if (true) {
           Translation2d pos2d = q.get(indices[i]);
           GamePieceOnFieldSimulation3D piece;
           if (useAdvancedFuelPhysics) {
@@ -237,7 +237,7 @@ public class Arena2026Rebuilt3D extends SimulatedArena3D implements Arena2026 {
 
     // Depot Placement
     Translation2d depotOrigin = new Translation2d(0.071, 5.584);
-    for (int i = 0; i < 4; i++) {
+    for (int i = 0; i < 0; i++) {
       for (int j = 0; j < 6; j++) {
         double x = depotOrigin.getX() + (i * spacing);
         double y = depotOrigin.getY() + (j * spacing);

@@ -289,7 +289,7 @@ public class CommandSwerveDrivetrain extends TunerSwerveDrivetrain implements Su
     mapleSimSwerveDrivetrain =
         new MapleSimSwerveDrivetrain(
             Seconds.of(kSimLoopPeriod),
-            Pounds.of(115),
+            Pounds.of(350),
             Inches.of(20.75),
             Inches.of(20.75),
             DCMotor.getKrakenX60(1),

@@ -1,9 +1,5 @@
 package frc.robot.simulation;
 
-import org.ironmaple.simulation.SimulatedArena3D;
-import org.ironmaple.simulation.seasonspecific.rebuilt2026.RebuiltFuelOnField;
-import org.ironmaple.simulation.Arena.Simulatable;
-
 import frc.robot.Constants.SimulationConstants;
 
 public class MapleSimFuelPlacer3D {
@@ -26,7 +22,8 @@ public class MapleSimFuelPlacer3D {
     currentX = minX;
 
     for (int i = 0; i < numFuel; i++) {
-      //SimulatedArena3D.getInstance().getGamePieceManager().spawnOnField(new RebuiltFuelOnField(q.get(indices[i])));
+      // SimulatedArena3D.getInstance().getGamePieceManager().spawnOnField(new
+      // RebuiltFuelOnField(q.get(indices[i])));
       if (currentY < maxY) currentY += SimulationConstants.fuelDiameter;
       else {
         currentY = minY;
