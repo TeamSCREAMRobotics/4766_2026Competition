@@ -196,7 +196,11 @@ public class Arena2026Rebuilt3D extends SimulatedArena3D implements Arena2026 {
     boolean test = added < neutralFuelCount;
     System.out.println("piecesAvaliable: " + test);
     while (added < neutralFuelCount) {
-      if (added == 320){ System.out.println("Overflow occured");added = 0; neutralFuelCount -= 320;}
+      if (added == 320) {
+        System.out.println("Overflow occured");
+        added = 0;
+        neutralFuelCount -= 320;
+      }
       System.out.println("Attempted to place neutralFuel " + added);
       for (int i = 0; i < 4; i++) {
         if (added >= neutralFuelCount) break;
