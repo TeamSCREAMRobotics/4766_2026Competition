@@ -35,6 +35,7 @@ import org.ironmaple.simulation.drivesims.configs.DriveTrainSimulationConfig;
 import org.ironmaple.simulation.drivesims.configs.SwerveModuleSimulationConfig;
 import org.ironmaple.simulation.motorsims.SimulatedBattery;
 import org.ironmaple.simulation.motorsims.SimulatedMotorController;
+import org.ironmaple.simulation.seasonspecific.rebuilt2026.Arena2026Rebuilt3D;
 
 /**
  *
@@ -115,9 +116,13 @@ public class MapleSimSwerveDrivetrain {
       simModules[i] = new SimSwerveModule(moduleConstants[0], moduleSimulations[i], modules[i]);
 
     SimulatedArena3D.resetInstance();
+    
+    SimulatedArena3D arena = new Arena2026Rebuilt3D();
 
     SimulatedArena3D.overrideSimulationTimings(simPeriod, 1);
     mapleSimDrive.registerWithArena(SimulatedArena3D.getInstance(), new Pose2d());
+    SimulatedArena3D.getInstance().setNeutralFuelCount(120);
+    SimulatedArena3D.getInstance().placeGamePiecesOnField();
   }
 
   /**
