@@ -116,7 +116,7 @@ public class MapleSimSwerveDrivetrain {
       simModules[i] = new SimSwerveModule(moduleConstants[0], moduleSimulations[i], modules[i]);
 
     SimulatedArena3D.resetInstance();
-    
+
     SimulatedArena3D arena = new Arena2026Rebuilt3D();
 
     SimulatedArena3D.overrideSimulationTimings(simPeriod, 1);
