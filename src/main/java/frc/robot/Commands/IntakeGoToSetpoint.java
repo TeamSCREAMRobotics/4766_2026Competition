@@ -4,13 +4,20 @@
 
 package frc.robot.Commands;
 
+import dev.doglog.DogLog;
 import edu.wpi.first.wpilibj2.command.Command;
+import frc.robot.subsystems.Intake;
 
 /* You should consider using the more terse Command factories API instead https://docs.wpilib.org/en/stable/docs/software/commandbased/organizing-command-based.html#defining-commands */
 public class IntakeGoToSetpoint extends Command {
+  Intake m_intake;
+  double m_setpoint;
   /** Creates a new IntakeGoToSetpoint. */
-  public IntakeGoToSetpoint() {
+  public IntakeGoToSetpoint(Intake intake, double setpoint) {
+    m_intake = intake;
+    m_setpoint = setpoint;
     // Use addRequirements() here to declare subsystem dependencies.
+    addRequirements(intake);
   }
 
   // Called when the command is initially scheduled.
@@ -19,7 +26,9 @@ public class IntakeGoToSetpoint extends Command {
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
-  public void execute() {}
+  public void execute() {
+    m_intake.IntakeGoToSetpoint(m_setpoint);
+  }
 
   // Called once the command ends or is interrupted.
   @Override
@@ -28,6 +37,7 @@ public class IntakeGoToSetpoint extends Command {
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    return false;
+    DogLog.log("Intake Pivot Is Finished", m_intake.isFinished(m_setpoint));
+    return m_intake.isFinished(m_setpoint);
   }
 }
