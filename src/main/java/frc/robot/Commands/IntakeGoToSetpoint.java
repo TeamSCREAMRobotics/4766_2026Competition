@@ -12,6 +12,7 @@ import frc.robot.subsystems.Intake;
 public class IntakeGoToSetpoint extends Command {
   Intake m_intake;
   double m_setpoint;
+
   /** Creates a new IntakeGoToSetpoint. */
   public IntakeGoToSetpoint(Intake intake, double setpoint) {
     m_intake = intake;

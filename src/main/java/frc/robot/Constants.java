@@ -5,7 +5,6 @@
 package frc.robot;
 
 import com.teamscreamrobotics.zones.RectangularPoseArea;
-
 import edu.wpi.first.apriltag.AprilTagFieldLayout;
 import edu.wpi.first.apriltag.AprilTagFields;
 import edu.wpi.first.math.Pair;
@@ -43,17 +42,24 @@ public class Constants {
     public static final int kG = 0;
     public static final int climberTopSetpoint = 0;
     public static final int climberLowSetpoint = 0;
-
   }
 
   public class FieldConstants {
     public static final Translation2d fieldDimesions = new Translation2d(null, null);
-    public static final RectangularPoseArea fieldArea = new RectangularPoseArea(Translation2d.kZero, fieldDimesions);
-    public static final Pose2d blueHubAlign = new Pose2d(0, fieldDimesions.getY(), Rotation2d.fromDegrees(0));
-    public static final Pose2d redHubAlign = new Pose2d(fieldDimesions.getX() - 0, fieldDimesions.getY() * 0, null);
+    public static final RectangularPoseArea fieldArea =
+        new RectangularPoseArea(Translation2d.kZero, fieldDimesions);
+    public static final Pose2d blueHubAlign =
+        new Pose2d(0, fieldDimesions.getY(), Rotation2d.fromDegrees(0));
+    public static final Pose2d redHubAlign =
+        new Pose2d(fieldDimesions.getX() - 0, fieldDimesions.getY() * 0, null);
 
-    private static Pair<Integer, Pose2d> getTagPair(int id){
-      return Pair.of(id, AprilTagFieldLayout.loadField(AprilTagFields.k2026RebuiltWelded).getTagPose(id).get().toPose2d());
+    private static Pair<Integer, Pose2d> getTagPair(int id) {
+      return Pair.of(
+          id,
+          AprilTagFieldLayout.loadField(AprilTagFields.k2026RebuiltWelded)
+              .getTagPose(id)
+              .get()
+              .toPose2d());
     }
   }
 
