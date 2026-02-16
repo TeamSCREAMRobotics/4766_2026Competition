@@ -19,9 +19,12 @@ import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.RobotModeTriggers;
 import edu.wpi.first.wpilibj2.command.sysid.SysIdRoutine.Direction;
+import frc.robot.Commands.IntakeGoToSetpoint;
+import frc.robot.Constants.IntakeConstants;
 import frc.robot.generated.TunerConstants;
 import frc.robot.subsystems.Climber;
 import frc.robot.subsystems.CommandSwerveDrivetrain;
+import frc.robot.subsystems.Intake;
 
 public class RobotContainer {
   private double MaxSpeed =
@@ -44,8 +47,10 @@ public class RobotContainer {
 
   private final Telemetry logger = new Telemetry(MaxSpeed);
   private final Climber m_climber = new Climber();
+  private final Intake m_intake = new Intake();
 
   private final CommandXboxController joystick = new CommandXboxController(0);
+  private final CommandXboxController operatorController = new CommandXboxController(1);
 
   public final CommandSwerveDrivetrain drivetrain = TunerConstants.createDrivetrain();
 
@@ -109,6 +114,8 @@ public class RobotContainer {
     joystick.back().and(joystick.x()).whileTrue(drivetrain.sysIdDynamic(Direction.kReverse));
     joystick.start().and(joystick.y()).whileTrue(drivetrain.sysIdQuasistatic(Direction.kForward));
     joystick.start().and(joystick.x()).whileTrue(drivetrain.sysIdQuasistatic(Direction.kReverse));
+
+    //operatorController.start().onTrue(new IntakeGoToSetpoint(m_intake, IntakeConstants.intakeAgitateSetpoint).andThen(new IntakeGoToSetpoint(m_intake, IntakeConstants.intakePivotDownSetpoint).andThen(new IntakeGoToSetpoint(m_intake, IntakeConstants.intakeAgitateSetpoint).andThen(new IntakeGoToSetpoint(m_intake, IntakeConstants.intakePivotDownSetpoint)))));
 
     // Reset the field-centric heading on left bumper press.
     joystick.leftBumper().onTrue(drivetrain.runOnce(drivetrain::seedFieldCentric));

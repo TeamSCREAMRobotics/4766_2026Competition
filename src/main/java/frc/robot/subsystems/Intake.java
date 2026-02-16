@@ -11,7 +11,9 @@ import com.ctre.phoenix6.controls.MotionMagicVoltage;
 import com.ctre.phoenix6.controls.VoltageOut;
 import com.ctre.phoenix6.hardware.TalonFX;
 import com.ctre.phoenix6.signals.NeutralModeValue;
+
 import dev.doglog.DogLog;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 import frc.robot.Constants.IntakeConstants;
@@ -20,9 +22,8 @@ import frc.robot.Constants.IntakeConstants;
 public class Intake extends SubsystemBase {
   private TalonFX intakePivot = new TalonFX(Constants.IntakeConstants.intakePivotID);
   private TalonFX intakeMotor = new TalonFX(Constants.IntakeConstants.intakeMotorID);
-
-  private VoltageOut m_request =
-      new VoltageOut(0); // m_request == make request (i forget what it means sometimes)
+  
+  private VoltageOut m_request = new VoltageOut(0); // m_request == make request (i forget what it means sometimes)
   private MotionMagicVoltage m_magicrequest = new MotionMagicVoltage(0);
   private TalonFXConfiguration intakeConfig = new TalonFXConfiguration();
   private Slot0Configs intakePIDConfigs = new Slot0Configs();
@@ -42,6 +43,7 @@ public class Intake extends SubsystemBase {
     intakePivot.getConfigurator().apply(intakeConfig);
     intakePivot.getConfigurator().apply(intakePIDConfigs);
     intakePivot.getConfigurator().apply(intakeMagicConfigs);
+
   }
 
   // Runs intake from voltage
@@ -49,11 +51,11 @@ public class Intake extends SubsystemBase {
     intakeMotor.setControl(m_request);
   }
 
-  public void IntakeGoToSetpoint(double setpoint) {
+  public void IntakeGoToSetpoint(double setpoint){
     intakePivot.setControl(m_magicrequest.withPosition(setpoint));
   }
 
-  public double getPivotPose() {
+  public double getPivotPose(){
     return intakePivot.getPosition().getValueAsDouble();
   }
 
@@ -62,14 +64,15 @@ public class Intake extends SubsystemBase {
     intakePivot.setPosition(0);
   }
 
-  public boolean isFinished(double setpoint) {
-    return intakePivot.getPosition().getValueAsDouble() >= setpoint - 0.005
-        && intakePivot.getPosition().getValueAsDouble() <= setpoint + 0.005;
+  public boolean isFinished(double setpoint){
+    return intakePivot.getPosition().getValueAsDouble() >= setpoint - 0.005 &&
+     intakePivot.getPosition().getValueAsDouble() <= setpoint + 0.005; 
   }
 
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
     DogLog.log("Intake Pivot Pose", getPivotPose());
+    SmartDashboard.getNumber("Intake Pivot Pose", getPivotPose());
   }
 }

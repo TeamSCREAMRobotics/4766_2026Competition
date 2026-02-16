@@ -30,6 +30,9 @@ public class Constants {
     public static final int kG = 0;
     public static final double intakeMagicAcceleration = 0;
     public static final double intakeMagicVelocity = 0;
+    public static final double intakePivotDownSetpoint = 0;
+    public static final double intakePivotUpSetpoint = 0;
+    public static final double intakeAgitateSetpoint = 0;
   }
 
   public class ShooterConstants {
