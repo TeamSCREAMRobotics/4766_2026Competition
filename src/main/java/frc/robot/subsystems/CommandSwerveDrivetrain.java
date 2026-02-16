@@ -11,9 +11,14 @@ import com.pathplanner.lib.auto.AutoBuilder;
 import com.pathplanner.lib.config.PIDConstants;
 import com.pathplanner.lib.config.RobotConfig;
 import com.pathplanner.lib.controllers.PPHolonomicDriveController;
+import com.teamscreamrobotics.vision.LimelightHelpers;
+import com.teamscreamrobotics.vision.LimelightHelpers.PoseEstimate;
 import edu.wpi.first.math.Matrix;
+import edu.wpi.first.math.VecBuilder;
 import edu.wpi.first.math.geometry.Pose2d;
 import edu.wpi.first.math.geometry.Rotation2d;
+import edu.wpi.first.math.geometry.Translation2d;
+import edu.wpi.first.math.geometry.Twist2d;
 import edu.wpi.first.math.kinematics.ChassisSpeeds;
 import edu.wpi.first.math.numbers.N1;
 import edu.wpi.first.math.numbers.N3;
@@ -248,6 +253,31 @@ public class CommandSwerveDrivetrain extends TunerSwerveDrivetrain implements Su
 
   @Override
   public void periodic() {
+        LimelightHelpers.SetRobotOrientation("Shooter Limelight", 0, 0, 0, 0, 0, 0);
+    PoseEstimate ShooterLimelightEstimate =
+        LimelightHelpers.getBotPoseEstimate_wpiBlue("Shooter Limelight");
+    if (ShooterLimelightEstimate != null && ShooterLimelightEstimate.tagCount != 0) {
+      addVisionMeasurement(
+          ShooterLimelightEstimate.pose, ShooterLimelightEstimate.timestampSeconds);
+      VecBuilder.fill(0.8, 0.8, 99999);
+    }
+    LimelightHelpers.SetRobotOrientation("Back-left Limelight", 0, 0, 0, 0, 0, 0);
+    PoseEstimate backLeftLimelightEstimate =
+        LimelightHelpers.getBotPoseEstimate_wpiBlue("Back-Left Limelight");
+    if (backLeftLimelightEstimate != null && backLeftLimelightEstimate.tagCount != 0) {
+      addVisionMeasurement(
+          backLeftLimelightEstimate.pose, backLeftLimelightEstimate.timestampSeconds);
+      VecBuilder.fill(0.8, 0.8, 99999);
+    }
+    LimelightHelpers.SetRobotOrientation("Back-right Limelight", 0, 0, 0, 0, 0, 0);
+    PoseEstimate backRightLimelightEstimate =
+        LimelightHelpers.getBotPoseEstimate_wpiBlue("Back-Right Limelight");
+    if (backRightLimelightEstimate != null && backRightLimelightEstimate.tagCount != 0) {
+      addVisionMeasurement(
+          backRightLimelightEstimate.pose, backLeftLimelightEstimate.timestampSeconds);
+      VecBuilder.fill(0.8, 0.8, 99999);
+    }
+    
     /*
      * Periodically try to apply the operator perspective.
      * If we haven't applied the operator perspective before, then we should apply it regardless of DS state.
@@ -317,6 +347,32 @@ public class CommandSwerveDrivetrain extends TunerSwerveDrivetrain implements Su
       Matrix<N3, N1> visionMeasurementStdDevs) {
     super.addVisionMeasurement(
         visionRobotPoseMeters, Utils.fpgaToCurrentTime(timestampSeconds), visionMeasurementStdDevs);
+  }
+
+    public Pose2d getPose() {
+    return getState().Pose;
+  }
+
+  public Rotation2d getHeading() {
+    return getPose().getRotation();
+  }
+
+  public Rotation2d getYawRate() {
+    return Rotation2d.fromDegrees(
+        getPigeon2().getAngularVelocityZWorld().asSupplier().get().in(DegreesPerSecond));
+  }
+
+  public Translation2d getLinearVelocity() {
+    return new Translation2d(
+            getState().Speeds.vxMetersPerSecond, getState().Speeds.vyMetersPerSecond)
+        .rotateBy(getHeading());
+  }
+
+  public Twist2d getFieldVelocity() {
+    return new Twist2d(
+        getLinearVelocity().getX(),
+        getLinearVelocity().getY(),
+        getState().Speeds.omegaRadiansPerSecond);
   }
 
   /**
