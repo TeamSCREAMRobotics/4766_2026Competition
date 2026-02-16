@@ -5,7 +5,6 @@
 package frc.robot;
 
 import com.teamscreamrobotics.zones.RectangularPoseArea;
-
 import edu.wpi.first.apriltag.AprilTagFieldLayout;
 import edu.wpi.first.apriltag.AprilTagFields;
 import edu.wpi.first.math.Pair;
@@ -101,7 +100,7 @@ public class Constants {
     public static final int kickerMotorID = 0;
   }
 
-    public class FieldConstants {
+  public class FieldConstants {
     public static final Translation2d fieldDimesions = new Translation2d(null, null);
     public static final RectangularPoseArea fieldArea =
         new RectangularPoseArea(Translation2d.kZero, fieldDimesions);

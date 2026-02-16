@@ -253,7 +253,7 @@ public class CommandSwerveDrivetrain extends TunerSwerveDrivetrain implements Su
 
   @Override
   public void periodic() {
-        LimelightHelpers.SetRobotOrientation("Shooter Limelight", 0, 0, 0, 0, 0, 0);
+    LimelightHelpers.SetRobotOrientation("Shooter Limelight", 0, 0, 0, 0, 0, 0);
     PoseEstimate ShooterLimelightEstimate =
         LimelightHelpers.getBotPoseEstimate_wpiBlue("Shooter Limelight");
     if (ShooterLimelightEstimate != null && ShooterLimelightEstimate.tagCount != 0) {
@@ -277,7 +277,7 @@ public class CommandSwerveDrivetrain extends TunerSwerveDrivetrain implements Su
           backRightLimelightEstimate.pose, backLeftLimelightEstimate.timestampSeconds);
       VecBuilder.fill(0.8, 0.8, 99999);
     }
-    
+
     /*
      * Periodically try to apply the operator perspective.
      * If we haven't applied the operator perspective before, then we should apply it regardless of DS state.
@@ -349,7 +349,7 @@ public class CommandSwerveDrivetrain extends TunerSwerveDrivetrain implements Su
         visionRobotPoseMeters, Utils.fpgaToCurrentTime(timestampSeconds), visionMeasurementStdDevs);
   }
 
-    public Pose2d getPose() {
+  public Pose2d getPose() {
     return getState().Pose;
   }
 
