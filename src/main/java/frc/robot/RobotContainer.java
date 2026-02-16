@@ -20,10 +20,8 @@ import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.RobotModeTriggers;
 import edu.wpi.first.wpilibj2.command.sysid.SysIdRoutine.Direction;
-import frc.robot.commands.Shoot;
 import frc.robot.generated.TunerConstants;
 import frc.robot.subsystems.CommandSwerveDrivetrain;
-import frc.robot.subsystems.ShooterSub;
 
 public class RobotContainer {
   private double MaxSpeed =
@@ -32,7 +30,6 @@ public class RobotContainer {
       RotationsPerSecond.of(0.75).in(RadiansPerSecond)
           * 0.2; // 3/4 of a rotation per second max angular velocity
 
-  ShooterSub s_Shooter = new ShooterSub();
 
   /* Setting up bindings for necessary control of the swerve drive platform */
   private final SwerveRequest.FieldCentric drive =
@@ -82,7 +79,6 @@ public class RobotContainer {
                             * MaxAngularRate) // Drive counterclockwise with negative X (left)
             ));
 
-    joystick.x().whileTrue(new Shoot(s_Shooter, 1.0)).whileFalse(new Shoot(s_Shooter, 0.0));
 
     // Idle while the robot is disabled. This ensures the configured
     // neutral mode is applied to the drive motors while disabled.
