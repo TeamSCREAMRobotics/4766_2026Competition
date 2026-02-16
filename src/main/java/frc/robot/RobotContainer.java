@@ -19,8 +19,6 @@ import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.RobotModeTriggers;
 import edu.wpi.first.wpilibj2.command.sysid.SysIdRoutine.Direction;
-import frc.robot.Commands.IntakeGoToSetpoint;
-import frc.robot.Constants.IntakeConstants;
 import frc.robot.generated.TunerConstants;
 import frc.robot.subsystems.Climber;
 import frc.robot.subsystems.CommandSwerveDrivetrain;
@@ -115,7 +113,11 @@ public class RobotContainer {
     joystick.start().and(joystick.y()).whileTrue(drivetrain.sysIdQuasistatic(Direction.kForward));
     joystick.start().and(joystick.x()).whileTrue(drivetrain.sysIdQuasistatic(Direction.kReverse));
 
-    //operatorController.start().onTrue(new IntakeGoToSetpoint(m_intake, IntakeConstants.intakeAgitateSetpoint).andThen(new IntakeGoToSetpoint(m_intake, IntakeConstants.intakePivotDownSetpoint).andThen(new IntakeGoToSetpoint(m_intake, IntakeConstants.intakeAgitateSetpoint).andThen(new IntakeGoToSetpoint(m_intake, IntakeConstants.intakePivotDownSetpoint)))));
+    // operatorController.start().onTrue(new IntakeGoToSetpoint(m_intake,
+    // IntakeConstants.intakeAgitateSetpoint).andThen(new IntakeGoToSetpoint(m_intake,
+    // IntakeConstants.intakePivotDownSetpoint).andThen(new IntakeGoToSetpoint(m_intake,
+    // IntakeConstants.intakeAgitateSetpoint).andThen(new IntakeGoToSetpoint(m_intake,
+    // IntakeConstants.intakePivotDownSetpoint)))));
 
     // Reset the field-centric heading on left bumper press.
     joystick.leftBumper().onTrue(drivetrain.runOnce(drivetrain::seedFieldCentric));
