@@ -2,20 +2,20 @@
 // Open Source Software; you can modify and/or share it under the terms of
 // the WPILib BSD license file in the root directory of this project.
 
-package frc.robot.Commands;
+package frc.robot.Commands.Shooter;
 
 import edu.wpi.first.wpilibj2.command.Command;
-import frc.robot.subsystems.ShooterSub;
+import frc.robot.subsystems.ShooterSubFolder.ShooterSub;
 
 /* You should consider using the more terse Command factories API instead https://docs.wpilib.org/en/stable/docs/software/commandbased/organizing-command-based.html#defining-commands */
-public class ShootLeft extends Command {
+public class Shoot extends Command {
 
   ShooterSub s_Shooter;
 
   double voltage;
 
-  /** Creates a new ShootLeft. */
-  public ShootLeft(ShooterSub shooter, double v) {
+  /** Creates a new Shooter. */
+  public Shoot(ShooterSub shooter, double v) {
     s_Shooter = shooter;
 
     voltage = v;
@@ -31,7 +31,8 @@ public class ShootLeft extends Command {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    s_Shooter.runShooter(0, 0);
+    s_Shooter.runShooter(voltage, voltage);
+    // (LeftShooter, MiddleShooter, RightShooter)
   }
 
   // Called once the command ends or is interrupted.
