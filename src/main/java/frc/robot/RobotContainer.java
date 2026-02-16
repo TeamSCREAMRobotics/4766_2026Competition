@@ -30,7 +30,6 @@ public class RobotContainer {
       RotationsPerSecond.of(0.75).in(RadiansPerSecond)
           * 0.2; // 3/4 of a rotation per second max angular velocity
 
-
   /* Setting up bindings for necessary control of the swerve drive platform */
   private final SwerveRequest.FieldCentric drive =
       new SwerveRequest.FieldCentric()
@@ -78,7 +77,6 @@ public class RobotContainer {
                         -joystick.getRightX()
                             * MaxAngularRate) // Drive counterclockwise with negative X (left)
             ));
-
 
     // Idle while the robot is disabled. This ensures the configured
     // neutral mode is applied to the drive motors while disabled.
