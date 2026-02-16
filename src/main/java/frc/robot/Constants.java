@@ -70,7 +70,7 @@ public class Constants {
       LSHOOTER_VELOCITY_MAP.put(3.0, 5.0);
       LSHOOTER_VELOCITY_MAP.put(4.0, 6.5);
     }
-    
+
     public static final InterpolatingDoubleTreeMap RSHOOTER_VELOCITY_MAP =
         new InterpolatingDoubleTreeMap();
 
@@ -100,7 +100,7 @@ public class Constants {
     public static final int kickerMotorID = 0;
   }
 
- public class FieldConstants {
+  public class FieldConstants {
     public static final Translation2d fieldDimesions = new Translation2d(null, null);
     public static final RectangularPoseArea fieldArea =
         new RectangularPoseArea(Translation2d.kZero, fieldDimesions);
@@ -119,5 +119,3 @@ public class Constants {
     }
   }
 }
-
-
