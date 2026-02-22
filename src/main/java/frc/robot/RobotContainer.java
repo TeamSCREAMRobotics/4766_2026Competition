@@ -11,7 +11,6 @@ import static edu.wpi.first.units.Units.*;
 import com.ctre.phoenix6.swerve.SwerveModule.DriveRequestType;
 import com.ctre.phoenix6.swerve.SwerveRequest;
 import com.pathplanner.lib.auto.AutoBuilder;
-import com.pathplanner.lib.auto.NamedCommands;
 import com.pathplanner.lib.commands.FollowPathCommand;
 import com.pathplanner.lib.commands.PathPlannerAuto;
 import edu.wpi.first.math.geometry.Rotation2d;
@@ -21,9 +20,12 @@ import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.RobotModeTriggers;
 import edu.wpi.first.wpilibj2.command.sysid.SysIdRoutine.Direction;
-import frc.robot.Constants.ShooterConstants;
+import frc.robot.Constants.IntakeConstants;
+import frc.robot.commands.IntakeGoToSetpoint;
+import frc.robot.commands.RunIntake;
 import frc.robot.commands.Shooter.Shoot;
 import frc.robot.generated.TunerConstants;
+import frc.robot.subsystems.AgitatorSub;
 import frc.robot.subsystems.Climber;
 import frc.robot.subsystems.CommandSwerveDrivetrain;
 import frc.robot.subsystems.Intake;
@@ -52,6 +54,8 @@ public class RobotContainer {
   private final Telemetry logger = new Telemetry(MaxSpeed);
   private final Climber m_climber = new Climber();
   private final Intake m_intake = new Intake();
+  private final ShooterSub m_shooter = new ShooterSub();
+  private final AgitatorSub m_agitator = new AgitatorSub();
 
   private final CommandXboxController driverController = new CommandXboxController(0);
   private final CommandXboxController operatorController = new CommandXboxController(1);
@@ -63,9 +67,6 @@ public class RobotContainer {
 
   public RobotContainer() {
     autoChooser = AutoBuilder.buildAutoChooser("Tests");
-
-    NamedCommands.registerCommand(
-        "Shoot", new Shoot(s_Shooter, ShooterConstants.LSHOOTER_VELOCITY_MAP.get(0.0)));
 
     autoChooser.addOption("Depot Auto", new PathPlannerAuto("Depot Auto"));
 
@@ -102,7 +103,6 @@ public class RobotContainer {
     RobotModeTriggers.disabled()
         .whileTrue(drivetrain.applyRequest(() -> idle).ignoringDisable(true));
 
-    driverController.a().whileTrue(drivetrain.applyRequest(() -> brake));
     driverController
         .b()
         .whileTrue(
@@ -140,11 +140,29 @@ public class RobotContainer {
         .and(driverController.x())
         .whileTrue(drivetrain.sysIdQuasistatic(Direction.kReverse));
 
+    driverController
+        .rightTrigger()
+        .whileTrue(
+            new Shoot(
+                m_shooter,
+                m_agitator,
+                0,
+                0) /* .alongWith(drivetrain.applyRequest(()-> brake) ) */);
+    driverController
+        .a()
+        .onTrue(new IntakeGoToSetpoint(m_intake, IntakeConstants.intakePivotDownSetpoint));
+    driverController
+        .b()
+        .onTrue(new IntakeGoToSetpoint(m_intake, IntakeConstants.intakePivotUpSetpoint));
+
     // operatorController.start().onTrue(new IntakeGoToSetpoint(m_intake,
     // IntakeConstants.intakeAgitateSetpoint).andThen(new IntakeGoToSetpoint(m_intake,
     // IntakeConstants.intakePivotDownSetpoint).andThen(new IntakeGoToSetpoint(m_intake,
     // IntakeConstants.intakeAgitateSetpoint).andThen(new IntakeGoToSetpoint(m_intake,
     // IntakeConstants.intakePivotDownSetpoint)))));
+
+    driverController.rightTrigger().whileTrue(new Shoot(m_shooter, m_agitator, 7, 7));
+    driverController.rightBumper().whileTrue(new RunIntake(m_intake, 6));
 
     // Reset the field-centric heading on left bumper press.
     driverController.leftBumper().onTrue(drivetrain.runOnce(drivetrain::seedFieldCentric));

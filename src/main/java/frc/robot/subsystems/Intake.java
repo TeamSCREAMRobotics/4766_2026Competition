@@ -15,7 +15,6 @@ import dev.doglog.DogLog;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
-import frc.robot.Constants.IntakeConstants;
 
 // Creates the Master and the Follower and Voltage (mostly just variables)
 public class Intake extends SubsystemBase {
@@ -32,22 +31,22 @@ public class Intake extends SubsystemBase {
   // Creates a new Intake.
   public Intake() {
     intakeConfig.MotorOutput.NeutralMode = NeutralModeValue.Brake;
-    intakePIDConfigs.kP = IntakeConstants.kP;
-    intakePIDConfigs.kI = IntakeConstants.kI;
-    intakePIDConfigs.kD = IntakeConstants.kD;
-    intakePIDConfigs.kV = IntakeConstants.kV;
-    intakePIDConfigs.kG = IntakeConstants.kG;
-    intakeMagicConfigs.MotionMagicAcceleration = IntakeConstants.intakeMagicAcceleration;
-    intakeMagicConfigs.MotionMagicCruiseVelocity = IntakeConstants.intakeMagicVelocity;
-    intakeMotor.getConfigurator().apply(intakeConfig);
+    // intakePIDConfigs.kP = IntakeConstants.kP;
+    // intakePIDConfigs.kI = IntakeConstants.kI;
+    // intakePIDConfigs.kD = IntakeConstants.kD;
+    // intakePIDConfigs.kV = IntakeConstants.kV;
+    // intakePIDConfigs.kG = IntakeConstants.kG;
+    // intakeMagicConfigs.MotionMagicAcceleration = IntakeConstants.intakeMagicAcceleration;
+    // intakeMagicConfigs.MotionMagicCruiseVelocity = IntakeConstants.intakeMagicVelocity;
+    // intakeMotor.getConfigurator().apply(intakeConfig);
     intakePivot.getConfigurator().apply(intakeConfig);
     intakePivot.getConfigurator().apply(intakePIDConfigs);
     intakePivot.getConfigurator().apply(intakeMagicConfigs);
   }
 
   // Runs intake from voltage
-  public void runIntake() {
-    intakeMotor.setControl(m_request);
+  public void runIntake(double voltage) {
+    intakeMotor.setControl(m_request.withOutput(voltage));
   }
 
   public void IntakeGoToSetpoint(double setpoint) {
@@ -72,6 +71,6 @@ public class Intake extends SubsystemBase {
   public void periodic() {
     // This method will be called once per scheduler run
     DogLog.log("Intake Pivot Pose", getPivotPose());
-    SmartDashboard.getNumber("Intake Pivot Pose", getPivotPose());
+    SmartDashboard.putNumber("Intake Pivot Pose", getPivotPose());
   }
 }

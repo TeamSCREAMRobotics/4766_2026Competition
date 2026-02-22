@@ -30,6 +30,7 @@ public class ShooterSub extends SubsystemBase {
     shooterConfig.MotorOutput.NeutralMode = NeutralModeValue.Brake;
     shooterConfig.MotorOutput.Inverted = InvertedValue.Clockwise_Positive;
     LshooterMotor.getConfigurator().apply(shooterConfig);
+    shooterConfig.MotorOutput.Inverted = InvertedValue.CounterClockwise_Positive;
     RshooterMotor.getConfigurator().apply(shooterConfig);
   }
 
