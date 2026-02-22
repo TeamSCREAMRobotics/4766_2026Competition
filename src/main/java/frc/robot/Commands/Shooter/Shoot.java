@@ -16,7 +16,6 @@ public class Shoot extends Command {
 
   double lvoltage;
   double rvoltage;
-  
 
   /** Creates a new Shooter. */
   public Shoot(ShooterSub shooter, AgitatorSub agitator, double lv, double rv) {
@@ -37,9 +36,12 @@ public class Shoot extends Command {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    if(s_Shooter.returnLeftVelocity() >= lvoltage -2 && s_Shooter.returnLeftVelocity() <= lvoltage + 2){
     s_Shooter.runShooter(lvoltage, rvoltage);
-    // (LeftShooter, MiddleShooter, RightShooter)
+    if (s_Shooter.returnLeftVelocity() >= lvoltage - 2
+        && s_Shooter.returnLeftVelocity() <= lvoltage + 2) {
+      s_Agitator.RunAgitator(6);
+
+      // (LeftShooter, MiddleShooter, RightShooter)
     }
   }
 
@@ -47,6 +49,7 @@ public class Shoot extends Command {
   @Override
   public void end(boolean interrupted) {
     s_Shooter.runShooter(0, 0);
+    s_Agitator.RunAgitator(0);
   }
 
   // Returns true when the command should end.

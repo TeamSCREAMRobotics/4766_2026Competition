@@ -24,7 +24,7 @@ public class AgitatorSub extends SubsystemBase {
   /** Creates a new AgitatorSub. */
   public AgitatorSub() {
     motorConfig.MotorOutput.NeutralMode = NeutralModeValue.Coast;
-    motorConfig.MotorOutput.Inverted = InvertedValue.Clockwise_Positive; // placeholder
+    motorConfig.MotorOutput.Inverted = InvertedValue.CounterClockwise_Positive; // placeholder
 
     agitatorMotor.getConfigurator().apply(motorConfig);
     kickerMotor.setControl(new Follower(agitatorMotor.getDeviceID(), MotorAlignmentValue.Aligned));
