@@ -31,8 +31,8 @@ import frc.robot.subsystems.ShooterSubFolder.ShooterSub;
 
 public class RobotContainer {
   ShooterSub s_Shooter = new ShooterSub();
-  private double MaxSpeed =
-      1.0 * TunerConstants.kSpeedAt12Volts.in(MetersPerSecond); // kSpeedAt12Volts desired top speed
+  private double MaxSpeed = 
+      .5 * TunerConstants.kSpeedAt12Volts.in(MetersPerSecond); // kSpeedAt12Volts desired top speed
   private double MaxAngularRate =
       RotationsPerSecond.of(0.75).in(RadiansPerSecond)
           * 0.2; // 3/4 of a rotation per second max angular velocity
