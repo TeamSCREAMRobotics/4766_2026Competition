@@ -5,20 +5,26 @@
 package frc.robot.Commands.Shooter;
 
 import edu.wpi.first.wpilibj2.command.Command;
+import frc.robot.subsystems.AgitatorSub;
 import frc.robot.subsystems.ShooterSubFolder.ShooterSub;
 
 /* You should consider using the more terse Command factories API instead https://docs.wpilib.org/en/stable/docs/software/commandbased/organizing-command-based.html#defining-commands */
 public class Shoot extends Command {
 
   ShooterSub s_Shooter;
+  AgitatorSub s_Agitator;
 
-  double voltage;
+  double lvoltage;
+  double rvoltage;
+  
 
   /** Creates a new Shooter. */
-  public Shoot(ShooterSub shooter, double v) {
+  public Shoot(ShooterSub shooter, AgitatorSub agitator, double lv, double rv) {
     s_Shooter = shooter;
+    s_Agitator = agitator;
 
-    voltage = v;
+    lvoltage = lv;
+    rvoltage = rv;
 
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(s_Shooter);
@@ -31,8 +37,10 @@ public class Shoot extends Command {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    s_Shooter.runShooter(voltage, voltage);
+    if(s_Shooter.returnLeftVelocity() >= lvoltage -2 && s_Shooter.returnLeftVelocity() <= lvoltage + 2){
+    s_Shooter.runShooter(lvoltage, rvoltage);
     // (LeftShooter, MiddleShooter, RightShooter)
+    }
   }
 
   // Called once the command ends or is interrupted.

@@ -5,11 +5,14 @@
 package frc.robot.subsystems.ShooterSubFolder;
 
 import com.ctre.phoenix6.configs.TalonFXConfiguration;
+import com.ctre.phoenix6.controls.VelocityDutyCycle;
 import com.ctre.phoenix6.controls.VoltageOut;
 import com.ctre.phoenix6.hardware.CANrange;
 import com.ctre.phoenix6.hardware.TalonFX;
 import com.ctre.phoenix6.signals.InvertedValue;
 import com.ctre.phoenix6.signals.NeutralModeValue;
+
+import edu.wpi.first.units.measure.Velocity;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 
@@ -20,7 +23,7 @@ public class ShooterSub extends SubsystemBase {
 
   TalonFXConfiguration shooterConfig = new TalonFXConfiguration();
 
-  VoltageOut m_request = new VoltageOut(0);
+  VelocityDutyCycle m_request = new VelocityDutyCycle(0);
 
   /** Creates a new ShooterSub. */
   public ShooterSub() {
@@ -38,8 +41,8 @@ public class ShooterSub extends SubsystemBase {
   }
 
   public void runShooter(double LVoltage, double RVoltage) {
-    LshooterMotor.setControl(m_request.withOutput(LVoltage));
-    RshooterMotor.setControl(m_request.withOutput(RVoltage));
+    LshooterMotor.setControl(m_request.withVelocity(LVoltage));
+    RshooterMotor.setControl(m_request.withVelocity(RVoltage));
   }
 
   public double returnLeftVelocity() {

@@ -9,6 +9,7 @@ package frc.robot;
 import static edu.wpi.first.units.Units.*;
 
 import com.ctre.phoenix6.swerve.SwerveModule.DriveRequestType;
+import com.ctre.phoenix6.mechanisms.swerve.LegacySwerveRequest.SwerveDriveBrake;
 import com.ctre.phoenix6.swerve.SwerveRequest;
 import com.pathplanner.lib.auto.AutoBuilder;
 import com.pathplanner.lib.commands.FollowPathCommand;
@@ -19,12 +20,16 @@ import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.RobotModeTriggers;
 import edu.wpi.first.wpilibj2.command.sysid.SysIdRoutine.Direction;
+import frc.robot.Commands.Agitate;
 import frc.robot.Commands.IntakeGoToSetpoint;
+import frc.robot.Commands.Shooter.Shoot;
 import frc.robot.Constants.IntakeConstants;
 import frc.robot.generated.TunerConstants;
+import frc.robot.subsystems.AgitatorSub;
 import frc.robot.subsystems.Climber;
 import frc.robot.subsystems.CommandSwerveDrivetrain;
 import frc.robot.subsystems.Intake;
+import frc.robot.subsystems.ShooterSubFolder.ShooterSub;
 
 public class RobotContainer {
   private double MaxSpeed =
@@ -48,6 +53,8 @@ public class RobotContainer {
   private final Telemetry logger = new Telemetry(MaxSpeed);
   private final Climber m_climber = new Climber();
   private final Intake m_intake = new Intake();
+  private final ShooterSub m_shooter = new ShooterSub();
+  private final AgitatorSub m_agitator = new AgitatorSub(); 
 
   private final CommandXboxController joystick = new CommandXboxController(0);
   private final CommandXboxController operatorController = new CommandXboxController(1);
@@ -90,7 +97,7 @@ public class RobotContainer {
     RobotModeTriggers.disabled()
         .whileTrue(drivetrain.applyRequest(() -> idle).ignoringDisable(true));
 
-    joystick.a().whileTrue(drivetrain.applyRequest(() -> brake));
+
     joystick
         .b()
         .whileTrue(
@@ -114,6 +121,13 @@ public class RobotContainer {
     joystick.back().and(joystick.x()).whileTrue(drivetrain.sysIdDynamic(Direction.kReverse));
     joystick.start().and(joystick.y()).whileTrue(drivetrain.sysIdQuasistatic(Direction.kForward));
     joystick.start().and(joystick.x()).whileTrue(drivetrain.sysIdQuasistatic(Direction.kReverse));
+
+    joystick.rightTrigger().whileTrue(new Shoot(m_shooter, m_agitator, 0,0)/* .alongWith(drivetrain.applyRequest(()-> brake) ) */);
+    joystick.a().onTrue(new IntakeGoToSetpoint(m_intake, IntakeConstants.intakePivotDownSetpoint));
+    joystick.b().onTrue(new IntakeGoToSetpoint(m_intake, IntakeConstants.intakePivotUpSetpoint));
+
+
+
 
     //operatorController.start().onTrue(new IntakeGoToSetpoint(m_intake, IntakeConstants.intakeAgitateSetpoint).andThen(new IntakeGoToSetpoint(m_intake, IntakeConstants.intakePivotDownSetpoint).andThen(new IntakeGoToSetpoint(m_intake, IntakeConstants.intakeAgitateSetpoint).andThen(new IntakeGoToSetpoint(m_intake, IntakeConstants.intakePivotDownSetpoint)))));
 

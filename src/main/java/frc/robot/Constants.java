@@ -21,8 +21,8 @@ public class Constants {
   public class VisionConstants {}
 
   public class IntakeConstants {
-    public static final int intakeMotorID = 6;
-    public static final int intakePivotID = 7;
+    public static final int intakeMotorID = 14;
+    public static final int intakePivotID = 12;
     public static final int kP = 0;
     public static final int kI = 0;
     public static final int kD = 0;
@@ -36,8 +36,8 @@ public class Constants {
   }
 
   public class ShooterConstants {
-    public static final int LshooterMoterID = 7; // testing on testbed
-    public static final int RshooterMotorID = 0;
+    public static final int LshooterMoterID = 17; // testing on testbed
+    public static final int RshooterMotorID = 16;
     public static final int shooterCANID = 0;
 
     public static final int pivotMotorID = 0;
@@ -99,8 +99,8 @@ public class Constants {
   }
 
   public class AgitatorConstants {
-    public static final int agitatorMotorID = 0;
-    public static final int kickerMotorID = 0;
+    public static final int agitatorMotorID = 13;
+    public static final int kickerMotorID = 15;
   }
 
   public class FieldConstants {
