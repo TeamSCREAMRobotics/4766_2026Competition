@@ -22,6 +22,7 @@ import edu.wpi.first.wpilibj2.command.button.RobotModeTriggers;
 import edu.wpi.first.wpilibj2.command.sysid.SysIdRoutine.Direction;
 import frc.robot.Constants.IntakeConstants;
 import frc.robot.commands.IntakeGoToSetpoint;
+import frc.robot.commands.RunIntake;
 import frc.robot.commands.Shooter.Shoot;
 import frc.robot.generated.TunerConstants;
 import frc.robot.subsystems.AgitatorSub;
@@ -161,6 +162,7 @@ public class RobotContainer {
     // IntakeConstants.intakePivotDownSetpoint)))));
 
     driverController.rightTrigger().whileTrue(new Shoot(m_shooter, m_agitator, 7, 7));
+    driverController.rightBumper().whileTrue(new RunIntake(m_intake, 6));
 
     // Reset the field-centric heading on left bumper press.
     driverController.leftBumper().onTrue(drivetrain.runOnce(drivetrain::seedFieldCentric));

@@ -11,9 +11,12 @@ import frc.robot.subsystems.Intake;
 public class RunIntake extends Command {
   Intake m_intake;
 
+  double voltage;
+
   /** Creates a new RunIntake. */
-  public RunIntake(Intake intake) {
+  public RunIntake(Intake intake, double v) {
     m_intake = intake;
+    voltage = v;
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(intake);
   }
@@ -25,12 +28,14 @@ public class RunIntake extends Command {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    m_intake.runIntake();
+    m_intake.runIntake(voltage);
   }
 
   // Called once the command ends or is interrupted.
   @Override
-  public void end(boolean interrupted) {}
+  public void end(boolean interrupted) {
+    m_intake.runIntake(0);
+  }
 
   // Returns true when the command should end.
   @Override

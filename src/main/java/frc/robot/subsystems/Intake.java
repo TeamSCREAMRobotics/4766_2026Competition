@@ -32,22 +32,22 @@ public class Intake extends SubsystemBase {
   // Creates a new Intake.
   public Intake() {
     intakeConfig.MotorOutput.NeutralMode = NeutralModeValue.Brake;
-    intakePIDConfigs.kP = IntakeConstants.kP;
-    intakePIDConfigs.kI = IntakeConstants.kI;
-    intakePIDConfigs.kD = IntakeConstants.kD;
-    intakePIDConfigs.kV = IntakeConstants.kV;
-    intakePIDConfigs.kG = IntakeConstants.kG;
-    intakeMagicConfigs.MotionMagicAcceleration = IntakeConstants.intakeMagicAcceleration;
-    intakeMagicConfigs.MotionMagicCruiseVelocity = IntakeConstants.intakeMagicVelocity;
-    intakeMotor.getConfigurator().apply(intakeConfig);
+    //intakePIDConfigs.kP = IntakeConstants.kP;
+    //intakePIDConfigs.kI = IntakeConstants.kI;
+    //intakePIDConfigs.kD = IntakeConstants.kD;
+    //intakePIDConfigs.kV = IntakeConstants.kV;
+    //intakePIDConfigs.kG = IntakeConstants.kG;
+    //intakeMagicConfigs.MotionMagicAcceleration = IntakeConstants.intakeMagicAcceleration;
+    //intakeMagicConfigs.MotionMagicCruiseVelocity = IntakeConstants.intakeMagicVelocity;
+    //intakeMotor.getConfigurator().apply(intakeConfig);
     intakePivot.getConfigurator().apply(intakeConfig);
     intakePivot.getConfigurator().apply(intakePIDConfigs);
     intakePivot.getConfigurator().apply(intakeMagicConfigs);
   }
 
   // Runs intake from voltage
-  public void runIntake() {
-    intakeMotor.setControl(m_request);
+  public void runIntake(double voltage) {
+    intakeMotor.setControl(m_request.withOutput(voltage));
   }
 
   public void IntakeGoToSetpoint(double setpoint) {
