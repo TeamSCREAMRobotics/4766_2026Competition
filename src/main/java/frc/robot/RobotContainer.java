@@ -140,9 +140,20 @@ public class RobotContainer {
         .and(driverController.x())
         .whileTrue(drivetrain.sysIdQuasistatic(Direction.kReverse));
 
-    driverController.rightTrigger().whileTrue(new Shoot(m_shooter,m_agitator,0,0) /* .alongWith(drivetrain.applyRequest(()-> brake) ) */);
-    driverController.a().onTrue(new IntakeGoToSetpoint(m_intake, IntakeConstants.intakePivotDownSetpoint));
-    driverController.b().onTrue(new IntakeGoToSetpoint(m_intake, IntakeConstants.intakePivotUpSetpoint));
+    driverController
+        .rightTrigger()
+        .whileTrue(
+            new Shoot(
+                m_shooter,
+                m_agitator,
+                0,
+                0) /* .alongWith(drivetrain.applyRequest(()-> brake) ) */);
+    driverController
+        .a()
+        .onTrue(new IntakeGoToSetpoint(m_intake, IntakeConstants.intakePivotDownSetpoint));
+    driverController
+        .b()
+        .onTrue(new IntakeGoToSetpoint(m_intake, IntakeConstants.intakePivotUpSetpoint));
 
     // operatorController.start().onTrue(new IntakeGoToSetpoint(m_intake,
     // IntakeConstants.intakeAgitateSetpoint).andThen(new IntakeGoToSetpoint(m_intake,
