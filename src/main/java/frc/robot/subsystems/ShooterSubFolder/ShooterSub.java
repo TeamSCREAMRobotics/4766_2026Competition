@@ -4,10 +4,7 @@
 
 package frc.robot.subsystems.ShooterSubFolder;
 
-import com.ctre.phoenix6.configs.Slot0Configs;
 import com.ctre.phoenix6.configs.TalonFXConfiguration;
-import com.ctre.phoenix6.controls.VelocityDutyCycle;
-import com.ctre.phoenix6.controls.VelocityVoltage;
 import com.ctre.phoenix6.controls.VoltageOut;
 import com.ctre.phoenix6.hardware.CANrange;
 import com.ctre.phoenix6.hardware.TalonFX;
@@ -22,10 +19,8 @@ public class ShooterSub extends SubsystemBase {
   CANrange shooterCAN = new CANrange(Constants.ShooterConstants.shooterCANID);
 
   TalonFXConfiguration shooterConfig = new TalonFXConfiguration();
-  
 
   VoltageOut m_request = new VoltageOut(0);
-
 
   /** Creates a new ShooterSub. */
   public ShooterSub() {
