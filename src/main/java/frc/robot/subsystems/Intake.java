@@ -15,7 +15,6 @@ import dev.doglog.DogLog;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
-import frc.robot.Constants.IntakeConstants;
 
 // Creates the Master and the Follower and Voltage (mostly just variables)
 public class Intake extends SubsystemBase {
@@ -32,14 +31,14 @@ public class Intake extends SubsystemBase {
   // Creates a new Intake.
   public Intake() {
     intakeConfig.MotorOutput.NeutralMode = NeutralModeValue.Brake;
-    //intakePIDConfigs.kP = IntakeConstants.kP;
-    //intakePIDConfigs.kI = IntakeConstants.kI;
-    //intakePIDConfigs.kD = IntakeConstants.kD;
-    //intakePIDConfigs.kV = IntakeConstants.kV;
-    //intakePIDConfigs.kG = IntakeConstants.kG;
-    //intakeMagicConfigs.MotionMagicAcceleration = IntakeConstants.intakeMagicAcceleration;
-    //intakeMagicConfigs.MotionMagicCruiseVelocity = IntakeConstants.intakeMagicVelocity;
-    //intakeMotor.getConfigurator().apply(intakeConfig);
+    // intakePIDConfigs.kP = IntakeConstants.kP;
+    // intakePIDConfigs.kI = IntakeConstants.kI;
+    // intakePIDConfigs.kD = IntakeConstants.kD;
+    // intakePIDConfigs.kV = IntakeConstants.kV;
+    // intakePIDConfigs.kG = IntakeConstants.kG;
+    // intakeMagicConfigs.MotionMagicAcceleration = IntakeConstants.intakeMagicAcceleration;
+    // intakeMagicConfigs.MotionMagicCruiseVelocity = IntakeConstants.intakeMagicVelocity;
+    // intakeMotor.getConfigurator().apply(intakeConfig);
     intakePivot.getConfigurator().apply(intakeConfig);
     intakePivot.getConfigurator().apply(intakePIDConfigs);
     intakePivot.getConfigurator().apply(intakeMagicConfigs);
