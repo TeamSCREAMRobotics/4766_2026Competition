@@ -2,8 +2,6 @@
 // Open Source Software; you can modify and/or share it under the terms of
 // the WPILib BSD license file in the root directory of this project.
 
-// TODO: Complete swerve generator for 2026 robot and import
-
 package frc.robot;
 
 import static edu.wpi.first.units.Units.*;
@@ -13,6 +11,8 @@ import com.ctre.phoenix6.swerve.SwerveRequest;
 import com.pathplanner.lib.auto.AutoBuilder;
 import com.pathplanner.lib.commands.FollowPathCommand;
 import com.pathplanner.lib.commands.PathPlannerAuto;
+import com.team6328.FeedForwardCharacterization;
+
 import edu.wpi.first.math.geometry.Rotation2d;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -21,23 +21,26 @@ import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.RobotModeTriggers;
 import edu.wpi.first.wpilibj2.command.sysid.SysIdRoutine.Direction;
 import frc.robot.Constants.IntakeConstants;
+import frc.robot.commands.Agitate;
 import frc.robot.commands.IntakeGoToSetpoint;
+import frc.robot.commands.ResetIntake;
 import frc.robot.commands.RunIntake;
 import frc.robot.commands.Shooter.Shoot;
 import frc.robot.generated.TunerConstants;
 import frc.robot.subsystems.AgitatorSub;
-import frc.robot.subsystems.Climber;
 import frc.robot.subsystems.CommandSwerveDrivetrain;
 import frc.robot.subsystems.Intake;
+import frc.robot.subsystems.ShooterSubFolder.Flywheel;
+import frc.robot.subsystems.ShooterSubFolder.FlywheelConfig;
 import frc.robot.subsystems.ShooterSubFolder.ShooterSub;
 
 public class RobotContainer {
   ShooterSub s_Shooter = new ShooterSub();
   private double MaxSpeed =
-      .5 * TunerConstants.kSpeedAt12Volts.in(MetersPerSecond); // kSpeedAt12Volts desired top speed
+      .3 * TunerConstants.kSpeedAt12Volts.in(MetersPerSecond); // kSpeedAt12Volts desired top speed
   private double MaxAngularRate =
       RotationsPerSecond.of(0.75).in(RadiansPerSecond)
-          * 0.2; // 3/4 of a rotation per second max angular velocity
+          * 0.4; // 3/4 of a rotation per second max angular velocity
 
   /* Setting up bindings for necessary control of the swerve drive platform */
   private final SwerveRequest.FieldCentric drive =
@@ -50,9 +53,10 @@ public class RobotContainer {
   private final SwerveRequest.PointWheelsAt point = new SwerveRequest.PointWheelsAt();
   private final SwerveRequest.RobotCentric forwardStraight =
       new SwerveRequest.RobotCentric().withDriveRequestType(DriveRequestType.OpenLoopVoltage);
+private final Flywheel flywheel = new Flywheel(FlywheelConfig.FLYWHEEL_CONFIG);
 
   private final Telemetry logger = new Telemetry(MaxSpeed);
-  private final Climber m_climber = new Climber();
+  // private final Climber m_climber = new Climber();
   private final Intake m_intake = new Intake();
   private final ShooterSub m_shooter = new ShooterSub();
   private final AgitatorSub m_agitator = new AgitatorSub();
@@ -71,7 +75,7 @@ public class RobotContainer {
     autoChooser.addOption("Depot Auto", new PathPlannerAuto("Depot Auto"));
 
     SmartDashboard.putData("Auto Mode", autoChooser);
-    SmartDashboard.getNumber("Climber Pose", m_climber.getClimberPose());
+    // SmartDashboard.getNumber("Climber Pose", m_climber.getClimberPose());
     configureBindings();
 
     // Warmup PathPlanner to avoid Java pauses
@@ -140,19 +144,15 @@ public class RobotContainer {
         .and(driverController.x())
         .whileTrue(drivetrain.sysIdQuasistatic(Direction.kReverse));
 
-    driverController
-        .rightTrigger()
-        .whileTrue(
-            new Shoot(
-                m_shooter,
-                m_agitator,
-                0,
-                0) /* .alongWith(drivetrain.applyRequest(()-> brake) ) */);
+    // driverController.rightTrigger(.5).whileTrue(new FeedForwardCharacterization(flywheel, flywheel::setVoltage, flywheel::getVelocity));
+
+    // driverController.rightTrigger().whileTrue(new
+    // Shoot(m_shooter,m_agitator,0,0).alongWith(drivetrain.applyRequest(()-> brake)));
     driverController
         .a()
         .onTrue(new IntakeGoToSetpoint(m_intake, IntakeConstants.intakePivotDownSetpoint));
     driverController
-        .b()
+        .x()
         .onTrue(new IntakeGoToSetpoint(m_intake, IntakeConstants.intakePivotUpSetpoint));
 
     // operatorController.start().onTrue(new IntakeGoToSetpoint(m_intake,
@@ -161,8 +161,11 @@ public class RobotContainer {
     // IntakeConstants.intakeAgitateSetpoint).andThen(new IntakeGoToSetpoint(m_intake,
     // IntakeConstants.intakePivotDownSetpoint)))));
 
-    driverController.rightTrigger().whileTrue(new Shoot(m_shooter, m_agitator, 7, 7));
-    driverController.rightBumper().whileTrue(new RunIntake(m_intake, 6));
+    driverController.rightTrigger().whileTrue(new Shoot(m_shooter, m_agitator, 50, 50));
+    driverController.rightBumper().whileTrue(new RunIntake(m_intake, 8.5));
+    driverController.start().onTrue(new ResetIntake(m_intake));
+
+    m_agitator.setDefaultCommand(new Agitate(m_agitator, 1, -1));
 
     // Reset the field-centric heading on left bumper press.
     driverController.leftBumper().onTrue(drivetrain.runOnce(drivetrain::seedFieldCentric));

@@ -4,12 +4,11 @@
 
 package frc.robot.subsystems;
 
+import com.ctre.phoenix6.configs.CurrentLimitsConfigs;
 import com.ctre.phoenix6.configs.TalonFXConfiguration;
-import com.ctre.phoenix6.controls.Follower;
 import com.ctre.phoenix6.controls.VoltageOut;
 import com.ctre.phoenix6.hardware.TalonFX;
 import com.ctre.phoenix6.signals.InvertedValue;
-import com.ctre.phoenix6.signals.MotorAlignmentValue;
 import com.ctre.phoenix6.signals.NeutralModeValue;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
@@ -20,18 +19,23 @@ public class AgitatorSub extends SubsystemBase {
   TalonFX kickerMotor = new TalonFX(Constants.AgitatorConstants.kickerMotorID);
   VoltageOut m_request = new VoltageOut(0);
   TalonFXConfiguration motorConfig = new TalonFXConfiguration();
+  CurrentLimitsConfigs kickerlimitconfigs = new CurrentLimitsConfigs();
 
   /** Creates a new AgitatorSub. */
   public AgitatorSub() {
     motorConfig.MotorOutput.NeutralMode = NeutralModeValue.Coast;
-    motorConfig.MotorOutput.Inverted = InvertedValue.CounterClockwise_Positive; // placeholder
+    motorConfig.MotorOutput.Inverted = InvertedValue.Clockwise_Positive; // placeholder
+    kickerlimitconfigs.StatorCurrentLimitEnable = true;
 
     agitatorMotor.getConfigurator().apply(motorConfig);
-    kickerMotor.setControl(new Follower(agitatorMotor.getDeviceID(), MotorAlignmentValue.Aligned));
+    motorConfig.MotorOutput.Inverted = InvertedValue.CounterClockwise_Positive;
+    kickerMotor.getConfigurator().apply(motorConfig);
+    kickerMotor.getConfigurator().apply(kickerlimitconfigs);
   }
 
-  public void RunAgitator(double Voltage) {
+  public void RunAgitator(double Voltage, double kickerVoltage) {
     agitatorMotor.setControl(m_request.withOutput(Voltage));
+    kickerMotor.setControl(m_request.withOutput(kickerVoltage));
   }
 
   public boolean hasFuel() {

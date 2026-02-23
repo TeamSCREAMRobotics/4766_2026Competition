@@ -10,11 +10,13 @@ import com.ctre.phoenix6.configs.TalonFXConfiguration;
 import com.ctre.phoenix6.controls.MotionMagicVoltage;
 import com.ctre.phoenix6.controls.VoltageOut;
 import com.ctre.phoenix6.hardware.TalonFX;
+import com.ctre.phoenix6.signals.GravityTypeValue;
 import com.ctre.phoenix6.signals.NeutralModeValue;
 import dev.doglog.DogLog;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
+import frc.robot.Constants.IntakeConstants;
 
 // Creates the Master and the Follower and Voltage (mostly just variables)
 public class Intake extends SubsystemBase {
@@ -31,14 +33,22 @@ public class Intake extends SubsystemBase {
   // Creates a new Intake.
   public Intake() {
     intakeConfig.MotorOutput.NeutralMode = NeutralModeValue.Brake;
-    // intakePIDConfigs.kP = IntakeConstants.kP;
-    // intakePIDConfigs.kI = IntakeConstants.kI;
-    // intakePIDConfigs.kD = IntakeConstants.kD;
-    // intakePIDConfigs.kV = IntakeConstants.kV;
-    // intakePIDConfigs.kG = IntakeConstants.kG;
-    // intakeMagicConfigs.MotionMagicAcceleration = IntakeConstants.intakeMagicAcceleration;
-    // intakeMagicConfigs.MotionMagicCruiseVelocity = IntakeConstants.intakeMagicVelocity;
-    // intakeMotor.getConfigurator().apply(intakeConfig);
+    intakePIDConfigs.kP = IntakeConstants.kP;
+    intakePIDConfigs.kI = IntakeConstants.kI;
+    intakePIDConfigs.kD = IntakeConstants.kD;
+    intakePIDConfigs.kV = IntakeConstants.kV;
+    intakePIDConfigs.kG = IntakeConstants.kG;
+    intakePIDConfigs.GravityType = GravityTypeValue.Arm_Cosine;
+    intakeMagicConfigs.MotionMagicAcceleration = IntakeConstants.intakeMagicAcceleration;
+    intakeMagicConfigs.MotionMagicCruiseVelocity = IntakeConstants.intakeMagicVelocity;
+    intakeMotor.getConfigurator().apply(intakeConfig);
+
+    intakeConfig.SoftwareLimitSwitch.ForwardSoftLimitThreshold =
+        IntakeConstants.intakePivotForwardSoftLimit;
+    intakeConfig.SoftwareLimitSwitch.ReverseSoftLimitThreshold =
+        IntakeConstants.intakePivotReversSoftLimit;
+    intakeConfig.SoftwareLimitSwitch.ForwardSoftLimitEnable = true;
+    intakeConfig.SoftwareLimitSwitch.ReverseSoftLimitEnable = true;
     intakePivot.getConfigurator().apply(intakeConfig);
     intakePivot.getConfigurator().apply(intakePIDConfigs);
     intakePivot.getConfigurator().apply(intakeMagicConfigs);
@@ -63,8 +73,8 @@ public class Intake extends SubsystemBase {
   }
 
   public boolean isFinished(double setpoint) {
-    return intakePivot.getPosition().getValueAsDouble() >= setpoint - 0.005
-        && intakePivot.getPosition().getValueAsDouble() <= setpoint + 0.005;
+    return intakePivot.getPosition().getValueAsDouble() >= setpoint - 0.0005
+        && intakePivot.getPosition().getValueAsDouble() <= setpoint + 0.0005;
   }
 
   @Override

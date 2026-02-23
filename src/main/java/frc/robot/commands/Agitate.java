@@ -11,11 +11,13 @@ import frc.robot.subsystems.AgitatorSub;
 public class Agitate extends Command {
   AgitatorSub s_agitator;
   double Voltage;
+  double kickerVoltage;
 
   /** Creates a new Agitate. */
-  public Agitate(AgitatorSub agitator, double voltage) {
+  public Agitate(AgitatorSub agitator, double voltage, double kickervoltage) {
     s_agitator = agitator;
     Voltage = voltage;
+    kickerVoltage = kickervoltage;
 
     addRequirements(agitator);
     // Use addRequirements() here to declare subsystem dependencies.
@@ -28,13 +30,13 @@ public class Agitate extends Command {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    s_agitator.RunAgitator(Voltage);
+    s_agitator.RunAgitator(Voltage, kickerVoltage);
   }
 
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
-    s_agitator.RunAgitator(0);
+    s_agitator.RunAgitator(0, 0);
   }
 
   // Returns true when the command should end.

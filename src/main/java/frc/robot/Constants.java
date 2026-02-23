@@ -23,16 +23,18 @@ public class Constants {
   public class IntakeConstants {
     public static final int intakeMotorID = 14;
     public static final int intakePivotID = 12;
-    public static final double kP = 1;
+    public static final double kP = 1.4;
     public static final double kI = 0;
     public static final double kD = 0;
     public static final double kV = 0;
     public static final double kG = 0;
-    public static final double intakeMagicAcceleration = 0;
-    public static final double intakeMagicVelocity = 0;
-    public static final double intakePivotDownSetpoint = 0.05;
-    public static final double intakePivotUpSetpoint = -7.4;
-    public static final double intakeAgitateSetpoint = 0;
+    public static final double intakeMagicAcceleration = 26;
+    public static final double intakeMagicVelocity = 30;
+    public static final double intakePivotDownSetpoint = 7.1;
+    public static final double intakePivotUpSetpoint = 0.33;
+    public static final double intakeAgitateSetpoint = 7.3;
+    public static final double intakePivotForwardSoftLimit = 7.33;
+    public static final double intakePivotReversSoftLimit = 0.05;
   }
 
   public class ShooterConstants {
@@ -45,11 +47,11 @@ public class Constants {
 
     public static final double kG = 0.0;
     public static final double kV = 0.0;
-    public static final double kP = 0.0;
+    public static final double kP = .73;
     public static final double kI = 0.0;
     public static final double kD = 0.0;
-    public static final double kMagicAcceleration = 0.0;
-    public static final double kMagicCruiseVelocity = 0.0;
+    public static final double kMagicAcceleration = 60;
+    public static final double kMagicCruiseVelocity = 80;
 
     //  public static final InterpolatingDoubleTreeMap HOOD_MAP = new InterpolatingDoubleTreeMap();
     //
