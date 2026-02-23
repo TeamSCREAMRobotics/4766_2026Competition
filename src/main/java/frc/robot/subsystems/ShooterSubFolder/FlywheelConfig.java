@@ -21,7 +21,8 @@ public class FlywheelConfig {
     FLYWHEEL_CONFIG.masterConstants =
         new TalonFXConstants(new CANDevice(17), InvertedValue.Clockwise_Positive);
 
-        FLYWHEEL_CONFIG.slaveConstants = new TalonFXConstants[] {
+    FLYWHEEL_CONFIG.slaveConstants =
+        new TalonFXConstants[] {
           new TalonFXConstants(new CANDevice(16), InvertedValue.CounterClockwise_Positive)
         };
     FLYWHEEL_CONFIG.slot0 =
