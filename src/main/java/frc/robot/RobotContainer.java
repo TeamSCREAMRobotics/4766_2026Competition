@@ -11,8 +11,6 @@ import com.ctre.phoenix6.swerve.SwerveRequest;
 import com.pathplanner.lib.auto.AutoBuilder;
 import com.pathplanner.lib.commands.FollowPathCommand;
 import com.pathplanner.lib.commands.PathPlannerAuto;
-import com.team6328.FeedForwardCharacterization;
-
 import edu.wpi.first.math.geometry.Rotation2d;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -53,7 +51,7 @@ public class RobotContainer {
   private final SwerveRequest.PointWheelsAt point = new SwerveRequest.PointWheelsAt();
   private final SwerveRequest.RobotCentric forwardStraight =
       new SwerveRequest.RobotCentric().withDriveRequestType(DriveRequestType.OpenLoopVoltage);
-private final Flywheel flywheel = new Flywheel(FlywheelConfig.FLYWHEEL_CONFIG);
+  private final Flywheel flywheel = new Flywheel(FlywheelConfig.FLYWHEEL_CONFIG);
 
   private final Telemetry logger = new Telemetry(MaxSpeed);
   // private final Climber m_climber = new Climber();
@@ -144,7 +142,8 @@ private final Flywheel flywheel = new Flywheel(FlywheelConfig.FLYWHEEL_CONFIG);
         .and(driverController.x())
         .whileTrue(drivetrain.sysIdQuasistatic(Direction.kReverse));
 
-    // driverController.rightTrigger(.5).whileTrue(new FeedForwardCharacterization(flywheel, flywheel::setVoltage, flywheel::getVelocity));
+    // driverController.rightTrigger(.5).whileTrue(new FeedForwardCharacterization(flywheel,
+    // flywheel::setVoltage, flywheel::getVelocity));
 
     // driverController.rightTrigger().whileTrue(new
     // Shoot(m_shooter,m_agitator,0,0).alongWith(drivetrain.applyRequest(()-> brake)));
