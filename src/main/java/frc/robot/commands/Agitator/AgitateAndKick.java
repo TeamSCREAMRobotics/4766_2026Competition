@@ -2,22 +2,22 @@
 // Open Source Software; you can modify and/or share it under the terms of
 // the WPILib BSD license file in the root directory of this project.
 
-package frc.robot.commands;
+package frc.robot.commands.Agitator;
 
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.subsystems.AgitatorSub;
 
 /* You should consider using the more terse Command factories API instead https://docs.wpilib.org/en/stable/docs/software/commandbased/organizing-command-based.html#defining-commands */
-public class Agitate extends Command {
+public class AgitateAndKick extends Command {
   AgitatorSub s_agitator;
-  double Voltage;
+  double agitatorVoltage;
   double kickerVoltage;
 
   /** Creates a new Agitate. */
-  public Agitate(AgitatorSub agitator, double voltage, double kickervoltage) {
+  public AgitateAndKick(AgitatorSub agitator, double agitatorVoltage, double kickerVoltage) {
     s_agitator = agitator;
-    Voltage = voltage;
-    kickerVoltage = kickervoltage;
+    this.agitatorVoltage = agitatorVoltage;
+    this.kickerVoltage = kickerVoltage;
 
     addRequirements(agitator);
     // Use addRequirements() here to declare subsystem dependencies.
@@ -30,13 +30,13 @@ public class Agitate extends Command {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    s_agitator.RunAgitator(Voltage, kickerVoltage);
+    s_agitator.RunAgitatorAndKicker(agitatorVoltage, kickerVoltage);
   }
 
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
-    s_agitator.RunAgitator(0, 0);
+    s_agitator.RunAgitatorAndKicker(0, 0);
   }
 
   // Returns true when the command should end.
