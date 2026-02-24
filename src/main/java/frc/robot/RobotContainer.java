@@ -15,11 +15,12 @@ import edu.wpi.first.math.geometry.Rotation2d;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
+import edu.wpi.first.wpilibj2.command.Commands;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.RobotModeTriggers;
 import edu.wpi.first.wpilibj2.command.sysid.SysIdRoutine.Direction;
 import frc.robot.Constants.IntakeConstants;
-import frc.robot.commands.Agitate;
+
 import frc.robot.commands.IntakeGoToSetpoint;
 import frc.robot.commands.ResetIntake;
 import frc.robot.commands.RunIntake;
@@ -28,8 +29,10 @@ import frc.robot.generated.TunerConstants;
 import frc.robot.subsystems.AgitatorSub;
 import frc.robot.subsystems.CommandSwerveDrivetrain;
 import frc.robot.subsystems.Intake;
-import frc.robot.subsystems.ShooterSubFolder.Flywheel;
-import frc.robot.subsystems.ShooterSubFolder.FlywheelConfig;
+import frc.robot.subsystems.ShooterSubFolder.LFlywheel;
+import frc.robot.subsystems.ShooterSubFolder.LFlywheelConfig;
+import frc.robot.subsystems.ShooterSubFolder.RFlywheel;
+import frc.robot.subsystems.ShooterSubFolder.RFlywheelConfig;
 import frc.robot.subsystems.ShooterSubFolder.ShooterSub;
 
 public class RobotContainer {
@@ -51,7 +54,8 @@ public class RobotContainer {
   private final SwerveRequest.PointWheelsAt point = new SwerveRequest.PointWheelsAt();
   private final SwerveRequest.RobotCentric forwardStraight =
       new SwerveRequest.RobotCentric().withDriveRequestType(DriveRequestType.OpenLoopVoltage);
-  private final Flywheel flywheel = new Flywheel(FlywheelConfig.FLYWHEEL_CONFIG);
+  private final LFlywheel lFlywheel = new LFlywheel(LFlywheelConfig.LFLYWHEEL_CONFIG);
+  private final RFlywheel rFlywheel = new RFlywheel(RFlywheelConfig.RFLYWHEEL_CONFIG);
 
   private final Telemetry logger = new Telemetry(MaxSpeed);
   // private final Climber m_climber = new Climber();
@@ -142,8 +146,13 @@ public class RobotContainer {
         .and(driverController.x())
         .whileTrue(drivetrain.sysIdQuasistatic(Direction.kReverse));
 
-    // driverController.rightTrigger(.5).whileTrue(new FeedForwardCharacterization(flywheel,
-    // flywheel::setVoltage, flywheel::getVelocity));
+    driverController.rightTrigger(0.5).whileTrue(Commands.run(() ->lFlywheel.setSetpointVelocity(75.0), lFlywheel).
+    alongWith(Commands.run(() ->rFlywheel.setSetpointVelocity(75.0), rFlywheel).
+    alongWith(new Shoot(m_shooter, m_agitator, 0, 0))));
+
+
+    //driverController.rightTrigger(.5).whileTrue(new FeedForwardCharacterization(flywheel,flywheel::setVoltage, flywheel::getVelocity));
+
 
     // driverController.rightTrigger().whileTrue(new
     // Shoot(m_shooter,m_agitator,0,0).alongWith(drivetrain.applyRequest(()-> brake)));
@@ -164,7 +173,7 @@ public class RobotContainer {
     driverController.rightBumper().whileTrue(new RunIntake(m_intake, 8.5));
     driverController.start().onTrue(new ResetIntake(m_intake));
 
-    m_agitator.setDefaultCommand(new Agitate(m_agitator, 1, -1));
+   // m_agitator.setDefaultCommand(new Agitate(m_agitator, 1, -1));
 
     // Reset the field-centric heading on left bumper press.
     driverController.leftBumper().onTrue(drivetrain.runOnce(drivetrain::seedFieldCentric));

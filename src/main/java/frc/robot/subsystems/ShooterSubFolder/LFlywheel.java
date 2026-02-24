@@ -2,8 +2,8 @@ package frc.robot.subsystems.ShooterSubFolder;
 
 import com.teamscreamrobotics.drivers.TalonFXSubsystem;
 
-public class Flywheel extends TalonFXSubsystem {
-  public Flywheel(TalonFXSubsystemConfiguration config) {
+public class LFlywheel extends TalonFXSubsystem {
+  public LFlywheel(TalonFXSubsystemConfiguration config) {
     super(config);
   }
 

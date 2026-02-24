@@ -7,29 +7,25 @@ import com.teamscreamrobotics.drivers.TalonFXSubsystem.TalonFXSubsystemConfigura
 import com.teamscreamrobotics.pid.ScreamPIDConstants;
 import com.teamscreamrobotics.pid.ScreamPIDConstants.FeedforwardConstants;
 
-public class FlywheelConfig {
-  public static final TalonFXSubsystemConfiguration FLYWHEEL_CONFIG =
+public class LFlywheelConfig {
+  public static final TalonFXSubsystemConfiguration LFLYWHEEL_CONFIG =
       new TalonFXSubsystemConfiguration();
 
   static {
-    FLYWHEEL_CONFIG.name = "Flywheel";
+    LFLYWHEEL_CONFIG.name = "Flywheel";
 
-    FLYWHEEL_CONFIG.codeEnabled = true;
-    FLYWHEEL_CONFIG.logTelemetry = false;
-    FLYWHEEL_CONFIG.debugMode = false;
+    LFLYWHEEL_CONFIG.codeEnabled = true;
+    LFLYWHEEL_CONFIG.logTelemetry = false;
+    LFLYWHEEL_CONFIG.debugMode = false;
 
-    FLYWHEEL_CONFIG.masterConstants =
+    LFLYWHEEL_CONFIG.masterConstants =
         new TalonFXConstants(new CANDevice(17), InvertedValue.Clockwise_Positive);
 
-    FLYWHEEL_CONFIG.slaveConstants =
-        new TalonFXConstants[] {
-          new TalonFXConstants(new CANDevice(16), InvertedValue.CounterClockwise_Positive)
-        };
-    FLYWHEEL_CONFIG.slot0 =
+    LFLYWHEEL_CONFIG.slot0 =
         new ScreamPIDConstants(0.1, 0.0, 0.0)
             .getSlot0Configs(new FeedforwardConstants(0.11635, 0.17347, 0.0, 0.0));
 
-    FLYWHEEL_CONFIG.enableSupplyCurrentLimit = true;
-    FLYWHEEL_CONFIG.supplyCurrentLimit = 20;
+    LFLYWHEEL_CONFIG.enableSupplyCurrentLimit = true;
+    LFLYWHEEL_CONFIG.supplyCurrentLimit = 20;
   }
 }
