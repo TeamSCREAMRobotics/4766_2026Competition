@@ -11,11 +11,17 @@ import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
+import frc.robot.subsystems.ShooterSubFolder.LFlywheel;
+import frc.robot.subsystems.ShooterSubFolder.LFlywheelConfig;
+import frc.robot.subsystems.ShooterSubFolder.RFlywheel;
+import frc.robot.subsystems.ShooterSubFolder.RFlywheelConfig;
 
 public class Robot extends TimedRobot {
   private Command m_autonomousCommand;
 
   private final RobotContainer m_robotContainer;
+  private final LFlywheel m_LFlywheel;
+  private final RFlywheel m_RFlywheel;
 
   /* log and replay timestamp and joystick data */
   private final HootAutoReplay m_timeAndJoystickReplay =
@@ -25,6 +31,8 @@ public class Robot extends TimedRobot {
 
   public Robot() {
     m_robotContainer = new RobotContainer();
+    m_LFlywheel = new LFlywheel(LFlywheelConfig.LFLYWHEEL_CONFIG);
+    m_RFlywheel = new RFlywheel(RFlywheelConfig.RFLYWHEEL_CONFIG);
   }
 
   @Override
@@ -32,6 +40,8 @@ public class Robot extends TimedRobot {
     m_timeAndJoystickReplay.update();
     CommandScheduler.getInstance().run();
     SmartDashboard.putNumber("Match Time", DriverStation.getMatchTime());
+    SmartDashboard.putNumber("RFlywheel Velocity", m_RFlywheel.getvelocity());
+    SmartDashboard.putNumber("LFlywheel Velocity", m_LFlywheel.getvelocity());
 
     /*
      * This example of adding Limelight is very simple and may not be sufficient for on-field use.
