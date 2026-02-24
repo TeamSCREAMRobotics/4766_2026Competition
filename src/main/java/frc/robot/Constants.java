@@ -52,6 +52,8 @@ public class Constants {
     public static final double kD = 0.0;
     public static final double kMagicAcceleration = 60;
     public static final double kMagicCruiseVelocity = 80;
+    
+    
 
     //  public static final InterpolatingDoubleTreeMap HOOD_MAP = new InterpolatingDoubleTreeMap();
     //
@@ -61,7 +63,7 @@ public class Constants {
     //    HOOD_MAP.put(1.0, 10.0);
     //    HOOD_MAP.put(2.0, 20.0);
     //    HOOD_MAP.put(3.0, 30.0);
-    //   HOOD_MAP.put(4.0, 40.0);
+    //    HOOD_MAP.put(4.0, 40.0);
     //  }
 
     public static final InterpolatingDoubleTreeMap LSHOOTER_VELOCITY_MAP =
