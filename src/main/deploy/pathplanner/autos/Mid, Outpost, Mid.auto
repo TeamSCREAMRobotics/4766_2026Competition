@@ -55,7 +55,7 @@
         {
           "type": "path",
           "data": {
-            "pathName": "Refuel To Mid"
+            "pathName": "Outpost To Mid"
           }
         },
         {
@@ -80,6 +80,6 @@
     }
   },
   "resetOdom": true,
-  "folder": null,
+  "folder": "Mid Autos",
   "choreoAuto": false
 }
