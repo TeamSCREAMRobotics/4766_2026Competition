@@ -19,12 +19,12 @@ import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.RobotModeTriggers;
 import edu.wpi.first.wpilibj2.command.sysid.SysIdRoutine.Direction;
-import frc.robot.Commands.Agitator.AgitateAndKick;
-import frc.robot.Commands.IntakeGoToSetpoint;
-import frc.robot.Commands.ResetIntake;
-import frc.robot.Commands.RunIntake;
-import frc.robot.Commands.Shooter.Shoot;
 import frc.robot.Constants.IntakeConstants;
+import frc.robot.commands.Agitator.AgitateAndKick;
+import frc.robot.commands.IntakeGoToSetpoint;
+import frc.robot.commands.ResetIntake;
+import frc.robot.commands.RunIntake;
+import frc.robot.commands.Shooter.Shoot;
 import frc.robot.generated.TunerConstants;
 import frc.robot.subsystems.AgitatorSub;
 import frc.robot.subsystems.CommandSwerveDrivetrain;
@@ -152,7 +152,7 @@ public class RobotContainer {
         .x()
         .onTrue(new IntakeGoToSetpoint(m_intake, IntakeConstants.intakePivotUpSetpoint));
 
-    // operatorController.start().onTrue(new IntakeGoToSetpoint(m_intake,
+    // operatorController.start().on\[]True(new IntakeGoToSetpoint(m_intake,
     // IntakeConstants.intakeAgitateSetpoint).andThen(new IntakeGoToSetpoint(m_intake,
     // IntakeConstants.intakePivotDownSetpoint).andThen(new IntakeGoToSetpoint(m_intake,
     // IntakeConstants.intakeAgitateSetpoint).andThen(new IntakeGoToSetpoint(m_intake,
@@ -162,8 +162,10 @@ public class RobotContainer {
     driverController.rightBumper().whileTrue(new RunIntake(m_intake, 8.5));
     driverController.start().onTrue(new ResetIntake(m_intake));
 
+    driverController.y().whileTrue(new AgitateAndKick(m_agitator, 1, -1));
+
     m_agitator.setDefaultCommand(new AgitateAndKick(m_agitator, 1, -1));
-    m_shooter.setDefaultCommand(new Shoot(m_shooter, m_agitator, 0.1, 0.1));
+    // m_shooter.setDefaultCommand(new Shoot(m_shooter, m_agitator, 0.1, 0.1));
 
     // Reset the field-centric heading on left bumper press.
     driverController.leftBumper().onTrue(drivetrain.runOnce(drivetrain::seedFieldCentric));

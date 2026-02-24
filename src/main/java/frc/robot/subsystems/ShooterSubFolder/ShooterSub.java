@@ -27,6 +27,8 @@ public class ShooterSub extends SubsystemBase {
   MotionMagicConfigs shooterMagicConfigs = new MotionMagicConfigs();
   Slot0Configs shooterSlot0Configs = new Slot0Configs();
   TalonFXConfiguration shooterConfig = new TalonFXConfiguration();
+  TalonFXConfiguration LshooterConfig = new TalonFXConfiguration();
+  TalonFXConfiguration RshooterConfig = new TalonFXConfiguration();
 
   VoltageOut m_request = new VoltageOut(0);
 
@@ -55,11 +57,13 @@ public class ShooterSub extends SubsystemBase {
     RshooterMotor.getConfigurator().apply(shooterLimitsConfigs);
 
     shooterConfig.MotorOutput.NeutralMode = NeutralModeValue.Coast;
-    shooterConfig.MotorOutput.Inverted = InvertedValue.Clockwise_Positive;
-    shooterConfig.MotorOutput.Inverted = InvertedValue.CounterClockwise_Positive;
+    LshooterConfig.MotorOutput.Inverted = InvertedValue.Clockwise_Positive;
+    RshooterConfig.MotorOutput.Inverted = InvertedValue.CounterClockwise_Positive;
 
     LshooterMotor.getConfigurator().apply(shooterConfig);
     RshooterMotor.getConfigurator().apply(shooterConfig);
+    LshooterMotor.getConfigurator().apply(LshooterConfig);
+    RshooterMotor.getConfigurator().apply(RshooterConfig);
   }
 
   public boolean hasFuel() {
