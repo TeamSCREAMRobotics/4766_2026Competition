@@ -8,8 +8,8 @@
       },
       "prevControl": null,
       "nextControl": {
-        "x": 1.2806597528978028,
-        "y": 5.493602572978895
+        "x": 1.341831325301205,
+        "y": 6.06755421686747
       },
       "isLocked": false,
       "linkedName": "end path 1"
@@ -20,8 +20,8 @@
         "y": 4.071215616681455
       },
       "prevControl": {
-        "x": 3.017028056878466,
-        "y": 4.41916380681062
+        "x": 2.9263493975903616,
+        "y": 3.9694337349397593
       },
       "nextControl": null,
       "isLocked": false,
@@ -33,13 +33,13 @@
   "pointTowardsZones": [],
   "eventMarkers": [
     {
-      "name": "Shoot",
+      "name": "",
       "waypointRelativePos": 0.42133956386292776,
       "endWaypointRelativePos": 1.0,
       "command": {
         "type": "named",
         "data": {
-          "name": "Shoot"
+          "name": null
         }
       }
     }
@@ -60,7 +60,7 @@
   "folder": null,
   "idealStartingState": {
     "velocity": 0,
-    "rotation": 4.513327670539357
+    "rotation": 0.8047742259228275
   },
   "useDefaultConstraints": true
 }
