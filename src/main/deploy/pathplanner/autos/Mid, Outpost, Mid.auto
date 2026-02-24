@@ -25,13 +25,19 @@
         {
           "type": "named",
           "data": {
-            "name": "Hub Shoot"
+            "name": "Shoot"
           }
         },
         {
           "type": "wait",
           "data": {
             "waitTime": 2.5
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Stop Shoot"
           }
         },
         {
@@ -53,9 +59,21 @@
           }
         },
         {
+          "type": "named",
+          "data": {
+            "name": "Shoot"
+          }
+        },
+        {
           "type": "wait",
           "data": {
             "waitTime": 2.0
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Stop Shoot"
           }
         }
       ]
