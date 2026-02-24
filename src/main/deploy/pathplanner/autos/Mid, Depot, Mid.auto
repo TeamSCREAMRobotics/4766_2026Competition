@@ -1,0 +1,31 @@
+{
+  "version": "2025.0",
+  "command": {
+    "type": "sequential",
+    "data": {
+      "commands": [
+        {
+          "type": "path",
+          "data": {
+            "pathName": "Move From Mid"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "Mid To Depot"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "Depot To Mid (Facing Away Mid)"
+          }
+        }
+      ]
+    }
+  },
+  "resetOdom": true,
+  "folder": null,
+  "choreoAuto": false
+}
