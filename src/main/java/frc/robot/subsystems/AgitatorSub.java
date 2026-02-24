@@ -18,29 +18,35 @@ public class AgitatorSub extends SubsystemBase {
   TalonFX agitatorMotor = new TalonFX(AgitatorConstants.agitatorMotorID);
   TalonFX kickerMotor = new TalonFX(AgitatorConstants.kickerMotorID);
   VoltageOut m_request = new VoltageOut(0);
-  TalonFXConfiguration motorConfig = new TalonFXConfiguration();
+
+  TalonFXConfiguration agitatorConfig = new TalonFXConfiguration();
+  TalonFXConfiguration kickerConfig = new TalonFXConfiguration();
   CurrentLimitsConfigs kickerlimitconfigs = new CurrentLimitsConfigs();
 
   /** Creates a new AgitatorSub. */
   public AgitatorSub() {
-    motorConfig.MotorOutput.NeutralMode = NeutralModeValue.Coast;
-    motorConfig.MotorOutput.Inverted = InvertedValue.Clockwise_Positive; // placeholder
+    agitatorConfig.MotorOutput.NeutralMode = NeutralModeValue.Coast;
+    agitatorConfig.MotorOutput.Inverted = InvertedValue.Clockwise_Positive; // placeholder
+    kickerConfig.MotorOutput.Inverted = InvertedValue.CounterClockwise_Positive;
     kickerlimitconfigs.StatorCurrentLimitEnable = true;
 
-    agitatorMotor.getConfigurator().apply(motorConfig);
-    motorConfig.MotorOutput.Inverted = InvertedValue.CounterClockwise_Positive;
-    kickerMotor.getConfigurator().apply(motorConfig);
+    agitatorMotor.getConfigurator().apply(agitatorConfig);
+
+    kickerMotor.getConfigurator().apply(kickerConfig);
     kickerMotor.getConfigurator().apply(kickerlimitconfigs);
   }
 
-  public void RunAgitator(double Voltage, double kickerVoltage) {
-    agitatorMotor.setControl(m_request.withOutput(Voltage));
+  public void RunAgitatorAndKicker(double agitatorVoltage, double kickerVoltage) {
+    agitatorMotor.setControl(m_request.withOutput(agitatorVoltage));
     kickerMotor.setControl(m_request.withOutput(kickerVoltage));
   }
 
-  public boolean hasFuel() {
-    return true;
-    // change when detection method is found
+  public void RunAgitator(double agitatorVoltage) {
+    agitatorMotor.setControl(m_request.withOutput(agitatorVoltage));
+  }
+
+  public void RunKicker(double kickerVoltage) {
+    kickerMotor.setControl(m_request.withOutput(kickerVoltage));
   }
 
   @Override

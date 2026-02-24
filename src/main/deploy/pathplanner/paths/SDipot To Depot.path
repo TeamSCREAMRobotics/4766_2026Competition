@@ -1,0 +1,54 @@
+{
+  "version": "2025.0",
+  "waypoints": [
+    {
+      "anchor": {
+        "x": 3.5954615384615396,
+        "y": 5.860628205128205
+      },
+      "prevControl": null,
+      "nextControl": {
+        "x": 2.7952168674698794,
+        "y": 5.728795180722891
+      },
+      "isLocked": false,
+      "linkedName": "test"
+    },
+    {
+      "anchor": {
+        "x": 0.6533855421686747,
+        "y": 5.9473493975903615
+      },
+      "prevControl": {
+        "x": 1.3855421686746987,
+        "y": 5.88178313253012
+      },
+      "nextControl": null,
+      "isLocked": false,
+      "linkedName": "end path 1"
+    }
+  ],
+  "rotationTargets": [],
+  "constraintZones": [],
+  "pointTowardsZones": [],
+  "eventMarkers": [],
+  "globalConstraints": {
+    "maxVelocity": 130.0,
+    "maxAcceleration": 130.0,
+    "maxAngularVelocity": 540.0,
+    "maxAngularAcceleration": 720.0,
+    "nominalVoltage": 12.0,
+    "unlimited": false
+  },
+  "goalEndState": {
+    "velocity": 0,
+    "rotation": 178.6028189727037
+  },
+  "reversed": false,
+  "folder": "SDepot Paths",
+  "idealStartingState": {
+    "velocity": 0,
+    "rotation": -179.04732869904637
+  },
+  "useDefaultConstraints": true
+}

@@ -2,26 +2,25 @@
 // Open Source Software; you can modify and/or share it under the terms of
 // the WPILib BSD license file in the root directory of this project.
 
-package frc.robot.Commands.Shooter;
+package frc.robot.Commands.Agitator;
 
 import edu.wpi.first.wpilibj2.command.Command;
-import frc.robot.subsystems.ShooterSubFolder.ShooterSub;
+import frc.robot.subsystems.AgitatorSub;
 
 /* You should consider using the more terse Command factories API instead https://docs.wpilib.org/en/stable/docs/software/commandbased/organizing-command-based.html#defining-commands */
-public class ShootRight extends Command {
+public class AgitateAndKick extends Command {
+  AgitatorSub s_agitator;
+  double agitatorVoltage;
+  double kickerVoltage;
 
-  ShooterSub s_Shooter;
+  /** Creates a new Agitate. */
+  public AgitateAndKick(AgitatorSub agitator, double agitatorVoltage, double kickerVoltage) {
+    s_agitator = agitator;
+    this.agitatorVoltage = agitatorVoltage;
+    this.kickerVoltage = kickerVoltage;
 
-  double voltage;
-
-  /** Creates a new ShootRight. */
-  public ShootRight(ShooterSub shooter, double v) {
-    s_Shooter = shooter;
-
-    voltage = v;
-
+    addRequirements(agitator);
     // Use addRequirements() here to declare subsystem dependencies.
-    addRequirements(s_Shooter);
   }
 
   // Called when the command is initially scheduled.
@@ -31,14 +30,13 @@ public class ShootRight extends Command {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    // s_Shooter.runShooter(0, voltage);
-    // running only right shooter motor
+    s_agitator.RunAgitatorAndKicker(agitatorVoltage, kickerVoltage);
   }
 
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
-    // s_Shooter.runShooter(0, 0);
+    s_agitator.RunAgitatorAndKicker(0, 0);
   }
 
   // Returns true when the command should end.

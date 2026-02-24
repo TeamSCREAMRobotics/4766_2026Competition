@@ -2,7 +2,7 @@
 // Open Source Software; you can modify and/or share it under the terms of
 // the WPILib BSD license file in the root directory of this project.
 
-package frc.robot.commands.Shooter;
+package frc.robot.Commands.Shooter;
 
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.subsystems.AgitatorSub;
@@ -36,19 +36,19 @@ public class Shoot extends Command {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    // s_Shooter.runShooter(lvoltage, rvoltage);
+    s_Shooter.runShooter(lvoltage, rvoltage);
     if (true) {
-      s_Agitator.RunAgitator(3, 3);
+      s_Agitator.RunAgitatorAndKicker(3, 3);
 
-      // (LeftShooter, MiddleShooter, RightShooter)
+      // (LeftShooter, RightShooter)
     }
   }
 
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
-    // s_Shooter.runShooter(0, 0);
-    s_Agitator.RunAgitator(0, 0);
+    s_Shooter.runShooter(0, 0);
+    s_Agitator.RunAgitatorAndKicker(0, 0);
   }
 
   // Returns true when the command should end.
