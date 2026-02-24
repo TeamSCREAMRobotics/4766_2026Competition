@@ -163,6 +163,7 @@ public class RobotContainer {
     driverController.start().onTrue(new ResetIntake(m_intake));
 
     m_agitator.setDefaultCommand(new AgitateAndKick(m_agitator, 1, -1));
+    m_shooter.setDefaultCommand(new Shoot(m_shooter, m_agitator, 0.1, 0.1));
 
     // Reset the field-centric heading on left bumper press.
     driverController.leftBumper().onTrue(drivetrain.runOnce(drivetrain::seedFieldCentric));

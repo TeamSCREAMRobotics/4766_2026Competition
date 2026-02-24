@@ -36,11 +36,11 @@ public class Shoot extends Command {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    // s_Shooter.runShooter(lvoltage, rvoltage);
+    s_Shooter.runShooter(lvoltage, rvoltage);
     if (true) {
       s_Agitator.RunAgitatorAndKicker(3, 3);
 
-      // (LeftShooter, MiddleShooter, RightShooter)
+      // (LeftShooter, RightShooter)
     }
   }
 
