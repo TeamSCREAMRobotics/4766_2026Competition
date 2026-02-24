@@ -38,7 +38,7 @@ public class Shoot extends Command {
   public void execute() {
     // s_Shooter.runShooter(lvoltage, rvoltage);
     if (true) {
-      s_Agitator.RunAgitatorAndKicker(3,3);
+      s_Agitator.RunAgitatorAndKicker(3, 3);
 
       // (LeftShooter, MiddleShooter, RightShooter)
     }
@@ -47,7 +47,7 @@ public class Shoot extends Command {
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
-     s_Shooter.runShooter(0, 0);
+    s_Shooter.runShooter(0, 0);
     s_Agitator.RunAgitatorAndKicker(0, 0);
   }
 

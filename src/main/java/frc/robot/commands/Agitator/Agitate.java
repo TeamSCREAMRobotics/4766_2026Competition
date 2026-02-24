@@ -11,6 +11,7 @@ import frc.robot.subsystems.AgitatorSub;
 public class Agitate extends Command {
   AgitatorSub s_agitator;
   double agitatorVoltage;
+
   /** Creates a new Agitate. */
   public Agitate(AgitatorSub agitator, double agitatorVoltage) {
     s_agitator = agitator;

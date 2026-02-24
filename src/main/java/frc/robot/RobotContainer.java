@@ -20,10 +20,10 @@ import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.RobotModeTriggers;
 import edu.wpi.first.wpilibj2.command.sysid.SysIdRoutine.Direction;
 import frc.robot.Constants.IntakeConstants;
+import frc.robot.commands.Agitator.AgitateAndKick;
 import frc.robot.commands.IntakeGoToSetpoint;
 import frc.robot.commands.ResetIntake;
 import frc.robot.commands.RunIntake;
-import frc.robot.commands.Agitator.AgitateAndKick;
 import frc.robot.commands.Shooter.Shoot;
 import frc.robot.generated.TunerConstants;
 import frc.robot.subsystems.AgitatorSub;
@@ -175,11 +175,13 @@ public class RobotContainer {
     return autoChooser.getSelected();
   }
 
-  public void addNamedCommands(){
+  public void addNamedCommands() {
     NamedCommands.registerCommand("Hub Shoot", new Shoot(m_shooter, m_agitator, 8, 8));
-    NamedCommands.registerCommand("Intake Down", new IntakeGoToSetpoint(m_intake, IntakeConstants.intakePivotDownSetpoint));
-    NamedCommands.registerCommand("Intake Up", new IntakeGoToSetpoint(m_intake, IntakeConstants.intakePivotUpSetpoint));
+    NamedCommands.registerCommand(
+        "Intake Down", new IntakeGoToSetpoint(m_intake, IntakeConstants.intakePivotDownSetpoint));
+    NamedCommands.registerCommand(
+        "Intake Up", new IntakeGoToSetpoint(m_intake, IntakeConstants.intakePivotUpSetpoint));
     NamedCommands.registerCommand("Run Intake", new RunIntake(m_intake, 8.5));
     NamedCommands.registerCommand("Agitate And Kicker", new AgitateAndKick(m_agitator, 1, -1));
-}
+  }
 }

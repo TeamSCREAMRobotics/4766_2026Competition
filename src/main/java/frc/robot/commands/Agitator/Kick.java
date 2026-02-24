@@ -11,6 +11,7 @@ import frc.robot.subsystems.AgitatorSub;
 public class Kick extends Command {
   AgitatorSub s_agitator;
   double kickerVoltage;
+
   /** Creates a new Kick. */
   public Kick(AgitatorSub agitator, double kickerVoltage) {
     s_agitator = agitator;
