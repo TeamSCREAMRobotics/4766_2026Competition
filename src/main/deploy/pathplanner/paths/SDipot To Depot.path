@@ -8,45 +8,29 @@
       },
       "prevControl": null,
       "nextControl": {
-        "x": 3.020479296066253,
-        "y": 5.5958724432916975
+        "x": 2.7952168674698794,
+        "y": 5.728795180722891
       },
       "isLocked": false,
       "linkedName": "test"
     },
     {
       "anchor": {
-        "x": 0.45,
-        "y": 5.989
+        "x": 0.6533855421686747,
+        "y": 5.9473493975903615
       },
       "prevControl": {
-        "x": 1.0358554216867468,
-        "y": 5.914566265060241
+        "x": 1.3855421686746987,
+        "y": 5.88178313253012
       },
       "nextControl": null,
       "isLocked": false,
       "linkedName": "end path 1"
     }
   ],
-  "rotationTargets": [
-    {
-      "waypointRelativePos": 0.6975673898750882,
-      "rotationDegrees": 0.0
-    }
-  ],
+  "rotationTargets": [],
   "constraintZones": [],
-  "pointTowardsZones": [
-    {
-      "fieldPosition": {
-        "x": 4.65,
-        "y": 4.0
-      },
-      "rotationOffset": 0.0,
-      "minWaypointRelativePos": 0.1549844236760118,
-      "maxWaypointRelativePos": 0.5506230529595028,
-      "name": "Point Towards Zone"
-    }
-  ],
+  "pointTowardsZones": [],
   "eventMarkers": [],
   "globalConstraints": {
     "maxVelocity": 3.0,
@@ -58,13 +42,13 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": 0.8047742259228275
+    "rotation": 178.6028189727037
   },
   "reversed": false,
-  "folder": null,
+  "folder": "SDepot Paths",
   "idealStartingState": {
     "velocity": 0,
-    "rotation": 0.0
+    "rotation": -179.04732869904637
   },
   "useDefaultConstraints": true
 }

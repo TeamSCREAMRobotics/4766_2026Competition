@@ -7,13 +7,13 @@
         {
           "type": "path",
           "data": {
-            "pathName": "Depot Pickup 1"
+            "pathName": "SDipot To Depot"
           }
         },
         {
           "type": "path",
           "data": {
-            "pathName": "Depot Pickup 2"
+            "pathName": "Depot To Mid (Depot side)"
           }
         }
       ]

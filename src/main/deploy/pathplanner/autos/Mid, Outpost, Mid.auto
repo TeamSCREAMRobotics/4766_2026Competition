@@ -7,7 +7,7 @@
         {
           "type": "path",
           "data": {
-            "pathName": "Move From Hub 1"
+            "pathName": "Move From Mid"
           }
         },
         {
@@ -25,7 +25,7 @@
         {
           "type": "named",
           "data": {
-            "name": "Hub Shoot"
+            "name": "Shoot"
           }
         },
         {
@@ -35,9 +35,15 @@
           }
         },
         {
+          "type": "named",
+          "data": {
+            "name": "Stop Shoot"
+          }
+        },
+        {
           "type": "path",
           "data": {
-            "pathName": "from hub to refuel 2"
+            "pathName": "Mid To Outpost"
           }
         },
         {
@@ -49,13 +55,25 @@
         {
           "type": "path",
           "data": {
-            "pathName": "back to hub"
+            "pathName": "Refuel To Mid"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Shoot"
           }
         },
         {
           "type": "wait",
           "data": {
             "waitTime": 2.0
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Stop Shoot"
           }
         }
       ]
