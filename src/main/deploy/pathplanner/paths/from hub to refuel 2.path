@@ -8,8 +8,8 @@
       },
       "prevControl": null,
       "nextControl": {
-        "x": 3.3922168674698794,
-        "y": 1.652831325301206
+        "x": 2.2816144578313255,
+        "y": 4.056855421686747
       },
       "isLocked": false,
       "linkedName": "Move"
@@ -20,8 +20,8 @@
         "y": 0.6474096385542167
       },
       "prevControl": {
-        "x": 2.5985180722891554,
-        "y": 0.712975903614457
+        "x": 3.3853132530120478,
+        "y": 0.5272048192771093
       },
       "nextControl": null,
       "isLocked": false,
@@ -33,7 +33,7 @@
   "pointTowardsZones": [],
   "eventMarkers": [
     {
-      "name": "Refuel",
+      "name": "",
       "waypointRelativePos": 1.0,
       "endWaypointRelativePos": null,
       "command": null
