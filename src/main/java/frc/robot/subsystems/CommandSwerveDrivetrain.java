@@ -13,8 +13,12 @@ import com.pathplanner.lib.config.RobotConfig;
 import com.pathplanner.lib.controllers.PPHolonomicDriveController;
 import dev.doglog.DogLog;
 import edu.wpi.first.math.Matrix;
+import edu.wpi.first.math.VecBuilder;
 import edu.wpi.first.math.geometry.Pose2d;
 import edu.wpi.first.math.geometry.Rotation2d;
+import edu.wpi.first.math.geometry.Translation2d;
+import edu.wpi.first.math.geometry.Twist2d;
+import edu.wpi.first.math.kinematics.ChassisSpeeds;
 import edu.wpi.first.math.numbers.N1;
 import edu.wpi.first.math.numbers.N3;
 import edu.wpi.first.math.system.plant.DCMotor;
@@ -27,6 +31,8 @@ import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.Subsystem;
 import edu.wpi.first.wpilibj2.command.sysid.SysIdRoutine;
 import frc.robot.generated.TunerConstants;
+import frc.robot.LimelightHelpers;
+import frc.robot.LimelightHelpers.PoseEstimate;
 import frc.robot.generated.TunerConstants.TunerSwerveDrivetrain;
 import frc.robot.simulation.MapleSimSwerveDrivetrain;
 import java.util.function.Supplier;
@@ -96,7 +102,7 @@ public class CommandSwerveDrivetrain extends TunerSwerveDrivetrain implements Su
               Volts.of(Math.PI),
               null, // Use default timeout (10 s)
               // Log state with SignalLogger class
-              state -> SignalLogger.writeString("SysIdRotation_State", state.toString())),
+              state -> SignalLogger.writeString("SysIdRotation_State", state.toString()),
           new SysIdRoutine.Mechanism(
               output -> {
                 /* output is actually radians per second, but SysId only supports "volts" */
@@ -105,7 +111,7 @@ public class CommandSwerveDrivetrain extends TunerSwerveDrivetrain implements Su
                 SignalLogger.writeDouble("Rotational_Rate", output.in(Volts));
               },
               null,
-              this));
+              this)));
 
   /* The SysId routine to test */
   private SysIdRoutine m_sysIdRoutineToApply = m_sysIdRoutineTranslation;
@@ -253,6 +259,31 @@ public class CommandSwerveDrivetrain extends TunerSwerveDrivetrain implements Su
 
   @Override
   public void periodic() {
+    LimelightHelpers.SetRobotOrientation("Shooter Limelight", 0, 0, 0, 0, 0, 0);
+    PoseEstimate ShooterLimelightEstimate =
+        LimelightHelpers.getBotPoseEstimate_wpiBlue("Shooter Limelight");
+    if (ShooterLimelightEstimate != null && ShooterLimelightEstimate.tagCount != 0) {
+      addVisionMeasurement(
+          ShooterLimelightEstimate.pose, ShooterLimelightEstimate.timestampSeconds);
+      VecBuilder.fill(0.8, 0.8, 99999);
+    }
+    LimelightHelpers.SetRobotOrientation("Back-left Limelight", 0, 0, 0, 0, 0, 0);
+    PoseEstimate backLeftLimelightEstimate =
+        LimelightHelpers.getBotPoseEstimate_wpiBlue("Back-Left Limelight");
+    if (backLeftLimelightEstimate != null && backLeftLimelightEstimate.tagCount != 0) {
+      addVisionMeasurement(
+          backLeftLimelightEstimate.pose, backLeftLimelightEstimate.timestampSeconds);
+      VecBuilder.fill(0.8, 0.8, 99999);
+    }
+    LimelightHelpers.SetRobotOrientation("Back-right Limelight", 0, 0, 0, 0, 0, 0);
+    PoseEstimate backRightLimelightEstimate =
+        LimelightHelpers.getBotPoseEstimate_wpiBlue("Back-Right Limelight");
+    if (backRightLimelightEstimate != null && backRightLimelightEstimate.tagCount != 0) {
+      addVisionMeasurement(
+          backRightLimelightEstimate.pose, backLeftLimelightEstimate.timestampSeconds);
+      VecBuilder.fill(0.8, 0.8, 99999);
+    }
+
     /*
      * Periodically try to apply the operator perspective.
      * If we haven't applied the operator perspective before, then we should apply it regardless of DS state.
@@ -313,5 +344,66 @@ public class CommandSwerveDrivetrain extends TunerSwerveDrivetrain implements Su
       mapleSimSwerveDrivetrain.mapleSimDrive.setSimulationWorldPose(pose);
     Timer.delay(0.1); // wait for simulation to update
     super.resetPose(pose);
+  public void addVisionMeasurement(Pose2d visionRobotPoseMeters, double timestampSeconds) {
+    super.addVisionMeasurement(visionRobotPoseMeters, Utils.fpgaToCurrentTime(timestampSeconds));
+  }
+
+  /**
+   * Adds a vision measurement to the Kalman Filter. This will correct the odometry pose estimate
+   * while still accounting for measurement noise.
+   *
+   * <p>Note that the vision measurement standard deviations passed into this method will continue
+   * to apply to future measurements until a subsequent call to {@link
+   * #setVisionMeasurementStdDevs(Matrix)} or this method.
+   *
+   * @param visionRobotPoseMeters The pose of the robot as measured by the vision camera.
+   * @param timestampSeconds The timestamp of the vision measurement in seconds.
+   * @param visionMeasurementStdDevs Standard deviations of the vision pose measurement in the form
+   *     [x, y, theta]ᵀ, with units in meters and radians.
+   */
+  @Override
+  public void addVisionMeasurement(
+      Pose2d visionRobotPoseMeters,
+      double timestampSeconds,
+      Matrix<N3, N1> visionMeasurementStdDevs) {
+    super.addVisionMeasurement(
+        visionRobotPoseMeters, Utils.fpgaToCurrentTime(timestampSeconds), visionMeasurementStdDevs);
+  }
+
+  public Pose2d getPose() {
+    return getState().Pose;
+  }
+
+  public Rotation2d getHeading() {
+    return getPose().getRotation();
+  }
+
+  public Rotation2d getYawRate() {
+    return Rotation2d.fromDegrees(
+        getPigeon2().getAngularVelocityZWorld().asSupplier().get().in(DegreesPerSecond));
+  }
+
+  public Translation2d getLinearVelocity() {
+    return new Translation2d(
+            getState().Speeds.vxMetersPerSecond, getState().Speeds.vyMetersPerSecond)
+        .rotateBy(getHeading());
+  }
+
+  public Twist2d getFieldVelocity() {
+    return new Twist2d(
+        getLinearVelocity().getX(),
+        getLinearVelocity().getY(),
+        getState().Speeds.omegaRadiansPerSecond);
+  }
+
+  /**
+   * Return the pose at a given timestamp, if the buffer is not empty.
+   *
+   * @param timestampSeconds The timestamp of the pose in seconds.
+   * @return The pose at the given timestamp (or Optional.empty() if the buffer is empty).
+   */
+  @Override
+  public Optional<Pose2d> samplePoseAt(double timestampSeconds) {
+    return super.samplePoseAt(Utils.fpgaToCurrentTime(timestampSeconds));
   }
 }
