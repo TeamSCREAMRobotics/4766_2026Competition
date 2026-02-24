@@ -20,13 +20,14 @@ import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.RobotModeTriggers;
 import edu.wpi.first.wpilibj2.command.sysid.SysIdRoutine.Direction;
 import frc.robot.Constants.IntakeConstants;
-
+import frc.robot.commands.Agitate;
 import frc.robot.commands.IntakeGoToSetpoint;
 import frc.robot.commands.ResetIntake;
 import frc.robot.commands.RunIntake;
 import frc.robot.commands.Shooter.Shoot;
 import frc.robot.generated.TunerConstants;
 import frc.robot.subsystems.AgitatorSub;
+import frc.robot.subsystems.Climber;
 import frc.robot.subsystems.CommandSwerveDrivetrain;
 import frc.robot.subsystems.Intake;
 import frc.robot.subsystems.ShooterSubFolder.LFlywheel;
@@ -58,7 +59,7 @@ public class RobotContainer {
   private final RFlywheel rFlywheel = new RFlywheel(RFlywheelConfig.RFLYWHEEL_CONFIG);
 
   private final Telemetry logger = new Telemetry(MaxSpeed);
-  // private final Climber m_climber = new Climber();
+private final Climber m_climber = new Climber();
   private final Intake m_intake = new Intake();
   private final ShooterSub m_shooter = new ShooterSub();
   private final AgitatorSub m_agitator = new AgitatorSub();
@@ -77,7 +78,7 @@ public class RobotContainer {
     autoChooser.addOption("Depot Auto", new PathPlannerAuto("Depot Auto"));
 
     SmartDashboard.putData("Auto Mode", autoChooser);
-    // SmartDashboard.getNumber("Climber Pose", m_climber.getClimberPose());
+    SmartDashboard.getNumber("Climber Pose", m_climber.getClimberPose());
     configureBindings();
 
     // Warmup PathPlanner to avoid Java pauses
@@ -146,13 +147,18 @@ public class RobotContainer {
         .and(driverController.x())
         .whileTrue(drivetrain.sysIdQuasistatic(Direction.kReverse));
 
-    driverController.rightTrigger(0.5).whileTrue(Commands.run(() ->lFlywheel.setSetpointVelocity(75.0), lFlywheel).
-    alongWith(Commands.run(() ->rFlywheel.setSetpointVelocity(75.0), rFlywheel).
-    alongWith(new Shoot(m_shooter, m_agitator, 0, 0))));
+    driverController
+        .rightTrigger(0.5)
+        .whileTrue(
+            Commands.run(() -> lFlywheel.setSetpointVelocity(50.0), lFlywheel)
+                .alongWith(
+                    Commands.run(() -> rFlywheel.setSetpointVelocity(50), rFlywheel)
+                        .alongWith(
+                            new Shoot(lFlywheel, rFlywheel, m_agitator, 50, 50)
+                                .alongWith(drivetrain.applyRequest(() -> brake)))));
 
-
-    //driverController.rightTrigger(.5).whileTrue(new FeedForwardCharacterization(flywheel,flywheel::setVoltage, flywheel::getVelocity));
-
+    // driverController.rightTrigger(.5).whileTrue(new
+    // FeedForwardCharacterization(flywheel,flywheel::setVoltage, flywheel::getVelocity));
 
     // driverController.rightTrigger().whileTrue(new
     // Shoot(m_shooter,m_agitator,0,0).alongWith(drivetrain.applyRequest(()-> brake)));
@@ -169,12 +175,13 @@ public class RobotContainer {
     // IntakeConstants.intakeAgitateSetpoint).andThen(new IntakeGoToSetpoint(m_intake,
     // IntakeConstants.intakePivotDownSetpoint)))));
 
-    driverController.rightTrigger().whileTrue(new Shoot(m_shooter, m_agitator, 50, 50));
+    //driverController.rightTrigger().whileTrue(new Shoot(m_shooter, m_agitator, 50, 50));
     driverController.rightBumper().whileTrue(new RunIntake(m_intake, 8.5));
     driverController.start().onTrue(new ResetIntake(m_intake));
 
-   // m_agitator.setDefaultCommand(new Agitate(m_agitator, 1, -1));
-
+    m_agitator.setDefaultCommand(new Agitate(m_agitator, 1, -1));
+    lFlywheel.setDefaultCommand(Commands.run(() -> lFlywheel.setSetpointVelocity(10), lFlywheel));
+    rFlywheel.setDefaultCommand(Commands.run(() -> rFlywheel.setSetpointVelocity(10), rFlywheel));
     // Reset the field-centric heading on left bumper press.
     driverController.leftBumper().onTrue(drivetrain.runOnce(drivetrain::seedFieldCentric));
 
