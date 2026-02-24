@@ -20,6 +20,7 @@ import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.RobotModeTriggers;
 import edu.wpi.first.wpilibj2.command.sysid.SysIdRoutine.Direction;
 import frc.robot.Constants.IntakeConstants;
+import frc.robot.Constants.ShooterConstants;
 import frc.robot.commands.Agitator.AgitateAndKick;
 import frc.robot.commands.IntakeGoToSetpoint;
 import frc.robot.commands.ResetIntake;
@@ -158,7 +159,14 @@ public class RobotContainer {
     // IntakeConstants.intakeAgitateSetpoint).andThen(new IntakeGoToSetpoint(m_intake,
     // IntakeConstants.intakePivotDownSetpoint)))));
 
-    driverController.rightTrigger().whileTrue(new Shoot(m_shooter, m_agitator, 8, 8));
+    driverController
+        .rightTrigger()
+        .whileTrue(
+            new Shoot(
+                m_shooter,
+                m_agitator,
+                ShooterConstants.LSHOOTER_VELOCITY_MAP.get(1.0),
+                ShooterConstants.RSHOOTER_VELOCITY_MAP.get(1.0)));
     driverController.rightBumper().whileTrue(new RunIntake(m_intake, 8.5));
     driverController.start().onTrue(new ResetIntake(m_intake));
 
