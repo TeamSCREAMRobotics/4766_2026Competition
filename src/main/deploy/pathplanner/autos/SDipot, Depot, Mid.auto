@@ -13,13 +13,13 @@
         {
           "type": "path",
           "data": {
-            "pathName": "Depot To Mid (Depot side)"
+            "pathName": "Depot To Mid"
           }
         }
       ]
     }
   },
   "resetOdom": true,
-  "folder": null,
+  "folder": "SDipot Autos",
   "choreoAuto": false
 }
