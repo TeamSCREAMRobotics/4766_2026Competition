@@ -8,19 +8,19 @@ import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.subsystems.AgitatorSub;
 import frc.robot.subsystems.ShooterSubFolder.LFlywheel;
 import frc.robot.subsystems.ShooterSubFolder.RFlywheel;
-import frc.robot.subsystems.ShooterSubFolder.ShooterSub;
 
 /* You should consider using the more terse Command factories API instead https://docs.wpilib.org/en/stable/docs/software/commandbased/organizing-command-based.html#defining-commands */
 public class Shoot extends Command {
 
-  RFlywheel  s_RFlywheel;
+  RFlywheel s_RFlywheel;
   AgitatorSub s_Agitator;
   LFlywheel s_LFlywheel;
   double lvelocity;
   double rvelocity;
 
   /** Creates a new Shooter. */
-  public Shoot(LFlywheel lFlywheel, RFlywheel rFlywheel, AgitatorSub agitator, double lv, double rv) {
+  public Shoot(
+      LFlywheel lFlywheel, RFlywheel rFlywheel, AgitatorSub agitator, double lv, double rv) {
 
     s_LFlywheel = lFlywheel;
     s_RFlywheel = rFlywheel;
@@ -40,8 +40,10 @@ public class Shoot extends Command {
   @Override
   public void execute() {
     // s_Shooter.runShooter(lvoltage, rvoltage);
-    if (s_LFlywheel.getvelocity() >= lvelocity - 2 && s_LFlywheel.getvelocity() <= lvelocity + 2 &&
-     s_RFlywheel.getvelocity() >= rvelocity - 2 && s_RFlywheel.getvelocity() <= rvelocity + 2) {
+    if (s_LFlywheel.getvelocity() >= lvelocity - 2
+        && s_LFlywheel.getvelocity() <= lvelocity + 2
+        && s_RFlywheel.getvelocity() >= rvelocity - 2
+        && s_RFlywheel.getvelocity() <= rvelocity + 2) {
       s_Agitator.RunAgitatorAndKicker(3, 3);
 
       // (LeftShooter, RightShooter)
