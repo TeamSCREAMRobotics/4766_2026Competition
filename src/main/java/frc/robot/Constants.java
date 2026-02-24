@@ -45,91 +45,92 @@ public class Constants {
     public static final int pivotMotorID = 0;
     public static final int pivotCanID = 0;
 
-  public class SimulationConstants {
-    public static double fuelDiameter = 0.15;
+    public class SimulationConstants {
+      public static double fuelDiameter = 0.15;
 
-    public static double NEUTRAL_ZONE_XMIN = 7.425;
-    public static double NEUTRAL_ZONE_YMIN = 1.7625, NEUTRAL_ZONE_YMAX = 6.2375;
+      public static double NEUTRAL_ZONE_XMIN = 7.425;
+      public static double NEUTRAL_ZONE_YMIN = 1.7625, NEUTRAL_ZONE_YMAX = 6.2375;
 
-    public static int NEUTRAL_ZONE_NUMFUEL = 372;
-    public static int DEPOT_NUMFUEL = 24;
-    public static final double kG = 0.0;
-    public static final double kV = 0.0;
-    public static final double kP = .73;
-    public static final double kI = 0.0;
-    public static final double kD = 0.0;
-    public static final double kMagicAcceleration = 60;
-    public static final double kMagicCruiseVelocity = 80;
+      public static int NEUTRAL_ZONE_NUMFUEL = 372;
+      public static int DEPOT_NUMFUEL = 24;
+      public static final double kG = 0.0;
+      public static final double kV = 0.0;
+      public static final double kP = .73;
+      public static final double kI = 0.0;
+      public static final double kD = 0.0;
+      public static final double kMagicAcceleration = 60;
+      public static final double kMagicCruiseVelocity = 80;
 
-    //  public static final InterpolatingDoubleTreeMap HOOD_MAP = new InterpolatingDoubleTreeMap();
-    //
-    //  static {
-    //    // placeholder values before testing
-    //    // (distance to hub, hood angle)
-    //    HOOD_MAP.put(1.0, 10.0);
-    //    HOOD_MAP.put(2.0, 20.0);
-    //    HOOD_MAP.put(3.0, 30.0);
-    //   HOOD_MAP.put(4.0, 40.0);
-    //  }
+      //  public static final InterpolatingDoubleTreeMap HOOD_MAP = new
+      // InterpolatingDoubleTreeMap();
+      //
+      //  static {
+      //    // placeholder values before testing
+      //    // (distance to hub, hood angle)
+      //    HOOD_MAP.put(1.0, 10.0);
+      //    HOOD_MAP.put(2.0, 20.0);
+      //    HOOD_MAP.put(3.0, 30.0);
+      //   HOOD_MAP.put(4.0, 40.0);
+      //  }
 
-    public static final InterpolatingDoubleTreeMap LSHOOTER_VELOCITY_MAP =
-        new InterpolatingDoubleTreeMap();
+      public static final InterpolatingDoubleTreeMap LSHOOTER_VELOCITY_MAP =
+          new InterpolatingDoubleTreeMap();
 
-    static {
-      // placeholder values before testing
-      // (distance to hub, flywheel voltage)
-      LSHOOTER_VELOCITY_MAP.put(1.0, 1.0);
-      LSHOOTER_VELOCITY_MAP.put(2.0, 3.0);
-      LSHOOTER_VELOCITY_MAP.put(3.0, 5.0);
-      LSHOOTER_VELOCITY_MAP.put(4.0, 6.5);
+      static {
+        // placeholder values before testing
+        // (distance to hub, flywheel voltage)
+        LSHOOTER_VELOCITY_MAP.put(1.0, 1.0);
+        LSHOOTER_VELOCITY_MAP.put(2.0, 3.0);
+        LSHOOTER_VELOCITY_MAP.put(3.0, 5.0);
+        LSHOOTER_VELOCITY_MAP.put(4.0, 6.5);
+      }
+
+      public static final InterpolatingDoubleTreeMap RSHOOTER_VELOCITY_MAP =
+          new InterpolatingDoubleTreeMap();
+
+      static {
+        // placeholder values before testing
+        // (distance to hub, flywheel voltage)
+        RSHOOTER_VELOCITY_MAP.put(1.0, 1.0);
+        RSHOOTER_VELOCITY_MAP.put(2.0, 3.0);
+        RSHOOTER_VELOCITY_MAP.put(3.0, 5.0);
+        RSHOOTER_VELOCITY_MAP.put(4.0, 6.5);
+      }
     }
 
-    public static final InterpolatingDoubleTreeMap RSHOOTER_VELOCITY_MAP =
-        new InterpolatingDoubleTreeMap();
+    public class ClimberConstants {
+      public static final int climbermotorID = 20;
+      public static final double kP = 0;
+      public static final double kI = 0;
+      public static final double kD = 0;
+      public static final double kV = 0;
+      public static final double kG = 0;
+      public static final int climberTopSetpoint = 0;
+      public static final int climberLowSetpoint = 0;
+    }
 
-    static {
-      // placeholder values before testing
-      // (distance to hub, flywheel voltage)
-      RSHOOTER_VELOCITY_MAP.put(1.0, 1.0);
-      RSHOOTER_VELOCITY_MAP.put(2.0, 3.0);
-      RSHOOTER_VELOCITY_MAP.put(3.0, 5.0);
-      RSHOOTER_VELOCITY_MAP.put(4.0, 6.5);
+    public class AgitatorConstants {
+      public static final int agitatorMotorID = 13;
+      public static final int kickerMotorID = 15;
+    }
+
+    public class FieldConstants {
+      public static final Translation2d fieldDimesions = new Translation2d(null, null);
+      public static final RectangularPoseArea fieldArea =
+          new RectangularPoseArea(Translation2d.kZero, fieldDimesions);
+      public static final Pose2d blueHubAlign =
+          new Pose2d(0, fieldDimesions.getY(), Rotation2d.fromDegrees(0));
+      public static final Pose2d redHubAlign =
+          new Pose2d(fieldDimesions.getX() - 0, fieldDimesions.getY() * 0, null);
+
+      private static Pair<Integer, Pose2d> getTagPair(int id) {
+        return Pair.of(
+            id,
+            AprilTagFieldLayout.loadField(AprilTagFields.k2026RebuiltWelded)
+                .getTagPose(id)
+                .get()
+                .toPose2d());
+      }
     }
   }
-
-  public class ClimberConstants {
-    public static final int climbermotorID = 20;
-    public static final double kP = 0;
-    public static final double kI = 0;
-    public static final double kD = 0;
-    public static final double kV = 0;
-    public static final double kG = 0;
-    public static final int climberTopSetpoint = 0;
-    public static final int climberLowSetpoint = 0;
-  }
-
-  public class AgitatorConstants {
-    public static final int agitatorMotorID = 13;
-    public static final int kickerMotorID = 15;
-  }
-
-  public class FieldConstants {
-    public static final Translation2d fieldDimesions = new Translation2d(null, null);
-    public static final RectangularPoseArea fieldArea =
-        new RectangularPoseArea(Translation2d.kZero, fieldDimesions);
-    public static final Pose2d blueHubAlign =
-        new Pose2d(0, fieldDimesions.getY(), Rotation2d.fromDegrees(0));
-    public static final Pose2d redHubAlign =
-        new Pose2d(fieldDimesions.getX() - 0, fieldDimesions.getY() * 0, null);
-
-    private static Pair<Integer, Pose2d> getTagPair(int id) {
-      return Pair.of(
-          id,
-          AprilTagFieldLayout.loadField(AprilTagFields.k2026RebuiltWelded)
-              .getTagPose(id)
-              .get()
-              .toPose2d());
-    }
-  }
-}
 }

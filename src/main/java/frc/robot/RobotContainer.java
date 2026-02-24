@@ -73,6 +73,10 @@ public class RobotContainer {
     autoChooser.addOption("Depot Auto", new PathPlannerAuto("Depot Auto"));
 
     SmartDashboard.putData("Auto Mode", autoChooser);
+
+    autoChooser.addOption("Depot Auto", new PathPlannerAuto("Depot Auto"));
+
+    SmartDashboard.putData("Auto Mode", autoChooser);
     // SmartDashboard.getNumber("Climber Pose", m_climber.getClimberPose());
     configureBindings();
 

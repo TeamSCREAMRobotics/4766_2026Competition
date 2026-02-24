@@ -18,7 +18,6 @@ import edu.wpi.first.math.geometry.Pose2d;
 import edu.wpi.first.math.geometry.Rotation2d;
 import edu.wpi.first.math.geometry.Translation2d;
 import edu.wpi.first.math.geometry.Twist2d;
-import edu.wpi.first.math.kinematics.ChassisSpeeds;
 import edu.wpi.first.math.numbers.N1;
 import edu.wpi.first.math.numbers.N3;
 import edu.wpi.first.math.system.plant.DCMotor;
@@ -30,11 +29,12 @@ import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.Subsystem;
 import edu.wpi.first.wpilibj2.command.sysid.SysIdRoutine;
-import frc.robot.generated.TunerConstants;
 import frc.robot.LimelightHelpers;
 import frc.robot.LimelightHelpers.PoseEstimate;
+import frc.robot.generated.TunerConstants;
 import frc.robot.generated.TunerConstants.TunerSwerveDrivetrain;
 import frc.robot.simulation.MapleSimSwerveDrivetrain;
+import java.util.Optional;
 import java.util.function.Supplier;
 
 /**
@@ -102,7 +102,7 @@ public class CommandSwerveDrivetrain extends TunerSwerveDrivetrain implements Su
               Volts.of(Math.PI),
               null, // Use default timeout (10 s)
               // Log state with SignalLogger class
-              state -> SignalLogger.writeString("SysIdRotation_State", state.toString()),
+              state -> SignalLogger.writeString("SysIdRotation_State", state.toString())),
           new SysIdRoutine.Mechanism(
               output -> {
                 /* output is actually radians per second, but SysId only supports "volts" */
@@ -111,7 +111,7 @@ public class CommandSwerveDrivetrain extends TunerSwerveDrivetrain implements Su
                 SignalLogger.writeDouble("Rotational_Rate", output.in(Volts));
               },
               null,
-              this)));
+              this));
 
   /* The SysId routine to test */
   private SysIdRoutine m_sysIdRoutineToApply = m_sysIdRoutineTranslation;
@@ -344,6 +344,8 @@ public class CommandSwerveDrivetrain extends TunerSwerveDrivetrain implements Su
       mapleSimSwerveDrivetrain.mapleSimDrive.setSimulationWorldPose(pose);
     Timer.delay(0.1); // wait for simulation to update
     super.resetPose(pose);
+  }
+
   public void addVisionMeasurement(Pose2d visionRobotPoseMeters, double timestampSeconds) {
     super.addVisionMeasurement(visionRobotPoseMeters, Utils.fpgaToCurrentTime(timestampSeconds));
   }

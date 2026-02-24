@@ -11,12 +11,12 @@ import com.ctre.phoenix6.hardware.TalonFX;
 import com.ctre.phoenix6.signals.InvertedValue;
 import com.ctre.phoenix6.signals.NeutralModeValue;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
-import frc.robot.Constants;
+import frc.robot.Constants.ShooterConstants.AgitatorConstants;
 
 public class AgitatorSub extends SubsystemBase {
 
-  TalonFX agitatorMotor = new TalonFX(Constants.AgitatorConstants.agitatorMotorID);
-  TalonFX kickerMotor = new TalonFX(Constants.AgitatorConstants.kickerMotorID);
+  TalonFX agitatorMotor = new TalonFX(AgitatorConstants.agitatorMotorID);
+  TalonFX kickerMotor = new TalonFX(AgitatorConstants.kickerMotorID);
   VoltageOut m_request = new VoltageOut(0);
   TalonFXConfiguration motorConfig = new TalonFXConfiguration();
   CurrentLimitsConfigs kickerlimitconfigs = new CurrentLimitsConfigs();

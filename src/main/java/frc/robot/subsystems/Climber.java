@@ -12,10 +12,10 @@ import com.ctre.phoenix6.signals.NeutralModeValue;
 import dev.doglog.DogLog;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
-import frc.robot.Constants;
+import frc.robot.Constants.ShooterConstants.ClimberConstants;
 
 public class Climber extends SubsystemBase {
-  TalonFX climbermotor = new TalonFX(Constants.ClimberConstants.climbermotorID);
+  TalonFX climbermotor = new TalonFX(ClimberConstants.climbermotorID);
   VoltageOut m_request = new VoltageOut(0);
   TalonFXConfiguration climberConfigs = new TalonFXConfiguration();
   Slot0Configs climberPIDConfigs = new Slot0Configs();
@@ -27,11 +27,11 @@ public class Climber extends SubsystemBase {
     climberConfigs.SoftwareLimitSwitch.ReverseSoftLimitThreshold = 0;
     climberConfigs.SoftwareLimitSwitch.ForwardSoftLimitEnable = true;
     climberConfigs.SoftwareLimitSwitch.ReverseSoftLimitEnable = true;
-    climberPIDConfigs.kP = Constants.ClimberConstants.kP;
-    climberPIDConfigs.kI = Constants.ClimberConstants.kI;
-    climberPIDConfigs.kD = Constants.ClimberConstants.kD;
-    climberPIDConfigs.kV = Constants.ClimberConstants.kV;
-    climberPIDConfigs.kG = Constants.ClimberConstants.kG;
+    climberPIDConfigs.kP = ClimberConstants.kP;
+    climberPIDConfigs.kI = ClimberConstants.kI;
+    climberPIDConfigs.kD = ClimberConstants.kD;
+    climberPIDConfigs.kV = ClimberConstants.kV;
+    climberPIDConfigs.kG = ClimberConstants.kG;
 
     climberConfigs.Slot0 = climberPIDConfigs;
     climbermotor.getConfigurator().apply(climberConfigs);

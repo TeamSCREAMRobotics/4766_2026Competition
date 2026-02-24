@@ -14,7 +14,6 @@ import com.ctre.phoenix6.signals.InvertedValue;
 import com.ctre.phoenix6.signals.NeutralModeValue;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
-import frc.robot.Constants.ShooterConstants;
 
 public class ShooterSub extends SubsystemBase {
   // TalonFX LshooterMotor = new TalonFX(Constants.ShooterConstants.LshooterMoterID);
@@ -31,14 +30,14 @@ public class ShooterSub extends SubsystemBase {
   /** Creates a new ShooterSub. */
   public ShooterSub() {
 
-    shooterSlot0Configs.kP = ShooterConstants.kP;
-    shooterSlot0Configs.kI = ShooterConstants.kI;
-    shooterSlot0Configs.kD = ShooterConstants.kD;
-    shooterSlot0Configs.kV = ShooterConstants.kV;
-    shooterSlot0Configs.kG = ShooterConstants.kG;
+    // shooterSlot0Configs.kP = ShooterConstants.kP;
+    // shooterSlot0Configs.kI = ShooterConstants.kI;
+    // shooterSlot0Configs.kD = ShooterConstants.kD;
+    // shooterSlot0Configs.kV = ShooterConstants.kV;
+    // shooterSlot0Configs.kG = ShooterConstants.kG;
 
-    shooterMagicConfigs.MotionMagicAcceleration = ShooterConstants.kMagicAcceleration;
-    shooterMagicConfigs.MotionMagicCruiseVelocity = ShooterConstants.kMagicCruiseVelocity;
+    // shooterMagicConfigs.MotionMagicAcceleration = ShooterConstants.kMagicAcceleration;
+    // shooterMagicConfigs.MotionMagicCruiseVelocity = ShooterConstants.kMagicCruiseVelocity;
 
     // subject to change
     shooterLimitsConfigs.StatorCurrentLimitEnable = true;
