@@ -70,7 +70,7 @@ public class Constants {
     static {
       // placeholder values before testing
       // (distance to hub, flywheel voltage)
-      LSHOOTER_VELOCITY_MAP.put(1.0, 1.0);
+      LSHOOTER_VELOCITY_MAP.put(1.0, 8.0);
       LSHOOTER_VELOCITY_MAP.put(2.0, 3.0);
       LSHOOTER_VELOCITY_MAP.put(3.0, 5.0);
       LSHOOTER_VELOCITY_MAP.put(4.0, 6.5);
@@ -82,7 +82,7 @@ public class Constants {
     static {
       // placeholder values before testing
       // (distance to hub, flywheel voltage)
-      RSHOOTER_VELOCITY_MAP.put(1.0, 1.0);
+      RSHOOTER_VELOCITY_MAP.put(1.0, 8.0);
       RSHOOTER_VELOCITY_MAP.put(2.0, 3.0);
       RSHOOTER_VELOCITY_MAP.put(3.0, 5.0);
       RSHOOTER_VELOCITY_MAP.put(4.0, 6.5);
