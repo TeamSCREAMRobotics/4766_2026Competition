@@ -11,9 +11,9 @@ import frc.robot.subsystems.ShooterSubFolder.RFlywheel;
 
 /* You should consider using the more terse Command factories API instead https://docs.wpilib.org/en/stable/docs/software/commandbased/organizing-command-based.html#defining-commands */
 public class Shoot extends Command {
-  
+
   AgitatorSub s_Agitator;
-  
+
   RFlywheel s_RFlywheel;
   LFlywheel s_LFlywheel;
 
