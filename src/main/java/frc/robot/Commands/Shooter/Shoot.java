@@ -11,10 +11,12 @@ import frc.robot.subsystems.ShooterSubFolder.RFlywheel;
 
 /* You should consider using the more terse Command factories API instead https://docs.wpilib.org/en/stable/docs/software/commandbased/organizing-command-based.html#defining-commands */
 public class Shoot extends Command {
-
-  RFlywheel s_RFlywheel;
+  
   AgitatorSub s_Agitator;
+  
+  RFlywheel s_RFlywheel;
   LFlywheel s_LFlywheel;
+
   double lvelocity;
   double rvelocity;
 
@@ -24,7 +26,9 @@ public class Shoot extends Command {
 
     s_LFlywheel = lFlywheel;
     s_RFlywheel = rFlywheel;
+
     s_Agitator = agitator;
+
     lvelocity = lv;
     rvelocity = rv;
 
@@ -39,14 +43,11 @@ public class Shoot extends Command {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    // s_Shooter.runShooter(lvoltage, rvoltage);
     if (s_LFlywheel.getvelocity() >= lvelocity - 2
         && s_LFlywheel.getvelocity() <= lvelocity + 2
         && s_RFlywheel.getvelocity() >= rvelocity - 2
         && s_RFlywheel.getvelocity() <= rvelocity + 2) {
       s_Agitator.RunAgitatorAndKicker(3, 3);
-
-      // (LeftShooter, RightShooter)
     }
   }
 
