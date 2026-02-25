@@ -12,7 +12,6 @@ import com.pathplanner.lib.auto.AutoBuilder;
 import com.pathplanner.lib.auto.NamedCommands;
 import com.pathplanner.lib.commands.FollowPathCommand;
 import com.pathplanner.lib.commands.PathPlannerAuto;
-
 import dev.doglog.DogLog;
 import dev.doglog.DogLogOptions;
 import edu.wpi.first.math.geometry.Rotation2d;
@@ -88,7 +87,7 @@ public class RobotContainer {
     autoChooser.addOption("Depot Auto", new PathPlannerAuto("Depot Auto"));
     SmartDashboard.putData("Auto Mode", autoChooser);
     SmartDashboard.getNumber("Climber Pose", m_climber.getClimberPose());
-    
+
     configureBindings();
 
     DogLog.setOptions(new DogLogOptions().withCaptureDs(true).withCaptureNt(true));
@@ -207,7 +206,11 @@ public class RobotContainer {
 
     operatorController.back().onTrue(new ResetClimber(m_climber));
     operatorController.a().onTrue(new RunClimber(m_climber, ClimberConstants.climberLowSetpoint));
-    operatorController.x().onTrue(new IntakeGoToSetpoint(m_intake, IntakeConstants.intakePivotUpSetpoint).andThen(new RunClimber(m_climber, ClimberConstants.climberTopSetpoint)));
+    operatorController
+        .x()
+        .onTrue(
+            new IntakeGoToSetpoint(m_intake, IntakeConstants.intakePivotUpSetpoint)
+                .andThen(new RunClimber(m_climber, ClimberConstants.climberTopSetpoint)));
 
     m_agitator.setDefaultCommand(new AgitateAndKick(m_agitator, 1, -1));
     lFlywheel.setDefaultCommand(Commands.run(() -> lFlywheel.setSetpointVelocity(10), lFlywheel));
