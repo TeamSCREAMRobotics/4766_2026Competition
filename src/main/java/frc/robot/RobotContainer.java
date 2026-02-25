@@ -21,6 +21,7 @@ import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.RobotModeTriggers;
 import edu.wpi.first.wpilibj2.command.sysid.SysIdRoutine.Direction;
 import frc.robot.Constants.IntakeConstants;
+import frc.robot.Constants.ShooterConstants;
 import frc.robot.commands.Agitator.AgitateAndKick;
 import frc.robot.commands.IntakeGoToSetpoint;
 import frc.robot.commands.ResetIntake;
@@ -151,9 +152,9 @@ public class RobotContainer {
     driverController
         .rightTrigger(0.5)
         .whileTrue(
-            Commands.run(() -> lFlywheel.setSetpointVelocity(50.0), lFlywheel)
+            Commands.run(() -> lFlywheel.setSetpointVelocity(ShooterConstants.defaultVelocity), lFlywheel)
                 .alongWith(
-                    Commands.run(() -> rFlywheel.setSetpointVelocity(50), rFlywheel)
+                    Commands.run(() -> rFlywheel.setSetpointVelocity(ShooterConstants.defaultVelocity), rFlywheel)
                         .alongWith(
                             new Shoot(lFlywheel, rFlywheel, m_agitator, 50, 50)
                                 .alongWith(drivetrain.applyRequest(() -> brake)))));
@@ -190,7 +191,7 @@ public class RobotContainer {
     driverController.y().whileTrue(new AgitateAndKick(m_agitator, 1, -1));
 
     m_agitator.setDefaultCommand(new AgitateAndKick(m_agitator, 1, -1));
-    // m_shooter.setDefaultCommand(new Shoot(m_shooter, m_agitator, 0.1, 0.1));
+    
 
     // Reset the field-centric heading on left bumper press.
     driverController.leftBumper().onTrue(drivetrain.runOnce(drivetrain::seedFieldCentric));
