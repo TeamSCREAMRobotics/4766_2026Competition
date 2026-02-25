@@ -12,7 +12,11 @@ import com.pathplanner.lib.auto.AutoBuilder;
 import com.pathplanner.lib.auto.NamedCommands;
 import com.pathplanner.lib.commands.FollowPathCommand;
 import com.pathplanner.lib.commands.PathPlannerAuto;
+
+import dev.doglog.DogLog;
+import dev.doglog.DogLogOptions;
 import edu.wpi.first.math.geometry.Rotation2d;
+import edu.wpi.first.wpilibj.PowerDistribution;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
@@ -78,13 +82,17 @@ private final Climber m_climber = new Climber();
   private final SendableChooser<Command> autoChooser;
 
   public RobotContainer() {
+    addNamedCommands();
     autoChooser = AutoBuilder.buildAutoChooser("Tests");
 
     autoChooser.addOption("Depot Auto", new PathPlannerAuto("Depot Auto"));
-
     SmartDashboard.putData("Auto Mode", autoChooser);
     SmartDashboard.getNumber("Climber Pose", m_climber.getClimberPose());
+    
     configureBindings();
+
+    DogLog.setOptions(new DogLogOptions().withCaptureDs(true).withCaptureNt(true));
+    DogLog.setPdh(new PowerDistribution());
 
     // Warmup PathPlanner to avoid Java pauses
     FollowPathCommand.warmupCommand().schedule();

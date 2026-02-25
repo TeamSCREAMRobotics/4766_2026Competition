@@ -5,6 +5,7 @@
 package frc.robot.commands;
 
 import dev.doglog.DogLog;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.subsystems.Intake;
 
@@ -39,6 +40,7 @@ public class IntakeGoToSetpoint extends Command {
   @Override
   public boolean isFinished() {
     DogLog.log("Intake Pivot Is Finished", m_intake.isFinished(m_setpoint));
+    SmartDashboard.putBoolean("Intake Pivot Has Finished", m_intake.isFinished(m_setpoint));
     return m_intake.isFinished(m_setpoint);
   }
 }

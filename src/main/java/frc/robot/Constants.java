@@ -23,7 +23,7 @@ public class Constants {
   public class IntakeConstants {
     public static final int intakeMotorID = 14;
     public static final int intakePivotID = 12;
-    public static final double kP = 1.4;
+    public static final double kP = 1.7;
     public static final double kI = 0;
     public static final double kD = 0;
     public static final double kV = 0;
@@ -34,7 +34,7 @@ public class Constants {
     public static final double intakePivotUpSetpoint = 0.33;
     public static final double intakeAgitateSetpoint = 7.3;
     public static final double intakePivotForwardSoftLimit = 7.33;
-    public static final double intakePivotReversSoftLimit = 0.05;
+    public static final double intakePivotReversSoftLimit = 0.005;
   }
 
   public class ShooterConstants {
@@ -91,15 +91,15 @@ public class Constants {
 
   public class ClimberConstants {
     public static final int climbermotorID = 20;
-    public static final double kP = 0.1;
+    public static final double kP = 12.7;
     public static final double kI = 0;
     public static final double kD = 0;
     public static final double kV = 0;
     public static final double kG = 0;
-    public static final double climberTopSetpoint = 0;
-    public static final double climberLowSetpoint = 0.00876;
+    public static final double climberTopSetpoint = 8.25;
+    public static final double climberLowSetpoint = 0.008;
     public static final double climberReverseThreshold = 0.005;
-    public static final double climberForwardThreshold = 0.00878;
+    public static final double climberForwardThreshold = 8.258;
 
     public static final double climberMagicAccereation = 1;
     public static final double climberMagicCruiseVelocity = 1;
