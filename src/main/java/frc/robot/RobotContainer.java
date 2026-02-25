@@ -152,9 +152,13 @@ public class RobotContainer {
     driverController
         .rightTrigger(0.5)
         .whileTrue(
-            Commands.run(() -> lFlywheel.setSetpointVelocity(ShooterConstants.defaultVelocity), lFlywheel)
+            Commands.run(
+                    () -> lFlywheel.setSetpointVelocity(ShooterConstants.defaultVelocity),
+                    lFlywheel)
                 .alongWith(
-                    Commands.run(() -> rFlywheel.setSetpointVelocity(ShooterConstants.defaultVelocity), rFlywheel)
+                    Commands.run(
+                            () -> rFlywheel.setSetpointVelocity(ShooterConstants.defaultVelocity),
+                            rFlywheel)
                         .alongWith(
                             new Shoot(lFlywheel, rFlywheel, m_agitator, 50, 50)
                                 .alongWith(drivetrain.applyRequest(() -> brake)))));
@@ -191,7 +195,6 @@ public class RobotContainer {
     driverController.y().whileTrue(new AgitateAndKick(m_agitator, 1, -1));
 
     m_agitator.setDefaultCommand(new AgitateAndKick(m_agitator, 1, -1));
-    
 
     // Reset the field-centric heading on left bumper press.
     driverController.leftBumper().onTrue(drivetrain.runOnce(drivetrain::seedFieldCentric));
