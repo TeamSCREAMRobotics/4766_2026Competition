@@ -91,13 +91,18 @@ public class Constants {
 
   public class ClimberConstants {
     public static final int climbermotorID = 20;
-    public static final double kP = 0;
+    public static final double kP = 0.1;
     public static final double kI = 0;
     public static final double kD = 0;
     public static final double kV = 0;
     public static final double kG = 0;
-    public static final int climberTopSetpoint = 0;
-    public static final int climberLowSetpoint = 0;
+    public static final double climberTopSetpoint = 0;
+    public static final double climberLowSetpoint = 0.00876;
+    public static final double climberReverseThreshold = 0.005;
+    public static final double climberForwardThreshold = 0.00878;
+
+    public static final double climberMagicAccereation = 1;
+    public static final double climberMagicCruiseVelocity = 1;
   }
 
   public class AgitatorConstants {

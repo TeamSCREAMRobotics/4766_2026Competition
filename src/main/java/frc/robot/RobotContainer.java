@@ -20,11 +20,14 @@ import edu.wpi.first.wpilibj2.command.Commands;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.RobotModeTriggers;
 import edu.wpi.first.wpilibj2.command.sysid.SysIdRoutine.Direction;
+import frc.robot.Constants.ClimberConstants;
 import frc.robot.Constants.IntakeConstants;
 import frc.robot.Constants.ShooterConstants;
 import frc.robot.commands.Agitator.AgitateAndKick;
 import frc.robot.commands.IntakeGoToSetpoint;
+import frc.robot.commands.ResetClimber;
 import frc.robot.commands.ResetIntake;
+import frc.robot.commands.RunClimber;
 import frc.robot.commands.RunIntake;
 import frc.robot.commands.Shooter.Shoot;
 import frc.robot.generated.TunerConstants;
@@ -190,8 +193,13 @@ private final Climber m_climber = new Climber();
 
     driverController.y().whileTrue(new AgitateAndKick(m_agitator, 1, -1));
 
+    operatorController.back().onTrue(new ResetClimber(m_climber));
+    operatorController.a().onTrue(new RunClimber(m_climber, ClimberConstants.climberLowSetpoint));
+    operatorController.x().onTrue(new IntakeGoToSetpoint(m_intake, IntakeConstants.intakePivotUpSetpoint).andThen(new RunClimber(m_climber, ClimberConstants.climberTopSetpoint)));
+
     m_agitator.setDefaultCommand(new AgitateAndKick(m_agitator, 1, -1));
-    // m_shooter.setDefaultCommand(new Shoot(m_shooter, m_agitator, 0.1, 0.1));
+    lFlywheel.setDefaultCommand(Commands.run(() -> lFlywheel.setSetpointVelocity(10), lFlywheel));
+    rFlywheel.setDefaultCommand(Commands.run(() -> rFlywheel.setSetpointVelocity(10), rFlywheel));
 
     // Reset the field-centric heading on left bumper press.
     driverController.leftBumper().onTrue(drivetrain.runOnce(drivetrain::seedFieldCentric));
