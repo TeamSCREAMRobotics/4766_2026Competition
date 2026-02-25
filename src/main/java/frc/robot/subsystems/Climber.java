@@ -13,7 +13,6 @@ import com.ctre.phoenix6.hardware.TalonFX;
 import com.ctre.phoenix6.signals.NeutralModeValue;
 import com.teamscreamrobotics.data.Length;
 import com.teamscreamrobotics.math.Conversions;
-
 import dev.doglog.DogLog;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
@@ -32,8 +31,10 @@ public class Climber extends SubsystemBase {
   /** Creates a new Climber. */
   public Climber() {
     climberConfigs.MotorOutput.NeutralMode = NeutralModeValue.Brake;
-    climberConfigs.SoftwareLimitSwitch.ForwardSoftLimitThreshold = IntakeConstants.intakePivotForwardSoftLimit;
-    climberConfigs.SoftwareLimitSwitch.ReverseSoftLimitThreshold = IntakeConstants.intakePivotReversSoftLimit;
+    climberConfigs.SoftwareLimitSwitch.ForwardSoftLimitThreshold =
+        IntakeConstants.intakePivotForwardSoftLimit;
+    climberConfigs.SoftwareLimitSwitch.ReverseSoftLimitThreshold =
+        IntakeConstants.intakePivotReversSoftLimit;
     climberConfigs.SoftwareLimitSwitch.ForwardSoftLimitEnable = true;
     climberConfigs.SoftwareLimitSwitch.ReverseSoftLimitEnable = true;
     climberConfigs.Feedback.SensorToMechanismRatio = 25;
@@ -62,7 +63,8 @@ public class Climber extends SubsystemBase {
 
   // This goes to the requested setpoint of "setpoint"
   public void climberGoToSetpoint(double setpoint) {
-    climbermotor.setControl(m_MagicVoltage.withPosition(distanceToRotations(Length.fromInches(setpoint))));
+    climbermotor.setControl(
+        m_MagicVoltage.withPosition(distanceToRotations(Length.fromInches(setpoint))));
   }
 
   // This tells you when the climber has finished going to the position given
@@ -71,11 +73,12 @@ public class Climber extends SubsystemBase {
         && climbermotor.getPosition().getValueAsDouble() <= setpoint + 0.05;
   }
 
-  public Length rotationsToDistance(){
-    return Conversions.rotationsToLinearDistance(getClimberPose(), Length.fromInches(2.256 * Math.PI));
+  public Length rotationsToDistance() {
+    return Conversions.rotationsToLinearDistance(
+        getClimberPose(), Length.fromInches(2.256 * Math.PI));
   }
 
-  public double distanceToRotations(Length distance){
+  public double distanceToRotations(Length distance) {
     return Conversions.linearDistanceToRotations(distance, Length.fromInches(2.256 * Math.PI));
   }
 
