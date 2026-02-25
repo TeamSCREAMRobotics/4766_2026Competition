@@ -93,9 +93,9 @@ public class Constants {
 
   public class ClimberConstants {
     public static final int climbermotorID = 20;
-    public static final double kP = 12.7;
+    public static final double kP = 12.9;
     public static final double kI = 0;
-    public static final double kD = 0;
+    public static final double kD = 0.5;
     public static final double kV = 0;
     public static final double kG = 0;
     public static final double climberTopSetpoint = 8.25;

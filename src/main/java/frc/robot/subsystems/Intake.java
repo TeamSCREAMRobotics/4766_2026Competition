@@ -73,8 +73,8 @@ public class Intake extends SubsystemBase {
   }
 
   public boolean isFinished(double setpoint) {
-    return intakePivot.getPosition().getValueAsDouble() >= setpoint - 0.5
-        && intakePivot.getPosition().getValueAsDouble() <= setpoint + 0.5;
+    return intakePivot.getPosition().getValueAsDouble() >= setpoint - 0.55
+        && intakePivot.getPosition().getValueAsDouble() <= setpoint + 0.55;
   }
 
   @Override

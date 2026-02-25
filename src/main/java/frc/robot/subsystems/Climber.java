@@ -67,8 +67,8 @@ public class Climber extends SubsystemBase {
 
   // This tells you when the climber has finished going to the position given
   public boolean climberIsFinished(double setpoint) {
-    return climbermotor.getPosition().getValueAsDouble() >= setpoint - 0.1
-        && climbermotor.getPosition().getValueAsDouble() <= setpoint + 0.1;
+    return climbermotor.getPosition().getValueAsDouble() >= setpoint - 0.05
+        && climbermotor.getPosition().getValueAsDouble() <= setpoint + 0.05;
   }
 
   public Length rotationsToDistance(){
