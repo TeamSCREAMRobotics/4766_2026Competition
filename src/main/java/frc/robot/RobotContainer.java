@@ -68,7 +68,7 @@ public class RobotContainer {
   private final RFlywheel rFlywheel = new RFlywheel(RFlywheelConfig.RFLYWHEEL_CONFIG);
 
   private final Telemetry logger = new Telemetry(MaxSpeed);
-private final Climber m_climber = new Climber();
+  private final Climber m_climber = new Climber();
   private final Intake m_intake = new Intake();
   private final ShooterSub m_shooter = new ShooterSub();
   private final AgitatorSub m_agitator = new AgitatorSub();
@@ -163,9 +163,13 @@ private final Climber m_climber = new Climber();
     driverController
         .rightTrigger(0.5)
         .whileTrue(
-            Commands.run(() -> lFlywheel.setSetpointVelocity(50.0), lFlywheel)
+            Commands.run(
+                    () -> lFlywheel.setSetpointVelocity(ShooterConstants.defaultVelocity),
+                    lFlywheel)
                 .alongWith(
-                    Commands.run(() -> rFlywheel.setSetpointVelocity(50), rFlywheel)
+                    Commands.run(
+                            () -> rFlywheel.setSetpointVelocity(ShooterConstants.defaultVelocity),
+                            rFlywheel)
                         .alongWith(
                             new Shoot(lFlywheel, rFlywheel, m_agitator, 50, 50)
                                 .alongWith(drivetrain.applyRequest(() -> brake)))));
@@ -188,14 +192,14 @@ private final Climber m_climber = new Climber();
     // IntakeConstants.intakeAgitateSetpoint).andThen(new IntakeGoToSetpoint(m_intake,
     // IntakeConstants.intakePivotDownSetpoint)))));
 
-//    driverController
-//        .rightTrigger()
-//        .whileTrue(
-//            new Shoot(
-//                m_shooter,
-//                m_agitator,
-//                ShooterConstants.LSHOOTER_VELOCITY_MAP.get(1.0),
-//                ShooterConstants.RSHOOTER_VELOCITY_MAP.get(1.0)));
+    //    driverController
+    //        .rightTrigger()
+    //        .whileTrue(
+    //            new Shoot(
+    //                m_shooter,
+    //                m_agitator,
+    //                ShooterConstants.LSHOOTER_VELOCITY_MAP.get(1.0),
+    //                ShooterConstants.RSHOOTER_VELOCITY_MAP.get(1.0)));
     driverController.rightBumper().whileTrue(new RunIntake(m_intake, 8.5));
     driverController.start().onTrue(new ResetIntake(m_intake));
 
@@ -221,13 +225,13 @@ private final Climber m_climber = new Climber();
   }
 
   public void addNamedCommands() {
- //   NamedCommands.registerCommand("Shoot", new Shoot(m_shooter, m_agitator, 8, 8));
+    //   NamedCommands.registerCommand("Shoot", new Shoot(m_shooter, m_agitator, 8, 8));
     NamedCommands.registerCommand(
         "Intake Down", new IntakeGoToSetpoint(m_intake, IntakeConstants.intakePivotDownSetpoint));
     NamedCommands.registerCommand(
         "Intake Up", new IntakeGoToSetpoint(m_intake, IntakeConstants.intakePivotUpSetpoint));
     NamedCommands.registerCommand("Run Intake", new RunIntake(m_intake, 8.5));
     NamedCommands.registerCommand("Agitate And Kicker", new AgitateAndKick(m_agitator, 1, -1));
- //   NamedCommands.registerCommand("Stop Shoot", new Shoot(m_shooter, m_agitator, 0, 0));
+    //   NamedCommands.registerCommand("Stop Shoot", new Shoot(m_shooter, m_agitator, 0, 0));
   }
 }

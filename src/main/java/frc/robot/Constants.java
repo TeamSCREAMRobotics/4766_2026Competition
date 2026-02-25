@@ -53,6 +53,8 @@ public class Constants {
     public static final double kMagicAcceleration = 60;
     public static final double kMagicCruiseVelocity = 80;
 
+    public static final double defaultVelocity = 50.0;
+
     //  public static final InterpolatingDoubleTreeMap HOOD_MAP = new InterpolatingDoubleTreeMap();
     //
     //  static {
