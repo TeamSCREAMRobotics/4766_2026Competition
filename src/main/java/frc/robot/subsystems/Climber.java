@@ -45,7 +45,6 @@ public class Climber extends SubsystemBase {
     climberPIDConfigs.kG = Constants.ClimberConstants.kG;
     climberMagicConfigs.MotionMagicAcceleration = ClimberConstants.climberMagicAccereation;
     climberMagicConfigs.MotionMagicCruiseVelocity = ClimberConstants.climberMagicCruiseVelocity;
-
     climberConfigs.Slot0 = climberPIDConfigs;
     climberConfigs.MotionMagic = climberMagicConfigs;
     climbermotor.getConfigurator().apply(climberConfigs);

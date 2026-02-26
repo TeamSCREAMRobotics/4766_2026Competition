@@ -181,20 +181,12 @@ public class RobotContainer {
     // driverController.rightTrigger(.5).whileTrue(new
     // FeedForwardCharacterization(flywheel,flywheel::setVoltage, flywheel::getVelocity));
 
-    // driverController.rightTrigger().whileTrue(new
-    // Shoot(m_shooter,m_agitator,0,0).alongWith(drivetrain.applyRequest(()-> brake)));
     driverController
         .a()
         .onTrue(new IntakeGoToSetpoint(m_intake, IntakeConstants.intakePivotDownSetpoint));
     driverController
         .x()
         .onTrue(new IntakeGoToSetpoint(m_intake, IntakeConstants.intakePivotUpSetpoint));
-
-    // operatorController.start().onTrue(new IntakeGoToSetpoint(m_intake,
-    // IntakeConstants.intakeAgitateSetpoint).andThen(new IntakeGoToSetpoint(m_intake,
-    // IntakeConstants.intakePivotDownSetpoint).andThen(new IntakeGoToSetpoint(m_intake,
-    // IntakeConstants.intakeAgitateSetpoint).andThen(new IntakeGoToSetpoint(m_intake,
-    // IntakeConstants.intakePivotDownSetpoint)))));
 
     //    driverController
     //        .rightTrigger()
