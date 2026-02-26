@@ -4,15 +4,15 @@
   "holonomicMode": true,
   "pathFolders": [
     "Claire and Roy's Hub Paths",
+    "Claire and Roy's bump Paths",
     "Mid Paths",
-    "Claire and Roy's left bump Paths",
     "SDepot Paths",
     "SOutpost Paths"
   ],
   "autoFolders": [
     "Claire and Roy's Hub Autos",
+    "Claire and Roy's bump Autos",
     "Mid Autos",
-    "Claire and Roy's left bump Autos",
     "SDipot Autos",
     "SOutpost Autos"
   ],

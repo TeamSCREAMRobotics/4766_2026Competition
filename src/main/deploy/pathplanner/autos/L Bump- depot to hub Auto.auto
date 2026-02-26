@@ -31,7 +31,7 @@
         {
           "type": "path",
           "data": {
-            "pathName": "left bump to depot"
+            "pathName": "Lbump- bump to depot"
           }
         },
         {
@@ -62,6 +62,6 @@
     }
   },
   "resetOdom": true,
-  "folder": "Claire and Roy's left bump Autos",
+  "folder": "Claire and Roy's bump Autos",
   "choreoAuto": false
 }
