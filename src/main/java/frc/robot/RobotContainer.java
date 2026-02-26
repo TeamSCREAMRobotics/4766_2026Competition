@@ -188,7 +188,6 @@ public class RobotContainer {
         .x()
         .onTrue(new IntakeGoToSetpoint(m_intake, IntakeConstants.intakePivotUpSetpoint));
 
-
     //    driverController
     //        .rightTrigger()
     //        .whileTrue(
