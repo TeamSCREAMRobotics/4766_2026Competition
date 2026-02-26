@@ -5,12 +5,6 @@
     "data": {
       "commands": [
         {
-          "type": "path",
-          "data": {
-            "pathName": "back up"
-          }
-        },
-        {
           "type": "named",
           "data": {
             "name": "Intake Down"
@@ -37,49 +31,31 @@
         {
           "type": "path",
           "data": {
-            "pathName": "hub to depot"
-          }
-        },
-        {
-          "type": "path",
-          "data": {
-            "pathName": "forward- depot"
-          }
-        },
-        {
-          "type": "path",
-          "data": {
-            "pathName": "Depot To Hub"
+            "pathName": "Rbump to depot"
           }
         },
         {
           "type": "named",
           "data": {
-            "name": "Shoot"
+            "name": "Run Intake"
           }
         },
         {
-          "type": "wait",
+          "type": "path",
           "data": {
-            "waitTime": 3.0
+            "pathName": "Rbump- forward in depot"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "RBump depot to hub"
           }
         },
         {
           "type": "named",
           "data": {
-            "name": "Stop Shoot"
-          }
-        },
-        {
-          "type": "path",
-          "data": {
-            "pathName": "hub to outpost"
-          }
-        },
-        {
-          "type": "path",
-          "data": {
-            "pathName": "Outpost To Hub"
+            "name": "Stop Intake"
           }
         },
         {
@@ -104,6 +80,6 @@
     }
   },
   "resetOdom": true,
-  "folder": "Claire and Roy's Hub Autos",
+  "folder": "Right Bump Autos",
   "choreoAuto": false
 }

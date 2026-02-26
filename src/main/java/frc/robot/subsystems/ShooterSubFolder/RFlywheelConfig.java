@@ -13,7 +13,7 @@ public class RFlywheelConfig {
       new TalonFXSubsystemConfiguration();
 
   static {
-    RFLYWHEEL_CONFIG.name = "LFlywheel";
+    RFLYWHEEL_CONFIG.name = "RFlywheel";
 
     RFLYWHEEL_CONFIG.codeEnabled = true;
     RFLYWHEEL_CONFIG.logTelemetry = false;

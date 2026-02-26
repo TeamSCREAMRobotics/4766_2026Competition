@@ -1,0 +1,25 @@
+{
+  "version": "2025.0",
+  "command": {
+    "type": "sequential",
+    "data": {
+      "commands": [
+        {
+          "type": "path",
+          "data": {
+            "pathName": "Rbump to outpost"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "Rbump outpost to hub"
+          }
+        }
+      ]
+    }
+  },
+  "resetOdom": true,
+  "folder": "Right Bump Autos",
+  "choreoAuto": false
+}
