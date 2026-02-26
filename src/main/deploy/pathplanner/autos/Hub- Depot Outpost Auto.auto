@@ -41,9 +41,27 @@
           }
         },
         {
+          "type": "named",
+          "data": {
+            "name": "Run Intake"
+          }
+        },
+        {
           "type": "path",
           "data": {
             "pathName": "forward- depot"
+          }
+        },
+        {
+          "type": "wait",
+          "data": {
+            "waitTime": 1.0
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Stop Intake"
           }
         },
         {
