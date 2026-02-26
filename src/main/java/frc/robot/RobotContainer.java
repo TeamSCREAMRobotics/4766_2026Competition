@@ -83,7 +83,7 @@ public class RobotContainer {
   /* Path follower */
   private final SendableChooser<Command> autoChooser;
 
-  private final Sendable<Double> testVelocity;
+  //private final Sendable<Double> testVelocity;
  
   public RobotContainer() {
     addNamedCommands();
@@ -99,7 +99,7 @@ public class RobotContainer {
     DogLog.setPdh(new PowerDistribution());
 
     SmartDashboard.getNumber("Shooter Limelight TA", LimelightHelpers.getTA("limelight-shooter"));
-    SmartDashboard.putData();
+    //SmartDashboard.putData();
 
     // Warmup PathPlanner to avoid Java pauses
     FollowPathCommand.warmupCommand().schedule();
@@ -185,8 +185,6 @@ public class RobotContainer {
     // driverController.rightTrigger(.5).whileTrue(new
     // FeedForwardCharacterization(flywheel,flywheel::setVoltage, flywheel::getVelocity));
 
-    // driverController.rightTrigger().whileTrue(new
-    // Shoot(m_shooter,m_agitator,0,0).alongWith(drivetrain.applyRequest(()-> brake)));
     driverController
         .a()
         .onTrue(new IntakeGoToSetpoint(m_intake, IntakeConstants.intakePivotDownSetpoint));
@@ -194,11 +192,6 @@ public class RobotContainer {
         .x()
         .onTrue(new IntakeGoToSetpoint(m_intake, IntakeConstants.intakePivotUpSetpoint));
 
-    // operatorController.start().onTrue(new IntakeGoToSetpoint(m_intake,
-    // IntakeConstants.intakeAgitateSetpoint).andThen(new IntakeGoToSetpoint(m_intake,
-    // IntakeConstants.intakePivotDownSetpoint).andThen(new IntakeGoToSetpoint(m_intake,
-    // IntakeConstants.intakeAgitateSetpoint).andThen(new IntakeGoToSetpoint(m_intake,
-    // IntakeConstants.intakePivotDownSetpoint)))));
 
     //    driverController
     //        .rightTrigger()

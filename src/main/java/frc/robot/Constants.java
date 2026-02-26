@@ -100,6 +100,7 @@ public class Constants {
     public static final double kG = 0;
     public static final double climberTopSetpoint = 8.25;
     public static final double climberLowSetpoint = 0.008;
+    public static final double climberClimbSetpoint = 6;
     public static final double climberReverseThreshold = 0.005;
     public static final double climberForwardThreshold = 8.258;
 

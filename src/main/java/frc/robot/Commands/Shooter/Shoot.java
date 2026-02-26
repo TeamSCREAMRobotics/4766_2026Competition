@@ -47,7 +47,7 @@ public class Shoot extends Command {
         && s_LFlywheel.getvelocity() <= lvelocity + 2
         && s_RFlywheel.getvelocity() >= rvelocity - 2
         && s_RFlywheel.getvelocity() <= rvelocity + 2) {
-      s_Agitator.RunAgitatorAndKicker(7, 7);
+      s_Agitator.RunAgitatorAndKicker(12, 12);
     }
   }
 

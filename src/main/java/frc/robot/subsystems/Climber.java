@@ -14,6 +14,7 @@ import com.ctre.phoenix6.signals.NeutralModeValue;
 import com.teamscreamrobotics.data.Length;
 import com.teamscreamrobotics.math.Conversions;
 import dev.doglog.DogLog;
+import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
@@ -27,7 +28,6 @@ public class Climber extends SubsystemBase {
   Slot0Configs climberPIDConfigs = new Slot0Configs();
   MotionMagicConfigs climberMagicConfigs = new MotionMagicConfigs();
   MotionMagicVoltage m_MagicVoltage = new MotionMagicVoltage(0);
-
   /** Creates a new Climber. */
   public Climber() {
     climberConfigs.MotorOutput.NeutralMode = NeutralModeValue.Brake;
@@ -45,7 +45,6 @@ public class Climber extends SubsystemBase {
     climberPIDConfigs.kG = Constants.ClimberConstants.kG;
     climberMagicConfigs.MotionMagicAcceleration = ClimberConstants.climberMagicAccereation;
     climberMagicConfigs.MotionMagicCruiseVelocity = ClimberConstants.climberMagicCruiseVelocity;
-
     climberConfigs.Slot0 = climberPIDConfigs;
     climberConfigs.MotionMagic = climberMagicConfigs;
     climbermotor.getConfigurator().apply(climberConfigs);
