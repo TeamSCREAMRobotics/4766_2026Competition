@@ -29,6 +29,7 @@ import frc.robot.Constants.IntakeConstants;
 import frc.robot.Constants.ShooterConstants;
 import frc.robot.commands.Agitator.AgitateAndKick;
 import frc.robot.commands.IntakeGoToSetpoint;
+import frc.robot.commands.Jostle;
 import frc.robot.commands.ResetClimber;
 import frc.robot.commands.ResetIntake;
 import frc.robot.commands.RunClimber;
@@ -175,7 +176,8 @@ public class RobotContainer {
                             rFlywheel)
                         .alongWith(
                             new Shoot(lFlywheel, rFlywheel, m_agitator, 50, 50)
-                                .alongWith(drivetrain.applyRequest(() -> brake)))));
+                                .alongWith(drivetrain.applyRequest(() -> brake)))
+                                .alongWith(new Jostle(m_intake))));
 
     // driverController.rightTrigger(.5).whileTrue(new
     // FeedForwardCharacterization(flywheel,flywheel::setVoltage, flywheel::getVelocity));
@@ -189,7 +191,7 @@ public class RobotContainer {
         .x()
         .onTrue(new IntakeGoToSetpoint(m_intake, IntakeConstants.intakePivotUpSetpoint));
 
-    // operatorController.start().on\[]True(new IntakeGoToSetpoint(m_intake,
+    // operatorController.start().onTrue(new IntakeGoToSetpoint(m_intake,
     // IntakeConstants.intakeAgitateSetpoint).andThen(new IntakeGoToSetpoint(m_intake,
     // IntakeConstants.intakePivotDownSetpoint).andThen(new IntakeGoToSetpoint(m_intake,
     // IntakeConstants.intakeAgitateSetpoint).andThen(new IntakeGoToSetpoint(m_intake,
@@ -215,6 +217,7 @@ public class RobotContainer {
         .onTrue(
             new IntakeGoToSetpoint(m_intake, IntakeConstants.intakePivotUpSetpoint)
                 .andThen(new RunClimber(m_climber, ClimberConstants.climberTopSetpoint)));
+    operatorController.y().whileTrue(new Jostle(m_intake));
 
     m_agitator.setDefaultCommand(new AgitateAndKick(m_agitator, 1, -1));
     lFlywheel.setDefaultCommand(Commands.run(() -> lFlywheel.setSetpointVelocity(10), lFlywheel));
