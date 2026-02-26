@@ -5,15 +5,45 @@
     "data": {
       "commands": [
         {
+          "type": "named",
+          "data": {
+            "name": "Intake Down"
+          }
+        },
+        {
           "type": "path",
           "data": {
             "pathName": "Rbump to outpost"
           }
         },
         {
+          "type": "wait",
+          "data": {
+            "waitTime": 3.0
+          }
+        },
+        {
           "type": "path",
           "data": {
             "pathName": "Rbump outpost to hub"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Shoot"
+          }
+        },
+        {
+          "type": "wait",
+          "data": {
+            "waitTime": 3.0
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Stop Shoot"
           }
         }
       ]

@@ -3,13 +3,13 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 0.6643132530120479,
-        "y": 0.6474096385542167
+        "x": 0.4457590361445781,
+        "y": 0.516277108433735
       },
       "prevControl": null,
       "nextControl": {
-        "x": 1.664313253012048,
-        "y": 0.6474096385542172
+        "x": 1.9647108433734934,
+        "y": 0.06824096385542244
       },
       "isLocked": false,
       "linkedName": "refuel"
@@ -55,7 +55,7 @@
   "folder": "Mid Paths",
   "idealStartingState": {
     "velocity": 0,
-    "rotation": 180.0
+    "rotation": 90.5256346064576
   },
   "useDefaultConstraints": true
 }

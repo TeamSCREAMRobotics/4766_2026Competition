@@ -8,8 +8,8 @@
       },
       "prevControl": null,
       "nextControl": {
-        "x": 2.351693690008159,
-        "y": 2.2289033081480953
+        "x": 1.9865662650602407,
+        "y": 4.155204819277109
       },
       "isLocked": false,
       "linkedName": "at hub Lbump"
@@ -20,8 +20,8 @@
         "y": 0.448
       },
       "prevControl": {
-        "x": 0.8013418079034706,
-        "y": 2.074957627118895
+        "x": 2.139554216867469,
+        "y": 0.1556626506024099
       },
       "nextControl": null,
       "isLocked": false,
