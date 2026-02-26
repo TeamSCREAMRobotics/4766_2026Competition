@@ -15,6 +15,7 @@ import com.pathplanner.lib.commands.PathPlannerAuto;
 import dev.doglog.DogLog;
 import dev.doglog.DogLogOptions;
 import edu.wpi.first.math.geometry.Rotation2d;
+import edu.wpi.first.util.sendable.Sendable;
 import edu.wpi.first.wpilibj.PowerDistribution;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -71,6 +72,7 @@ public class RobotContainer {
   private final Intake m_intake = new Intake();
   private final ShooterSub m_shooter = new ShooterSub();
   private final AgitatorSub m_agitator = new AgitatorSub();
+  private final LimelightHelpers m_limelight = new LimelightHelpers();
 
   private final CommandXboxController driverController = new CommandXboxController(0);
   private final CommandXboxController operatorController = new CommandXboxController(1);
@@ -80,6 +82,8 @@ public class RobotContainer {
   /* Path follower */
   private final SendableChooser<Command> autoChooser;
 
+  private final Sendable<Double> testVelocity;
+ 
   public RobotContainer() {
     addNamedCommands();
     autoChooser = AutoBuilder.buildAutoChooser("Tests");
@@ -92,6 +96,9 @@ public class RobotContainer {
 
     DogLog.setOptions(new DogLogOptions().withCaptureDs(true).withCaptureNt(true));
     DogLog.setPdh(new PowerDistribution());
+
+    SmartDashboard.getNumber("Shooter Limelight TA", LimelightHelpers.getTA("limelight-shooter"));
+    SmartDashboard.putData();
 
     // Warmup PathPlanner to avoid Java pauses
     FollowPathCommand.warmupCommand().schedule();
