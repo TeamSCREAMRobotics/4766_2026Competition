@@ -13,7 +13,6 @@ import com.pathplanner.lib.config.RobotConfig;
 import com.pathplanner.lib.controllers.PPHolonomicDriveController;
 import com.teamscreamrobotics.vision.LimelightHelpers;
 import com.teamscreamrobotics.vision.LimelightHelpers.PoseEstimate;
-
 import dev.doglog.DogLog;
 import edu.wpi.first.math.Matrix;
 import edu.wpi.first.math.VecBuilder;
@@ -55,7 +54,7 @@ public class CommandSwerveDrivetrain extends TunerSwerveDrivetrain implements Su
   private boolean m_hasAppliedOperatorPerspective = false;
 
   private final SwerveRequest.ApplyRobotSpeeds m_pathApplyRobotSpeeds =
-  new SwerveRequest.ApplyRobotSpeeds();
+      new SwerveRequest.ApplyRobotSpeeds();
 
   /* Swerve requests to apply during SysId characterization */
   private final SwerveRequest.SysIdSwerveTranslation m_translationCharacterization =
@@ -154,7 +153,6 @@ public class CommandSwerveDrivetrain extends TunerSwerveDrivetrain implements Su
     if (Utils.isSimulation()) {
       startSimThread();
     }
-    
   }
 
   /**
@@ -190,7 +188,7 @@ public class CommandSwerveDrivetrain extends TunerSwerveDrivetrain implements Su
     configureAutoBuilder();
   }
 
-   private void configureAutoBuilder() {
+  private void configureAutoBuilder() {
     try {
       var config = RobotConfig.fromGUISettings();
       AutoBuilder.configure(
@@ -218,7 +216,7 @@ public class CommandSwerveDrivetrain extends TunerSwerveDrivetrain implements Su
       DriverStation.reportError(
           "Failed to load PathPlanner config and configure AutoBuilder", ex.getStackTrace());
     }
-}
+  }
 
   /**
    * Returns a command that applies the specified control request to this swerve drivetrain.
@@ -255,7 +253,7 @@ public class CommandSwerveDrivetrain extends TunerSwerveDrivetrain implements Su
   @Override
   public void periodic() {
 
-        LimelightHelpers.SetRobotOrientation("limelight-shooter", 0, 0, 28.1, 0, 0, 0);
+    LimelightHelpers.SetRobotOrientation("limelight-shooter", 0, 0, 28.1, 0, 0, 0);
     PoseEstimate ShooterLimelightEstimate =
         LimelightHelpers.getBotPoseEstimate_wpiBlue("limelight-shooter");
     if (ShooterLimelightEstimate != null && ShooterLimelightEstimate.tagCount != 0) {
@@ -264,16 +262,14 @@ public class CommandSwerveDrivetrain extends TunerSwerveDrivetrain implements Su
       VecBuilder.fill(0.8, 0.8, 99999);
     }
     LimelightHelpers.SetRobotOrientation("lclimb", 147.820, 0, 32.18, 0, 0, 0);
-    PoseEstimate backLeftLimelightEstimate =
-        LimelightHelpers.getBotPoseEstimate_wpiBlue("lclimb");
+    PoseEstimate backLeftLimelightEstimate = LimelightHelpers.getBotPoseEstimate_wpiBlue("lclimb");
     if (backLeftLimelightEstimate != null && backLeftLimelightEstimate.tagCount != 0) {
       addVisionMeasurement(
           backLeftLimelightEstimate.pose, backLeftLimelightEstimate.timestampSeconds);
       VecBuilder.fill(0.8, 0.8, 99999);
     }
     LimelightHelpers.SetRobotOrientation("rclimb", 120, 0, 32.18, 0, 0, 0);
-    PoseEstimate backRightLimelightEstimate =
-        LimelightHelpers.getBotPoseEstimate_wpiBlue("rclimb");
+    PoseEstimate backRightLimelightEstimate = LimelightHelpers.getBotPoseEstimate_wpiBlue("rclimb");
     if (backRightLimelightEstimate != null && backRightLimelightEstimate.tagCount != 0) {
       addVisionMeasurement(
           backRightLimelightEstimate.pose, backLeftLimelightEstimate.timestampSeconds);
@@ -351,7 +347,7 @@ public class CommandSwerveDrivetrain extends TunerSwerveDrivetrain implements Su
         visionRobotPoseMeters, Utils.fpgaToCurrentTime(timestampSeconds), visionMeasurementStdDevs);
   }
 
-   public Pose2d getPose() {
+  public Pose2d getPose() {
     return getState().Pose;
   }
 
