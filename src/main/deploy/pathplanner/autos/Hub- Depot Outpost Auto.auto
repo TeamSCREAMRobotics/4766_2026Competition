@@ -7,7 +7,7 @@
         {
           "type": "path",
           "data": {
-            "pathName": "Move From Mid"
+            "pathName": "back up"
           }
         },
         {
@@ -17,12 +17,6 @@
           }
         },
         {
-          "type": "wait",
-          "data": {
-            "waitTime": 1.0
-          }
-        },
-        {
           "type": "named",
           "data": {
             "name": "Shoot"
@@ -31,7 +25,7 @@
         {
           "type": "wait",
           "data": {
-            "waitTime": 2.5
+            "waitTime": 3.0
           }
         },
         {
@@ -43,13 +37,19 @@
         {
           "type": "path",
           "data": {
-            "pathName": "Mid To Depot"
+            "pathName": "hub to depot"
           }
         },
         {
           "type": "path",
           "data": {
-            "pathName": "Depot To Hub"
+            "pathName": "forward- depot"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "depot to hub"
           }
         },
         {
@@ -61,19 +61,55 @@
         {
           "type": "wait",
           "data": {
-            "waitTime": 2.5
+            "waitTime": 3.0
           }
         },
         {
           "type": "named",
           "data": {
             "name": "Stop Shoot"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "Hub To Outpost"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "Outpost To Hub"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Shoot"
+          }
+        },
+        {
+          "type": "wait",
+          "data": {
+            "waitTime": 3.0
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Stop Shoot"
+          }
+        },
+        {
+          "type": "wait",
+          "data": {
+            "waitTime": 0
           }
         }
       ]
     }
   },
   "resetOdom": true,
-  "folder": "Mid Autos",
+  "folder": "Claire and Roy coolness",
   "choreoAuto": false
 }

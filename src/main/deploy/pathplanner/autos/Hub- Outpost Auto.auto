@@ -7,19 +7,7 @@
         {
           "type": "path",
           "data": {
-            "pathName": "Move From Mid"
-          }
-        },
-        {
-          "type": "named",
-          "data": {
-            "name": "Intake Down"
-          }
-        },
-        {
-          "type": "wait",
-          "data": {
-            "waitTime": 1.0
+            "pathName": "back up"
           }
         },
         {
@@ -31,25 +19,31 @@
         {
           "type": "wait",
           "data": {
-            "waitTime": 2.5
+            "waitTime": 3.0
           }
         },
         {
           "type": "named",
           "data": {
-            "name": "Stop Shoot"
+            "name": "stop shoot"
           }
         },
         {
           "type": "path",
           "data": {
-            "pathName": "Mid To Depot"
+            "pathName": "Hub To Outpost"
+          }
+        },
+        {
+          "type": "wait",
+          "data": {
+            "waitTime": 3.0
           }
         },
         {
           "type": "path",
           "data": {
-            "pathName": "Depot To Hub"
+            "pathName": "Outpost To Hub"
           }
         },
         {
@@ -61,19 +55,19 @@
         {
           "type": "wait",
           "data": {
-            "waitTime": 2.5
+            "waitTime": 3.0
           }
         },
         {
           "type": "named",
           "data": {
-            "name": "Stop Shoot"
+            "name": "stop shoot"
           }
         }
       ]
     }
   },
   "resetOdom": true,
-  "folder": "Mid Autos",
+  "folder": "Claire and Roy coolness",
   "choreoAuto": false
 }
