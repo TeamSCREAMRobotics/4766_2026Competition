@@ -15,7 +15,6 @@ import com.pathplanner.lib.commands.PathPlannerAuto;
 import dev.doglog.DogLog;
 import dev.doglog.DogLogOptions;
 import edu.wpi.first.math.geometry.Rotation2d;
-import edu.wpi.first.util.sendable.Sendable;
 import edu.wpi.first.wpilibj.PowerDistribution;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -82,7 +81,7 @@ public class RobotContainer {
 
   /* Path follower */
   private final SendableChooser<Command> autoChooser;
- 
+
   public RobotContainer() {
     addNamedCommands();
     autoChooser = AutoBuilder.buildAutoChooser("Tests");
@@ -177,7 +176,7 @@ public class RobotContainer {
                         .alongWith(
                             new Shoot(lFlywheel, rFlywheel, m_agitator, 50, 50)
                                 .alongWith(drivetrain.applyRequest(() -> brake)))
-                                .alongWith(new Jostle(m_intake))));
+                        .alongWith(new Jostle(m_intake))));
 
     // driverController.rightTrigger(.5).whileTrue(new
     // FeedForwardCharacterization(flywheel,flywheel::setVoltage, flywheel::getVelocity));

@@ -8,15 +8,15 @@ import com.teamscreamrobotics.dashboard.DashboardNumber;
 
 /** Add your docs here. */
 public class Dashboard {
-    public static DashboardNumber flywheelVelocity;
+  public static DashboardNumber flywheelVelocity;
 
-    private static final String tuning = "Tuning";
+  private static final String tuning = "Tuning";
 
-    static {
-        initialize();
-    }
+  static {
+    initialize();
+  }
 
-   public static void initialize() {
+  public static void initialize() {
     flywheelVelocity = new DashboardNumber(tuning, "Flywheel Velocity", 0.0);
-   }
+  }
 }
