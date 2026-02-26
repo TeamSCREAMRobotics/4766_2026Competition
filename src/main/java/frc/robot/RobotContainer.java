@@ -242,6 +242,14 @@ public class RobotContainer {
         "Intake Up", new IntakeGoToSetpoint(m_intake, IntakeConstants.intakePivotUpSetpoint));
     NamedCommands.registerCommand("Run Intake", new RunIntake(m_intake, 8.5));
     NamedCommands.registerCommand("Agitate And Kicker", new AgitateAndKick(m_agitator, 1, -1));
+    NamedCommands.registerCommand(
+        "Shoot",
+        Commands.run(
+                () -> lFlywheel.setSetpointVelocity(ShooterConstants.defaultVelocity), lFlywheel)
+            .alongWith(
+                Commands.run(
+                    () -> rFlywheel.setSetpointVelocity(ShooterConstants.defaultVelocity),
+                    rFlywheel)));
     //   NamedCommands.registerCommand("Stop Shoot", new Shoot(m_shooter, m_agitator, 0, 0));
   }
 }
