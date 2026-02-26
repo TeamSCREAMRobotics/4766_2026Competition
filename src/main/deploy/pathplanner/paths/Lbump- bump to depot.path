@@ -8,27 +8,32 @@
       },
       "prevControl": null,
       "nextControl": {
-        "x": 2.8170722891566258,
-        "y": 5.717867469879518
+        "x": 2.9407344632768364,
+        "y": 6.110338983050848
       },
       "isLocked": false,
       "linkedName": null
     },
     {
       "anchor": {
-        "x": 0.6643132530120472,
-        "y": 5.980132530120482
+        "x": 0.66,
+        "y": 5.931
       },
       "prevControl": {
-        "x": 1.8445060240963849,
-        "y": 6.0894096385542165
+        "x": 1.4798870056497173,
+        "y": 6.007864406779662
       },
       "nextControl": null,
       "isLocked": false,
       "linkedName": "Lbump to depot"
     }
   ],
-  "rotationTargets": [],
+  "rotationTargets": [
+    {
+      "waypointRelativePos": 0.376311844077961,
+      "rotationDegrees": 180.0
+    }
+  ],
   "constraintZones": [],
   "pointTowardsZones": [],
   "eventMarkers": [],
@@ -42,7 +47,7 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": -179.3414568224364
+    "rotation": 179.34318778079552
   },
   "reversed": false,
   "folder": "Claire and Roy's bump Paths",

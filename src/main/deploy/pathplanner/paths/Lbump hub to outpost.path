@@ -3,32 +3,37 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 0.6604237288135599,
-        "y": 5.9309887005649715
-      },
-      "prevControl": null,
-      "nextControl": {
-        "x": 2.0045321625485,
-        "y": 5.952844122251718
-      },
-      "isLocked": false,
-      "linkedName": "Lbump to depot"
-    },
-    {
-      "anchor": {
         "x": 3.2432530120481915,
         "y": 4.002216867469878
       },
+      "prevControl": null,
+      "nextControl": {
+        "x": 2.351693690008159,
+        "y": 2.2289033081480953
+      },
+      "isLocked": false,
+      "linkedName": "at hub Lbump"
+    },
+    {
+      "anchor": {
+        "x": 0.4041,
+        "y": 0.448
+      },
       "prevControl": {
-        "x": 2.052132530120481,
-        "y": 3.9694337349397575
+        "x": 0.8013418079034706,
+        "y": 2.074957627118895
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": "at hub Lbump"
+      "linkedName": "at outpost Lbump"
     }
   ],
-  "rotationTargets": [],
+  "rotationTargets": [
+    {
+      "waypointRelativePos": 0.5982008995502243,
+      "rotationDegrees": 90.0
+    }
+  ],
   "constraintZones": [],
   "pointTowardsZones": [],
   "eventMarkers": [],
@@ -42,13 +47,13 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": 0.0
+    "rotation": 88.95837332399003
   },
   "reversed": false,
   "folder": "Claire and Roy's bump Paths",
   "idealStartingState": {
     "velocity": 0,
-    "rotation": 179.34318778079552
+    "rotation": 0.0
   },
   "useDefaultConstraints": true
 }

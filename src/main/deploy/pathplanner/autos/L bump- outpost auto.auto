@@ -5,12 +5,6 @@
     "data": {
       "commands": [
         {
-          "type": "path",
-          "data": {
-            "pathName": "back up"
-          }
-        },
-        {
           "type": "named",
           "data": {
             "name": "Intake Down"
@@ -37,25 +31,7 @@
         {
           "type": "path",
           "data": {
-            "pathName": "hub to depot"
-          }
-        },
-        {
-          "type": "path",
-          "data": {
-            "pathName": "forward- depot"
-          }
-        },
-        {
-          "type": "path",
-          "data": {
-            "pathName": "Depot To Hub"
-          }
-        },
-        {
-          "type": "named",
-          "data": {
-            "name": "Shoot"
+            "pathName": "Lbump- bump to outpost"
           }
         },
         {
@@ -65,21 +41,9 @@
           }
         },
         {
-          "type": "named",
-          "data": {
-            "name": "Stop Shoot"
-          }
-        },
-        {
           "type": "path",
           "data": {
-            "pathName": "Hub To Outpost"
-          }
-        },
-        {
-          "type": "path",
-          "data": {
-            "pathName": "Outpost To Hub"
+            "pathName": "Lbump- Outpost to Hub"
           }
         },
         {
@@ -104,6 +68,6 @@
     }
   },
   "resetOdom": true,
-  "folder": "Claire and Roy's Hub Autos",
+  "folder": "Claire and Roy's bump Autos",
   "choreoAuto": false
 }
