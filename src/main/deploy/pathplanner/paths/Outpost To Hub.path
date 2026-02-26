@@ -1,0 +1,54 @@
+{
+  "version": "2025.0",
+  "waypoints": [
+    {
+      "anchor": {
+        "x": 0.45668674698795175,
+        "y": 0.48349397590361487
+      },
+      "prevControl": null,
+      "nextControl": {
+        "x": 2.751506024096385,
+        "y": 0.5490602409638551
+      },
+      "isLocked": false,
+      "linkedName": "at outpost"
+    },
+    {
+      "anchor": {
+        "x": 3.3306746987951805,
+        "y": 4.078710843373494
+      },
+      "prevControl": {
+        "x": 1.6040963855421686,
+        "y": 4.264481927710843
+      },
+      "nextControl": null,
+      "isLocked": false,
+      "linkedName": null
+    }
+  ],
+  "rotationTargets": [],
+  "constraintZones": [],
+  "pointTowardsZones": [],
+  "eventMarkers": [],
+  "globalConstraints": {
+    "maxVelocity": 3.0,
+    "maxAcceleration": 3.0,
+    "maxAngularVelocity": 540.0,
+    "maxAngularAcceleration": 720.0,
+    "nominalVoltage": 12.0,
+    "unlimited": false
+  },
+  "goalEndState": {
+    "velocity": 0,
+    "rotation": 0.0
+  },
+  "reversed": false,
+  "folder": "Claire and Roy coolness",
+  "idealStartingState": {
+    "velocity": 0,
+    "rotation": 88.99491399474586
+  },
+  "useDefaultConstraints": true
+}

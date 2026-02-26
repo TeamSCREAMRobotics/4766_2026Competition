@@ -4,13 +4,15 @@
   "holonomicMode": true,
   "pathFolders": [
     "Mid Paths",
+    "Claire and Roy coolness",
     "SDepot Paths",
     "SOutpost Paths"
   ],
   "autoFolders": [
     "Mid Autos",
-    "SOutpost Autos",
-    "SDipot Autos"
+    "Claire and Roy coolness",
+    "SDipot Autos",
+    "SOutpost Autos"
   ],
   "defaultMaxVel": 3.0,
   "defaultMaxAccel": 3.0,
