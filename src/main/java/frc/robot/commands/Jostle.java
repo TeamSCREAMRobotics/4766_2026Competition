@@ -50,13 +50,13 @@ public class Jostle extends Command {
     // }
     m_Intake.runIntake(6);
     if (timerTest > 24) {
-      m_Intake.IntakeGoToSetpoint(IntakeConstants.intakePivotDownSetpoint);
+      m_Intake.IntakeGoToSetpoint(IntakeConstants.intakeAgiteLowSetpoint);
       timerTest++;
       if (timerTest > 50) {
         timerTest = 0;
       }
     } else {
-      m_Intake.IntakeGoToSetpoint(IntakeConstants.intakeAgitateSetpoint);
+      m_Intake.IntakeGoToSetpoint(IntakeConstants.intakeAgitateHighSetpoint);
       timerTest++;
     }
   }
@@ -65,6 +65,7 @@ public class Jostle extends Command {
   @Override
   public void end(boolean interrupted) {
     m_Intake.IntakeGoToSetpoint(IntakeConstants.intakePivotDownSetpoint);
+    m_Intake.runIntake(0);
   }
 
   // Returns true when the command should end.

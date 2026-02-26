@@ -196,15 +196,16 @@ public class RobotContainer {
     //                m_agitator,
     //                ShooterConstants.LSHOOTER_VELOCITY_MAP.get(1.0),
     //                ShooterConstants.RSHOOTER_VELOCITY_MAP.get(1.0)));
-    driverController.rightBumper().whileTrue(new RunIntake(m_intake, 8.5));
+    driverController.rightBumper().whileTrue(new RunIntake(m_intake, 7));
     driverController.start().onTrue(new ResetIntake(m_intake));
 
     driverController.y().whileTrue(new AgitateAndKick(m_agitator, 1, -1));
 
     operatorController.back().onTrue(new ResetClimber(m_climber));
     operatorController.a().onTrue(new RunClimber(m_climber, ClimberConstants.climberLowSetpoint));
+    operatorController.x().onTrue(new RunClimber(m_climber, ClimberConstants.climberClimbSetpoint));
     operatorController
-        .x()
+        .y()
         .onTrue(
             new IntakeGoToSetpoint(m_intake, IntakeConstants.intakePivotUpSetpoint)
                 .andThen(new RunClimber(m_climber, ClimberConstants.climberTopSetpoint)));

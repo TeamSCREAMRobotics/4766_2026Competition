@@ -255,7 +255,7 @@ public class CommandSwerveDrivetrain extends TunerSwerveDrivetrain implements Su
   @Override
   public void periodic() {
 
-        LimelightHelpers.SetRobotOrientation("limelight-shooter", 0, 0, 0, 0, 0, 0);
+        LimelightHelpers.SetRobotOrientation("limelight-shooter", 0, 0, 28.1, 0, 0, 0);
     PoseEstimate ShooterLimelightEstimate =
         LimelightHelpers.getBotPoseEstimate_wpiBlue("limelight-shooter");
     if (ShooterLimelightEstimate != null && ShooterLimelightEstimate.tagCount != 0) {
@@ -263,17 +263,17 @@ public class CommandSwerveDrivetrain extends TunerSwerveDrivetrain implements Su
           ShooterLimelightEstimate.pose, ShooterLimelightEstimate.timestampSeconds);
       VecBuilder.fill(0.8, 0.8, 99999);
     }
-    LimelightHelpers.SetRobotOrientation("limelight-lclimb", 0, 0, 0, 0, 0, 0);
+    LimelightHelpers.SetRobotOrientation("lclimb", 147.820, 0, 32.18, 0, 0, 0);
     PoseEstimate backLeftLimelightEstimate =
-        LimelightHelpers.getBotPoseEstimate_wpiBlue("limelight-lclimb");
+        LimelightHelpers.getBotPoseEstimate_wpiBlue("lclimb");
     if (backLeftLimelightEstimate != null && backLeftLimelightEstimate.tagCount != 0) {
       addVisionMeasurement(
           backLeftLimelightEstimate.pose, backLeftLimelightEstimate.timestampSeconds);
       VecBuilder.fill(0.8, 0.8, 99999);
     }
-    LimelightHelpers.SetRobotOrientation("limelight-rclimb", 0, 0, 0, 0, 0, 0);
+    LimelightHelpers.SetRobotOrientation("rclimb", 120, 0, 32.18, 0, 0, 0);
     PoseEstimate backRightLimelightEstimate =
-        LimelightHelpers.getBotPoseEstimate_wpiBlue("limelight-rclimb");
+        LimelightHelpers.getBotPoseEstimate_wpiBlue("rclimb");
     if (backRightLimelightEstimate != null && backRightLimelightEstimate.tagCount != 0) {
       addVisionMeasurement(
           backRightLimelightEstimate.pose, backLeftLimelightEstimate.timestampSeconds);
