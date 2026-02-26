@@ -3,14 +3,16 @@
   "robotLength": 0.85,
   "holonomicMode": true,
   "pathFolders": [
+    "Claire and Roy's Hub Paths",
+    "Claire and Roy's bump Paths",
     "Mid Paths",
-    "Claire and Roy coolness",
     "SDepot Paths",
     "SOutpost Paths"
   ],
   "autoFolders": [
+    "Claire and Roy's Hub Autos",
+    "Claire and Roy's bump Autos",
     "Mid Autos",
-    "Claire and Roy coolness",
     "SDipot Autos",
     "SOutpost Autos"
   ],

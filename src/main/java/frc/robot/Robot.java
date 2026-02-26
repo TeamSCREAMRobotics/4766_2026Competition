@@ -33,6 +33,7 @@ public class Robot extends TimedRobot {
     m_robotContainer = new RobotContainer();
     m_LFlywheel = new LFlywheel(LFlywheelConfig.LFLYWHEEL_CONFIG);
     m_RFlywheel = new RFlywheel(RFlywheelConfig.RFLYWHEEL_CONFIG);
+    Dashboard.initialize();
   }
 
   @Override

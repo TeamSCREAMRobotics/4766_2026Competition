@@ -15,7 +15,6 @@ import com.pathplanner.lib.commands.PathPlannerAuto;
 import dev.doglog.DogLog;
 import dev.doglog.DogLogOptions;
 import edu.wpi.first.math.geometry.Rotation2d;
-import edu.wpi.first.util.sendable.Sendable;
 import edu.wpi.first.wpilibj.PowerDistribution;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -83,8 +82,6 @@ public class RobotContainer {
   /* Path follower */
   private final SendableChooser<Command> autoChooser;
 
-  //private final Sendable<Double> testVelocity;
- 
   public RobotContainer() {
     addNamedCommands();
     autoChooser = AutoBuilder.buildAutoChooser("Tests");
@@ -99,7 +96,6 @@ public class RobotContainer {
     DogLog.setPdh(new PowerDistribution());
 
     SmartDashboard.getNumber("Shooter Limelight TA", LimelightHelpers.getTA("limelight-shooter"));
-    //SmartDashboard.putData();
 
     // Warmup PathPlanner to avoid Java pauses
     FollowPathCommand.warmupCommand().schedule();
@@ -171,16 +167,16 @@ public class RobotContainer {
         .rightTrigger(0.5)
         .whileTrue(
             Commands.run(
-                    () -> lFlywheel.setSetpointVelocity(ShooterConstants.defaultVelocity),
+                    () -> lFlywheel.setSetpointVelocity(Dashboard.flywheelVelocity.get()),
                     lFlywheel)
                 .alongWith(
                     Commands.run(
-                            () -> rFlywheel.setSetpointVelocity(ShooterConstants.defaultVelocity),
+                            () -> rFlywheel.setSetpointVelocity(Dashboard.flywheelVelocity.get()),
                             rFlywheel)
                         .alongWith(
                             new Shoot(lFlywheel, rFlywheel, m_agitator, 50, 50)
                                 .alongWith(drivetrain.applyRequest(() -> brake)))
-                                .alongWith(new Jostle(m_intake))));
+                        .alongWith(new Jostle(m_intake))));
 
     // driverController.rightTrigger(.5).whileTrue(new
     // FeedForwardCharacterization(flywheel,flywheel::setVoltage, flywheel::getVelocity));
