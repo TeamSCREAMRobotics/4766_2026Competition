@@ -29,6 +29,12 @@
           }
         },
         {
+          "type": "path",
+          "data": {
+            "pathName": "Rbump to depot"
+          }
+        },
+        {
           "type": "named",
           "data": {
             "name": "Run Intake"
@@ -37,13 +43,13 @@
         {
           "type": "path",
           "data": {
-            "pathName": "Lbump- bump to depot"
+            "pathName": "Rbump- forward in depot"
           }
         },
         {
           "type": "path",
           "data": {
-            "pathName": "Lbump- depot to hub"
+            "pathName": "RBump depot to hub"
           }
         },
         {
@@ -69,47 +75,11 @@
           "data": {
             "name": "Stop Shoot"
           }
-        },
-        {
-          "type": "path",
-          "data": {
-            "pathName": "Lbump hub to outpost"
-          }
-        },
-        {
-          "type": "wait",
-          "data": {
-            "waitTime": 3.0
-          }
-        },
-        {
-          "type": "path",
-          "data": {
-            "pathName": "Lbump- Outpost to Hub"
-          }
-        },
-        {
-          "type": "named",
-          "data": {
-            "name": "Shoot"
-          }
-        },
-        {
-          "type": "named",
-          "data": {
-            "name": "Stop Shoot"
-          }
-        },
-        {
-          "type": "wait",
-          "data": {
-            "waitTime": 3.0
-          }
         }
       ]
     }
   },
   "resetOdom": true,
-  "folder": "Claire and Roy's Left bump Autos",
+  "folder": "Right Bump Autos",
   "choreoAuto": false
 }

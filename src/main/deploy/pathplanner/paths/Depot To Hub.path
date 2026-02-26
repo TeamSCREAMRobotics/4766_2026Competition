@@ -12,7 +12,7 @@
         "y": 6.034771084337349
       },
       "isLocked": false,
-      "linkedName": "at depot"
+      "linkedName": "forward"
     },
     {
       "anchor": {
@@ -20,8 +20,8 @@
         "y": 4.00221686746988
       },
       "prevControl": {
-        "x": 3.407168674698795,
-        "y": 5.116843373493976
+        "x": 2.303469879518072,
+        "y": 3.8492289156626507
       },
       "nextControl": null,
       "isLocked": false,
