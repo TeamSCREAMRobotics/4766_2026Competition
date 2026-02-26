@@ -81,8 +81,6 @@ public class RobotContainer {
 
   /* Path follower */
   private final SendableChooser<Command> autoChooser;
-
-  private final Sendable<Double> testVelocity;
  
   public RobotContainer() {
     addNamedCommands();
@@ -98,7 +96,6 @@ public class RobotContainer {
     DogLog.setPdh(new PowerDistribution());
 
     SmartDashboard.getNumber("Shooter Limelight TA", LimelightHelpers.getTA("limelight-shooter"));
-    SmartDashboard.putData();
 
     // Warmup PathPlanner to avoid Java pauses
     FollowPathCommand.warmupCommand().schedule();
@@ -170,11 +167,11 @@ public class RobotContainer {
         .rightTrigger(0.5)
         .whileTrue(
             Commands.run(
-                    () -> lFlywheel.setSetpointVelocity(ShooterConstants.defaultVelocity),
+                    () -> lFlywheel.setSetpointVelocity(Dashboard.flywheelVelocity.get()),
                     lFlywheel)
                 .alongWith(
                     Commands.run(
-                            () -> rFlywheel.setSetpointVelocity(ShooterConstants.defaultVelocity),
+                            () -> rFlywheel.setSetpointVelocity(Dashboard.flywheelVelocity.get()),
                             rFlywheel)
                         .alongWith(
                             new Shoot(lFlywheel, rFlywheel, m_agitator, 50, 50)
