@@ -3,29 +3,29 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 0.7626626506024097,
-        "y": 5.925493975903614
+        "x": 3.429,
+        "y": 2.527
       },
       "prevControl": null,
       "nextControl": {
-        "x": 2.128626506024096,
-        "y": 5.783433734939758
+        "x": 2.2816144578313255,
+        "y": 1.2484337349397594
       },
       "isLocked": false,
       "linkedName": null
     },
     {
       "anchor": {
-        "x": 3.3634578313253014,
-        "y": 4.013144578313253
+        "x": 0.4676144578313255,
+        "y": 0.4616385542168677
       },
       "prevControl": {
-        "x": 1.9974939759036148,
-        "y": 4.013144578313253
+        "x": 2.128626506024096,
+        "y": 0.4616385542168677
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": null
+      "linkedName": "Rbump at outpost"
     }
   ],
   "rotationTargets": [],
@@ -42,13 +42,13 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": 0.0
+    "rotation": 90.0
   },
   "reversed": false,
-  "folder": "Mid Paths",
+  "folder": "Right Bump Paths",
   "idealStartingState": {
     "velocity": 0,
-    "rotation": 178.49256424122507
+    "rotation": 49.510684265812976
   },
   "useDefaultConstraints": true
 }

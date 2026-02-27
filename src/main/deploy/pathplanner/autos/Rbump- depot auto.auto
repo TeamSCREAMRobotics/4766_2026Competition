@@ -5,21 +5,9 @@
     "data": {
       "commands": [
         {
-          "type": "path",
-          "data": {
-            "pathName": "Move From Mid"
-          }
-        },
-        {
           "type": "named",
           "data": {
             "name": "Intake Down"
-          }
-        },
-        {
-          "type": "wait",
-          "data": {
-            "waitTime": 1.0
           }
         },
         {
@@ -31,7 +19,7 @@
         {
           "type": "wait",
           "data": {
-            "waitTime": 2.5
+            "waitTime": 3.0
           }
         },
         {
@@ -43,13 +31,31 @@
         {
           "type": "path",
           "data": {
-            "pathName": "Mid To Depot"
+            "pathName": "Rbump to depot"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Run Intake"
           }
         },
         {
           "type": "path",
           "data": {
-            "pathName": "Depot To Hub"
+            "pathName": "Rbump- forward in depot"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "RBump depot to hub"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Stop Intake"
           }
         },
         {
@@ -61,7 +67,7 @@
         {
           "type": "wait",
           "data": {
-            "waitTime": 2.5
+            "waitTime": 3.0
           }
         },
         {
@@ -74,6 +80,6 @@
     }
   },
   "resetOdom": true,
-  "folder": "Mid Autos",
+  "folder": "Right Bump Autos",
   "choreoAuto": false
 }

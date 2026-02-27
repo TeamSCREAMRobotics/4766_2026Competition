@@ -3,45 +3,38 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 3.2978915662650605,
-        "y": 4.046
+        "x": 0.7189518072289156,
+        "y": 5.925493975903614
       },
       "prevControl": null,
       "nextControl": {
-        "x": 2.2816144578313255,
-        "y": 4.056855421686747
+        "x": 2.216048192771085,
+        "y": 6.0894096385542165
       },
       "isLocked": false,
-      "linkedName": "Move"
+      "linkedName": "in depot"
     },
     {
       "anchor": {
-        "x": 0.4457590361445781,
-        "y": 0.516277108433735
+        "x": 3.2432530120481924,
+        "y": 3.958506024096385
       },
       "prevControl": {
-        "x": 2.4673855421686746,
-        "y": 0.40699999999999936
+        "x": 1.4948192771084334,
+        "y": 3.9147951807228916
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": "refuel"
+      "linkedName": "at hub Rbump"
     }
   ],
   "rotationTargets": [],
   "constraintZones": [],
   "pointTowardsZones": [],
-  "eventMarkers": [
-    {
-      "name": "",
-      "waypointRelativePos": 1.0,
-      "endWaypointRelativePos": null,
-      "command": null
-    }
-  ],
+  "eventMarkers": [],
   "globalConstraints": {
-    "maxVelocity": 130.0,
-    "maxAcceleration": 130.0,
+    "maxVelocity": 3.0,
+    "maxAcceleration": 3.0,
     "maxAngularVelocity": 540.0,
     "maxAngularAcceleration": 720.0,
     "nominalVoltage": 12.0,
@@ -49,13 +42,13 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": 90.5256346064576
+    "rotation": 0.0
   },
   "reversed": false,
-  "folder": "Mid Paths",
+  "folder": "Right Bump Paths",
   "idealStartingState": {
     "velocity": 0,
-    "rotation": 0.0
+    "rotation": 180.0
   },
   "useDefaultConstraints": true
 }

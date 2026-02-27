@@ -23,7 +23,7 @@ public class Constants {
   public class IntakeConstants {
     public static final int intakeMotorID = 14;
     public static final int intakePivotID = 12;
-    public static final double kP = 1.4;
+    public static final double kP = 1.7;
     public static final double kI = 0;
     public static final double kD = 0;
     public static final double kV = 0;
@@ -32,9 +32,10 @@ public class Constants {
     public static final double intakeMagicVelocity = 30;
     public static final double intakePivotDownSetpoint = 7.1;
     public static final double intakePivotUpSetpoint = 0.33;
-    public static final double intakeAgitateSetpoint = 7.3;
+    public static final double intakeAgitateHighSetpoint = 3.5;
+    public static final double intakeAgiteLowSetpoint = 3.0;
     public static final double intakePivotForwardSoftLimit = 7.33;
-    public static final double intakePivotReversSoftLimit = 0.05;
+    public static final double intakePivotReversSoftLimit = 0.005;
   }
 
   public class ShooterConstants {
@@ -45,21 +46,13 @@ public class Constants {
     public static final int pivotMotorID = 0;
     public static final int pivotCanID = 0;
 
-    public class SimulationConstants {
-      public static double fuelDiameter = 0.15;
-
-      public static double NEUTRAL_ZONE_XMIN = 7.425;
-      public static double NEUTRAL_ZONE_YMIN = 1.7625, NEUTRAL_ZONE_YMAX = 6.2375;
-
-      public static int NEUTRAL_ZONE_NUMFUEL = 372;
-      public static int DEPOT_NUMFUEL = 24;
-      public static final double kG = 0.0;
-      public static final double kV = 0.0;
-      public static final double kP = .73;
-      public static final double kI = 0.0;
-      public static final double kD = 0.0;
-      public static final double kMagicAcceleration = 60;
-      public static final double kMagicCruiseVelocity = 80;
+    public static final double kG = 0.0;
+    public static final double kV = 0.0;
+    public static final double kP = .73;
+    public static final double kI = 0.0;
+    public static final double kD = 0.0;
+    public static final double kMagicAcceleration = 60;
+    public static final double kMagicCruiseVelocity = 80;
 
       //  public static final InterpolatingDoubleTreeMap HOOD_MAP = new
       // InterpolatingDoubleTreeMap();
@@ -73,41 +66,45 @@ public class Constants {
       //   HOOD_MAP.put(4.0, 40.0);
       //  }
 
-      public static final InterpolatingDoubleTreeMap LSHOOTER_VELOCITY_MAP =
-          new InterpolatingDoubleTreeMap();
+    public static final InterpolatingDoubleTreeMap SHOOTER_VELOCITY_MAP =
+        new InterpolatingDoubleTreeMap();
 
-      static {
-        // placeholder values before testing
-        // (distance to hub, flywheel voltage)
-        LSHOOTER_VELOCITY_MAP.put(1.0, 1.0);
-        LSHOOTER_VELOCITY_MAP.put(2.0, 3.0);
-        LSHOOTER_VELOCITY_MAP.put(3.0, 5.0);
-        LSHOOTER_VELOCITY_MAP.put(4.0, 6.5);
-      }
-
-      public static final InterpolatingDoubleTreeMap RSHOOTER_VELOCITY_MAP =
-          new InterpolatingDoubleTreeMap();
-
-      static {
-        // placeholder values before testing
-        // (distance to hub, flywheel voltage)
-        RSHOOTER_VELOCITY_MAP.put(1.0, 1.0);
-        RSHOOTER_VELOCITY_MAP.put(2.0, 3.0);
-        RSHOOTER_VELOCITY_MAP.put(3.0, 5.0);
-        RSHOOTER_VELOCITY_MAP.put(4.0, 6.5);
-      }
+    static {
+      // placeholder values before testing
+      // (distance to hub, flywheel voltage)
+      SHOOTER_VELOCITY_MAP.put(0.8644093871116638, 50.0);
+      SHOOTER_VELOCITY_MAP.put(0.215736523270607, 60.0);
     }
 
-    public class ClimberConstants {
-      public static final int climbermotorID = 20;
-      public static final double kP = 0;
-      public static final double kI = 0;
-      public static final double kD = 0;
-      public static final double kV = 0;
-      public static final double kG = 0;
-      public static final int climberTopSetpoint = 0;
-      public static final int climberLowSetpoint = 0;
-    }
+    // public static final InterpolatingDoubleTreeMap RSHOOTER_VELOCITY_MAP =
+    //     new InterpolatingDoubleTreeMap();
+
+    // static {
+    //   // placeholder values before testing
+    //   // (distance to hub, flywheel voltage)
+    //   RSHOOTER_VELOCITY_MAP.put(1.0, 8.0);
+    //   RSHOOTER_VELOCITY_MAP.put(2.0, 3.0);
+    //   RSHOOTER_VELOCITY_MAP.put(3.0, 5.0);
+    //   RSHOOTER_VELOCITY_MAP.put(4.0, 6.5);
+    // }
+  }
+
+  public class ClimberConstants {
+    public static final int climbermotorID = 20;
+    public static final double kP = 12.9;
+    public static final double kI = 0;
+    public static final double kD = 0.5;
+    public static final double kV = 0;
+    public static final double kG = 0;
+    public static final double climberTopSetpoint = 8.25;
+    public static final double climberLowSetpoint = 0.008;
+    public static final double climberClimbSetpoint = 6;
+    public static final double climberReverseThreshold = 0.005;
+    public static final double climberForwardThreshold = 8.258;
+
+    public static final double climberMagicAccereation = 1;
+    public static final double climberMagicCruiseVelocity = 1;
+  }
 
     public class AgitatorConstants {
       public static final int agitatorMotorID = 13;
@@ -133,4 +130,4 @@ public class Constants {
       }
     }
   }
-}
+

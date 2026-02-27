@@ -5,21 +5,51 @@
     "data": {
       "commands": [
         {
-          "type": "path",
-          "data": {
-            "pathName": "Move From Mid"
-          }
-        },
-        {
           "type": "named",
           "data": {
             "name": "Intake Down"
           }
         },
         {
+          "type": "named",
+          "data": {
+            "name": "Shoot"
+          }
+        },
+        {
           "type": "wait",
           "data": {
-            "waitTime": 2.5
+            "waitTime": 3.0
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Stop Shoot"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Run Intake"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "Lbump- bump to depot"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "Lbump- depot to hub"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Stop Intake"
           }
         },
         {
@@ -31,7 +61,7 @@
         {
           "type": "wait",
           "data": {
-            "waitTime": 2.5
+            "waitTime": 3.0
           }
         },
         {
@@ -43,19 +73,19 @@
         {
           "type": "path",
           "data": {
-            "pathName": "Mid To Outpost"
+            "pathName": "Lbump hub to outpost"
           }
         },
         {
           "type": "wait",
           "data": {
-            "waitTime": 2.0
+            "waitTime": 3.0
           }
         },
         {
           "type": "path",
           "data": {
-            "pathName": "Outpost To Mid"
+            "pathName": "Lbump- Outpost to Hub"
           }
         },
         {
@@ -65,21 +95,21 @@
           }
         },
         {
-          "type": "wait",
-          "data": {
-            "waitTime": 2.0
-          }
-        },
-        {
           "type": "named",
           "data": {
             "name": "Stop Shoot"
+          }
+        },
+        {
+          "type": "wait",
+          "data": {
+            "waitTime": 3.0
           }
         }
       ]
     }
   },
   "resetOdom": true,
-  "folder": "Mid Autos",
+  "folder": "Claire and Roy's Left bump Autos",
   "choreoAuto": false
 }

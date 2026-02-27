@@ -3,45 +3,38 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 3.2978915662650605,
-        "y": 4.046
+        "x": 0.7080240963855422,
+        "y": 0.6255542168674697
       },
       "prevControl": null,
       "nextControl": {
-        "x": 2.2816144578313255,
-        "y": 4.056855421686747
+        "x": 2.366875297801375,
+        "y": 0.35507793887413985
       },
       "isLocked": false,
-      "linkedName": "Move"
+      "linkedName": "Lbump at outpost"
     },
     {
       "anchor": {
-        "x": 0.4457590361445781,
-        "y": 0.516277108433735
+        "x": 3.299435028248588,
+        "y": 4.022189265536723
       },
       "prevControl": {
-        "x": 2.4673855421686746,
-        "y": 0.40699999999999936
+        "x": 2.299435028248588,
+        "y": 4.022189265536723
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": "refuel"
+      "linkedName": null
     }
   ],
   "rotationTargets": [],
   "constraintZones": [],
   "pointTowardsZones": [],
-  "eventMarkers": [
-    {
-      "name": "",
-      "waypointRelativePos": 1.0,
-      "endWaypointRelativePos": null,
-      "command": null
-    }
-  ],
+  "eventMarkers": [],
   "globalConstraints": {
-    "maxVelocity": 130.0,
-    "maxAcceleration": 130.0,
+    "maxVelocity": 3.0,
+    "maxAcceleration": 3.0,
     "maxAngularVelocity": 540.0,
     "maxAngularAcceleration": 720.0,
     "nominalVoltage": 12.0,
@@ -49,13 +42,13 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": 90.5256346064576
+    "rotation": 0.0
   },
   "reversed": false,
-  "folder": "Mid Paths",
+  "folder": "Claire and Roy's Left bump Paths",
   "idealStartingState": {
     "velocity": 0,
-    "rotation": 0.0
+    "rotation": 89.86858789209805
   },
   "useDefaultConstraints": true
 }

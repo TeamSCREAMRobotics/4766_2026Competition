@@ -3,29 +3,29 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 3.2978915662650605,
-        "y": 4.046
-      },
-      "prevControl": null,
-      "nextControl": {
-        "x": 2.2816144578313255,
-        "y": 4.056855421686747
-      },
-      "isLocked": false,
-      "linkedName": "Move"
-    },
-    {
-      "anchor": {
         "x": 0.4457590361445781,
         "y": 0.516277108433735
       },
+      "prevControl": null,
+      "nextControl": {
+        "x": 1.9647108433734934,
+        "y": 0.06824096385542244
+      },
+      "isLocked": false,
+      "linkedName": "refuel"
+    },
+    {
+      "anchor": {
+        "x": 3.319746987951808,
+        "y": 4.056855421686747
+      },
       "prevControl": {
-        "x": 2.4673855421686746,
-        "y": 0.40699999999999936
+        "x": 1.9097856340177266,
+        "y": 4.106092357119752
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": "refuel"
+      "linkedName": "shoot at hub 2"
     }
   ],
   "rotationTargets": [],
@@ -40,8 +40,8 @@
     }
   ],
   "globalConstraints": {
-    "maxVelocity": 130.0,
-    "maxAcceleration": 130.0,
+    "maxVelocity": 3.0,
+    "maxAcceleration": 3.0,
     "maxAngularVelocity": 540.0,
     "maxAngularAcceleration": 720.0,
     "nominalVoltage": 12.0,
@@ -49,13 +49,13 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": 90.5256346064576
+    "rotation": 0.35191253428363983
   },
   "reversed": false,
   "folder": "Mid Paths",
   "idealStartingState": {
     "velocity": 0,
-    "rotation": 0.0
+    "rotation": 90.5256346064576
   },
   "useDefaultConstraints": true
 }

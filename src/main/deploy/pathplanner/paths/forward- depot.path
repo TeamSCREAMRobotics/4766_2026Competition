@@ -3,45 +3,38 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 3.2978915662650605,
-        "y": 4.046
+        "x": 1.582240963855421,
+        "y": 6.023843373493976
       },
       "prevControl": null,
       "nextControl": {
-        "x": 2.2816144578313255,
-        "y": 4.056855421686747
+        "x": 1.335148039442085,
+        "y": 5.985829077434921
       },
       "isLocked": false,
-      "linkedName": "Move"
+      "linkedName": "infront of depot"
     },
     {
       "anchor": {
-        "x": 0.4457590361445781,
-        "y": 0.516277108433735
+        "x": 0.686,
+        "y": 6.023843373493976
       },
       "prevControl": {
-        "x": 2.4673855421686746,
-        "y": 0.40699999999999936
+        "x": 0.936,
+        "y": 6.023843373496463
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": "refuel"
+      "linkedName": "forward"
     }
   ],
   "rotationTargets": [],
   "constraintZones": [],
   "pointTowardsZones": [],
-  "eventMarkers": [
-    {
-      "name": "",
-      "waypointRelativePos": 1.0,
-      "endWaypointRelativePos": null,
-      "command": null
-    }
-  ],
+  "eventMarkers": [],
   "globalConstraints": {
-    "maxVelocity": 130.0,
-    "maxAcceleration": 130.0,
+    "maxVelocity": 3.0,
+    "maxAcceleration": 3.0,
     "maxAngularVelocity": 540.0,
     "maxAngularAcceleration": 720.0,
     "nominalVoltage": 12.0,
@@ -49,13 +42,13 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": 90.5256346064576
+    "rotation": -178.69804732768011
   },
   "reversed": false,
-  "folder": "Mid Paths",
+  "folder": "Claire and Roy's Hub Paths",
   "idealStartingState": {
     "velocity": 0,
-    "rotation": 0.0
+    "rotation": -178.83086067209263
   },
   "useDefaultConstraints": true
 }

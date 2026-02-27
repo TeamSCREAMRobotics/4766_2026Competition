@@ -5,28 +5,36 @@
 package frc.robot.commands.Shooter;
 
 import edu.wpi.first.wpilibj2.command.Command;
+import frc.robot.Dashboard;
 import frc.robot.subsystems.AgitatorSub;
-import frc.robot.subsystems.ShooterSubFolder.ShooterSub;
+import frc.robot.subsystems.ShooterSubFolder.LFlywheel;
+import frc.robot.subsystems.ShooterSubFolder.RFlywheel;
 
 /* You should consider using the more terse Command factories API instead https://docs.wpilib.org/en/stable/docs/software/commandbased/organizing-command-based.html#defining-commands */
 public class Shoot extends Command {
 
-  ShooterSub s_Shooter;
   AgitatorSub s_Agitator;
 
-  double lvoltage;
-  double rvoltage;
+  RFlywheel s_RFlywheel;
+  LFlywheel s_LFlywheel;
+
+  double lvelocity;
+  double rvelocity;
 
   /** Creates a new Shooter. */
-  public Shoot(ShooterSub shooter, AgitatorSub agitator, double lv, double rv) {
-    s_Shooter = shooter;
+  public Shoot(
+      LFlywheel lFlywheel, RFlywheel rFlywheel, AgitatorSub agitator, double lv, double rv) {
+
+    s_LFlywheel = lFlywheel;
+    s_RFlywheel = rFlywheel;
+
     s_Agitator = agitator;
 
-    lvoltage = lv;
-    rvoltage = rv;
+    lvelocity = lv;
+    rvelocity = rv;
 
     // Use addRequirements() here to declare subsystem dependencies.
-    addRequirements(s_Shooter, agitator);
+    addRequirements(agitator);
   }
 
   // Called when the command is initially scheduled.
@@ -36,18 +44,17 @@ public class Shoot extends Command {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    s_Shooter.runShooter(lvoltage, rvoltage);
-    if (true) {
-      s_Agitator.RunAgitatorAndKicker(3, 3);
-
-      // (LeftShooter, RightShooter)
+    if (s_LFlywheel.getvelocity() >= Dashboard.flywheelVelocity.get() - 2
+        && s_LFlywheel.getvelocity() <= Dashboard.flywheelVelocity.get() + 2
+        && s_RFlywheel.getvelocity() >= Dashboard.flywheelVelocity.get() - 2
+        && s_RFlywheel.getvelocity() <= Dashboard.flywheelVelocity.get() + 2) {
+      s_Agitator.RunAgitatorAndKicker(10, 12);
     }
   }
 
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
-    s_Shooter.runShooter(0, 0);
     s_Agitator.RunAgitatorAndKicker(0, 0);
   }
 

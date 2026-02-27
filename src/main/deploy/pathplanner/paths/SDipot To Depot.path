@@ -20,8 +20,8 @@
         "y": 5.9473493975903615
       },
       "prevControl": {
-        "x": 1.3855421686746987,
-        "y": 5.88178313253012
+        "x": 1.3964698795180723,
+        "y": 6.0894096385542165
       },
       "nextControl": null,
       "isLocked": false,
@@ -42,7 +42,7 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": 178.6028189727037
+    "rotation": 178.60281897270372
   },
   "reversed": false,
   "folder": "SDepot Paths",

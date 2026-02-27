@@ -7,7 +7,7 @@
         {
           "type": "path",
           "data": {
-            "pathName": "Move From Mid"
+            "pathName": "Lbump infront"
           }
         },
         {
@@ -17,21 +17,15 @@
           }
         },
         {
-          "type": "wait",
-          "data": {
-            "waitTime": 1.0
-          }
-        },
-        {
           "type": "named",
           "data": {
-            "name": "Shoot"
+            "name": "shoot"
           }
         },
         {
           "type": "wait",
           "data": {
-            "waitTime": 2.5
+            "waitTime": 3.0
           }
         },
         {
@@ -43,13 +37,19 @@
         {
           "type": "path",
           "data": {
-            "pathName": "Mid To Depot"
+            "pathName": "Lbump- bump to outpost"
+          }
+        },
+        {
+          "type": "wait",
+          "data": {
+            "waitTime": 3.0
           }
         },
         {
           "type": "path",
           "data": {
-            "pathName": "Depot To Hub"
+            "pathName": "Lbump- Outpost to Hub"
           }
         },
         {
@@ -61,7 +61,7 @@
         {
           "type": "wait",
           "data": {
-            "waitTime": 2.5
+            "waitTime": 3.0
           }
         },
         {
@@ -74,6 +74,6 @@
     }
   },
   "resetOdom": true,
-  "folder": "Mid Autos",
+  "folder": "Claire and Roy's Left bump Autos",
   "choreoAuto": false
 }

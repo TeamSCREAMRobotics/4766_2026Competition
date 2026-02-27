@@ -11,6 +11,8 @@ import com.pathplanner.lib.auto.AutoBuilder;
 import com.pathplanner.lib.config.PIDConstants;
 import com.pathplanner.lib.config.RobotConfig;
 import com.pathplanner.lib.controllers.PPHolonomicDriveController;
+import com.teamscreamrobotics.vision.LimelightHelpers;
+import com.teamscreamrobotics.vision.LimelightHelpers.PoseEstimate;
 import dev.doglog.DogLog;
 import edu.wpi.first.math.Matrix;
 import edu.wpi.first.math.VecBuilder;
@@ -29,8 +31,6 @@ import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.Subsystem;
 import edu.wpi.first.wpilibj2.command.sysid.SysIdRoutine;
-import frc.robot.LimelightHelpers;
-import frc.robot.LimelightHelpers.PoseEstimate;
 import frc.robot.generated.TunerConstants;
 import frc.robot.generated.TunerConstants.TunerSwerveDrivetrain;
 import frc.robot.simulation.MapleSimSwerveDrivetrain;
@@ -52,7 +52,6 @@ public class CommandSwerveDrivetrain extends TunerSwerveDrivetrain implements Su
   /* Keep track if we've ever applied the operator perspective before or not */
   private boolean m_hasAppliedOperatorPerspective = false;
 
-  /** Swerve request to apply during robot-centric path following */
   private final SwerveRequest.ApplyRobotSpeeds m_pathApplyRobotSpeeds =
       new SwerveRequest.ApplyRobotSpeeds();
 
@@ -158,7 +157,6 @@ public class CommandSwerveDrivetrain extends TunerSwerveDrivetrain implements Su
     if (Utils.isSimulation()) {
       startSimThread();
     }
-    configureAutoBuilder();
   }
 
   /**
@@ -259,31 +257,29 @@ public class CommandSwerveDrivetrain extends TunerSwerveDrivetrain implements Su
 
   @Override
   public void periodic() {
-    LimelightHelpers.SetRobotOrientation("Shooter Limelight", 0, 0, 0, 0, 0, 0);
+
+    LimelightHelpers.SetRobotOrientation("limelight-shooter", 0, 0, 28.1, 0, 0, 0);
     PoseEstimate ShooterLimelightEstimate =
-        LimelightHelpers.getBotPoseEstimate_wpiBlue("Shooter Limelight");
+        LimelightHelpers.getBotPoseEstimate_wpiBlue("limelight-shooter");
     if (ShooterLimelightEstimate != null && ShooterLimelightEstimate.tagCount != 0) {
       addVisionMeasurement(
           ShooterLimelightEstimate.pose, ShooterLimelightEstimate.timestampSeconds);
       VecBuilder.fill(0.8, 0.8, 99999);
     }
-    LimelightHelpers.SetRobotOrientation("Back-left Limelight", 0, 0, 0, 0, 0, 0);
-    PoseEstimate backLeftLimelightEstimate =
-        LimelightHelpers.getBotPoseEstimate_wpiBlue("Back-Left Limelight");
+    LimelightHelpers.SetRobotOrientation("lclimb", 147.820, 0, 32.18, 0, 0, 0);
+    PoseEstimate backLeftLimelightEstimate = LimelightHelpers.getBotPoseEstimate_wpiBlue("lclimb");
     if (backLeftLimelightEstimate != null && backLeftLimelightEstimate.tagCount != 0) {
       addVisionMeasurement(
           backLeftLimelightEstimate.pose, backLeftLimelightEstimate.timestampSeconds);
       VecBuilder.fill(0.8, 0.8, 99999);
     }
-    LimelightHelpers.SetRobotOrientation("Back-right Limelight", 0, 0, 0, 0, 0, 0);
-    PoseEstimate backRightLimelightEstimate =
-        LimelightHelpers.getBotPoseEstimate_wpiBlue("Back-Right Limelight");
+    LimelightHelpers.SetRobotOrientation("rclimb", 120, 0, 32.18, 0, 0, 0);
+    PoseEstimate backRightLimelightEstimate = LimelightHelpers.getBotPoseEstimate_wpiBlue("rclimb");
     if (backRightLimelightEstimate != null && backRightLimelightEstimate.tagCount != 0) {
       addVisionMeasurement(
           backRightLimelightEstimate.pose, backLeftLimelightEstimate.timestampSeconds);
       VecBuilder.fill(0.8, 0.8, 99999);
     }
-
     /*
      * Periodically try to apply the operator perspective.
      * If we haven't applied the operator perspective before, then we should apply it regardless of DS state.
@@ -333,6 +329,8 @@ public class CommandSwerveDrivetrain extends TunerSwerveDrivetrain implements Su
             TunerConstants.FrontRight,
             TunerConstants.BackLeft,
             TunerConstants.BackRight);
+    DogLog.log("Robot Pose", getPose());
+
     /* Run simulation at a faster rate so PID gains behave more reasonably */
     m_simNotifier = new Notifier(mapleSimSwerveDrivetrain::update);
     m_simNotifier.startPeriodic(kSimLoopPeriod);

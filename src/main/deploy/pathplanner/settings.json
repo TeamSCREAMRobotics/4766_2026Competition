@@ -3,13 +3,23 @@
   "robotLength": 0.85,
   "holonomicMode": true,
   "pathFolders": [
+    "Claire and Roy's Hub Paths",
+    "Claire and Roy's Left bump Paths",
     "Mid Paths",
+    "Right Bump Paths",
     "SDepot Paths",
     "SOutpost Paths"
   ],
-  "autoFolders": [],
-  "defaultMaxVel": 130.5,
-  "defaultMaxAccel": 70.5,
+  "autoFolders": [
+    "Claire and Roy's Hub Autos",
+    "Claire and Roy's Left bump Autos",
+    "Mid Autos",
+    "Right Bump Autos",
+    "SDipot Autos",
+    "SOutpost Autos"
+  ],
+  "defaultMaxVel": 3.0,
+  "defaultMaxAccel": 3.0,
   "defaultMaxAngVel": 540.0,
   "defaultMaxAngAccel": 720.0,
   "defaultNominalVoltage": 12.0,

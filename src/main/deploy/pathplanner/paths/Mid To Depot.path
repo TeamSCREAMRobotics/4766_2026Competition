@@ -3,29 +3,29 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 3.3525301204819278,
-        "y": 4.024072289156626
+        "x": 3.2978915662650605,
+        "y": 4.046
       },
       "prevControl": null,
       "nextControl": {
-        "x": 2.041204819277109,
-        "y": 4.078710843373494
+        "x": 1.9865662650602416,
+        "y": 4.100638554216868
       },
       "isLocked": false,
-      "linkedName": null
+      "linkedName": "Move"
     },
     {
       "anchor": {
-        "x": 0.8063734939759035,
-        "y": 5.717867469879518
+        "x": 0.5878192771084336,
+        "y": 5.925493975903614
       },
       "prevControl": {
-        "x": 2.13955421686747,
-        "y": 4.242626506024097
+        "x": 2.434602409638554,
+        "y": 6.012915662650602
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": null
+      "linkedName": "mid to depot"
     }
   ],
   "rotationTargets": [],
@@ -42,7 +42,7 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": 154.5366549381284
+    "rotation": 180.0
   },
   "reversed": false,
   "folder": "Mid Paths",

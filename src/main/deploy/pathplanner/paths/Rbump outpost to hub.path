@@ -3,42 +3,35 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 0.6643132530120479,
-        "y": 0.6474096385542167
+        "x": 0.4676144578313255,
+        "y": 0.4616385542168677
       },
       "prevControl": null,
       "nextControl": {
-        "x": 1.664313253012048,
-        "y": 0.6474096385542172
+        "x": 2.4673855421686746,
+        "y": 0.352361445783132
       },
       "isLocked": false,
-      "linkedName": "refuel"
+      "linkedName": "Rbump at outpost"
     },
     {
       "anchor": {
-        "x": 3.319746987951808,
-        "y": 4.056855421686747
+        "x": 3.2432530120481924,
+        "y": 4.078710843373494
       },
       "prevControl": {
-        "x": 1.9097856340177266,
-        "y": 4.106092357119752
+        "x": 2.2432530120481924,
+        "y": 4.078710843373494
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": "shoot at hub 2"
+      "linkedName": null
     }
   ],
   "rotationTargets": [],
   "constraintZones": [],
   "pointTowardsZones": [],
-  "eventMarkers": [
-    {
-      "name": "",
-      "waypointRelativePos": 1.0,
-      "endWaypointRelativePos": null,
-      "command": null
-    }
-  ],
+  "eventMarkers": [],
   "globalConstraints": {
     "maxVelocity": 3.0,
     "maxAcceleration": 3.0,
@@ -49,13 +42,13 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": 0.35191253428363983
+    "rotation": 0.0
   },
   "reversed": false,
-  "folder": "Mid Paths",
+  "folder": "Right Bump Paths",
   "idealStartingState": {
     "velocity": 0,
-    "rotation": 180.0
+    "rotation": 90.0
   },
   "useDefaultConstraints": true
 }

@@ -4,22 +4,19 @@
 
 package frc.robot.commands;
 
-import dev.doglog.DogLog;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
-import frc.robot.subsystems.Intake;
+import frc.robot.subsystems.Climber;
 
 /* You should consider using the more terse Command factories API instead https://docs.wpilib.org/en/stable/docs/software/commandbased/organizing-command-based.html#defining-commands */
-public class IntakeGoToSetpoint extends Command {
-  Intake m_intake;
-  double m_setpoint;
+public class ResetClimber extends Command {
+  Climber m_Climber;
 
-  /** Creates a new IntakeGoToSetpoint. */
-  public IntakeGoToSetpoint(Intake intake, double setpoint) {
-    m_intake = intake;
-    m_setpoint = setpoint;
+  /** Creates a new ResetClimber. */
+  public ResetClimber(Climber climber) {
+    m_Climber = climber;
+
     // Use addRequirements() here to declare subsystem dependencies.
-    addRequirements(intake);
+    addRequirements(climber);
   }
 
   // Called when the command is initially scheduled.
@@ -29,7 +26,7 @@ public class IntakeGoToSetpoint extends Command {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    m_intake.IntakeGoToSetpoint(m_setpoint);
+    m_Climber.resetClimberPose();
   }
 
   // Called once the command ends or is interrupted.
@@ -39,8 +36,6 @@ public class IntakeGoToSetpoint extends Command {
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    DogLog.log("Intake Pivot Is Finished", m_intake.isFinished(m_setpoint));
-    SmartDashboard.putBoolean("Intake Pivot Has Finished", m_intake.isFinished(m_setpoint));
-    return m_intake.isFinished(m_setpoint);
+    return false;
   }
 }
