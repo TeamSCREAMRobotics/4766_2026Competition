@@ -3,16 +3,16 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 0.7080240963855422,
-        "y": 0.6255542168674697
+        "x": 0.4041,
+        "y": 0.448
       },
       "prevControl": null,
       "nextControl": {
-        "x": 2.366875297801375,
-        "y": 0.35507793887413985
+        "x": 2.062951201415833,
+        "y": 0.17752372200667016
       },
       "isLocked": false,
-      "linkedName": "Lbump at outpost"
+      "linkedName": "at outpost Lbump"
     },
     {
       "anchor": {
@@ -48,7 +48,7 @@
   "folder": "Claire and Roy's Left bump Paths",
   "idealStartingState": {
     "velocity": 0,
-    "rotation": 89.86858789209805
+    "rotation": 88.95837332399003
   },
   "useDefaultConstraints": true
 }
