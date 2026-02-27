@@ -5,6 +5,8 @@
 package frc.robot.commands.Shooter;
 
 import edu.wpi.first.wpilibj2.command.Command;
+import frc.robot.Dashboard;
+import frc.robot.RobotContainer;
 import frc.robot.subsystems.AgitatorSub;
 import frc.robot.subsystems.ShooterSubFolder.LFlywheel;
 import frc.robot.subsystems.ShooterSubFolder.RFlywheel;
@@ -43,11 +45,12 @@ public class Shoot extends Command {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    if (s_LFlywheel.getvelocity() >= lvelocity - 2
-        && s_LFlywheel.getvelocity() <= lvelocity + 2
-        && s_RFlywheel.getvelocity() >= rvelocity - 2
-        && s_RFlywheel.getvelocity() <= rvelocity + 2) {
+    if (s_LFlywheel.getvelocity() >= Dashboard.flywheelVelocity.get() - 2
+        && s_LFlywheel.getvelocity() <= Dashboard.flywheelVelocity.get() + 2
+        && s_RFlywheel.getvelocity() >= Dashboard.flywheelVelocity.get() - 2
+        && s_RFlywheel.getvelocity() <= Dashboard.flywheelVelocity.get() + 2) {
       s_Agitator.RunAgitatorAndKicker(10, 12);
+      
     }
   }
 

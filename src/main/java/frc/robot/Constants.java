@@ -67,29 +67,28 @@ public class Constants {
     //    HOOD_MAP.put(4.0, 40.0);
     //  }
 
-    public static final InterpolatingDoubleTreeMap LSHOOTER_VELOCITY_MAP =
+    public static final InterpolatingDoubleTreeMap SHOOTER_VELOCITY_MAP =
         new InterpolatingDoubleTreeMap();
 
     static {
       // placeholder values before testing
       // (distance to hub, flywheel voltage)
-      LSHOOTER_VELOCITY_MAP.put(1.0, 8.0);
-      LSHOOTER_VELOCITY_MAP.put(2.0, 3.0);
-      LSHOOTER_VELOCITY_MAP.put(3.0, 5.0);
-      LSHOOTER_VELOCITY_MAP.put(4.0, 6.5);
+      SHOOTER_VELOCITY_MAP.put(0.8644093871116638, 50.0);
+      SHOOTER_VELOCITY_MAP.put(0.215736523270607, 60.0);
+      
     }
 
-    public static final InterpolatingDoubleTreeMap RSHOOTER_VELOCITY_MAP =
-        new InterpolatingDoubleTreeMap();
+    // public static final InterpolatingDoubleTreeMap RSHOOTER_VELOCITY_MAP =
+    //     new InterpolatingDoubleTreeMap();
 
-    static {
-      // placeholder values before testing
-      // (distance to hub, flywheel voltage)
-      RSHOOTER_VELOCITY_MAP.put(1.0, 8.0);
-      RSHOOTER_VELOCITY_MAP.put(2.0, 3.0);
-      RSHOOTER_VELOCITY_MAP.put(3.0, 5.0);
-      RSHOOTER_VELOCITY_MAP.put(4.0, 6.5);
-    }
+    // static {
+    //   // placeholder values before testing
+    //   // (distance to hub, flywheel voltage)
+    //   RSHOOTER_VELOCITY_MAP.put(1.0, 8.0);
+    //   RSHOOTER_VELOCITY_MAP.put(2.0, 3.0);
+    //   RSHOOTER_VELOCITY_MAP.put(3.0, 5.0);
+    //   RSHOOTER_VELOCITY_MAP.put(4.0, 6.5);
+    // }
   }
 
   public class ClimberConstants {

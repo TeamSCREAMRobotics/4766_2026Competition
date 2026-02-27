@@ -6,6 +6,8 @@ package frc.robot;
 
 import static edu.wpi.first.units.Units.*;
 
+import java.util.function.DoubleSupplier;
+
 import com.ctre.phoenix6.swerve.SwerveModule.DriveRequestType;
 import com.ctre.phoenix6.swerve.SwerveRequest;
 import com.pathplanner.lib.auto.AutoBuilder;
@@ -82,6 +84,16 @@ public class RobotContainer {
   /* Path follower */
   private final SendableChooser<Command> autoChooser;
 
+  public static DoubleSupplier desiredFlyWheelVelocity = new DoubleSupplier() {
+
+    @Override
+    public double getAsDouble() {
+        // TODO Auto-generated method stub
+        return 0;
+    }
+    
+  };
+
   public RobotContainer() {
     addNamedCommands();
     autoChooser = AutoBuilder.buildAutoChooser("Tests");
@@ -89,6 +101,8 @@ public class RobotContainer {
     autoChooser.addOption("Depot Auto", new PathPlannerAuto("Depot Auto"));
     SmartDashboard.putData("Auto Mode", autoChooser);
     SmartDashboard.getNumber("Climber Pose", m_climber.getClimberPose());
+
+    Dashboard.initialize();
 
     configureBindings();
 
@@ -174,9 +188,11 @@ public class RobotContainer {
                             () -> rFlywheel.setSetpointVelocity(Dashboard.flywheelVelocity.get()),
                             rFlywheel)
                         .alongWith(
-                            new Shoot(lFlywheel, rFlywheel, m_agitator, 50, 50)
+                            new Shoot(lFlywheel, rFlywheel, m_agitator, desiredFlyWheelVelocity.getAsDouble(), desiredFlyWheelVelocity.getAsDouble())
                                 .alongWith(drivetrain.applyRequest(() -> brake)))
                         .alongWith(new Jostle(m_intake))));
+
+                        
 
     // driverController.rightTrigger(.5).whileTrue(new
     // FeedForwardCharacterization(flywheel,flywheel::setVoltage, flywheel::getVelocity));
@@ -233,7 +249,7 @@ public class RobotContainer {
     NamedCommands.registerCommand(
         "Intake Up", new IntakeGoToSetpoint(m_intake, IntakeConstants.intakePivotUpSetpoint));
     NamedCommands.registerCommand("Run Intake", new RunIntake(m_intake, 8.5));
-    NamedCommands.registerCommand("Agitate And Kicker", new AgitateAndKick(m_agitator, 1, -1));
+    NamedCommands.registerCommand("Agitate And Kick", new AgitateAndKick(m_agitator, 1, -1));
     NamedCommands.registerCommand(
         "Shoot",
         Commands.run(
