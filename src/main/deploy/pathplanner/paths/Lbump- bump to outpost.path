@@ -3,25 +3,25 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 3.4618072289156623,
-        "y": 5.280759036144579
+        "x": 2.6640843373493976,
+        "y": 4.974783132530121
       },
       "prevControl": null,
       "nextControl": {
-        "x": 3.0432203389830517,
-        "y": 1.9340395480225991
+        "x": 2.245497447416787,
+        "y": 1.628063644408141
       },
       "isLocked": false,
-      "linkedName": null
+      "linkedName": "infront of Lbump"
     },
     {
       "anchor": {
-        "x": 0.4042090395480231,
-        "y": 0.4479943502824869
+        "x": 0.7080240963855422,
+        "y": 0.6255542168674697
       },
       "prevControl": {
-        "x": 2.133658192090396,
-        "y": 0.5120480225988706
+        "x": 2.437473248927914,
+        "y": 0.6896078891838534
       },
       "nextControl": null,
       "isLocked": false,
@@ -48,7 +48,7 @@
   "folder": "Claire and Roy's Left bump Paths",
   "idealStartingState": {
     "velocity": 0,
-    "rotation": -50.2676971280442
+    "rotation": -46.0
   },
   "useDefaultConstraints": true
 }

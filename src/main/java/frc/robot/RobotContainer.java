@@ -16,6 +16,7 @@ import dev.doglog.DogLog;
 import dev.doglog.DogLogOptions;
 import edu.wpi.first.math.geometry.Rotation2d;
 import edu.wpi.first.wpilibj.PowerDistribution;
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
@@ -259,7 +260,7 @@ public class RobotContainer {
             .alongWith(
                 Commands.run(
                     () -> rFlywheel.setSetpointVelocity(ShooterConstants.defaultVelocity),
-                    rFlywheel)));
+                    rFlywheel)).withTimeout(5));
     //   NamedCommands.registerCommand("Stop Shoot", new Shoot(m_shooter, m_agitator, 0, 0));
   }
 }
