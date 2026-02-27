@@ -259,10 +259,10 @@ public class RobotContainer {
     NamedCommands.registerCommand(
         "Shoot",
         Commands.run(
-                () -> lFlywheel.setSetpointVelocity(ShooterConstants.defaultVelocity), lFlywheel)
+                () -> lFlywheel.setSetpointVelocity(Dashboard.flywheelVelocity.get()), lFlywheel)
             .alongWith(
                 Commands.run(
-                    () -> rFlywheel.setSetpointVelocity(ShooterConstants.defaultVelocity),
+                    () -> rFlywheel.setSetpointVelocity(Dashboard.flywheelVelocity.get()),
                     rFlywheel))
             .withTimeout(5));
     //   NamedCommands.registerCommand("Stop Shoot", new Shoot(m_shooter, m_agitator, 0, 0));
