@@ -54,17 +54,17 @@ public class Constants {
     public static final double kMagicAcceleration = 60;
     public static final double kMagicCruiseVelocity = 80;
 
-      //  public static final InterpolatingDoubleTreeMap HOOD_MAP = new
-      // InterpolatingDoubleTreeMap();
-      //
-      //  static {
-      //    // placeholder values before testing
-      //    // (distance to hub, hood angle)
-      //    HOOD_MAP.put(1.0, 10.0);
-      //    HOOD_MAP.put(2.0, 20.0);
-      //    HOOD_MAP.put(3.0, 30.0);
-      //   HOOD_MAP.put(4.0, 40.0);
-      //  }
+    //  public static final InterpolatingDoubleTreeMap HOOD_MAP = new
+    // InterpolatingDoubleTreeMap();
+    //
+    //  static {
+    //    // placeholder values before testing
+    //    // (distance to hub, hood angle)
+    //    HOOD_MAP.put(1.0, 10.0);
+    //    HOOD_MAP.put(2.0, 20.0);
+    //    HOOD_MAP.put(3.0, 30.0);
+    //   HOOD_MAP.put(4.0, 40.0);
+    //  }
 
     public static final InterpolatingDoubleTreeMap SHOOTER_VELOCITY_MAP =
         new InterpolatingDoubleTreeMap();
@@ -106,28 +106,27 @@ public class Constants {
     public static final double climberMagicCruiseVelocity = 1;
   }
 
-    public class AgitatorConstants {
-      public static final int agitatorMotorID = 13;
-      public static final int kickerMotorID = 15;
-    }
-
-    public class FieldConstants {
-      public static final Translation2d fieldDimesions = new Translation2d(null, null);
-      public static final RectangularPoseArea fieldArea =
-          new RectangularPoseArea(Translation2d.kZero, fieldDimesions);
-      public static final Pose2d blueHubAlign =
-          new Pose2d(0, fieldDimesions.getY(), Rotation2d.fromDegrees(0));
-      public static final Pose2d redHubAlign =
-          new Pose2d(fieldDimesions.getX() - 0, fieldDimesions.getY() * 0, null);
-
-      private static Pair<Integer, Pose2d> getTagPair(int id) {
-        return Pair.of(
-            id,
-            AprilTagFieldLayout.loadField(AprilTagFields.k2026RebuiltWelded)
-                .getTagPose(id)
-                .get()
-                .toPose2d());
-      }
-    }
+  public class AgitatorConstants {
+    public static final int agitatorMotorID = 13;
+    public static final int kickerMotorID = 15;
   }
 
+  public class FieldConstants {
+    public static final Translation2d fieldDimesions = new Translation2d(null, null);
+    public static final RectangularPoseArea fieldArea =
+        new RectangularPoseArea(Translation2d.kZero, fieldDimesions);
+    public static final Pose2d blueHubAlign =
+        new Pose2d(0, fieldDimesions.getY(), Rotation2d.fromDegrees(0));
+    public static final Pose2d redHubAlign =
+        new Pose2d(fieldDimesions.getX() - 0, fieldDimesions.getY() * 0, null);
+
+    private static Pair<Integer, Pose2d> getTagPair(int id) {
+      return Pair.of(
+          id,
+          AprilTagFieldLayout.loadField(AprilTagFields.k2026RebuiltWelded)
+              .getTagPose(id)
+              .get()
+              .toPose2d());
+    }
+  }
+}

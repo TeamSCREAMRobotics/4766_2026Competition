@@ -25,7 +25,6 @@ import edu.wpi.first.wpilibj2.command.button.RobotModeTriggers;
 import edu.wpi.first.wpilibj2.command.sysid.SysIdRoutine.Direction;
 import frc.robot.Constants.ClimberConstants;
 import frc.robot.Constants.IntakeConstants;
-import frc.robot.Constants.ShooterConstants;
 import frc.robot.commands.Agitator.AgitateAndKick;
 import frc.robot.commands.IntakeGoToSetpoint;
 import frc.robot.commands.Jostle;
