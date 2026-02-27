@@ -75,7 +75,6 @@ public class Constants {
       // (distance to hub, flywheel voltage)
       SHOOTER_VELOCITY_MAP.put(0.8644093871116638, 50.0);
       SHOOTER_VELOCITY_MAP.put(0.215736523270607, 60.0);
-      
     }
 
     // public static final InterpolatingDoubleTreeMap RSHOOTER_VELOCITY_MAP =

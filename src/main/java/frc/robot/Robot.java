@@ -4,8 +4,6 @@
 
 package frc.robot;
 
-import java.util.function.DoubleSupplier;
-
 import com.ctre.phoenix6.HootAutoReplay;
 import edu.wpi.first.math.util.Units;
 import edu.wpi.first.wpilibj.DriverStation;
@@ -17,6 +15,7 @@ import frc.robot.subsystems.ShooterSubFolder.LFlywheel;
 import frc.robot.subsystems.ShooterSubFolder.LFlywheelConfig;
 import frc.robot.subsystems.ShooterSubFolder.RFlywheel;
 import frc.robot.subsystems.ShooterSubFolder.RFlywheelConfig;
+import java.util.function.DoubleSupplier;
 
 public class Robot extends TimedRobot {
   private Command m_autonomousCommand;
@@ -61,12 +60,13 @@ public class Robot extends TimedRobot {
       double headingDeg = driveState.Pose.getRotation().getDegrees();
       double omegaRps = Units.radiansToRotations(driveState.Speeds.omegaRadiansPerSecond);
 
-      RobotContainer.desiredFlyWheelVelocity = new DoubleSupplier() {
-        @Override
-        public double getAsDouble() {
-          return Dashboard.flywheelVelocity.get();
-        }
-      };
+      RobotContainer.desiredFlyWheelVelocity =
+          new DoubleSupplier() {
+            @Override
+            public double getAsDouble() {
+              return Dashboard.flywheelVelocity.get();
+            }
+          };
 
       LimelightHelpers.SetRobotOrientation("limelight", headingDeg, 0, 0, 0, 0, 0);
       var llMeasurement = LimelightHelpers.getBotPoseEstimate_wpiBlue_MegaTag2("limelight");

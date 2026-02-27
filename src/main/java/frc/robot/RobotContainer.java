@@ -6,8 +6,6 @@ package frc.robot;
 
 import static edu.wpi.first.units.Units.*;
 
-import java.util.function.DoubleSupplier;
-
 import com.ctre.phoenix6.swerve.SwerveModule.DriveRequestType;
 import com.ctre.phoenix6.swerve.SwerveRequest;
 import com.pathplanner.lib.auto.AutoBuilder;
@@ -46,6 +44,7 @@ import frc.robot.subsystems.ShooterSubFolder.LFlywheelConfig;
 import frc.robot.subsystems.ShooterSubFolder.RFlywheel;
 import frc.robot.subsystems.ShooterSubFolder.RFlywheelConfig;
 import frc.robot.subsystems.ShooterSubFolder.ShooterSub;
+import java.util.function.DoubleSupplier;
 
 public class RobotContainer {
   ShooterSub s_Shooter = new ShooterSub();
@@ -84,15 +83,15 @@ public class RobotContainer {
   /* Path follower */
   private final SendableChooser<Command> autoChooser;
 
-  public static DoubleSupplier desiredFlyWheelVelocity = new DoubleSupplier() {
+  public static DoubleSupplier desiredFlyWheelVelocity =
+      new DoubleSupplier() {
 
-    @Override
-    public double getAsDouble() {
-        // TODO Auto-generated method stub
-        return 0;
-    }
-    
-  };
+        @Override
+        public double getAsDouble() {
+          // TODO Auto-generated method stub
+          return 0;
+        }
+      };
 
   public RobotContainer() {
     addNamedCommands();
@@ -188,11 +187,14 @@ public class RobotContainer {
                             () -> rFlywheel.setSetpointVelocity(Dashboard.flywheelVelocity.get()),
                             rFlywheel)
                         .alongWith(
-                            new Shoot(lFlywheel, rFlywheel, m_agitator, desiredFlyWheelVelocity.getAsDouble(), desiredFlyWheelVelocity.getAsDouble())
+                            new Shoot(
+                                    lFlywheel,
+                                    rFlywheel,
+                                    m_agitator,
+                                    desiredFlyWheelVelocity.getAsDouble(),
+                                    desiredFlyWheelVelocity.getAsDouble())
                                 .alongWith(drivetrain.applyRequest(() -> brake)))
                         .alongWith(new Jostle(m_intake))));
-
-                        
 
     // driverController.rightTrigger(.5).whileTrue(new
     // FeedForwardCharacterization(flywheel,flywheel::setVoltage, flywheel::getVelocity));
