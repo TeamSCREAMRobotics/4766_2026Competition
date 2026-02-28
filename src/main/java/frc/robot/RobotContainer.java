@@ -245,20 +245,29 @@ public class RobotContainer {
   }
 
   public void addNamedCommands() {
-    NamedCommands.registerCommand(
-        "Intake Down", new IntakeGoToSetpoint(m_intake, IntakeConstants.intakePivotDownSetpoint));
-    NamedCommands.registerCommand(
-        "Intake Up", new IntakeGoToSetpoint(m_intake, IntakeConstants.intakePivotUpSetpoint));
+    NamedCommands.registerCommand("Intake Down", new IntakeGoToSetpoint(m_intake, IntakeConstants.intakePivotDownSetpoint));
+    NamedCommands.registerCommand("Intake Up", new IntakeGoToSetpoint(m_intake, IntakeConstants.intakePivotUpSetpoint));
     NamedCommands.registerCommand("Run Intake", new RunIntake(m_intake, 8.5));
     NamedCommands.registerCommand("Agitate And Kick", new AgitateAndKick(m_agitator, 1, -1));
-    NamedCommands.registerCommand(
-        "Shoot",
-        Commands.run(
-                () -> lFlywheel.setSetpointVelocity(ShooterConstants.defaultVelocity), lFlywheel)
-            .alongWith(
-                Commands.run(
-                    () -> rFlywheel.setSetpointVelocity(ShooterConstants.defaultVelocity),
-                    rFlywheel))
-            .withTimeout(5));
+    
+    NamedCommands.registerCommand("Shoot", 
+            Commands.run(
+                    () -> lFlywheel.setSetpointVelocity(Dashboard.flywheelVelocity.get()),
+                    lFlywheel)
+                .alongWith(
+                    Commands.run(
+                            () -> rFlywheel.setSetpointVelocity(Dashboard.flywheelVelocity.get()),
+                            rFlywheel)
+                        .alongWith(
+                            new Shoot(
+                                    lFlywheel,
+                                    rFlywheel,
+                                    m_agitator,
+                                    desiredFlyWheelVelocity.getAsDouble(),
+                                    desiredFlyWheelVelocity.getAsDouble())
+                                .alongWith(drivetrain.applyRequest(() -> brake)))));
+    
+    NamedCommands.registerCommand("Wait 5s", Commands.waitSeconds(5));
+    NamedCommands.registerCommand("Shooter Idle", new Shoot(lFlywheel,rFlywheel,m_agitator,10.0,10.0));
   }
 }
