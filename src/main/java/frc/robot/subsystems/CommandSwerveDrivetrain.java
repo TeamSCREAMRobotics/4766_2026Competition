@@ -15,7 +15,6 @@ import com.teamscreamrobotics.util.Logger;
 import com.teamscreamrobotics.vision.LimelightHelpers;
 import com.teamscreamrobotics.vision.LimelightHelpers.PoseEstimate;
 import com.teamscreamrobotics.vision.LimelightVision.Limelight;
-
 import dev.doglog.DogLog;
 import edu.wpi.first.math.Matrix;
 import edu.wpi.first.math.VecBuilder;
@@ -50,7 +49,7 @@ import java.util.function.Supplier;
 public class CommandSwerveDrivetrain extends TunerSwerveDrivetrain implements Subsystem {
   private static final double kSimLoopPeriod = 0.004; // 4 ms
   private Notifier m_simNotifier = null;
-  private double m_lastSimTime;  
+  private double m_lastSimTime;
   boolean doRejectVisionUpdate = false;
   public boolean UpdatingPose = false;
   public boolean hasEnabled = false;
@@ -251,7 +250,6 @@ public class CommandSwerveDrivetrain extends TunerSwerveDrivetrain implements Su
   public Command sysIdQuasistatic(SysIdRoutine.Direction direction) {
     return m_sysIdRoutineToApply.quasistatic(direction);
   }
-  
 
   /**
    * Runs the SysId Dynamic test in the given direction for the routine specified by {@link
@@ -267,16 +265,15 @@ public class CommandSwerveDrivetrain extends TunerSwerveDrivetrain implements Su
   @Override
   public void periodic() {
 
-    LimelightHelpers.SetRobotOrientation("limelight-shooter", getState().Pose.getRotation().getDegrees(), 0, 0, 0, 0, 0);
+    LimelightHelpers.SetRobotOrientation(
+        "limelight-shooter", getState().Pose.getRotation().getDegrees(), 0, 0, 0, 0, 0);
     addGlobalPoseEstimate(shooterLimelight);
-    LimelightHelpers.SetRobotOrientation("lclimb", getState().Pose.getRotation().getDegrees(), 0, 0, 0, 0, 0);
+    LimelightHelpers.SetRobotOrientation(
+        "lclimb", getState().Pose.getRotation().getDegrees(), 0, 0, 0, 0, 0);
     addGlobalPoseEstimate(backleftLimelight);
-    LimelightHelpers.SetRobotOrientation("rclimb", getState().Pose.getRotation().getDegrees(), 0, 0, 0, 0, 0);
+    LimelightHelpers.SetRobotOrientation(
+        "rclimb", getState().Pose.getRotation().getDegrees(), 0, 0, 0, 0, 0);
     addGlobalPoseEstimate(backrightLimelight);
-
-  
-
-
 
     /*
      * Periodically try to apply the operator perspective.
@@ -328,7 +325,7 @@ public class CommandSwerveDrivetrain extends TunerSwerveDrivetrain implements Su
     super.addVisionMeasurement(visionRobotPoseMeters, Utils.fpgaToCurrentTime(timestampSeconds));
   }
 
-    public Pose2d getPose() {
+  public Pose2d getPose() {
     return getState().Pose;
   }
 
@@ -354,7 +351,7 @@ public class CommandSwerveDrivetrain extends TunerSwerveDrivetrain implements Su
         getState().Speeds.omegaRadiansPerSecond);
   }
 
-    private boolean rejectEstimate(PoseEstimate estimate) {
+  private boolean rejectEstimate(PoseEstimate estimate) {
     return estimate == null
         || estimate.tagCount == 0
         || !FieldConstants.fieldArea.contains(estimate.pose)
@@ -376,7 +373,6 @@ public class CommandSwerveDrivetrain extends TunerSwerveDrivetrain implements Su
    * @param visionMeasurementStdDevs Standard deviations of the vision pose measurement in the form
    *     [x, y, theta]ᵀ, with units in meters and radians.
    */
-
   public void addVisionMeasurement(
       Pose2d visionRobotPoseMeters,
       double timestampSeconds,
@@ -389,8 +385,9 @@ public class CommandSwerveDrivetrain extends TunerSwerveDrivetrain implements Su
             : new Pose2d(visionRobotPoseMeters.getTranslation(), getHeading()),
         Utils.fpgaToCurrentTime(timestampSeconds),
         visionMeasurementStdDevs);
-      }
-    private void addGlobalPoseEstimate(Limelight limelight) {
+  }
+
+  private void addGlobalPoseEstimate(Limelight limelight) {
     LimelightHelpers.SetRobotOrientation(
         limelight.name(), getHeading().getDegrees(), getYawRate().getDegrees(), 0, 0, 0, 0);
     PoseEstimate mt2Estimate =
@@ -414,7 +411,7 @@ public class CommandSwerveDrivetrain extends TunerSwerveDrivetrain implements Su
         Logger.log("Vision/" + limelight.name() + "/ThetaStds", thetaStds);
       }
     }
-        if (shouldUseMt2) {
+    if (shouldUseMt2) {
       double stdFactor = Math.pow(mt2Estimate.avgTagDist, 2.2) / (mt2Estimate.tagCount * 0.5);
       double xyStds = VisionConstants.xyStdBaseline * stdFactor * VisionConstants.xyMt2StdFactor;
       addVisionMeasurement(
@@ -431,7 +428,8 @@ public class CommandSwerveDrivetrain extends TunerSwerveDrivetrain implements Su
       Logger.log("Vision/" + limelight.name() + "/ThetaStds", 0.0);
     }
   }
-    public boolean comparePose2d(
+
+  public boolean comparePose2d(
       Pose2d targetPose, double xDeadzoneMeters, double yDeadzoneMeters, double tDeadzoneDegrees) {
     boolean xWithinSpec = false;
     boolean yWithinSpec = false;
@@ -449,12 +447,3 @@ public class CommandSwerveDrivetrain extends TunerSwerveDrivetrain implements Su
     return xWithinSpec && yWithinSpec && tWithinSpec;
   }
 }
-
-
-
-
-
-   
-
-
-
