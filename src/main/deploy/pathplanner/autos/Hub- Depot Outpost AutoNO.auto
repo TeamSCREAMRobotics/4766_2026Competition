@@ -23,6 +23,18 @@
           }
         },
         {
+          "type": "named",
+          "data": {
+            "name": "Wait 5s"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Shooter Idle"
+          }
+        },
+        {
           "type": "path",
           "data": {
             "pathName": "hub to depot"
@@ -41,6 +53,12 @@
           }
         },
         {
+          "type": "wait",
+          "data": {
+            "waitTime": 1.0
+          }
+        },
+        {
           "type": "named",
           "data": {
             "name": "Stop Intake"
@@ -56,6 +74,48 @@
           "type": "named",
           "data": {
             "name": "Shoot"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Wait 5s"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Shooter Idle"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "hub to outpost"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "Outpost To Hub"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Shoot"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Wait 5s"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Shooter Idle"
           }
         }
       ]

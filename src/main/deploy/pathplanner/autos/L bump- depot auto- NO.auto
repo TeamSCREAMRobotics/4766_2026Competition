@@ -5,6 +5,12 @@
     "data": {
       "commands": [
         {
+          "type": "path",
+          "data": {
+            "pathName": "Lbump infront"
+          }
+        },
+        {
           "type": "named",
           "data": {
             "name": "Intake Down"
@@ -17,9 +23,15 @@
           }
         },
         {
-          "type": "path",
+          "type": "named",
           "data": {
-            "pathName": "Rbump to depot"
+            "name": "Wait 5s"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Shooter Idle"
           }
         },
         {
@@ -31,13 +43,7 @@
         {
           "type": "path",
           "data": {
-            "pathName": "Rbump- forward in depot"
-          }
-        },
-        {
-          "type": "path",
-          "data": {
-            "pathName": "RBump depot to hub"
+            "pathName": "Lbump- bump to depot"
           }
         },
         {
@@ -47,15 +53,33 @@
           }
         },
         {
+          "type": "path",
+          "data": {
+            "pathName": "Lbump- depot to hub"
+          }
+        },
+        {
           "type": "named",
           "data": {
             "name": "Shoot"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Wait 5s"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Shooter Idle"
           }
         }
       ]
     }
   },
   "resetOdom": true,
-  "folder": "Right Bump Autos",
+  "folder": "Claire and Roy's Left bump Autos",
   "choreoAuto": false
 }

@@ -93,8 +93,6 @@ public class Constants {
       SHOOTER_VELOCITY_MAP.put(0.27644532918930054, 63.5);
       SHOOTER_VELOCITY_MAP.put(0.5533760786056519, 50.0);
       SHOOTER_VELOCITY_MAP.put(0.18435527384281158, 68.0);
- 
-
     }
 
     // public static final InterpolatingDoubleTreeMap RSHOOTER_VELOCITY_MAP =

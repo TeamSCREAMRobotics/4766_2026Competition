@@ -5,6 +5,12 @@
     "data": {
       "commands": [
         {
+          "type": "path",
+          "data": {
+            "pathName": "back up"
+          }
+        },
+        {
           "type": "named",
           "data": {
             "name": "Intake Down"
@@ -19,19 +25,31 @@
         {
           "type": "named",
           "data": {
+            "name": "Wait 5s"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Shooter Idle"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "hub to depot"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
             "name": "Run Intake"
           }
         },
         {
           "type": "path",
           "data": {
-            "pathName": "Lbump- bump to depot"
-          }
-        },
-        {
-          "type": "path",
-          "data": {
-            "pathName": "Lbump- depot to hub"
+            "pathName": "forward- depot"
           }
         },
         {
@@ -41,39 +59,33 @@
           }
         },
         {
+          "type": "path",
+          "data": {
+            "pathName": "Depot To Hub"
+          }
+        },
+        {
           "type": "named",
           "data": {
             "name": "Shoot"
           }
         },
         {
-          "type": "path",
+          "type": "named",
           "data": {
-            "pathName": "Lbump hub to outpost"
-          }
-        },
-        {
-          "type": "wait",
-          "data": {
-            "waitTime": 3.0
-          }
-        },
-        {
-          "type": "path",
-          "data": {
-            "pathName": "Lbump- Outpost to Hub"
+            "name": "Wait 5s"
           }
         },
         {
           "type": "named",
           "data": {
-            "name": "Shoot"
+            "name": "Shooter Idle"
           }
         }
       ]
     }
   },
   "resetOdom": true,
-  "folder": "Claire and Roy's Left bump Autos",
+  "folder": "Claire and Roy's Hub Autos",
   "choreoAuto": false
 }

@@ -19,7 +19,19 @@
         {
           "type": "named",
           "data": {
-            "name": "shoot"
+            "name": "Shoot"
+          }
+        },
+        {
+          "type": "wait",
+          "data": {
+            "waitTime": 5.0
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Shooter Idle"
           }
         },
         {
@@ -44,6 +56,18 @@
           "type": "named",
           "data": {
             "name": "Shoot"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Wait 5s"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Shooter Idle"
           }
         }
       ]
