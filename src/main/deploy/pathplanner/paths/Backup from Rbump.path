@@ -3,29 +3,29 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 0.6643132530120479,
-        "y": 0.6583373493975899
+        "x": 3.4508795180722887,
+        "y": 2.5925421686746986
       },
       "prevControl": null,
       "nextControl": {
-        "x": 2.3231644544278804,
-        "y": 0.38786107140426007
+        "x": 2.9700602409638552,
+        "y": 2.6581084337349408
       },
       "isLocked": false,
-      "linkedName": "Lbump at outpost"
+      "linkedName": null
     },
     {
       "anchor": {
-        "x": 3.299435028248588,
-        "y": 4.022189265536723
+        "x": 2.565734939759036,
+        "y": 2.9203734939759034
       },
       "prevControl": {
-        "x": 2.299435028248588,
-        "y": 4.022189265536723
+        "x": 2.767918960834833,
+        "y": 2.773330569557142
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": null
+      "linkedName": "infront of Rbump"
     }
   ],
   "rotationTargets": [],
@@ -42,13 +42,13 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": 0.0
+    "rotation": 29.57783868126134
   },
   "reversed": false,
-  "folder": "Claire and Roy's Left bump Paths",
+  "folder": "Right Bump Paths",
   "idealStartingState": {
     "velocity": 0,
-    "rotation": 180.0
+    "rotation": 56.65607886071137
   },
   "useDefaultConstraints": true
 }

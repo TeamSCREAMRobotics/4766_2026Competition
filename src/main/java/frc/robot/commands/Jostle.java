@@ -5,6 +5,7 @@
 package frc.robot.commands;
 
 import edu.wpi.first.math.filter.Debouncer;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.Constants.IntakeConstants;
 import frc.robot.subsystems.Intake;
@@ -13,7 +14,6 @@ import frc.robot.subsystems.Intake;
 public class Jostle extends Command {
   Intake m_Intake;
   int timer;
-  Debouncer jostlDebouncer;
 
   /** Creates a new Jostle. */
   public Jostle(Intake intake) {
@@ -32,7 +32,7 @@ public class Jostle extends Command {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    // SmartDashboard.putNumber("timer", Timer.getTimestamp());
+    SmartDashboard.putNumber("timer", timer);
     // if(Timer.getTimestamp() > 0.25){
     // m_Intake.IntakeGoToSetpoint(IntakeConstants.intakePivotDownSetpoint);
     //   if(Timer.getTimestamp() > 0.5){

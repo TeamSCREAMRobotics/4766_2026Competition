@@ -16,12 +16,12 @@
     },
     {
       "anchor": {
-        "x": 0.45668674698795175,
-        "y": 0.48349397590361487
+        "x": 0.664,
+        "y": 0.658
       },
       "prevControl": {
-        "x": 1.822650602409638,
-        "y": 0.25401204819277157
+        "x": 2.04910620873071,
+        "y": 0.6580000000000003
       },
       "nextControl": null,
       "isLocked": false,
@@ -42,7 +42,7 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": 88.99491399474586
+    "rotation": -179.29690672228833
   },
   "reversed": false,
   "folder": "Claire and Roy's Hub Paths",

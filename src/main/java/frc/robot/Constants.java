@@ -28,7 +28,7 @@ public class Constants {
   public class IntakeConstants {
     public static final int intakeMotorID = 14;
     public static final int intakePivotID = 12;
-    public static final double kP = 1.7;
+    public static final double kP = 2.5;
     public static final double kI = 0;
     public static final double kD = 0;
     public static final double kV = 0;
@@ -41,7 +41,7 @@ public class Constants {
     public static final double intakeAgitateHighSetpoint = 3.0;
     public static final double intakeAgitateLowSetpoint = 4.5;
     public static final double intakePivotForwardSoftLimit = 7.33;
-    public static final double intakePivotReversSoftLimit = 0.005;
+    public static final double intakePivotReverseSoftLimit = 0.005;
   }
 
   public class ShooterConstants {

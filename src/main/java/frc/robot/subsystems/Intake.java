@@ -46,7 +46,7 @@ public class Intake extends SubsystemBase {
     intakeConfig.SoftwareLimitSwitch.ForwardSoftLimitThreshold =
         IntakeConstants.intakePivotForwardSoftLimit;
     intakeConfig.SoftwareLimitSwitch.ReverseSoftLimitThreshold =
-        IntakeConstants.intakePivotReversSoftLimit;
+        IntakeConstants.intakePivotReverseSoftLimit;
     intakeConfig.SoftwareLimitSwitch.ForwardSoftLimitEnable = true;
     intakeConfig.SoftwareLimitSwitch.ReverseSoftLimitEnable = false;
     intakePivot.getConfigurator().apply(intakeConfig);
