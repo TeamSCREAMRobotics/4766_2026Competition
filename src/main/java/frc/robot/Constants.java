@@ -140,7 +140,7 @@ public class Constants {
   }
 
   public class FieldConstants {
-    public static final Translation2d fieldDimesions = new Translation2d(1, 1);
+    public static final Translation2d fieldDimesions = new Translation2d(16.54, 8);
     public static final RectangularPoseArea fieldArea =
         new RectangularPoseArea(Translation2d.kZero, fieldDimesions);
     public static final Pose2d blueHubAlign =
