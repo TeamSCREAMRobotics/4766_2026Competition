@@ -286,10 +286,9 @@ public class RobotContainer {
                             ShooterConstants.SHOOTER_VELOCITY_MAP.get(
                                 LimelightHelpers.getTA("limelight-shooter"))))
                     .alongWith(drivetrain.applyRequest(() -> brake))
-                    .alongWith(new Jostle(m_intake))
-                    )
-                .withTimeout(8));
-NamedCommands.registerCommand(
+                    .alongWith(new Jostle(m_intake)))
+            .withTimeout(8));
+    NamedCommands.registerCommand(
         "Shoot Preload",
         Commands.run(() -> lFlywheel.setSetpointVelocity(Shoot.desiredvelocity), lFlywheel)
             .alongWith(
@@ -305,9 +304,7 @@ NamedCommands.registerCommand(
                             ShooterConstants.SHOOTER_VELOCITY_MAP.get(
                                 LimelightHelpers.getTA("limelight-shooter"))))
                     .alongWith(drivetrain.applyRequest(() -> brake))
-                    .alongWith(new Jostle(m_intake))
-                    )
-                .withTimeout(5));
-    
+                    .alongWith(new Jostle(m_intake)))
+            .withTimeout(5));
   }
 }
