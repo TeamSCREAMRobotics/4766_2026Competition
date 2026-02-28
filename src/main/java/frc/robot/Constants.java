@@ -17,7 +17,7 @@ import edu.wpi.first.math.interpolation.InterpolatingDoubleTreeMap;
 public class Constants {
   public static boolean disableHAL = false;
 
-  public static void disableHAL(){
+  public static void disableHAL() {
     disableHAL = true;
   }
 
@@ -89,11 +89,9 @@ public class Constants {
       SHOOTER_VELOCITY_MAP.put(0.5004304647445679, 55.5);
       SHOOTER_VELOCITY_MAP.put(0.4286656975746155, 59.0);
       SHOOTER_VELOCITY_MAP.put(0.5435771346092224, 57.0);
-      SHOOTER_VELOCITY_MAP.put(0.25983139872550964, 63.0);// could be wrong
+      SHOOTER_VELOCITY_MAP.put(0.25983139872550964, 63.0); // could be wrong
       SHOOTER_VELOCITY_MAP.put(0.27644532918930054, 63.5);
       SHOOTER_VELOCITY_MAP.put(0.5533760786056519, 50.0);
- 
-
     }
 
     // public static final InterpolatingDoubleTreeMap RSHOOTER_VELOCITY_MAP =

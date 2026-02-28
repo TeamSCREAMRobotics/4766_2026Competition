@@ -1,4 +1,3 @@
-
 // Copyright (c) 2025-2026 Littleton Robotics
 // http://github.com/Mechanical-Advantage
 //

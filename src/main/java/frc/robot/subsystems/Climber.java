@@ -51,16 +51,14 @@ public class Climber extends SubsystemBase {
     climbermotor.getConfigurator().apply(climberConfigs);
   }
 
-  public void setSoftLimits(boolean value){
-    if (value){
+  public void setSoftLimits(boolean value) {
+    if (value) {
       climberConfigs.SoftwareLimitSwitch.ForwardSoftLimitEnable = true;
       climberConfigs.SoftwareLimitSwitch.ReverseSoftLimitEnable = true;
-    }
-    else{
+    } else {
       climberConfigs.SoftwareLimitSwitch.ForwardSoftLimitEnable = false;
       climberConfigs.SoftwareLimitSwitch.ReverseSoftLimitEnable = false;
     }
-
   }
 
   // This resets the climber position to 0
