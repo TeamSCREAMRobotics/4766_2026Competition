@@ -262,10 +262,9 @@ public class CommandSwerveDrivetrain extends TunerSwerveDrivetrain implements Su
           ShooterLimelightEstimate.pose, ShooterLimelightEstimate.timestampSeconds);
       VecBuilder.fill(0.8, 0.8, 99999);
     }
-    if(ally.get() == Alliance.Red){
+    if (ally.get() == Alliance.Red) {
       LimelightHelpers.getBotPoseEstimate_wpiRed_MegaTag2("limelight-shooter");
-    }else
-    LimelightHelpers.getBotPoseEstimate_wpiBlue_MegaTag2("limelight-shooter");
+    } else LimelightHelpers.getBotPoseEstimate_wpiBlue_MegaTag2("limelight-shooter");
     LimelightHelpers.SetRobotOrientation("lclimb", 147.820, 0, 32.18, 0, 0, 0);
     PoseEstimate backLeftLimelightEstimate = LimelightHelpers.getBotPoseEstimate_wpiBlue("lclimb");
     if (backLeftLimelightEstimate != null && backLeftLimelightEstimate.tagCount != 0) {
@@ -273,10 +272,9 @@ public class CommandSwerveDrivetrain extends TunerSwerveDrivetrain implements Su
           backLeftLimelightEstimate.pose, backLeftLimelightEstimate.timestampSeconds);
       VecBuilder.fill(0.8, 0.8, 99999);
     }
-        if(ally.get() == Alliance.Red){
+    if (ally.get() == Alliance.Red) {
       LimelightHelpers.getBotPoseEstimate_wpiRed_MegaTag2("lclimb");
-    }else
-    LimelightHelpers.getBotPoseEstimate_wpiBlue_MegaTag2("rclimb");
+    } else LimelightHelpers.getBotPoseEstimate_wpiBlue_MegaTag2("rclimb");
     LimelightHelpers.SetRobotOrientation("rclimb", 120, 0, 32.18, 0, 0, 0);
     PoseEstimate backRightLimelightEstimate = LimelightHelpers.getBotPoseEstimate_wpiBlue("rclimb");
     if (backRightLimelightEstimate != null && backRightLimelightEstimate.tagCount != 0) {
@@ -284,10 +282,9 @@ public class CommandSwerveDrivetrain extends TunerSwerveDrivetrain implements Su
           backRightLimelightEstimate.pose, backLeftLimelightEstimate.timestampSeconds);
       VecBuilder.fill(0.8, 0.8, 99999);
     }
-        if(ally.get() == Alliance.Red){
+    if (ally.get() == Alliance.Red) {
       LimelightHelpers.getBotPoseEstimate_wpiRed_MegaTag2("lclimb");
-    }else
-    LimelightHelpers.getBotPoseEstimate_wpiBlue_MegaTag2("rclimb");
+    } else LimelightHelpers.getBotPoseEstimate_wpiBlue_MegaTag2("rclimb");
     /*
      * Periodically try to apply the operator perspective.
      * If we haven't applied the operator perspective before, then we should apply it regardless of DS state.
