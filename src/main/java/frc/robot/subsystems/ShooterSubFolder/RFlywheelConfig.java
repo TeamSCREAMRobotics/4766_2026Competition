@@ -26,7 +26,7 @@ public class RFlywheelConfig {
 
     RFLYWHEEL_CONFIG.slot0 =
         new ScreamPIDConstants(0.1, 0, 0)
-            .getSlot0Configs(new FeedforwardConstants(0.11635, 0.17347, 0.0, 0.0));
+            .getSlot0Configs(new FeedforwardConstants(0.11635, 0.17347, 0.0, 0.001));
 
     RFLYWHEEL_CONFIG.enableStatorCurrentLimit = true;
     RFLYWHEEL_CONFIG.statorCurrentLimit = 20;

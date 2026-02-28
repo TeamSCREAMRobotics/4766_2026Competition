@@ -101,6 +101,8 @@ public class RobotContainer {
     SmartDashboard.putData("Auto Mode", autoChooser);
     SmartDashboard.getNumber("Climber Pose", m_climber.getClimberPose());
 
+
+
     Dashboard.initialize();
 
     configureBindings();
@@ -245,7 +247,6 @@ public class RobotContainer {
   }
 
   public void addNamedCommands() {
-    //   NamedCommands.registerCommand("Shoot", new Shoot(m_shooter, m_agitator, 8, 8));
     NamedCommands.registerCommand(
         "Intake Down", new IntakeGoToSetpoint(m_intake, IntakeConstants.intakePivotDownSetpoint));
     NamedCommands.registerCommand(
@@ -261,6 +262,5 @@ public class RobotContainer {
                     () -> rFlywheel.setSetpointVelocity(ShooterConstants.defaultVelocity),
                     rFlywheel))
             .withTimeout(5));
-    //   NamedCommands.registerCommand("Stop Shoot", new Shoot(m_shooter, m_agitator, 0, 0));
   }
 }

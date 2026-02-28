@@ -32,8 +32,8 @@ public class Constants {
     public static final double intakeMagicVelocity = 30;
     public static final double intakePivotDownSetpoint = 7.1;
     public static final double intakePivotUpSetpoint = 0.33;
-    public static final double intakeAgitateHighSetpoint = 3.5;
-    public static final double intakeAgiteLowSetpoint = 3.0;
+    public static final double intakeAgitateHighSetpoint = 3.0;
+    public static final double intakeAgiteLowSetpoint = 2.5;
     public static final double intakePivotForwardSoftLimit = 7.33;
     public static final double intakePivotReversSoftLimit = 0.005;
   }
