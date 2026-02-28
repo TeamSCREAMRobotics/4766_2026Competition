@@ -5,10 +5,8 @@
 package frc.robot.commands.Shooter;
 
 import com.teamscreamrobotics.vision.LimelightHelpers;
-
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.Constants.ShooterConstants;
-import frc.robot.Dashboard;
 import frc.robot.subsystems.AgitatorSub;
 import frc.robot.subsystems.ShooterSubFolder.LFlywheel;
 import frc.robot.subsystems.ShooterSubFolder.RFlywheel;
@@ -22,6 +20,7 @@ public class Shoot extends Command {
   LFlywheel s_LFlywheel;
 
   public static double desiredvelocity;
+
   /** Creates a new Shooter. */
   public Shoot(
       LFlywheel lFlywheel, RFlywheel rFlywheel, AgitatorSub agitator, double Desiredvelocity) {
@@ -38,7 +37,8 @@ public class Shoot extends Command {
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-    desiredvelocity = ShooterConstants.SHOOTER_VELOCITY_MAP.get(LimelightHelpers.getTA("limelight-shooter"));
+    desiredvelocity =
+        ShooterConstants.SHOOTER_VELOCITY_MAP.get(LimelightHelpers.getTA("limelight-shooter"));
   }
 
   // Called every time the scheduler runs while the command is scheduled.
