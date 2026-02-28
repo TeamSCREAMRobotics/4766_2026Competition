@@ -23,7 +23,15 @@ public class Constants {
 
   public class DriveTrainConstants {}
 
-  public class VisionConstants {}
+  public class VisionConstants {
+    public static final int resolutionWidth = 1280;
+    public static final int resolutionHeight = 960;
+
+    public static final double xyStdBaseline = 0.9;
+    public static final double thetaStdBaseline = 0.06;
+
+    public static final double xyMt2StdFactor = 0.3;
+  }
 
   public class IntakeConstants {
     public static final int intakeMotorID = 14;
@@ -132,7 +140,7 @@ public class Constants {
   }
 
   public class FieldConstants {
-    public static final Translation2d fieldDimesions = new Translation2d(null, null);
+    public static final Translation2d fieldDimesions = new Translation2d(16.54, 8);
     public static final RectangularPoseArea fieldArea =
         new RectangularPoseArea(Translation2d.kZero, fieldDimesions);
     public static final Pose2d blueHubAlign =
