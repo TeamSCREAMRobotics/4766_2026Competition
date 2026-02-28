@@ -263,35 +263,35 @@ public class RobotContainer {
   }
 
   public void addNamedCommands() {
-    NamedCommands.registerCommand("Intake Down", new IntakeGoToSetpoint(m_intake, IntakeConstants.intakePivotDownSetpoint));
-    NamedCommands.registerCommand("Intake Up", new IntakeGoToSetpoint(m_intake, IntakeConstants.intakePivotUpSetpoint));
+    NamedCommands.registerCommand(
+        "Intake Down", new IntakeGoToSetpoint(m_intake, IntakeConstants.intakePivotDownSetpoint));
+    NamedCommands.registerCommand(
+        "Intake Up", new IntakeGoToSetpoint(m_intake, IntakeConstants.intakePivotUpSetpoint));
     NamedCommands.registerCommand("Run Intake", new RunIntake(m_intake, 8.5));
     NamedCommands.registerCommand("Agitate And Kick", new AgitateAndKick(m_agitator, 1, -1));
-    
-    NamedCommands.registerCommand("Shoot", 
-           Commands.run(() -> lFlywheel.setSetpointVelocity(Shoot.desiredvelocity), lFlywheel)
-                .alongWith(
-                    Commands.run(
-                            () -> rFlywheel.setSetpointVelocity(Shoot.desiredvelocity),
-                            rFlywheel) // replace velocity with
-                        // LimelightHelpers.getTA("shooter-limelight")
-                        .alongWith(
-                            new Shoot(
-                                lFlywheel,
-                                rFlywheel,
-                                m_agitator,
-                                ShooterConstants.SHOOTER_VELOCITY_MAP.get(
-                                    LimelightHelpers.getTA("limelight-shooter"))))
-                        .alongWith(drivetrain.applyRequest(() -> brake))
-                        .alongWith(new Jostle(m_intake))));
-    
+
+    NamedCommands.registerCommand(
+        "Shoot",
+        Commands.run(() -> lFlywheel.setSetpointVelocity(Shoot.desiredvelocity), lFlywheel)
+            .alongWith(
+                Commands.run(
+                        () -> rFlywheel.setSetpointVelocity(Shoot.desiredvelocity),
+                        rFlywheel) // replace velocity with
+                    // LimelightHelpers.getTA("shooter-limelight")
+                    .alongWith(
+                        new Shoot(
+                            lFlywheel,
+                            rFlywheel,
+                            m_agitator,
+                            ShooterConstants.SHOOTER_VELOCITY_MAP.get(
+                                LimelightHelpers.getTA("limelight-shooter"))))
+                    .alongWith(drivetrain.applyRequest(() -> brake))
+                    .alongWith(new Jostle(m_intake))));
+
     NamedCommands.registerCommand("Wait 5s", Commands.waitSeconds(5));
-    NamedCommands.registerCommand("Shooter Idle", Commands.run(() -> lFlywheel.setSetpointVelocity(Shoot.desiredvelocity), lFlywheel)
-                .alongWith(
-                    Commands.run(
-                            () -> rFlywheel.setSetpointVelocity(10.0),
-                            rFlywheel)
-                            
-                        ));
+    NamedCommands.registerCommand(
+        "Shooter Idle",
+        Commands.run(() -> lFlywheel.setSetpointVelocity(Shoot.desiredvelocity), lFlywheel)
+            .alongWith(Commands.run(() -> rFlywheel.setSetpointVelocity(10.0), rFlywheel)));
   }
 }
