@@ -24,13 +24,13 @@ public class Constants {
   public class DriveTrainConstants {}
 
   public class VisionConstants {
-      public static final int resolutionWidth = 1280;
-  public static final int resolutionHeight = 960;
+    public static final int resolutionWidth = 1280;
+    public static final int resolutionHeight = 960;
 
-  public static final double xyStdBaseline = 0.9;
-  public static final double thetaStdBaseline = 0.06;
+    public static final double xyStdBaseline = 0.9;
+    public static final double thetaStdBaseline = 0.06;
 
-  public static final double xyMt2StdFactor = 0.3;
+    public static final double xyMt2StdFactor = 0.3;
   }
 
   public class IntakeConstants {
