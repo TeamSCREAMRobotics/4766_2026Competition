@@ -69,7 +69,7 @@ public class RobotContainer {
   private final RFlywheel rFlywheel = new RFlywheel(RFlywheelConfig.RFLYWHEEL_CONFIG);
 
   private final Telemetry logger = new Telemetry(MaxSpeed);
-  private final Climber m_climber = new Climber();
+  public final Climber m_climber = new Climber();
   private final Intake m_intake = new Intake();
   private final ShooterSub m_shooter = new ShooterSub();
   private final AgitatorSub m_agitator = new AgitatorSub();
@@ -77,7 +77,6 @@ public class RobotContainer {
 
   private final CommandXboxController driverController = new CommandXboxController(0);
   private final CommandXboxController operatorController = new CommandXboxController(1);
-
   public final CommandSwerveDrivetrain drivetrain = TunerConstants.createDrivetrain();
 
   /* Path follower */
@@ -115,6 +114,26 @@ public class RobotContainer {
   }
 
   private void configureBindings() {
+
+    driverController
+        .leftTrigger(0.5)
+        .whileTrue(
+            drivetrain.applyRequest(
+                () ->
+                    drive
+                        .withVelocityX(
+                            -driverController.getLeftY()
+                                * MaxSpeed
+                                / 0.3) // Drive forward with negative Y (forward)
+                        .withVelocityY(
+                            -driverController.getLeftX()
+                                * MaxSpeed
+                                / 0.3) // Drive left with negative X (left)
+                        .withRotationalRate(
+                            -driverController.getRightX()
+                                * MaxAngularRate
+                                / 0.4) // Drive counterclockwise with negative X (left)
+                ));
     // Note that X is defined as forward according to WPILib convention,
     // and Y is defined as to the left according to WPILib convention.
     drivetrain.setDefaultCommand(
@@ -179,21 +198,20 @@ public class RobotContainer {
     driverController
         .rightTrigger(0.5)
         .whileTrue(
-            Commands.run(
-                    () -> lFlywheel.setSetpointVelocity(Dashboard.flywheelVelocity.get()),
-                    lFlywheel)
+            Commands.run(() -> lFlywheel.setSetpointVelocity(Shoot.desiredvelocity), lFlywheel)
                 .alongWith(
                     Commands.run(
-                            () -> rFlywheel.setSetpointVelocity(Dashboard.flywheelVelocity.get()),
-                            rFlywheel)
+                            () -> rFlywheel.setSetpointVelocity(Shoot.desiredvelocity),
+                            rFlywheel) // replace velocity with
+                        // LimelightHelpers.getTA("shooter-limelight")
                         .alongWith(
                             new Shoot(
-                                    lFlywheel,
-                                    rFlywheel,
-                                    m_agitator,
-                                    desiredFlyWheelVelocity.getAsDouble(),
-                                    desiredFlyWheelVelocity.getAsDouble())
-                                .alongWith(drivetrain.applyRequest(() -> brake)))
+                                lFlywheel,
+                                rFlywheel,
+                                m_agitator,
+                                ShooterConstants.SHOOTER_VELOCITY_MAP.get(
+                                    LimelightHelpers.getTA("limelight-shooter"))))
+                        .alongWith(drivetrain.applyRequest(() -> brake))
                         .alongWith(new Jostle(m_intake))));
 
     // driverController.rightTrigger(.5).whileTrue(new
@@ -214,7 +232,7 @@ public class RobotContainer {
     //                m_agitator,
     //                ShooterConstants.LSHOOTER_VELOCITY_MAP.get(1.0),
     //                ShooterConstants.RSHOOTER_VELOCITY_MAP.get(1.0)));
-    driverController.rightBumper().whileTrue(new RunIntake(m_intake, 7));
+    driverController.rightBumper().whileTrue(new RunIntake(m_intake, 6));
     driverController.start().onTrue(new ResetIntake(m_intake));
 
     driverController.y().whileTrue(new AgitateAndKick(m_agitator, 1, -1));
@@ -225,9 +243,9 @@ public class RobotContainer {
     operatorController
         .y()
         .onTrue(
-            new IntakeGoToSetpoint(m_intake, IntakeConstants.intakePivotUpSetpoint)
+            new IntakeGoToSetpoint(m_intake, IntakeConstants.intakeClimbSetpoint)
                 .andThen(new RunClimber(m_climber, ClimberConstants.climberTopSetpoint)));
-    operatorController.y().whileTrue(new Jostle(m_intake));
+    operatorController.leftBumper().whileTrue(new Jostle(m_intake));
 
     m_agitator.setDefaultCommand(new AgitateAndKick(m_agitator, 1, -1));
     lFlywheel.setDefaultCommand(Commands.run(() -> lFlywheel.setSetpointVelocity(10), lFlywheel));

@@ -5,7 +5,6 @@
 package frc.robot.commands;
 
 import edu.wpi.first.math.filter.Debouncer;
-import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.Constants.IntakeConstants;
 import frc.robot.subsystems.Intake;
@@ -13,8 +12,7 @@ import frc.robot.subsystems.Intake;
 /* You should consider using the more terse Command factories API instead https://docs.wpilib.org/en/stable/docs/software/commandbased/organizing-command-based.html#defining-commands */
 public class Jostle extends Command {
   Intake m_Intake;
-  Timer timer;
-  int timerTest;
+  int timer;
   Debouncer jostlDebouncer;
 
   /** Creates a new Jostle. */
@@ -28,9 +26,7 @@ public class Jostle extends Command {
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-    timer = new Timer();
-    timer.start();
-    timerTest = 0;
+    timer = 0;
   }
 
   // Called every time the scheduler runs while the command is scheduled.
@@ -48,16 +44,16 @@ public class Jostle extends Command {
     // else{
     //   m_Intake.IntakeGoToSetpoint(IntakeConstants.intakeAgitateSetpoint);
     // }
-    m_Intake.runIntake(6);
-    if (timerTest > 24) {
-      m_Intake.IntakeGoToSetpoint(IntakeConstants.intakeAgiteLowSetpoint);
-      timerTest++;
-      if (timerTest > 50) {
-        timerTest = 0;
+    m_Intake.runIntake(8);
+    if (timer > 24) {
+      m_Intake.IntakeGoToSetpoint(IntakeConstants.intakeAgitateLowSetpoint);
+      timer++;
+      if (timer > 50) {
+        timer = 0;
       }
     } else {
       m_Intake.IntakeGoToSetpoint(IntakeConstants.intakeAgitateHighSetpoint);
-      timerTest++;
+      timer++;
     }
   }
 
