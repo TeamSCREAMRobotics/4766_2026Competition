@@ -269,23 +269,29 @@ public class RobotContainer {
     NamedCommands.registerCommand("Agitate And Kick", new AgitateAndKick(m_agitator, 1, -1));
     
     NamedCommands.registerCommand("Shoot", 
-            Commands.run(
-                    () -> lFlywheel.setSetpointVelocity(Dashboard.flywheelVelocity.get()),
-                    lFlywheel)
+           Commands.run(() -> lFlywheel.setSetpointVelocity(Shoot.desiredvelocity), lFlywheel)
                 .alongWith(
                     Commands.run(
-                            () -> rFlywheel.setSetpointVelocity(Dashboard.flywheelVelocity.get()),
-                            rFlywheel)
+                            () -> rFlywheel.setSetpointVelocity(Shoot.desiredvelocity),
+                            rFlywheel) // replace velocity with
+                        // LimelightHelpers.getTA("shooter-limelight")
                         .alongWith(
                             new Shoot(
-                                    lFlywheel,
-                                    rFlywheel,
-                                    m_agitator,
-                                    desiredFlyWheelVelocity.getAsDouble(),
-                                    desiredFlyWheelVelocity.getAsDouble())
-                                .alongWith(drivetrain.applyRequest(() -> brake)))));
+                                lFlywheel,
+                                rFlywheel,
+                                m_agitator,
+                                ShooterConstants.SHOOTER_VELOCITY_MAP.get(
+                                    LimelightHelpers.getTA("limelight-shooter"))))
+                        .alongWith(drivetrain.applyRequest(() -> brake))
+                        .alongWith(new Jostle(m_intake))));
     
     NamedCommands.registerCommand("Wait 5s", Commands.waitSeconds(5));
-    NamedCommands.registerCommand("Shooter Idle", new Shoot(lFlywheel,rFlywheel,m_agitator,10.0,10.0));
+    NamedCommands.registerCommand("Shooter Idle", Commands.run(() -> lFlywheel.setSetpointVelocity(Shoot.desiredvelocity), lFlywheel)
+                .alongWith(
+                    Commands.run(
+                            () -> rFlywheel.setSetpointVelocity(10.0),
+                            rFlywheel)
+                            
+                        ));
   }
 }
