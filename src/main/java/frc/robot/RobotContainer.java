@@ -101,8 +101,6 @@ public class RobotContainer {
     SmartDashboard.putData("Auto Mode", autoChooser);
     SmartDashboard.getNumber("Climber Pose", m_climber.getClimberPose());
 
-
-
     Dashboard.initialize();
 
     configureBindings();
