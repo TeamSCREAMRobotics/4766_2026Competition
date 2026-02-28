@@ -4,7 +4,10 @@
 
 package frc.robot.commands.Shooter;
 
+import com.teamscreamrobotics.vision.LimelightHelpers;
+
 import edu.wpi.first.wpilibj2.command.Command;
+import frc.robot.Constants.ShooterConstants;
 import frc.robot.Dashboard;
 import frc.robot.subsystems.AgitatorSub;
 import frc.robot.subsystems.ShooterSubFolder.LFlywheel;
@@ -18,36 +21,33 @@ public class Shoot extends Command {
   RFlywheel s_RFlywheel;
   LFlywheel s_LFlywheel;
 
-  double lvelocity;
-  double rvelocity;
-
+  public static double desiredvelocity;
   /** Creates a new Shooter. */
   public Shoot(
-      LFlywheel lFlywheel, RFlywheel rFlywheel, AgitatorSub agitator, double lv, double rv) {
+      LFlywheel lFlywheel, RFlywheel rFlywheel, AgitatorSub agitator, double Desiredvelocity) {
 
     s_LFlywheel = lFlywheel;
     s_RFlywheel = rFlywheel;
+    desiredvelocity = Desiredvelocity;
 
     s_Agitator = agitator;
-
-    lvelocity = lv;
-    rvelocity = rv;
-
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(agitator);
   }
 
   // Called when the command is initially scheduled.
   @Override
-  public void initialize() {}
+  public void initialize() {
+    desiredvelocity = ShooterConstants.SHOOTER_VELOCITY_MAP.get(LimelightHelpers.getTA("limelight-shooter"));
+  }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    if (s_LFlywheel.getvelocity() >= Dashboard.flywheelVelocity.get() - 2
-        && s_LFlywheel.getvelocity() <= Dashboard.flywheelVelocity.get() + 2
-        && s_RFlywheel.getvelocity() >= Dashboard.flywheelVelocity.get() - 2
-        && s_RFlywheel.getvelocity() <= Dashboard.flywheelVelocity.get() + 2) {
+    if (s_LFlywheel.getvelocity() >= desiredvelocity - 2
+        && s_LFlywheel.getvelocity() <= desiredvelocity + 2
+        && s_RFlywheel.getvelocity() >= desiredvelocity - 2
+        && s_RFlywheel.getvelocity() <= desiredvelocity + 2) {
       s_Agitator.RunAgitatorAndKicker(10, 12);
     }
   }

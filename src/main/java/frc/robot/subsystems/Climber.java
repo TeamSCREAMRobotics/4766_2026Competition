@@ -38,16 +38,29 @@ public class Climber extends SubsystemBase {
     climberConfigs.SoftwareLimitSwitch.ForwardSoftLimitEnable = true;
     climberConfigs.SoftwareLimitSwitch.ReverseSoftLimitEnable = true;
     climberConfigs.Feedback.SensorToMechanismRatio = 25;
-    climberPIDConfigs.kP = Constants.ClimberConstants.kP;
-    climberPIDConfigs.kI = Constants.ClimberConstants.kI;
-    climberPIDConfigs.kD = Constants.ClimberConstants.kD;
-    climberPIDConfigs.kV = Constants.ClimberConstants.kV;
-    climberPIDConfigs.kG = Constants.ClimberConstants.kG;
+    climberPIDConfigs.kP = ClimberConstants.kP;
+    climberPIDConfigs.kI = ClimberConstants.kI;
+    climberPIDConfigs.kD = ClimberConstants.kD;
+    climberPIDConfigs.kV = ClimberConstants.kV;
+    climberPIDConfigs.kG = ClimberConstants.kG;
+    climberPIDConfigs.kS = ClimberConstants.kS;
     climberMagicConfigs.MotionMagicAcceleration = ClimberConstants.climberMagicAccereation;
     climberMagicConfigs.MotionMagicCruiseVelocity = ClimberConstants.climberMagicCruiseVelocity;
     climberConfigs.Slot0 = climberPIDConfigs;
     climberConfigs.MotionMagic = climberMagicConfigs;
     climbermotor.getConfigurator().apply(climberConfigs);
+  }
+
+  public void setSoftLimits(boolean value){
+    if (value){
+      climberConfigs.SoftwareLimitSwitch.ForwardSoftLimitEnable = true;
+      climberConfigs.SoftwareLimitSwitch.ReverseSoftLimitEnable = true;
+    }
+    else{
+      climberConfigs.SoftwareLimitSwitch.ForwardSoftLimitEnable = false;
+      climberConfigs.SoftwareLimitSwitch.ReverseSoftLimitEnable = false;
+    }
+
   }
 
   // This resets the climber position to 0

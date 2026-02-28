@@ -15,6 +15,11 @@ import edu.wpi.first.math.interpolation.InterpolatingDoubleTreeMap;
 
 /** Add your docs here. */
 public class Constants {
+  public static boolean disableHAL = false;
+
+  public static void disableHAL(){
+    disableHAL = true;
+  }
 
   public class DriveTrainConstants {}
 
@@ -32,8 +37,9 @@ public class Constants {
     public static final double intakeMagicVelocity = 30;
     public static final double intakePivotDownSetpoint = 7.1;
     public static final double intakePivotUpSetpoint = 0.33;
+    public static final double intakeClimbSetpoint = 0;
     public static final double intakeAgitateHighSetpoint = 3.0;
-    public static final double intakeAgiteLowSetpoint = 2.5;
+    public static final double intakeAgitateLowSetpoint = 4.5;
     public static final double intakePivotForwardSoftLimit = 7.33;
     public static final double intakePivotReversSoftLimit = 0.005;
   }
@@ -75,6 +81,19 @@ public class Constants {
       // (distance to hub, flywheel voltage)
       SHOOTER_VELOCITY_MAP.put(0.8644093871116638, 50.0);
       SHOOTER_VELOCITY_MAP.put(0.215736523270607, 60.0);
+      SHOOTER_VELOCITY_MAP.put(0.46821823716163635, 58.0);
+      SHOOTER_VELOCITY_MAP.put(1.643693447113037, 43.0);
+      SHOOTER_VELOCITY_MAP.put(0.6914072632789612, 53.0);
+      SHOOTER_VELOCITY_MAP.put(1.7289714813232422, 44.0);
+      SHOOTER_VELOCITY_MAP.put(1.1395137310028076, 48.0);
+      SHOOTER_VELOCITY_MAP.put(0.5004304647445679, 55.5);
+      SHOOTER_VELOCITY_MAP.put(0.4286656975746155, 59.0);
+      SHOOTER_VELOCITY_MAP.put(0.5435771346092224, 57.0);
+      SHOOTER_VELOCITY_MAP.put(0.25983139872550964, 63.0);// could be wrong
+      SHOOTER_VELOCITY_MAP.put(0.27644532918930054, 63.5);
+      SHOOTER_VELOCITY_MAP.put(0.5533760786056519, 50.0);
+ 
+
     }
 
     // public static final InterpolatingDoubleTreeMap RSHOOTER_VELOCITY_MAP =
@@ -92,19 +111,20 @@ public class Constants {
 
   public class ClimberConstants {
     public static final int climbermotorID = 20;
-    public static final double kP = 12.9;
+    public static final double kP = 50;
     public static final double kI = 0;
-    public static final double kD = 0.5;
+    public static final double kD = 0.7;
     public static final double kV = 0;
     public static final double kG = 0;
-    public static final double climberTopSetpoint = 8.25;
-    public static final double climberLowSetpoint = 0.008;
-    public static final double climberClimbSetpoint = 6;
+    public static final double kS = 0.396;
+    public static final double climberTopSetpoint = 8.7;
+    public static final double climberLowSetpoint = 0.0;
+    public static final double climberClimbSetpoint = 5;
     public static final double climberReverseThreshold = 0.005;
-    public static final double climberForwardThreshold = 8.258;
+    public static final double climberForwardThreshold = 8.75;
 
-    public static final double climberMagicAccereation = 1;
-    public static final double climberMagicCruiseVelocity = 1;
+    public static final double climberMagicAccereation = 2;
+    public static final double climberMagicCruiseVelocity = 2;
   }
 
   public class AgitatorConstants {
