@@ -304,12 +304,14 @@ public class RobotContainer {
                             ShooterConstants.SHOOTER_VELOCITY_MAP.get(
                                 LimelightHelpers.getTA("limelight-shooter"))))
                     .alongWith(drivetrain.applyRequest(() -> brake))
-                    .alongWith(new Jostle(m_intake))
-                    )
-                .withTimeout(5));
+                    .alongWith(new Jostle(m_intake)))
+            .withTimeout(5));
 
-    NamedCommands.registerCommand("Climnber to 0",new RunClimber(m_climber, ClimberConstants.climberLowSetpoint));
-    NamedCommands.registerCommand("Climber to max",new RunClimber(m_climber, ClimberConstants.climberTopSetpoint));
-    NamedCommands.registerCommand("Climber down",new RunClimber(m_climber, ClimberConstants.climberClimbSetpoint));
+    NamedCommands.registerCommand(
+        "Climnber to 0", new RunClimber(m_climber, ClimberConstants.climberLowSetpoint));
+    NamedCommands.registerCommand(
+        "Climber to max", new RunClimber(m_climber, ClimberConstants.climberTopSetpoint));
+    NamedCommands.registerCommand(
+        "Climber down", new RunClimber(m_climber, ClimberConstants.climberClimbSetpoint));
   }
 }
