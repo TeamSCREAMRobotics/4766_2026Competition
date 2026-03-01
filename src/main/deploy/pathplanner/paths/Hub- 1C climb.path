@@ -3,29 +3,29 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 3.462,
-        "y": 5.281
+        "x": 3.2978915662650605,
+        "y": 4.035
       },
       "prevControl": null,
       "nextControl": {
-        "x": 3.133975903614458,
-        "y": 5.258903614457831
+        "x": 3.0674827224805443,
+        "y": 4.132014250014533
       },
       "isLocked": false,
-      "linkedName": null
+      "linkedName": "Hub-at hub"
     },
     {
       "anchor": {
-        "x": 2.6640843373493976,
-        "y": 4.974783132530121
+        "x": 1.37,
+        "y": 4.29
       },
       "prevControl": {
-        "x": 3.035626506024096,
-        "y": 5.215192771084337
+        "x": 1.7600722891566263,
+        "y": 4.264277108433736
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": "infront of Lbump"
+      "linkedName": null
     }
   ],
   "rotationTargets": [],
@@ -42,13 +42,13 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": -25.319686910309663
+    "rotation": 0.0
   },
   "reversed": false,
-  "folder": "Left bump Paths",
+  "folder": "Hub Paths",
   "idealStartingState": {
     "velocity": 0,
-    "rotation": -62.821396481317684
+    "rotation": 0.0
   },
   "useDefaultConstraints": true
 }

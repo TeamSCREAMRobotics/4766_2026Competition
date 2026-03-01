@@ -3,12 +3,12 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 0.664,
+        "x": 0.58,
         "y": 0.658
       },
       "prevControl": null,
       "nextControl": {
-        "x": 2.4998554216867466,
+        "x": 2.4158554216867483,
         "y": 0.1990361445783122
       },
       "isLocked": false,
@@ -16,16 +16,16 @@
     },
     {
       "anchor": {
-        "x": 3.3306746987951805,
-        "y": 4.078710843373494
+        "x": 3.2978915662650605,
+        "y": 4.035
       },
       "prevControl": {
-        "x": 1.6040963855421686,
-        "y": 4.264481927710843
+        "x": 1.5713132530120484,
+        "y": 4.22077108433735
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": null
+      "linkedName": "Hub-at hub"
     }
   ],
   "rotationTargets": [],
@@ -45,10 +45,10 @@
     "rotation": 0.0
   },
   "reversed": false,
-  "folder": "Claire and Roy's Hub Paths",
+  "folder": "Hub Paths",
   "idealStartingState": {
     "velocity": 0,
-    "rotation": -179.29690672228833
+    "rotation": -179.29690672228836
   },
   "useDefaultConstraints": true
 }

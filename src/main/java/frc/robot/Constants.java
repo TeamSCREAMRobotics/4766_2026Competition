@@ -36,7 +36,7 @@ public class Constants {
   public class IntakeConstants {
     public static final int intakeMotorID = 14;
     public static final int intakePivotID = 12;
-    public static final double kP = 2.5;
+    public static final double kP = 3.0;
     public static final double kI = 0;
     public static final double kD = 0;
     public static final double kV = 0;
@@ -101,6 +101,7 @@ public class Constants {
       SHOOTER_VELOCITY_MAP.put(0.27644532918930054, 63.5);
       SHOOTER_VELOCITY_MAP.put(0.5533760786056519, 50.0);
       SHOOTER_VELOCITY_MAP.put(0.18435527384281158, 68.0);
+      SHOOTER_VELOCITY_MAP.put(0.0, 40.0);
     }
 
     // public static final InterpolatingDoubleTreeMap RSHOOTER_VELOCITY_MAP =

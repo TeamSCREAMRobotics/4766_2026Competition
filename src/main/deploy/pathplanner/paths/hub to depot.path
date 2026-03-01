@@ -3,12 +3,12 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 3.265108433734939,
+        "x": 3.276036144578313,
         "y": 4.00221686746988
       },
       "prevControl": null,
       "nextControl": {
-        "x": 1.9319277108433734,
+        "x": 1.942855421686747,
         "y": 3.805518072289157
       },
       "isLocked": false,
@@ -45,10 +45,10 @@
     "rotation": -178.83086067209263
   },
   "reversed": false,
-  "folder": "Claire and Roy's Hub Paths",
+  "folder": "Hub Paths",
   "idealStartingState": {
     "velocity": 0,
-    "rotation": 0.0
+    "rotation": 0.48146580583833887
   },
   "useDefaultConstraints": true
 }

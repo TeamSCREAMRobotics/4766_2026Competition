@@ -16,16 +16,16 @@
     },
     {
       "anchor": {
-        "x": 3.299435028248588,
-        "y": 4.022189265536723
+        "x": 3.2978915662650605,
+        "y": 4.035
       },
       "prevControl": {
-        "x": 2.299435028248588,
-        "y": 4.022189265536723
+        "x": 2.2978915662650605,
+        "y": 4.035
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": null
+      "linkedName": "Hub-at hub"
     }
   ],
   "rotationTargets": [],
@@ -45,7 +45,7 @@
     "rotation": 0.0
   },
   "reversed": false,
-  "folder": "Claire and Roy's Left bump Paths",
+  "folder": "Left bump Paths",
   "idealStartingState": {
     "velocity": 0,
     "rotation": 180.0

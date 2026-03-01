@@ -8,7 +8,7 @@
       },
       "prevControl": null,
       "nextControl": {
-        "x": 2.663771084337349,
+        "x": 2.6637710843373488,
         "y": 0.5487228915662642
       },
       "isLocked": false,
@@ -16,16 +16,16 @@
     },
     {
       "anchor": {
-        "x": 3.2432530120481924,
-        "y": 4.078710843373494
+        "x": 3.2978915662650605,
+        "y": 4.035
       },
       "prevControl": {
-        "x": 2.2432530120481924,
-        "y": 4.078710843373494
+        "x": 2.2978915662650605,
+        "y": 4.035
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": null
+      "linkedName": "Hub-at hub"
     }
   ],
   "rotationTargets": [],

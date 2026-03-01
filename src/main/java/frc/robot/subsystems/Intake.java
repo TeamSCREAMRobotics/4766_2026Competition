@@ -33,6 +33,7 @@ public class Intake extends SubsystemBase {
   // Creates a new Intake.
   public Intake() {
     intakeConfig.MotorOutput.NeutralMode = NeutralModeValue.Brake;
+    intakeConfig.CurrentLimits.StatorCurrentLimitEnable = true;
     intakePIDConfigs.kP = IntakeConstants.kP;
     intakePIDConfigs.kI = IntakeConstants.kI;
     intakePIDConfigs.kD = IntakeConstants.kD;

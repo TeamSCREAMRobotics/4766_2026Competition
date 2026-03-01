@@ -7,7 +7,7 @@
         {
           "type": "path",
           "data": {
-            "pathName": "Backup from Rbump"
+            "pathName": "back up"
           }
         },
         {
@@ -25,7 +25,7 @@
         {
           "type": "path",
           "data": {
-            "pathName": "Rbump to outpost"
+            "pathName": "hub to outpost"
           }
         },
         {
@@ -37,7 +37,7 @@
         {
           "type": "path",
           "data": {
-            "pathName": "Rbump outpost to hub"
+            "pathName": "Outpost To Hub"
           }
         },
         {
@@ -45,11 +45,17 @@
           "data": {
             "name": "Shoot"
           }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "Hub- 1C climb"
+          }
         }
       ]
     }
   },
   "resetOdom": true,
-  "folder": "Right Bump Autos",
+  "folder": "Hub Autos",
   "choreoAuto": false
 }
