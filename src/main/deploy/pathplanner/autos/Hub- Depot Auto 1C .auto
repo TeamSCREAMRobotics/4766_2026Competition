@@ -19,19 +19,7 @@
         {
           "type": "named",
           "data": {
-            "name": "Shoot"
-          }
-        },
-        {
-          "type": "named",
-          "data": {
-            "name": "Wait 5s"
-          }
-        },
-        {
-          "type": "named",
-          "data": {
-            "name": "Shooter Idle"
+            "name": "Shoot Preload"
           }
         },
         {
@@ -71,15 +59,9 @@
           }
         },
         {
-          "type": "named",
+          "type": "path",
           "data": {
-            "name": "Wait 5s"
-          }
-        },
-        {
-          "type": "named",
-          "data": {
-            "name": "Shooter Idle"
+            "pathName": "Hub- 1C climb"
           }
         }
       ]

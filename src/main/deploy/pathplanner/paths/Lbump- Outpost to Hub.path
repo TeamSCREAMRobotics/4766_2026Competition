@@ -16,12 +16,12 @@
     },
     {
       "anchor": {
-        "x": 3.2978915662650605,
-        "y": 4.035
+        "x": 2.3471807228915655,
+        "y": 4.067783132530121
       },
       "prevControl": {
-        "x": 2.2978915662650605,
-        "y": 4.035
+        "x": 1.3471807228915655,
+        "y": 4.067783132530121
       },
       "nextControl": null,
       "isLocked": false,
@@ -42,7 +42,7 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": 0.0
+    "rotation": -0.5456575934157271
   },
   "reversed": false,
   "folder": "Left bump Paths",

@@ -7,7 +7,7 @@
         {
           "type": "path",
           "data": {
-            "pathName": "Move From Mid"
+            "pathName": "Lbump infront"
           }
         },
         {
@@ -17,9 +17,33 @@
           }
         },
         {
-          "type": "wait",
+          "type": "named",
           "data": {
-            "waitTime": 1.0
+            "name": "Shoot Preload"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Run Intake"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "Lbump- bump to depot"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Stop Intake"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "Lbump- depot to hub"
           }
         },
         {
@@ -31,25 +55,13 @@
         {
           "type": "path",
           "data": {
-            "pathName": "Mid To Depot"
-          }
-        },
-        {
-          "type": "path",
-          "data": {
-            "pathName": "Depot To Hub"
-          }
-        },
-        {
-          "type": "named",
-          "data": {
-            "name": "Shoot"
+            "pathName": "Hub- 1C climb"
           }
         }
       ]
     }
   },
   "resetOdom": true,
-  "folder": "Mid Autos",
+  "folder": "Left bump Autos",
   "choreoAuto": false
 }

@@ -7,7 +7,13 @@
         {
           "type": "path",
           "data": {
-            "pathName": "Lbump infront"
+            "pathName": "back up"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "in between"
           }
         },
         {
@@ -17,21 +23,33 @@
           }
         },
         {
+          "type": "path",
+          "data": {
+            "pathName": "hub to outpost"
+          }
+        },
+        {
+          "type": "wait",
+          "data": {
+            "waitTime": 3.0
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "Before Under Tower"
+          }
+        },
+        {
           "type": "named",
           "data": {
             "name": "Shoot"
           }
         },
         {
-          "type": "named",
+          "type": "path",
           "data": {
-            "name": "Wait 5s"
-          }
-        },
-        {
-          "type": "named",
-          "data": {
-            "name": "Shooter Idle"
+            "pathName": "Behind Tower"
           }
         },
         {
@@ -43,19 +61,13 @@
         {
           "type": "path",
           "data": {
-            "pathName": "Lbump- bump to depot"
-          }
-        },
-        {
-          "type": "named",
-          "data": {
-            "name": "Stop Intake"
+            "pathName": "tower to depot"
           }
         },
         {
           "type": "path",
           "data": {
-            "pathName": "Lbump- depot to hub"
+            "pathName": "Depot To Hub"
           }
         },
         {
@@ -65,21 +77,15 @@
           }
         },
         {
-          "type": "named",
+          "type": "path",
           "data": {
-            "name": "Wait 5s"
-          }
-        },
-        {
-          "type": "named",
-          "data": {
-            "name": "Shooter Idle"
+            "pathName": "Hub- 1A Climb"
           }
         }
       ]
     }
   },
   "resetOdom": true,
-  "folder": "Left bump Autos",
+  "folder": "Hub Autos",
   "choreoAuto": false
 }

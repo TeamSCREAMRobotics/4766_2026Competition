@@ -7,7 +7,13 @@
         {
           "type": "path",
           "data": {
-            "pathName": "Move From Mid"
+            "pathName": "back up"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "in between"
           }
         },
         {
@@ -17,9 +23,21 @@
           }
         },
         {
+          "type": "path",
+          "data": {
+            "pathName": "hub to outpost"
+          }
+        },
+        {
           "type": "wait",
           "data": {
-            "waitTime": 2.5
+            "waitTime": 3.0
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "Before Under Tower"
           }
         },
         {
@@ -31,31 +49,43 @@
         {
           "type": "path",
           "data": {
-            "pathName": "Mid To Outpost"
+            "pathName": "Behind Tower"
           }
         },
         {
-          "type": "wait",
+          "type": "named",
           "data": {
-            "waitTime": 2.0
+            "name": "Run Intake"
           }
         },
         {
           "type": "path",
           "data": {
-            "pathName": "Outpost To Mid"
+            "pathName": "tower to depot"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "Depot To Hub"
           }
         },
         {
           "type": "named",
           "data": {
             "name": "Shoot"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "Hub- 1C climb"
           }
         }
       ]
     }
   },
   "resetOdom": true,
-  "folder": "Mid Autos",
+  "folder": "Hub Autos",
   "choreoAuto": false
 }

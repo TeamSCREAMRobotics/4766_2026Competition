@@ -5,18 +5,12 @@
   "pathFolders": [
     "Hub Paths",
     "Left bump Paths",
-    "Mid Paths",
-    "Right Bump Paths",
-    "SDepot Paths",
-    "SOutpost Paths"
+    "Right Bump Paths"
   ],
   "autoFolders": [
     "Hub Autos",
     "Left bump Autos",
-    "Mid Autos",
-    "Right Bump Autos",
-    "SDipot Autos",
-    "SOutpost Autos"
+    "Right Bump Autos"
   ],
   "defaultMaxVel": 3.0,
   "defaultMaxAccel": 3.0,
