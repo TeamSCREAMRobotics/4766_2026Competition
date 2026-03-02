@@ -265,62 +265,62 @@ public class CommandSwerveDrivetrain extends TunerSwerveDrivetrain implements Su
   @Override
   public void periodic() {
 
-    //LimelightHelpers.SetRobotOrientation(
+    // LimelightHelpers.SetRobotOrientation(
     //    "limelight-shooter", getState().Pose.getRotation().getDegrees(), 0, 0, 0, 0, 0);
     addGlobalPoseEstimate(shooterLimelight);
-    //LimelightHelpers.SetRobotOrientation(
+    // LimelightHelpers.SetRobotOrientation(
     //    "lclimb", getState().Pose.getRotation().getDegrees(), 0, 0, 0, 0, 0);
     addGlobalPoseEstimate(backleftLimelight);
-    //LimelightHelpers.SetRobotOrientation(
+    // LimelightHelpers.SetRobotOrientation(
     //    "rclimb", getState().Pose.getRotation().getDegrees(), 0, 0, 0, 0, 0);
     addGlobalPoseEstimate(backrightLimelight);
-/*
-    if (ally.get() == Alliance.Red) {
-      PoseEstimate backRightRedLimelightEstimate =
-          LimelightHelpers.getBotPoseEstimate_wpiRed("rclimb");
-      if (backRightRedLimelightEstimate != null && backRightRedLimelightEstimate.tagCount != 0) {
-        addVisionMeasurement(
-            backRightRedLimelightEstimate.pose, backRightRedLimelightEstimate.timestampSeconds);
-        VecBuilder.fill(0.8, 0.8, 99999);
-      }
-      PoseEstimate backleftRedLimelEstimate = LimelightHelpers.getBotPoseEstimate_wpiRed("lclimb");
-      if (backleftRedLimelEstimate != null && backleftRedLimelEstimate.tagCount != 0) {
-        addVisionMeasurement(
-            backleftRedLimelEstimate.pose, backleftRedLimelEstimate.timestampSeconds);
-        VecBuilder.fill(0.8, 0.8, 99999);
-      }
-      PoseEstimate shooterLimelightRedEstimate =
-          LimelightHelpers.getBotPoseEstimate_wpiRed("limelight-shooter");
-      if (shooterLimelightRedEstimate != null && shooterLimelightRedEstimate.tagCount != 0) {
-        addVisionMeasurement(
-            shooterLimelightRedEstimate.pose, shooterLimelightRedEstimate.timestampSeconds);
-        VecBuilder.fill(0.8, 0.8, 99999);
-      }
-    } else {
-      PoseEstimate backRightBlueLimelightEstimate =
-          LimelightHelpers.getBotPoseEstimate_wpiBlue("rclimb");
-      if (backRightBlueLimelightEstimate != null && backRightBlueLimelightEstimate.tagCount != 0) {
-        addVisionMeasurement(
-            backRightBlueLimelightEstimate.pose, backRightBlueLimelightEstimate.timestampSeconds);
-        VecBuilder.fill(0.8, 0.8, 99999);
-      }
-      PoseEstimate backleftBlueLimelEstimate =
-          LimelightHelpers.getBotPoseEstimate_wpiBlue("lclimb");
-      if (backleftBlueLimelEstimate != null && backleftBlueLimelEstimate.tagCount != 0) {
-        addVisionMeasurement(
-            backleftBlueLimelEstimate.pose, backleftBlueLimelEstimate.timestampSeconds);
-        VecBuilder.fill(0.8, 0.8, 99999);
-      }
-      PoseEstimate shooterLimelightBlueEstimate =
-          LimelightHelpers.getBotPoseEstimate_wpiBlue("limelight-shooter");
-      if (shooterLimelightBlueEstimate != null && shooterLimelightBlueEstimate.tagCount != 0) {
-        addVisionMeasurement(
-            shooterLimelightBlueEstimate.pose, shooterLimelightBlueEstimate.timestampSeconds);
-        VecBuilder.fill(0.8, 0.8, 99999);
-      }
-        
-    }
-*/
+    /*
+        if (ally.get() == Alliance.Red) {
+          PoseEstimate backRightRedLimelightEstimate =
+              LimelightHelpers.getBotPoseEstimate_wpiRed("rclimb");
+          if (backRightRedLimelightEstimate != null && backRightRedLimelightEstimate.tagCount != 0) {
+            addVisionMeasurement(
+                backRightRedLimelightEstimate.pose, backRightRedLimelightEstimate.timestampSeconds);
+            VecBuilder.fill(0.8, 0.8, 99999);
+          }
+          PoseEstimate backleftRedLimelEstimate = LimelightHelpers.getBotPoseEstimate_wpiRed("lclimb");
+          if (backleftRedLimelEstimate != null && backleftRedLimelEstimate.tagCount != 0) {
+            addVisionMeasurement(
+                backleftRedLimelEstimate.pose, backleftRedLimelEstimate.timestampSeconds);
+            VecBuilder.fill(0.8, 0.8, 99999);
+          }
+          PoseEstimate shooterLimelightRedEstimate =
+              LimelightHelpers.getBotPoseEstimate_wpiRed("limelight-shooter");
+          if (shooterLimelightRedEstimate != null && shooterLimelightRedEstimate.tagCount != 0) {
+            addVisionMeasurement(
+                shooterLimelightRedEstimate.pose, shooterLimelightRedEstimate.timestampSeconds);
+            VecBuilder.fill(0.8, 0.8, 99999);
+          }
+        } else {
+          PoseEstimate backRightBlueLimelightEstimate =
+              LimelightHelpers.getBotPoseEstimate_wpiBlue("rclimb");
+          if (backRightBlueLimelightEstimate != null && backRightBlueLimelightEstimate.tagCount != 0) {
+            addVisionMeasurement(
+                backRightBlueLimelightEstimate.pose, backRightBlueLimelightEstimate.timestampSeconds);
+            VecBuilder.fill(0.8, 0.8, 99999);
+          }
+          PoseEstimate backleftBlueLimelEstimate =
+              LimelightHelpers.getBotPoseEstimate_wpiBlue("lclimb");
+          if (backleftBlueLimelEstimate != null && backleftBlueLimelEstimate.tagCount != 0) {
+            addVisionMeasurement(
+                backleftBlueLimelEstimate.pose, backleftBlueLimelEstimate.timestampSeconds);
+            VecBuilder.fill(0.8, 0.8, 99999);
+          }
+          PoseEstimate shooterLimelightBlueEstimate =
+              LimelightHelpers.getBotPoseEstimate_wpiBlue("limelight-shooter");
+          if (shooterLimelightBlueEstimate != null && shooterLimelightBlueEstimate.tagCount != 0) {
+            addVisionMeasurement(
+                shooterLimelightBlueEstimate.pose, shooterLimelightBlueEstimate.timestampSeconds);
+            VecBuilder.fill(0.8, 0.8, 99999);
+          }
+
+        }
+    */
     /*
      * Periodically try to apply the operator perspective.
      * If we haven't applied the operator perspective before, then we should apply it regardless of DS state.
