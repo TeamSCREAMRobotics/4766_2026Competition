@@ -265,16 +265,16 @@ public class CommandSwerveDrivetrain extends TunerSwerveDrivetrain implements Su
   @Override
   public void periodic() {
 
-    LimelightHelpers.SetRobotOrientation(
-        "limelight-shooter", getState().Pose.getRotation().getDegrees(), 0, 0, 0, 0, 0);
+    //LimelightHelpers.SetRobotOrientation(
+    //    "limelight-shooter", getState().Pose.getRotation().getDegrees(), 0, 0, 0, 0, 0);
     addGlobalPoseEstimate(shooterLimelight);
-    LimelightHelpers.SetRobotOrientation(
-        "lclimb", getState().Pose.getRotation().getDegrees(), 0, 0, 0, 0, 0);
+    //LimelightHelpers.SetRobotOrientation(
+    //    "lclimb", getState().Pose.getRotation().getDegrees(), 0, 0, 0, 0, 0);
     addGlobalPoseEstimate(backleftLimelight);
-    LimelightHelpers.SetRobotOrientation(
-        "rclimb", getState().Pose.getRotation().getDegrees(), 0, 0, 0, 0, 0);
+    //LimelightHelpers.SetRobotOrientation(
+    //    "rclimb", getState().Pose.getRotation().getDegrees(), 0, 0, 0, 0, 0);
     addGlobalPoseEstimate(backrightLimelight);
-
+/*
     if (ally.get() == Alliance.Red) {
       PoseEstimate backRightRedLimelightEstimate =
           LimelightHelpers.getBotPoseEstimate_wpiRed("rclimb");
@@ -318,8 +318,9 @@ public class CommandSwerveDrivetrain extends TunerSwerveDrivetrain implements Su
             shooterLimelightBlueEstimate.pose, shooterLimelightBlueEstimate.timestampSeconds);
         VecBuilder.fill(0.8, 0.8, 99999);
       }
+        
     }
-
+*/
     /*
      * Periodically try to apply the operator perspective.
      * If we haven't applied the operator perspective before, then we should apply it regardless of DS state.

@@ -27,8 +27,8 @@ public class Constants {
     public static final int resolutionWidth = 1280;
     public static final int resolutionHeight = 960;
 
-    public static final double xyStdBaseline = 0.9;
-    public static final double thetaStdBaseline = 0.06;
+    public static final double xyStdBaseline = 0.8;
+    public static final double thetaStdBaseline = 0.055;
 
     public static final double xyMt2StdFactor = 0.3;
   }
@@ -37,19 +37,20 @@ public class Constants {
     public static final int intakeMotorID = 14;
     public static final int intakePivotID = 12;
     public static final double kP = 3.0;
-    public static final double kI = 0;
+    public static final double kI = 10;
     public static final double kD = 0;
     public static final double kV = 0;
     public static final double kG = 0;
+    public static final double kS = 1;
     public static final double intakeMagicAcceleration = 26;
     public static final double intakeMagicVelocity = 30;
-    public static final double intakePivotDownSetpoint = 7.1;
-    public static final double intakePivotUpSetpoint = 0.33;
-    public static final double intakeClimbSetpoint = 0;
-    public static final double intakeAgitateHighSetpoint = 3.0;
-    public static final double intakeAgitateLowSetpoint = 4.5;
-    public static final double intakePivotForwardSoftLimit = 7.33;
-    public static final double intakePivotReverseSoftLimit = 0.005;
+    public static final double intakePivotDownSetpoint = -0.1;
+    public static final double intakePivotUpSetpoint = -7.35;
+    public static final double intakeClimbSetpoint = -7.5;
+    public static final double intakeAgitateHighSetpoint = -4.5;
+    public static final double intakeAgitateLowSetpoint = -3.0;
+    public static final double intakePivotForwardSoftLimit = 0.3;
+    public static final double intakePivotReverseSoftLimit = -7.5;
   }
 
   public class ShooterConstants {
@@ -102,6 +103,11 @@ public class Constants {
       SHOOTER_VELOCITY_MAP.put(0.5533760786056519, 50.0);
       SHOOTER_VELOCITY_MAP.put(0.18435527384281158, 68.0);
       SHOOTER_VELOCITY_MAP.put(0.0, 40.0);
+      SHOOTER_VELOCITY_MAP.put(0.2821996212005615, 58.0);
+      SHOOTER_VELOCITY_MAP.put(0.32791867852211, 55.0);
+      SHOOTER_VELOCITY_MAP.put(0.26765841245651245, 56.0);
+      SHOOTER_VELOCITY_MAP.put(0.5292587280273438, 49.0);
+      SHOOTER_VELOCITY_MAP.put(0.3562721312046051, 60.0);
     }
 
     // public static final InterpolatingDoubleTreeMap RSHOOTER_VELOCITY_MAP =

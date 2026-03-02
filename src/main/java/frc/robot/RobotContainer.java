@@ -247,7 +247,7 @@ public class RobotContainer {
                 .andThen(new RunClimber(m_climber, ClimberConstants.climberTopSetpoint)));
     operatorController.leftBumper().whileTrue(new Jostle(m_intake));
 
-    m_agitator.setDefaultCommand(new AgitateAndKick(m_agitator, 1, -1));
+    m_agitator.setDefaultCommand(new AgitateAndKick(m_agitator, 1.5, -2));
     lFlywheel.setDefaultCommand(Commands.run(() -> lFlywheel.setSetpointVelocity(10), lFlywheel));
     rFlywheel.setDefaultCommand(Commands.run(() -> rFlywheel.setSetpointVelocity(10), rFlywheel));
 
