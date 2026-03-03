@@ -118,8 +118,7 @@ public class Constants {
       SHOOTER_VELOCITY_MAP.put(0.4517584443092346, 52.0);
       SHOOTER_VELOCITY_MAP.put(0.565409779548645, 38.0);
       SHOOTER_VELOCITY_MAP.put(0.2070166915655136, 58.0); // hits roc vent
-      
-      }
+    }
 
     public static final InterpolatingDoubleTreeMap FERRY_VELOCITY_MAP =
         new InterpolatingDoubleTreeMap();

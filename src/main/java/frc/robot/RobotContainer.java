@@ -7,7 +7,6 @@ package frc.robot;
 import static edu.wpi.first.units.Units.*;
 
 import com.ctre.phoenix6.swerve.SwerveModule.DriveRequestType;
-import com.ctre.phoenix6.SignalLogger;
 import com.ctre.phoenix6.swerve.SwerveRequest;
 import com.pathplanner.lib.auto.AutoBuilder;
 import com.pathplanner.lib.auto.NamedCommands;
@@ -235,7 +234,9 @@ public class RobotContainer {
     //                m_agitator,
     //                ShooterConstants.LSHOOTER_VELOCITY_MAP.get(1.0),
     //                ShooterConstants.RSHOOTER_VELOCITY_MAP.get(1.0)));
-    driverController.rightBumper().whileTrue(new RunIntake(m_intake, 7.5).alongWith(new Agitate(m_agitator, 2)));
+    driverController
+        .rightBumper()
+        .whileTrue(new RunIntake(m_intake, 7.5).alongWith(new Agitate(m_agitator, 2)));
     driverController.start().onTrue(new ResetIntake(m_intake));
 
     driverController.y().whileTrue(new AgitateAndKick(m_agitator, 1, -1));
@@ -297,9 +298,7 @@ public class RobotContainer {
         "Shoot",
         Commands.run(() -> lFlywheel.setSetpointVelocity(Shoot.desiredvelocity), lFlywheel)
             .alongWith(
-                Commands.run(
-                        () -> rFlywheel.setSetpointVelocity(Shoot.desiredvelocity),
-                        rFlywheel) 
+                Commands.run(() -> rFlywheel.setSetpointVelocity(Shoot.desiredvelocity), rFlywheel)
                     .alongWith(
                         new Shoot(
                             lFlywheel,
@@ -314,10 +313,8 @@ public class RobotContainer {
         "Shoot Preload",
         Commands.run(() -> lFlywheel.setSetpointVelocity(Shoot.desiredvelocity), lFlywheel)
             .alongWith(
-                Commands.run(
-                        () -> rFlywheel.setSetpointVelocity(Shoot.desiredvelocity),
-                        rFlywheel) 
-                        .alongWith(
+                Commands.run(() -> rFlywheel.setSetpointVelocity(Shoot.desiredvelocity), rFlywheel)
+                    .alongWith(
                         new Shoot(
                             lFlywheel,
                             rFlywheel,
