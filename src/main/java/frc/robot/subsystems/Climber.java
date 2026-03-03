@@ -51,7 +51,6 @@ public class Climber extends SubsystemBase {
     climbermotor.getConfigurator().apply(climberConfigs);
   }
 
-
   // This resets the climber position to 0
   public void resetClimberPose() {
     climbermotor.setPosition(0);
