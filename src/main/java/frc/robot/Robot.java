@@ -51,8 +51,7 @@ public class Robot extends TimedRobot {
     SmartDashboard.putNumber("LFlywheel Velocity", m_LFlywheel.getvelocity() * 60);
     SmartDashboard.putNumber("LFlywheel Velocity RPS", m_LFlywheel.getvelocity());
 
-    m_robotContainer.m_climber.setSoftLimits(
-        !SmartDashboard.getBoolean("Disable Climber Limits", false));
+    
 
     /*
      * This example of adding Limelight is very simple and may not be sufficient for on-field use.

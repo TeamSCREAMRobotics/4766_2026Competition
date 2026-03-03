@@ -264,7 +264,7 @@ public class RobotContainer {
                                     LimelightHelpers.getTA("limelight-shooter"))))
                         .alongWith(new Jostle(m_intake))));
 
-    m_agitator.setDefaultCommand(new AgitateAndKick(m_agitator, 1.5, -2));
+    //m_agitator.setDefaultCommand(new AgitateAndKick(m_agitator, 1.5, -2));
     lFlywheel.setDefaultCommand(Commands.run(() -> lFlywheel.setSetpointVelocity(10), lFlywheel));
     rFlywheel.setDefaultCommand(Commands.run(() -> rFlywheel.setSetpointVelocity(10), rFlywheel));
 
@@ -327,8 +327,10 @@ public class RobotContainer {
     NamedCommands.registerCommand(
         "Climnber to 0", new RunClimber(m_climber, ClimberConstants.climberLowSetpoint));
     NamedCommands.registerCommand(
-        "Climber to max", new RunClimber(m_climber, ClimberConstants.climberTopSetpoint));
+        "Climber to max", 
+        Commands.run(() -> m_climber.climberGoToSetpoint(ClimberConstants.climberTopSetpoint)).withTimeout(3));
     NamedCommands.registerCommand(
-        "Climber down", new RunClimber(m_climber, ClimberConstants.climberClimbSetpoint));
+        "Climber down", 
+        Commands.run(() -> m_climber.climberGoToSetpoint(ClimberConstants.climberClimbSetpoint)).withTimeout(3));
   }
 }

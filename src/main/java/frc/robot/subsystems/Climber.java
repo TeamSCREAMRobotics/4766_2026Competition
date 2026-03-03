@@ -35,8 +35,8 @@ public class Climber extends SubsystemBase {
         IntakeConstants.intakePivotForwardSoftLimit;
     climberConfigs.SoftwareLimitSwitch.ReverseSoftLimitThreshold =
         IntakeConstants.intakePivotReverseSoftLimit;
-    climberConfigs.SoftwareLimitSwitch.ForwardSoftLimitEnable = true;
-    climberConfigs.SoftwareLimitSwitch.ReverseSoftLimitEnable = true;
+    climberConfigs.SoftwareLimitSwitch.ForwardSoftLimitEnable = false;
+    climberConfigs.SoftwareLimitSwitch.ReverseSoftLimitEnable = false;
     climberConfigs.Feedback.SensorToMechanismRatio = 25;
     climberPIDConfigs.kP = ClimberConstants.kP;
     climberPIDConfigs.kI = ClimberConstants.kI;
@@ -51,15 +51,6 @@ public class Climber extends SubsystemBase {
     climbermotor.getConfigurator().apply(climberConfigs);
   }
 
-  public void setSoftLimits(boolean value) {
-    if (value) {
-      climberConfigs.SoftwareLimitSwitch.ForwardSoftLimitEnable = true;
-      climberConfigs.SoftwareLimitSwitch.ReverseSoftLimitEnable = true;
-    } else {
-      climberConfigs.SoftwareLimitSwitch.ForwardSoftLimitEnable = false;
-      climberConfigs.SoftwareLimitSwitch.ReverseSoftLimitEnable = false;
-    }
-  }
 
   // This resets the climber position to 0
   public void resetClimberPose() {

@@ -136,7 +136,7 @@ public class Constants {
 
   public class ClimberConstants {
     public static final int climbermotorID = 20;
-    public static final double kP = 50;
+    public static final double kP = 70;
     public static final double kI = 0;
     public static final double kD = 0.7;
     public static final double kV = 0;
