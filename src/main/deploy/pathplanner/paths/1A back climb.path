@@ -8,27 +8,32 @@
       },
       "prevControl": null,
       "nextControl": {
-        "x": 2.237903614457831,
-        "y": 4.5048915662650595
+        "x": 3.347180722891566,
+        "y": 4.067783132530121
       },
       "isLocked": false,
       "linkedName": "Hub-at hub"
     },
     {
       "anchor": {
-        "x": 1.37,
-        "y": 4.29
+        "x": 0.6861686746987952,
+        "y": 3.3137710843373496
       },
       "prevControl": {
-        "x": 2.084915662650602,
-        "y": 4.297265060240964
+        "x": -0.13340963855421673,
+        "y": 0.7129759036144572
       },
       "nextControl": null,
       "isLocked": false,
       "linkedName": null
     }
   ],
-  "rotationTargets": [],
+  "rotationTargets": [
+    {
+      "waypointRelativePos": 0.8506224066389968,
+      "rotationDegrees": 178.96506235937483
+    }
+  ],
   "constraintZones": [],
   "pointTowardsZones": [],
   "eventMarkers": [],
@@ -42,10 +47,10 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": 0.0
+    "rotation": -179.32990447777547
   },
   "reversed": false,
-  "folder": "Hub Paths",
+  "folder": null,
   "idealStartingState": {
     "velocity": 0,
     "rotation": -0.5456575934157271
