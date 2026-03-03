@@ -27,8 +27,10 @@ import frc.robot.Constants.ClimberConstants;
 import frc.robot.Constants.IntakeConstants;
 import frc.robot.Constants.ShooterConstants;
 import frc.robot.commands.Agitator.AgitateAndKick;
+import frc.robot.commands.Ferry;
 import frc.robot.commands.IntakeGoToSetpoint;
 import frc.robot.commands.Jostle;
+import frc.robot.commands.ManualClimber;
 import frc.robot.commands.ResetClimber;
 import frc.robot.commands.ResetIntake;
 import frc.robot.commands.RunClimber;
@@ -246,23 +248,25 @@ public class RobotContainer {
             new IntakeGoToSetpoint(m_intake, IntakeConstants.intakeClimbSetpoint)
                 .andThen(new RunClimber(m_climber, ClimberConstants.climberTopSetpoint)));
     operatorController.leftBumper().whileTrue(new Jostle(m_intake));
-    driverController
-        .rightTrigger(0.5)
-        .whileTrue(
-            Commands.run(() -> lFlywheel.setSetpointVelocity(Shoot.desiredvelocity), lFlywheel)
-                .alongWith(
-                    Commands.run(
-                            () -> rFlywheel.setSetpointVelocity(Shoot.desiredvelocity),
-                            rFlywheel) // replace velocity with
-                        // LimelightHelpers.getTA("shooter-limelight")
-                        .alongWith(
-                            new Shoot(
-                                lFlywheel,
-                                rFlywheel,
-                                m_agitator,
-                                ShooterConstants.SHOOTER_VELOCITY_MAP.get(
-                                    LimelightHelpers.getTA("limelight-shooter"))))
-                        .alongWith(new Jostle(m_intake))));
+    operatorController.povDown().whileTrue(new ManualClimber(m_climber, -1));
+    operatorController.povUp().whileTrue(new ManualClimber(m_climber, 1));
+    // operatorController
+    //     .rightTrigger(0.5)
+    //     .whileTrue(
+    //         Commands.run(() -> lFlywheel.setSetpointVelocity(Ferry.desiredferryvelocity), lFlywheel)
+    //             .alongWith(
+    //                 Commands.run(
+    //                         () -> rFlywheel.setSetpointVelocity(Ferry.desiredferryvelocity),
+    //                         rFlywheel) // replace velocity with
+    //                     // LimelightHelpers.getTA("shooter-limelight")
+    //                     .alongWith(
+    //                         new Ferry(
+    //                             lFlywheel,
+    //                             rFlywheel,
+    //                             m_agitator,
+    //                             ShooterConstants.FERRY_VELOCITY_MAP.get(
+    //                                 LimelightHelpers.getTA("limelight-shooter"))))
+    //                     .alongWith(new Jostle(m_intake))));
 
     // m_agitator.setDefaultCommand(new AgitateAndKick(m_agitator, 1.5, -2));
     lFlywheel.setDefaultCommand(Commands.run(() -> lFlywheel.setSetpointVelocity(10), lFlywheel));

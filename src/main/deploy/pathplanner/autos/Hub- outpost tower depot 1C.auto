@@ -11,12 +11,6 @@
           }
         },
         {
-          "type": "path",
-          "data": {
-            "pathName": "in between"
-          }
-        },
-        {
           "type": "named",
           "data": {
             "name": "Intake Down"

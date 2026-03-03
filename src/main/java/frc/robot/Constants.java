@@ -118,6 +118,13 @@ public class Constants {
       SHOOTER_VELOCITY_MAP.put(0.4517584443092346, 52.0);
       SHOOTER_VELOCITY_MAP.put(0.565409779548645, 38.0);
       SHOOTER_VELOCITY_MAP.put(0.2070166915655136, 58.0); // hits roc vent
+      }
+    public static final InterpolatingDoubleTreeMap FERRY_VELOCITY_MAP = new InterpolatingDoubleTreeMap();
+
+    static{
+      FERRY_VELOCITY_MAP.put(0.5533784031867981, 65.0);
+      FERRY_VELOCITY_MAP.put(0.3144516348838806, 68.0);
+
     }
 
     // public static final InterpolatingDoubleTreeMap RSHOOTER_VELOCITY_MAP =
@@ -136,7 +143,7 @@ public class Constants {
 
   public class ClimberConstants {
     public static final int climbermotorID = 20;
-    public static final double kP = 70;
+    public static final double kP = 50;
     public static final double kI = 0;
     public static final double kD = 0.7;
     public static final double kV = 0;
@@ -145,7 +152,7 @@ public class Constants {
     public static final double climberTopSetpoint = 8.7;
     public static final double climberLowSetpoint = 0.0;
     public static final double climberClimbSetpoint = 5;
-    public static final double climberReverseThreshold = 0.005;
+    public static final double climberReverseThreshold = -0.005;
     public static final double climberForwardThreshold = 8.75;
 
     public static final double climberMagicAccereation = 2;

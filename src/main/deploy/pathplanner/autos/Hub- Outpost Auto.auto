@@ -45,12 +45,6 @@
           "data": {
             "name": "Shoot"
           }
-        },
-        {
-          "type": "path",
-          "data": {
-            "pathName": "Hub- 1A Climb"
-          }
         }
       ]
     }
