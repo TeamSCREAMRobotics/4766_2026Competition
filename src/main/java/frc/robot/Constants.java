@@ -27,10 +27,10 @@ public class Constants {
     public static final int resolutionWidth = 1280;
     public static final int resolutionHeight = 960;
 
-    public static final double xyStdBaseline = 0.8;
-    public static final double thetaStdBaseline = 0.055;
+    public static final double xyStdBaseline = 0.65;
+    public static final double thetaStdBaseline = 0.04;
 
-    public static final double xyMt2StdFactor = 0.3;
+    public static final double xyMt2StdFactor = 0.35;
   }
 
   public class IntakeConstants {
@@ -47,8 +47,8 @@ public class Constants {
     public static final double intakePivotDownSetpoint = -0.1;
     public static final double intakePivotUpSetpoint = -7.35;
     public static final double intakeClimbSetpoint = -7.5;
-    public static final double intakeAgitateHighSetpoint = -4.5;
-    public static final double intakeAgitateLowSetpoint = -3.0;
+    public static final double intakeAgitateHighSetpoint = -3.0;
+    public static final double intakeAgitateLowSetpoint = -2.5;
     public static final double intakePivotForwardSoftLimit = 0.3;
     public static final double intakePivotReverseSoftLimit = -7.5;
   }
@@ -108,6 +108,16 @@ public class Constants {
       SHOOTER_VELOCITY_MAP.put(0.26765841245651245, 56.0);
       SHOOTER_VELOCITY_MAP.put(0.5292587280273438, 49.0);
       SHOOTER_VELOCITY_MAP.put(0.3562721312046051, 60.0);
+      SHOOTER_VELOCITY_MAP.put(0.25083836913108826, 64.5);
+      SHOOTER_VELOCITY_MAP.put(0.277213990688324, 70.0);
+      SHOOTER_VELOCITY_MAP.put(0.24846559762954712, 60.0);
+      SHOOTER_VELOCITY_MAP.put(0.5990797281265259, 45.0);
+      SHOOTER_VELOCITY_MAP.put(0.22538992762565613, 60.0);
+      SHOOTER_VELOCITY_MAP.put(0.17507658898830414, 75.0);
+      SHOOTER_VELOCITY_MAP.put(0.4130421578884125, 50.0);
+      SHOOTER_VELOCITY_MAP.put(0.4517584443092346, 52.0);
+      SHOOTER_VELOCITY_MAP.put(0.565409779548645, 38.0);
+      SHOOTER_VELOCITY_MAP.put(0.2070166915655136, 58.0); // hits roc vent
     }
 
     // public static final InterpolatingDoubleTreeMap RSHOOTER_VELOCITY_MAP =
@@ -117,7 +127,8 @@ public class Constants {
     //   // placeholder values before testing
     //   // (distance to hub, flywheel voltage)
     //   RSHOOTER_VELOCITY_MAP.put(1.0, 8.0);
-    //   RSHOOTER_VELOCITY_MAP.put(2.0, 3.0);
+    //   RSHOOTER_VELOCITY_MAP.put(2.0, 3.0);\[]
+
     //   RSHOOTER_VELOCITY_MAP.put(3.0, 5.0);
     //   RSHOOTER_VELOCITY_MAP.put(4.0, 6.5);
     // }

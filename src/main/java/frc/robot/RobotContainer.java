@@ -232,7 +232,7 @@ public class RobotContainer {
     //                m_agitator,
     //                ShooterConstants.LSHOOTER_VELOCITY_MAP.get(1.0),
     //                ShooterConstants.RSHOOTER_VELOCITY_MAP.get(1.0)));
-    driverController.rightBumper().whileTrue(new RunIntake(m_intake, 6));
+    driverController.rightBumper().whileTrue(new RunIntake(m_intake, 7.5));
     driverController.start().onTrue(new ResetIntake(m_intake));
 
     driverController.y().whileTrue(new AgitateAndKick(m_agitator, 1, -1));

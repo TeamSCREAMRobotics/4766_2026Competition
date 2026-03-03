@@ -44,10 +44,10 @@ public class Shoot extends Command {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    if (s_LFlywheel.getvelocity() >= desiredvelocity - 2
-        && s_LFlywheel.getvelocity() <= desiredvelocity + 2
-        && s_RFlywheel.getvelocity() >= desiredvelocity - 2
-        && s_RFlywheel.getvelocity() <= desiredvelocity + 2) {
+    if (s_LFlywheel.getvelocity() >= desiredvelocity - 1
+        && s_LFlywheel.getvelocity() <= desiredvelocity + 1
+        && s_RFlywheel.getvelocity() >= desiredvelocity - 1
+        && s_RFlywheel.getvelocity() <= desiredvelocity + 1) {
       s_Agitator.RunAgitatorAndKicker(10, 12);
     }
   }
