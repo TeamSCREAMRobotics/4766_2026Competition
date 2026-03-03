@@ -246,6 +246,23 @@ public class RobotContainer {
             new IntakeGoToSetpoint(m_intake, IntakeConstants.intakeClimbSetpoint)
                 .andThen(new RunClimber(m_climber, ClimberConstants.climberTopSetpoint)));
     operatorController.leftBumper().whileTrue(new Jostle(m_intake));
+        driverController
+        .rightTrigger(0.5)
+        .whileTrue(
+            Commands.run(() -> lFlywheel.setSetpointVelocity(Shoot.desiredvelocity), lFlywheel)
+                .alongWith(
+                    Commands.run(
+                            () -> rFlywheel.setSetpointVelocity(Shoot.desiredvelocity),
+                            rFlywheel) // replace velocity with
+                        // LimelightHelpers.getTA("shooter-limelight")
+                        .alongWith(
+                            new Shoot(
+                                lFlywheel,
+                                rFlywheel,
+                                m_agitator,
+                                ShooterConstants.SHOOTER_VELOCITY_MAP.get(
+                                    LimelightHelpers.getTA("limelight-shooter")))).alongWith(new Jostle(m_intake))));
+    
 
     m_agitator.setDefaultCommand(new AgitateAndKick(m_agitator, 1.5, -2));
     lFlywheel.setDefaultCommand(Commands.run(() -> lFlywheel.setSetpointVelocity(10), lFlywheel));

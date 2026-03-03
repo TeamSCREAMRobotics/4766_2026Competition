@@ -23,9 +23,33 @@
           }
         },
         {
+          "type": "named",
+          "data": {
+            "name": "Intake Up"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Climber to max"
+          }
+        },
+        {
+          "type": "wait",
+          "data": {
+            "waitTime": 2.0
+          }
+        },
+        {
           "type": "path",
           "data": {
             "pathName": "Basic hub- 1A Climb"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Climber down"
           }
         }
       ]
