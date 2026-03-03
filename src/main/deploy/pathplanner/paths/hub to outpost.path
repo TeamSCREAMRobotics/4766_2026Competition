@@ -8,7 +8,7 @@
       },
       "prevControl": null,
       "nextControl": {
-        "x": 1.7352289156626495,
+        "x": 1.7352289156626493,
         "y": 1.7729638554216867
       },
       "isLocked": false,
@@ -16,16 +16,16 @@
     },
     {
       "anchor": {
-        "x": 0.58,
-        "y": 0.658
+        "x": 0.7267617689015686,
+        "y": 0.7291726105563499
       },
       "prevControl": {
-        "x": 1.9651062087307105,
-        "y": 0.6580000000000003
+        "x": 2.1118679776322793,
+        "y": 0.7291726105563501
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": null
+      "linkedName": "at outpost"
     }
   ],
   "rotationTargets": [],
@@ -42,7 +42,7 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": 0.48146580583833887
+    "rotation": -179.29690672228836
   },
   "reversed": false,
   "folder": "Hub Paths",

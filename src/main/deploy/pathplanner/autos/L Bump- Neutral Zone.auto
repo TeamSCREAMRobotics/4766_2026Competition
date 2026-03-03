@@ -1,0 +1,25 @@
+{
+  "version": "2025.0",
+  "command": {
+    "type": "sequential",
+    "data": {
+      "commands": [
+        {
+          "type": "path",
+          "data": {
+            "pathName": "Lbump to LTrench"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "LTrench To Neutral"
+          }
+        }
+      ]
+    }
+  },
+  "resetOdom": true,
+  "folder": "Left bump Autos",
+  "choreoAuto": false
+}

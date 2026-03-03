@@ -7,7 +7,7 @@
         {
           "type": "path",
           "data": {
-            "pathName": "back up"
+            "pathName": "Backup from Rbump"
           }
         },
         {
@@ -19,7 +19,7 @@
         {
           "type": "path",
           "data": {
-            "pathName": "hub to outpost"
+            "pathName": "Rbump to outpost"
           }
         },
         {
@@ -31,7 +31,7 @@
         {
           "type": "path",
           "data": {
-            "pathName": "Outpost To Hub"
+            "pathName": "Rbump outpost to hub"
           }
         },
         {
@@ -44,6 +44,6 @@
     }
   },
   "resetOdom": true,
-  "folder": "Hub Autos",
+  "folder": "Right Bump Autos",
   "choreoAuto": false
 }

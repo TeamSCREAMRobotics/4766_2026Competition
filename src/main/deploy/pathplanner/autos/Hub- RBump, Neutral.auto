@@ -19,25 +19,31 @@
         {
           "type": "path",
           "data": {
-            "pathName": "hub to outpost"
-          }
-        },
-        {
-          "type": "wait",
-          "data": {
-            "waitTime": 2.0
+            "pathName": "Hub To Right Trench"
           }
         },
         {
           "type": "path",
           "data": {
-            "pathName": "Outpost To Hub"
+            "pathName": "RTrench To Neutral"
           }
         },
         {
           "type": "named",
           "data": {
-            "name": "Shoot"
+            "name": "Run Intake"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Wait 5s"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Stop Intake"
           }
         }
       ]

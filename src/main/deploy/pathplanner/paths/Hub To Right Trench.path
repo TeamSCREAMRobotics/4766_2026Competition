@@ -3,29 +3,29 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 0.6879457917261056,
-        "y": 0.6903566333808839
-      },
-      "prevControl": null,
-      "nextControl": {
-        "x": 2.687716876063453,
-        "y": 0.5810795249471481
-      },
-      "isLocked": false,
-      "linkedName": "Rbump at outpost"
-    },
-    {
-      "anchor": {
         "x": 2.3471807228915655,
         "y": 4.067783132530121
       },
+      "prevControl": null,
+      "nextControl": {
+        "x": 0.9647918340026769,
+        "y": 4.1820164658634535
+      },
+      "isLocked": false,
+      "linkedName": "Hub-at hub"
+    },
+    {
+      "anchor": {
+        "x": 4.645066666666667,
+        "y": 0.5659777777777777
+      },
       "prevControl": {
-        "x": 1.3471807228915655,
-        "y": 4.067783132530121
+        "x": 2.1797222222222223,
+        "y": 0.565977777777778
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": "Hub-at hub"
+      "linkedName": "At Right Trench"
     }
   ],
   "rotationTargets": [],
@@ -41,14 +41,14 @@
     "unlimited": false
   },
   "goalEndState": {
-    "velocity": 0,
-    "rotation": -0.5456575934157271
+    "velocity": 0.0,
+    "rotation": 180.0
   },
   "reversed": false,
-  "folder": "Right Bump Paths",
+  "folder": "Hub Paths",
   "idealStartingState": {
     "velocity": 0,
-    "rotation": 179.36340642403647
+    "rotation": -0.5456575934157271
   },
   "useDefaultConstraints": true
 }

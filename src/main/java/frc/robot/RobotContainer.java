@@ -7,6 +7,7 @@ package frc.robot;
 import static edu.wpi.first.units.Units.*;
 
 import com.ctre.phoenix6.swerve.SwerveModule.DriveRequestType;
+import com.ctre.phoenix6.SignalLogger;
 import com.ctre.phoenix6.swerve.SwerveRequest;
 import com.pathplanner.lib.auto.AutoBuilder;
 import com.pathplanner.lib.auto.NamedCommands;
@@ -26,6 +27,7 @@ import edu.wpi.first.wpilibj2.command.sysid.SysIdRoutine.Direction;
 import frc.robot.Constants.ClimberConstants;
 import frc.robot.Constants.IntakeConstants;
 import frc.robot.Constants.ShooterConstants;
+import frc.robot.commands.Agitator.Agitate;
 import frc.robot.commands.Agitator.AgitateAndKick;
 import frc.robot.commands.Ferry;
 import frc.robot.commands.IntakeGoToSetpoint;
@@ -234,7 +236,7 @@ public class RobotContainer {
     //                m_agitator,
     //                ShooterConstants.LSHOOTER_VELOCITY_MAP.get(1.0),
     //                ShooterConstants.RSHOOTER_VELOCITY_MAP.get(1.0)));
-    driverController.rightBumper().whileTrue(new RunIntake(m_intake, 7.5));
+    driverController.rightBumper().whileTrue(new RunIntake(m_intake, 7.5).alongWith(new Agitate(m_agitator, 2)));
     driverController.start().onTrue(new ResetIntake(m_intake));
 
     driverController.y().whileTrue(new AgitateAndKick(m_agitator, 1, -1));
@@ -297,8 +299,7 @@ public class RobotContainer {
             .alongWith(
                 Commands.run(
                         () -> rFlywheel.setSetpointVelocity(Shoot.desiredvelocity),
-                        rFlywheel) // replace velocity with
-                    // LimelightHelpers.getTA("shooter-limelight")
+                        rFlywheel) 
                     .alongWith(
                         new Shoot(
                             lFlywheel,
@@ -308,16 +309,15 @@ public class RobotContainer {
                                 LimelightHelpers.getTA("limelight-shooter"))))
                     .alongWith(drivetrain.applyRequest(() -> brake))
                     .alongWith(new Jostle(m_intake)))
-            .withTimeout(8));
+            .withTimeout(6.5));
     NamedCommands.registerCommand(
         "Shoot Preload",
         Commands.run(() -> lFlywheel.setSetpointVelocity(Shoot.desiredvelocity), lFlywheel)
             .alongWith(
                 Commands.run(
                         () -> rFlywheel.setSetpointVelocity(Shoot.desiredvelocity),
-                        rFlywheel) // replace velocity with
-                    // LimelightHelpers.getTA("shooter-limelight")
-                    .alongWith(
+                        rFlywheel) 
+                        .alongWith(
                         new Shoot(
                             lFlywheel,
                             rFlywheel,

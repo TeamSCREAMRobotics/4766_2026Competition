@@ -3,13 +3,13 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 3.4290240963855423,
-        "y": 2.526975903614458
+        "x": 3.534450784593438,
+        "y": 2.0618544935805994
       },
       "prevControl": null,
       "nextControl": {
-        "x": 2.0084216867469884,
-        "y": 3.8383012048192775
+        "x": 2.113848374954884,
+        "y": 3.3731797947854187
       },
       "isLocked": false,
       "linkedName": null
@@ -48,7 +48,7 @@
   "folder": "Right Bump Paths",
   "idealStartingState": {
     "velocity": 0,
-    "rotation": 56.309932474020165
+    "rotation": 0.0
   },
   "useDefaultConstraints": true
 }

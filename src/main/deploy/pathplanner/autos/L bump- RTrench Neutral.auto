@@ -7,7 +7,7 @@
         {
           "type": "path",
           "data": {
-            "pathName": "back up"
+            "pathName": "Lbump- bump to RTrench"
           }
         },
         {
@@ -17,33 +17,33 @@
           }
         },
         {
-          "type": "path",
+          "type": "named",
           "data": {
-            "pathName": "hub to outpost"
-          }
-        },
-        {
-          "type": "wait",
-          "data": {
-            "waitTime": 2.0
-          }
-        },
-        {
-          "type": "path",
-          "data": {
-            "pathName": "Outpost To Hub"
+            "name": "Run Intake"
           }
         },
         {
           "type": "named",
           "data": {
-            "name": "Shoot"
+            "name": "Wait 5s"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "RTrench To Neutral"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Stop Intake"
           }
         }
       ]
     }
   },
   "resetOdom": true,
-  "folder": "Hub Autos",
+  "folder": "Left bump Autos",
   "choreoAuto": false
 }
