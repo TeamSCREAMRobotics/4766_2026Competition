@@ -266,8 +266,8 @@ public class CommandSwerveDrivetrain extends TunerSwerveDrivetrain implements Su
   public void periodic() {
 
     addGlobalPoseEstimate(shooterLimelight);
-    // addGlobalPoseEstimate(backleftLimelight);
-    // addGlobalPoseEstimate(backrightLimelight);
+    addGlobalPoseEstimate(backleftLimelight);
+    addGlobalPoseEstimate(backrightLimelight);
 
     /*
      * Periodically try to apply the operator perspective.
