@@ -82,9 +82,8 @@ public class Climber extends SubsystemBase {
     return Conversions.linearDistanceToRotations(distance, Length.fromInches(2.256 * Math.PI));
   }
 
-  public void manualClimber(double voltage){
+  public void manualClimber(double voltage) {
     climbermotor.setControl(m_request.withOutput(voltage));
-
   }
 
   // Dog Log(overall logging)

@@ -27,7 +27,6 @@ import frc.robot.Constants.ClimberConstants;
 import frc.robot.Constants.IntakeConstants;
 import frc.robot.Constants.ShooterConstants;
 import frc.robot.commands.Agitator.AgitateAndKick;
-import frc.robot.commands.Ferry;
 import frc.robot.commands.IntakeGoToSetpoint;
 import frc.robot.commands.Jostle;
 import frc.robot.commands.ManualClimber;
@@ -253,7 +252,8 @@ public class RobotContainer {
     // operatorController
     //     .rightTrigger(0.5)
     //     .whileTrue(
-    //         Commands.run(() -> lFlywheel.setSetpointVelocity(Ferry.desiredferryvelocity), lFlywheel)
+    //         Commands.run(() -> lFlywheel.setSetpointVelocity(Ferry.desiredferryvelocity),
+    // lFlywheel)
     //             .alongWith(
     //                 Commands.run(
     //                         () -> rFlywheel.setSetpointVelocity(Ferry.desiredferryvelocity),

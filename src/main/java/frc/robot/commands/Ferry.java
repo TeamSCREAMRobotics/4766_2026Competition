@@ -5,7 +5,6 @@
 package frc.robot.commands;
 
 import com.teamscreamrobotics.vision.LimelightHelpers;
-
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.Constants.ShooterConstants;
 import frc.robot.subsystems.AgitatorSub;
@@ -20,9 +19,10 @@ public class Ferry extends Command {
   LFlywheel s_LFlywheel;
 
   public static double desiredferryvelocity;
+
   /** Creates a new Ferry. */
-  public Ferry(LFlywheel lFlywheel, RFlywheel rFlywheel, AgitatorSub agitator, double Desiredferryvelocity) {
-           
+  public Ferry(
+      LFlywheel lFlywheel, RFlywheel rFlywheel, AgitatorSub agitator, double Desiredferryvelocity) {
 
     s_LFlywheel = lFlywheel;
     s_RFlywheel = rFlywheel;
@@ -35,7 +35,7 @@ public class Ferry extends Command {
   }
 
   // Called when the command is initially scheduled.
-   @Override
+  @Override
   public void initialize() {
     desiredferryvelocity =
         ShooterConstants.FERRY_VELOCITY_MAP.get(LimelightHelpers.getTA("limelight-shooter"));
@@ -57,6 +57,7 @@ public class Ferry extends Command {
   public void end(boolean interrupted) {
     s_Agitator.RunAgitatorAndKicker(0, 0);
   }
+
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {

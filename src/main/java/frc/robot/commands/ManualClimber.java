@@ -11,11 +11,12 @@ import frc.robot.subsystems.Climber;
 public class ManualClimber extends Command {
   Climber m_climber;
   double upordown = 0;
+
   /** Creates a new ManualClimber. */
   public ManualClimber(Climber climber, double UporDown) {
     m_climber = climber;
     upordown = UporDown;
-    
+
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(climber);
   }
