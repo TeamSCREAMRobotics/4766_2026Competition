@@ -42,14 +42,15 @@ public class Constants {
     public static final double kV = 0;
     public static final double kG = 0;
     public static final double kS = 1;
-    public static final double intakeMagicAcceleration = 26;
-    public static final double intakeMagicVelocity = 30;
-    public static final double intakePivotDownSetpoint = 7.5;
+    public static final double intakeMagicAcceleration = 52;
+    public static final double intakeMagicVelocity = 60;
+    public static final double intakePivotDownSetpoint = 12.0;
     public static final double intakePivotUpSetpoint = 0.1;
-    public static final double intakeClimbSetpoint = 7.5;
-    public static final double intakeAgitateHighSetpoint = 2.5;
-    public static final double intakeAgitateLowSetpoint = 3.0;
-    public static final double intakePivotForwardSoftLimit = 7.5;
+    public static final double intakeClimbSetpoint = 0.1;
+    public static final double intakeAgitateHighSetpoint = 6.5;
+    public static final double intakeAgitateLowSetpoint = 8.0
+    ;
+    public static final double intakePivotForwardSoftLimit = 12.5;
     public static final double intakePivotReverseSoftLimit = -0.3;
   }
 
