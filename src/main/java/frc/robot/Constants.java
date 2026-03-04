@@ -48,8 +48,7 @@ public class Constants {
     public static final double intakePivotUpSetpoint = 0.1;
     public static final double intakeClimbSetpoint = 0.1;
     public static final double intakeAgitateHighSetpoint = 6.5;
-    public static final double intakeAgitateLowSetpoint = 8.0
-    ;
+    public static final double intakeAgitateLowSetpoint = 8.0;
     public static final double intakePivotForwardSoftLimit = 12.5;
     public static final double intakePivotReverseSoftLimit = -0.3;
   }
