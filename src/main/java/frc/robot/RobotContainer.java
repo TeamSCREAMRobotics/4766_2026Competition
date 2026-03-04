@@ -47,7 +47,7 @@ import frc.robot.subsystems.ShooterSubFolder.RFlywheel;
 import frc.robot.subsystems.ShooterSubFolder.RFlywheelConfig;
 import frc.robot.subsystems.ShooterSubFolder.ShooterSub;
 import java.util.function.DoubleSupplier;
-
+//TODO: Need to test the new trench/neutralzone autos
 public class RobotContainer {
   ShooterSub s_Shooter = new ShooterSub();
   private double MaxSpeed =
@@ -239,7 +239,7 @@ public class RobotContainer {
         .whileTrue(new RunIntake(m_intake, 7.5).alongWith(new Agitate(m_agitator, 2)));
     driverController.start().onTrue(new ResetIntake(m_intake));
 
-    driverController.y().whileTrue(new AgitateAndKick(m_agitator, 1, -1));
+    //driverController.y().whileTrue(new AgitateAndKick(m_agitator, 1, -1));
 
     operatorController.back().onTrue(new ResetClimber(m_climber));
     operatorController.a().onTrue(new RunClimber(m_climber, ClimberConstants.climberLowSetpoint));

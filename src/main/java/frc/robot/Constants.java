@@ -37,20 +37,20 @@ public class Constants {
     public static final int intakeMotorID = 14;
     public static final int intakePivotID = 12;
     public static final double kP = 3.0;
-    public static final double kI = 10;
+    public static final double kI = 0;
     public static final double kD = 0;
     public static final double kV = 0;
     public static final double kG = 0;
     public static final double kS = 1;
     public static final double intakeMagicAcceleration = 26;
     public static final double intakeMagicVelocity = 30;
-    public static final double intakePivotDownSetpoint = -0.1;
-    public static final double intakePivotUpSetpoint = -7.35;
-    public static final double intakeClimbSetpoint = -7.5;
-    public static final double intakeAgitateHighSetpoint = -3.0;
-    public static final double intakeAgitateLowSetpoint = -2.5;
-    public static final double intakePivotForwardSoftLimit = 0.3;
-    public static final double intakePivotReverseSoftLimit = -7.5;
+    public static final double intakePivotDownSetpoint = 7.5;
+    public static final double intakePivotUpSetpoint = 0.1;
+    public static final double intakeClimbSetpoint = 7.5;
+    public static final double intakeAgitateHighSetpoint = 2.5;
+    public static final double intakeAgitateLowSetpoint = 3.0;
+    public static final double intakePivotForwardSoftLimit = 7.5;
+    public static final double intakePivotReverseSoftLimit = -0.3;
   }
 
   public class ShooterConstants {
@@ -174,6 +174,7 @@ public class Constants {
     public static final Pose2d redHubAlign =
         new Pose2d(fieldDimesions.getX() - 0, fieldDimesions.getY() * 0, null);
 
+    @SuppressWarnings("unused")
     private static Pair<Integer, Pose2d> getTagPair(int id) {
       return Pair.of(
           id,
