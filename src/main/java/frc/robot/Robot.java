@@ -50,6 +50,13 @@ public class Robot extends TimedRobot {
     SmartDashboard.putNumber("RFlywheel Velocity RPS", m_RFlywheel.getvelocity());
     SmartDashboard.putNumber("LFlywheel Velocity", m_LFlywheel.getvelocity() * 60);
     SmartDashboard.putNumber("LFlywheel Velocity RPS", m_LFlywheel.getvelocity());
+       RobotContainer.desiredFlyWheelVelocity =
+          new DoubleSupplier() {
+            @Override
+            public double getAsDouble() {
+              return Dashboard.flywheelVelocity.get();
+            }
+          };
 
     /*
      * This example of adding Limelight is very simple and may not be sufficient for on-field use.
@@ -63,14 +70,6 @@ public class Robot extends TimedRobot {
       var driveState = m_robotContainer.drivetrain.getState();
       double headingDeg = driveState.Pose.getRotation().getDegrees();
       double omegaRps = Units.radiansToRotations(driveState.Speeds.omegaRadiansPerSecond);
-
-      RobotContainer.desiredFlyWheelVelocity =
-          new DoubleSupplier() {
-            @Override
-            public double getAsDouble() {
-              return Dashboard.flywheelVelocity.get();
-            }
-          };
 
       LimelightHelpers.SetRobotOrientation("limelight", headingDeg, 0, 0, 0, 0, 0);
       var llMeasurement = LimelightHelpers.getBotPoseEstimate_wpiBlue_MegaTag2("limelight");

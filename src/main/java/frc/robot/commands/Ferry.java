@@ -6,6 +6,7 @@ package frc.robot.commands;
 
 import com.teamscreamrobotics.vision.LimelightHelpers;
 import edu.wpi.first.wpilibj2.command.Command;
+import frc.robot.Dashboard;
 import frc.robot.Constants.ShooterConstants;
 import frc.robot.subsystems.AgitatorSub;
 import frc.robot.subsystems.ShooterSubFolder.LFlywheel;
@@ -38,7 +39,7 @@ public class Ferry extends Command {
   @Override
   public void initialize() {
     desiredferryvelocity =
-        ShooterConstants.FERRY_VELOCITY_MAP.get(LimelightHelpers.getTA("limelight-shooter"));
+        Dashboard.flywheelVelocity.get();
   }
 
   // Called every time the scheduler runs while the command is scheduled.
