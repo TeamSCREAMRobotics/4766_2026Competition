@@ -61,7 +61,7 @@ public class Robot extends TimedRobot {
             return Dashboard.flywheelVelocity.get();
           }
         };
-    SmartDashboard.putNumber("Calculated Distance",m_robotContainer.getShooterDistance());
+    SmartDashboard.putNumber("Calculated Distance", m_robotContainer.getShooterDistance());
 
     /*
      * This example of adding Limelight is very simple and may not be sufficient for on-field use.

@@ -8,6 +8,7 @@
 package frc.robot;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.teamscreamrobotics.zones.RectangularPoseArea;
 import edu.wpi.first.apriltag.AprilTagFieldLayout;
 import edu.wpi.first.math.geometry.Pose2d;
 import edu.wpi.first.math.geometry.Translation2d;
@@ -18,8 +19,6 @@ import java.io.IOException;
 import java.nio.file.Path;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
-
-import com.teamscreamrobotics.zones.RectangularPoseArea;
 
 /**
  * Contains information for location of field element and other useful reference points.

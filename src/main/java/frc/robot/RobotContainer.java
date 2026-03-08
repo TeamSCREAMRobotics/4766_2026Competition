@@ -254,13 +254,26 @@ public class RobotContainer {
     driverController
         .rightTrigger(.5)
         .whileTrue(
-            Commands.run(() -> lFlywheel.setSetpointVelocity(ShooterConstants.SHOOTER_VELOCITY_MAP.get(getShooterDistance())), lFlywheel)
+            Commands.run(
+                    () ->
+                        lFlywheel.setSetpointVelocity(
+                            ShooterConstants.SHOOTER_VELOCITY_MAP.get(getShooterDistance())),
+                    lFlywheel)
                 .alongWith(
-                    Commands.run(() -> rFlywheel.setSetpointVelocity(ShooterConstants.SHOOTER_VELOCITY_MAP.get(getShooterDistance())), rFlywheel)
-                        .alongWith(new Shoot(lFlywheel, rFlywheel, m_agitator, ShooterConstants.SHOOTER_VELOCITY_MAP.get(getShooterDistance())))
+                    Commands.run(
+                            () ->
+                                rFlywheel.setSetpointVelocity(
+                                    ShooterConstants.SHOOTER_VELOCITY_MAP.get(
+                                        getShooterDistance())),
+                            rFlywheel)
+                        .alongWith(
+                            new Shoot(
+                                lFlywheel,
+                                rFlywheel,
+                                m_agitator,
+                                ShooterConstants.SHOOTER_VELOCITY_MAP.get(getShooterDistance())))
                         .alongWith(drivetrain.applyRequest(() -> brake))
                         .alongWith(new Jostle(m_intake))));
-                        
 
     driverController
         .a()
@@ -333,7 +346,12 @@ public class RobotContainer {
         Commands.run(() -> lFlywheel.setSetpointVelocity(Shoot.desiredvelocity), lFlywheel)
             .alongWith(
                 Commands.run(() -> rFlywheel.setSetpointVelocity(Shoot.desiredvelocity), rFlywheel)
-                    .alongWith(new Shoot(lFlywheel, rFlywheel, m_agitator, ShooterConstants.SHOOTER_VELOCITY_MAP.get(getShooterDistance())))
+                    .alongWith(
+                        new Shoot(
+                            lFlywheel,
+                            rFlywheel,
+                            m_agitator,
+                            ShooterConstants.SHOOTER_VELOCITY_MAP.get(getShooterDistance())))
                     .alongWith(drivetrain.applyRequest(() -> brake))
                     .alongWith(new Jostle(m_intake)))
             .withTimeout(6.5));
@@ -342,7 +360,12 @@ public class RobotContainer {
         Commands.run(() -> lFlywheel.setSetpointVelocity(Shoot.desiredvelocity), lFlywheel)
             .alongWith(
                 Commands.run(() -> rFlywheel.setSetpointVelocity(Shoot.desiredvelocity), rFlywheel)
-                    .alongWith(new Shoot(lFlywheel, rFlywheel, m_agitator, ShooterConstants.SHOOTER_VELOCITY_MAP.get(getShooterDistance())))
+                    .alongWith(
+                        new Shoot(
+                            lFlywheel,
+                            rFlywheel,
+                            m_agitator,
+                            ShooterConstants.SHOOTER_VELOCITY_MAP.get(getShooterDistance())))
                     .alongWith(drivetrain.applyRequest(() -> brake))
                     .alongWith(new Jostle(m_intake)))
             .withTimeout(5));
@@ -358,12 +381,12 @@ public class RobotContainer {
   }
 
   public double getShooterDistance() {
-   /*  double botX = drivetrain.getPose().getX();
+    /*  double botX = drivetrain.getPose().getX();
     double botY = drivetrain.getPose().getY();
     double targetX = Hub.topCenterPoint.getX();
     double targetY = Hub.topCenterPoint.getY(); */
 
-    //return Math.sqrt(Math.pow(targetX - botX, 2) + Math.pow(targetY - botY, 2));
+    // return Math.sqrt(Math.pow(targetX - botX, 2) + Math.pow(targetY - botY, 2));
     return drivetrain.getPose().getTranslation().getDistance(Hub.topCenterPoint.toTranslation2d());
   }
 }
