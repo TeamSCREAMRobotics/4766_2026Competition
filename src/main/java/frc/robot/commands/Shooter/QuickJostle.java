@@ -27,7 +27,7 @@ public class QuickJostle extends Command {
   @Override
   public void initialize() {
     timer = 0;
-    intTimer = 0 ;
+    intTimer = 0;
   }
 
   // Called every time the scheduler runs while the command is scheduled.
@@ -46,17 +46,17 @@ public class QuickJostle extends Command {
     //   m_Intake.IntakeGoToSetpoint(IntakeConstants.intakeAgitateSetpoint);
     // }
     m_Intake.runIntake(8);
-      if (timer > 24) {
-        m_Intake.IntakeGoToSetpoint(IntakeConstants.intakeAgitateLowSetpoint);
-        timer++;
-        if (timer > 50) {
-          timer = 0;
-        }
-      } else {
-        m_Intake.IntakeGoToSetpoint(IntakeConstants.intakeAgitateHighSetpoint);
-        timer++;
+    if (timer > 24) {
+      m_Intake.IntakeGoToSetpoint(IntakeConstants.intakeAgitateLowSetpoint);
+      timer++;
+      if (timer > 50) {
+        timer = 0;
       }
-    } 
+    } else {
+      m_Intake.IntakeGoToSetpoint(IntakeConstants.intakeAgitateHighSetpoint);
+      timer++;
+    }
+  }
 
   // Called once the command ends or is interrupted.
   @Override
