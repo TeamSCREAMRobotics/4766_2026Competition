@@ -37,10 +37,13 @@ public class Robot extends TimedRobot {
     m_RFlywheel = new RFlywheel(RFlywheelConfig.RFLYWHEEL_CONFIG);
     SmartDashboard.putBoolean("Disable Climber limits", false);
     Dashboard.initialize();
-    SignalLogger.enableAutoLogging(false);
-    SignalLogger.setPath("/media/sda1/");
-  }
 
+  }
+  @Override
+  public void robotInit(){
+    SignalLogger.enableAutoLogging(false);
+    SignalLogger.setPath("/media/sda1/Logs/");
+  }
   @Override
   public void robotPeriodic() {
     m_timeAndJoystickReplay.update();

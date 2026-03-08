@@ -5,46 +5,27 @@
     "data": {
       "commands": [
         {
-          "type": "parallel",
+          "type": "path",
           "data": {
-            "commands": [
-              {
-                "type": "path",
-                "data": {
-                  "pathName": "Rbump to outpost"
-                }
-              },
-              {
-                "type": "named",
-                "data": {
-                  "name": "Intake Down"
-                }
-              }
-            ]
+            "pathName": "Lbump infront"
           }
         },
         {
-          "type": "wait",
+          "type": "named",
           "data": {
-            "waitTime": 2.0
+            "name": "Intake Down"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Shoot Preload"
           }
         },
         {
           "type": "path",
           "data": {
-            "pathName": "Rbump outpost to hub"
-          }
-        },
-        {
-          "type": "named",
-          "data": {
-            "name": "Shoot"
-          }
-        },
-        {
-          "type": "named",
-          "data": {
-            "name": "Intake Up"
+            "pathName": "Filler Path Lbump"
           }
         },
         {
@@ -69,6 +50,6 @@
     }
   },
   "resetOdom": true,
-  "folder": "Right Bump Autos",
+  "folder": "Left bump Autos",
   "choreoAuto": false
 }

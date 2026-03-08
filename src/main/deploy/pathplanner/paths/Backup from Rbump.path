@@ -16,12 +16,12 @@
     },
     {
       "anchor": {
-        "x": 2.565734939759036,
-        "y": 2.9203734939759034
+        "x": 3.56,
+        "y": 2.01
       },
       "prevControl": {
-        "x": 2.767918960834833,
-        "y": 2.773330569557142
+        "x": 3.762184021075797,
+        "y": 1.8629570755812384
       },
       "nextControl": null,
       "isLocked": false,
@@ -42,7 +42,7 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": 29.57783868126134
+    "rotation": 0.6419805909089568
   },
   "reversed": false,
   "folder": "Right Bump Paths",

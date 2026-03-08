@@ -16,7 +16,7 @@ import frc.robot.subsystems.ShooterSubFolder.LFlywheel;
 import frc.robot.subsystems.ShooterSubFolder.RFlywheel;
 
 /* You should consider using the more terse Command factories API instead https://docs.wpilib.org/en/stable/docs/software/commandbased/organizing-command-based.html#defining-commands */
-public class Shoot extends Command {
+public class Shoot40 extends Command {
 
   AgitatorSub s_Agitator;
 
@@ -26,13 +26,12 @@ public class Shoot extends Command {
   public static double desiredvelocity;
 
   /** Creates a new Shooter. */
-  public Shoot(
+  public Shoot40(
       LFlywheel lFlywheel, RFlywheel rFlywheel, AgitatorSub agitator, double Desiredvelocity) {
 
     s_LFlywheel = lFlywheel;
     s_RFlywheel = rFlywheel;
-    desiredvelocity = 0;
-    desiredvelocity = Desiredvelocity;
+    desiredvelocity = 40;
 
     s_Agitator = agitator;
     // Use addRequirements() here to declare subsystem dependencies.

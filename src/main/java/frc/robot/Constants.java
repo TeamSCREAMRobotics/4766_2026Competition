@@ -71,6 +71,10 @@ public class Constants {
 
     public static final double defaultVelocity = 50.0;
 
+    public static final double closeShoot = 40.0;
+    public static final double midShoot = 50.0;
+    public static final double farShoot = 60.0;
+
     //  public static final InterpolatingDoubleTreeMap HOOD_MAP = new InterpolatingDoubleTreeMap();
     //
     //  static {
@@ -152,7 +156,7 @@ public class Constants {
     public static final double kS = 0.396;
     public static final double climberTopSetpoint = 8.7;
     public static final double climberLowSetpoint = 0.0;
-    public static final double climberClimbSetpoint = 5;
+    public static final double climberClimbSetpoint = 4;
     public static final double climberReverseThreshold = -0.005;
     public static final double climberForwardThreshold = 8.75;
 
