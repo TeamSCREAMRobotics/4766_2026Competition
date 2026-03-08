@@ -37,13 +37,14 @@ public class Robot extends TimedRobot {
     m_RFlywheel = new RFlywheel(RFlywheelConfig.RFLYWHEEL_CONFIG);
     SmartDashboard.putBoolean("Disable Climber limits", false);
     Dashboard.initialize();
-
   }
+
   @Override
-  public void robotInit(){
+  public void robotInit() {
     SignalLogger.enableAutoLogging(false);
     SignalLogger.setPath("/media/sda1/Logs/");
   }
+
   @Override
   public void robotPeriodic() {
     m_timeAndJoystickReplay.update();
@@ -53,13 +54,13 @@ public class Robot extends TimedRobot {
     SmartDashboard.putNumber("RFlywheel Velocity RPS", m_RFlywheel.getvelocity());
     SmartDashboard.putNumber("LFlywheel Velocity", m_LFlywheel.getvelocity() * 60);
     SmartDashboard.putNumber("LFlywheel Velocity RPS", m_LFlywheel.getvelocity());
-       RobotContainer.desiredFlyWheelVelocity =
-          new DoubleSupplier() {
-            @Override
-            public double getAsDouble() {
-              return Dashboard.flywheelVelocity.get();
-            }
-          };
+    RobotContainer.desiredFlyWheelVelocity =
+        new DoubleSupplier() {
+          @Override
+          public double getAsDouble() {
+            return Dashboard.flywheelVelocity.get();
+          }
+        };
 
     /*
      * This example of adding Limelight is very simple and may not be sufficient for on-field use.

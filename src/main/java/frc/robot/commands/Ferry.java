@@ -4,10 +4,8 @@
 
 package frc.robot.commands;
 
-import com.teamscreamrobotics.vision.LimelightHelpers;
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.Dashboard;
-import frc.robot.Constants.ShooterConstants;
 import frc.robot.subsystems.AgitatorSub;
 import frc.robot.subsystems.ShooterSubFolder.LFlywheel;
 import frc.robot.subsystems.ShooterSubFolder.RFlywheel;
@@ -38,8 +36,7 @@ public class Ferry extends Command {
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-    desiredferryvelocity =
-        Dashboard.flywheelVelocity.get();
+    desiredferryvelocity = Dashboard.flywheelVelocity.get();
   }
 
   // Called every time the scheduler runs while the command is scheduled.

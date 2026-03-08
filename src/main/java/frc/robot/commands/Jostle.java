@@ -27,7 +27,7 @@ public class Jostle extends Command {
   @Override
   public void initialize() {
     timer = 0;
-    intTimer = 0 ;
+    intTimer = 0;
   }
 
   // Called every time the scheduler runs while the command is scheduled.
@@ -46,7 +46,7 @@ public class Jostle extends Command {
     //   m_Intake.IntakeGoToSetpoint(IntakeConstants.intakeAgitateSetpoint);
     // }
     m_Intake.runIntake(8);
-    if (intTimer>96){
+    if (intTimer > 96) {
       if (timer > 24) {
         m_Intake.IntakeGoToSetpoint(IntakeConstants.intakeAgitateLowSetpoint);
         timer++;
@@ -57,7 +57,7 @@ public class Jostle extends Command {
         m_Intake.IntakeGoToSetpoint(IntakeConstants.intakeAgitateHighSetpoint);
         timer++;
       }
-    } 
+    }
     intTimer++;
   }
 
