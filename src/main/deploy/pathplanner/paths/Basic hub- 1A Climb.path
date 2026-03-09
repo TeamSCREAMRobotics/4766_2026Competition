@@ -3,25 +3,25 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 0.7080240963855422,
-        "y": 5.925493975903614
+        "x": 2.3471807228915655,
+        "y": 4.067783132530121
       },
       "prevControl": null,
       "nextControl": {
-        "x": 2.2051204819277106,
-        "y": 6.0238433734939765
+        "x": 1.8663614457831317,
+        "y": 3.171710843373494
       },
       "isLocked": false,
-      "linkedName": null
+      "linkedName": "Hub-at hub"
     },
     {
       "anchor": {
-        "x": 3.3634578313253014,
-        "y": 4.013144578313253
+        "x": 1.44,
+        "y": 3.3
       },
       "prevControl": {
-        "x": 1.9974939759036148,
-        "y": 4.013144578313253
+        "x": 2.0930602409638555,
+        "y": 3.3037710843373493
       },
       "nextControl": null,
       "isLocked": false,
@@ -45,10 +45,10 @@
     "rotation": 0.0
   },
   "reversed": false,
-  "folder": "Mid Paths",
+  "folder": "Hub Paths",
   "idealStartingState": {
     "velocity": 0,
-    "rotation": 178.636072468397
+    "rotation": -0.5456575934157271
   },
   "useDefaultConstraints": true
 }

@@ -3,14 +3,14 @@
   "robotLength": 0.85,
   "holonomicMode": true,
   "pathFolders": [
-    "Mid Paths",
-    "SDepot Paths",
-    "SOutpost Paths"
+    "Hub Paths",
+    "Left bump Paths",
+    "Right Bump Paths"
   ],
   "autoFolders": [
-    "Mid Autos",
-    "SOutpost Autos",
-    "SDipot Autos"
+    "Hub Autos",
+    "Left bump Autos",
+    "Right Bump Autos"
   ],
   "defaultMaxVel": 3.0,
   "defaultMaxAccel": 3.0,

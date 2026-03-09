@@ -5,6 +5,7 @@
 package frc.robot.commands;
 
 import dev.doglog.DogLog;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.subsystems.Climber;
 
@@ -39,6 +40,8 @@ public class RunClimber extends Command {
   @Override
   public boolean isFinished() {
     DogLog.log("Climber Finished", m_Climber.climberIsFinished(m_setpoint));
+    SmartDashboard.putNumber("Climber Finish Setpoint", m_setpoint);
+    SmartDashboard.putBoolean("Climber is Finished", m_Climber.climberIsFinished(m_setpoint));
     return m_Climber.climberIsFinished(m_setpoint);
   }
 }

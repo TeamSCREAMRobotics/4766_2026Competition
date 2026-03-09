@@ -7,7 +7,7 @@
         {
           "type": "path",
           "data": {
-            "pathName": "Move From Mid"
+            "pathName": "back up"
           }
         },
         {
@@ -17,9 +17,21 @@
           }
         },
         {
+          "type": "path",
+          "data": {
+            "pathName": "hub to outpost"
+          }
+        },
+        {
           "type": "wait",
           "data": {
-            "waitTime": 1.0
+            "waitTime": 3.0
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "Outpost To Hub"
           }
         },
         {
@@ -29,51 +41,15 @@
           }
         },
         {
-          "type": "wait",
-          "data": {
-            "waitTime": 2.5
-          }
-        },
-        {
-          "type": "named",
-          "data": {
-            "name": "Stop Shoot"
-          }
-        },
-        {
           "type": "path",
           "data": {
-            "pathName": "Mid To Depot"
-          }
-        },
-        {
-          "type": "path",
-          "data": {
-            "pathName": "Depot To Mid"
-          }
-        },
-        {
-          "type": "named",
-          "data": {
-            "name": "Shoot"
-          }
-        },
-        {
-          "type": "wait",
-          "data": {
-            "waitTime": 2.5
-          }
-        },
-        {
-          "type": "named",
-          "data": {
-            "name": "Stop Shoot"
+            "pathName": "Hub- 1A Climb"
           }
         }
       ]
     }
   },
   "resetOdom": true,
-  "folder": "Mid Autos",
+  "folder": "Hub Autos",
   "choreoAuto": false
 }

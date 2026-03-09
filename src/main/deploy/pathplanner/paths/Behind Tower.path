@@ -1,0 +1,109 @@
+{
+  "version": "2025.0",
+  "waypoints": [
+    {
+      "anchor": {
+        "x": 1.6150240963855422,
+        "y": 1.1937951807228921
+      },
+      "prevControl": null,
+      "nextControl": {
+        "x": 1.516674698795181,
+        "y": 1.4779156626506016
+      },
+      "isLocked": false,
+      "linkedName": "before under tower"
+    },
+    {
+      "anchor": {
+        "x": 1.123277108433735,
+        "y": 2.2319277108433733
+      },
+      "prevControl": {
+        "x": 1.2216265060240958,
+        "y": 1.9587349397590357
+      },
+      "nextControl": {
+        "x": 0.924879164730553,
+        "y": 2.7830331100188794
+      },
+      "isLocked": false,
+      "linkedName": null
+    },
+    {
+      "anchor": {
+        "x": 0.4894698795180723,
+        "y": 3.182638554216868
+      },
+      "prevControl": {
+        "x": 0.4457590361445778,
+        "y": 1.9368795180722884
+      },
+      "nextControl": {
+        "x": 0.5331807228915669,
+        "y": 4.428397590361448
+      },
+      "isLocked": false,
+      "linkedName": null
+    },
+    {
+      "anchor": {
+        "x": 0.4894698795180723,
+        "y": 4.8982891566265065
+      },
+      "prevControl": {
+        "x": 0.45668674698795175,
+        "y": 4.111493975903615
+      },
+      "nextControl": null,
+      "isLocked": false,
+      "linkedName": "after under tower"
+    }
+  ],
+  "rotationTargets": [
+    {
+      "waypointRelativePos": 0.5,
+      "rotationDegrees": -87.26403259728986
+    },
+    {
+      "waypointRelativePos": 1.742738589211604,
+      "rotationDegrees": -90.0
+    }
+  ],
+  "constraintZones": [
+    {
+      "name": "Constraints Zone",
+      "minWaypointRelativePos": 0.3215880893300314,
+      "maxWaypointRelativePos": 2.9,
+      "constraints": {
+        "maxVelocity": 2.0,
+        "maxAcceleration": 3.0,
+        "maxAngularVelocity": 540.0,
+        "maxAngularAcceleration": 720.0,
+        "nominalVoltage": 12.0,
+        "unlimited": false
+      }
+    }
+  ],
+  "pointTowardsZones": [],
+  "eventMarkers": [],
+  "globalConstraints": {
+    "maxVelocity": 3.0,
+    "maxAcceleration": 3.0,
+    "maxAngularVelocity": 540.0,
+    "maxAngularAcceleration": 720.0,
+    "nominalVoltage": 12.0,
+    "unlimited": false
+  },
+  "goalEndState": {
+    "velocity": 0,
+    "rotation": -90.0
+  },
+  "reversed": false,
+  "folder": "Hub Paths",
+  "idealStartingState": {
+    "velocity": 0,
+    "rotation": 43.18677269886102
+  },
+  "useDefaultConstraints": true
+}

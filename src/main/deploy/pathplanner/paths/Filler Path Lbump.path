@@ -3,42 +3,35 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 0.6643132530120479,
-        "y": 0.6474096385542167
+        "x": 2.6640843373493976,
+        "y": 4.974783132530121
       },
       "prevControl": null,
       "nextControl": {
-        "x": 1.664313253012048,
-        "y": 0.6474096385542172
+        "x": 2.5207583991784053,
+        "y": 4.769947404573778
       },
       "isLocked": false,
-      "linkedName": "refuel"
+      "linkedName": "infront of Lbump"
     },
     {
       "anchor": {
-        "x": 3.319746987951808,
-        "y": 4.056855421686747
+        "x": 2.3471807228915655,
+        "y": 4.067783132530121
       },
       "prevControl": {
-        "x": 1.9097856340177266,
-        "y": 4.106092357119752
+        "x": 2.452566666666667,
+        "y": 4.2981
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": "shoot at hub 2"
+      "linkedName": "Hub-at hub"
     }
   ],
   "rotationTargets": [],
   "constraintZones": [],
   "pointTowardsZones": [],
-  "eventMarkers": [
-    {
-      "name": "",
-      "waypointRelativePos": 1.0,
-      "endWaypointRelativePos": null,
-      "command": null
-    }
-  ],
+  "eventMarkers": [],
   "globalConstraints": {
     "maxVelocity": 3.0,
     "maxAcceleration": 3.0,
@@ -49,13 +42,13 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": 0.35191253428363983
+    "rotation": -0.5456575934157271
   },
   "reversed": false,
-  "folder": "Mid Paths",
+  "folder": null,
   "idealStartingState": {
     "velocity": 0,
-    "rotation": 180.0
+    "rotation": -25.319686910309663
   },
   "useDefaultConstraints": true
 }

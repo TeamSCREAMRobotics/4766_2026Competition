@@ -1,0 +1,54 @@
+{
+  "version": "2025.0",
+  "waypoints": [
+    {
+      "anchor": {
+        "x": 0.6,
+        "y": 0.6903566333808839
+      },
+      "prevControl": null,
+      "nextControl": {
+        "x": 1.6,
+        "y": 0.6903566333808835
+      },
+      "isLocked": false,
+      "linkedName": "Rbump at outpost"
+    },
+    {
+      "anchor": {
+        "x": 2.6571999999999996,
+        "y": 2.709755555555556
+      },
+      "prevControl": {
+        "x": 1.6571999999999996,
+        "y": 2.709755555555556
+      },
+      "nextControl": null,
+      "isLocked": false,
+      "linkedName": null
+    }
+  ],
+  "rotationTargets": [],
+  "constraintZones": [],
+  "pointTowardsZones": [],
+  "eventMarkers": [],
+  "globalConstraints": {
+    "maxVelocity": 3.0,
+    "maxAcceleration": 3.0,
+    "maxAngularVelocity": 540.0,
+    "maxAngularAcceleration": 720.0,
+    "nominalVoltage": 12.0,
+    "unlimited": false
+  },
+  "goalEndState": {
+    "velocity": 0,
+    "rotation": 34.99202019855868
+  },
+  "reversed": false,
+  "folder": null,
+  "idealStartingState": {
+    "velocity": 0,
+    "rotation": 179.72988400671753
+  },
+  "useDefaultConstraints": true
+}

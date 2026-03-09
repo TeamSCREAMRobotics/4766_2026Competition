@@ -33,11 +33,14 @@ public class Intake extends SubsystemBase {
   // Creates a new Intake.
   public Intake() {
     intakeConfig.MotorOutput.NeutralMode = NeutralModeValue.Brake;
+    intakeConfig.CurrentLimits.StatorCurrentLimit = 60;
+    intakeConfig.CurrentLimits.StatorCurrentLimitEnable = true;
     intakePIDConfigs.kP = IntakeConstants.kP;
     intakePIDConfigs.kI = IntakeConstants.kI;
     intakePIDConfigs.kD = IntakeConstants.kD;
     intakePIDConfigs.kV = IntakeConstants.kV;
     intakePIDConfigs.kG = IntakeConstants.kG;
+    intakePIDConfigs.kS = IntakeConstants.kS;
     intakePIDConfigs.GravityType = GravityTypeValue.Arm_Cosine;
     intakeMagicConfigs.MotionMagicAcceleration = IntakeConstants.intakeMagicAcceleration;
     intakeMagicConfigs.MotionMagicCruiseVelocity = IntakeConstants.intakeMagicVelocity;
@@ -46,7 +49,7 @@ public class Intake extends SubsystemBase {
     intakeConfig.SoftwareLimitSwitch.ForwardSoftLimitThreshold =
         IntakeConstants.intakePivotForwardSoftLimit;
     intakeConfig.SoftwareLimitSwitch.ReverseSoftLimitThreshold =
-        IntakeConstants.intakePivotReversSoftLimit;
+        IntakeConstants.intakePivotReverseSoftLimit;
     intakeConfig.SoftwareLimitSwitch.ForwardSoftLimitEnable = true;
     intakeConfig.SoftwareLimitSwitch.ReverseSoftLimitEnable = true;
     intakePivot.getConfigurator().apply(intakeConfig);
@@ -73,8 +76,8 @@ public class Intake extends SubsystemBase {
   }
 
   public boolean isFinished(double setpoint) {
-    return intakePivot.getPosition().getValueAsDouble() >= setpoint - 0.0005
-        && intakePivot.getPosition().getValueAsDouble() <= setpoint + 0.0005;
+    return intakePivot.getPosition().getValueAsDouble() >= setpoint - 0.55
+        && intakePivot.getPosition().getValueAsDouble() <= setpoint + 0.55;
   }
 
   @Override

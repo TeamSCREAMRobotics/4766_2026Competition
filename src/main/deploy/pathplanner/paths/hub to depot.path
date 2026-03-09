@@ -3,29 +3,29 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 0.6533855421686747,
-        "y": 5.9473493975903615
+        "x": 2.3471807228915655,
+        "y": 4.067783132530121
       },
       "prevControl": null,
       "nextControl": {
-        "x": 3.3743855421686737,
-        "y": 6.277168674698795
+        "x": 1.0139999999999998,
+        "y": 3.871084337349398
       },
       "isLocked": false,
-      "linkedName": null
+      "linkedName": "Hub-at hub"
     },
     {
       "anchor": {
-        "x": 3.2869638554216865,
-        "y": 5.728795180722891
+        "x": 1.6259518072289159,
+        "y": 5.827144578313253
       },
       "prevControl": {
-        "x": 2.871710843373494,
-        "y": 6.31889156626506
+        "x": 2.98098795180723,
+        "y": 6.111265060240964
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": null
+      "linkedName": "infront of depot"
     }
   ],
   "rotationTargets": [],
@@ -42,13 +42,13 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": -51.20344790169182
+    "rotation": -178.83086067209263
   },
   "reversed": false,
-  "folder": "SDepot Paths",
+  "folder": "Hub Paths",
   "idealStartingState": {
     "velocity": 0,
-    "rotation": -179.37725554669967
+    "rotation": -0.5456575934157271
   },
   "useDefaultConstraints": true
 }

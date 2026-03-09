@@ -1,0 +1,54 @@
+{
+  "version": "2025.0",
+  "waypoints": [
+    {
+      "anchor": {
+        "x": 2.6640843373493976,
+        "y": 4.974783132530121
+      },
+      "prevControl": null,
+      "nextControl": {
+        "x": 2.245497447416787,
+        "y": 1.628063644408141
+      },
+      "isLocked": false,
+      "linkedName": "infront of Lbump"
+    },
+    {
+      "anchor": {
+        "x": 0.7138231098430812,
+        "y": 0.6903566333808839
+      },
+      "prevControl": {
+        "x": 2.4444580349982235,
+        "y": 0.6903566333808842
+      },
+      "nextControl": null,
+      "isLocked": false,
+      "linkedName": "Lbump at outpost"
+    }
+  ],
+  "rotationTargets": [],
+  "constraintZones": [],
+  "pointTowardsZones": [],
+  "eventMarkers": [],
+  "globalConstraints": {
+    "maxVelocity": 3.0,
+    "maxAcceleration": 3.0,
+    "maxAngularVelocity": 540.0,
+    "maxAngularAcceleration": 720.0,
+    "nominalVoltage": 12.0,
+    "unlimited": false
+  },
+  "goalEndState": {
+    "velocity": 0,
+    "rotation": 180.0
+  },
+  "reversed": false,
+  "folder": "Left bump Paths",
+  "idealStartingState": {
+    "velocity": 0,
+    "rotation": -25.319686910309663
+  },
+  "useDefaultConstraints": true
+}

@@ -4,50 +4,65 @@
 
 package frc.robot.commands.Shooter;
 
+import com.teamscreamrobotics.vision.LimelightHelpers;
+import edu.wpi.first.wpilibj.RobotState;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
+import frc.robot.Constants.ShooterConstants;
 import frc.robot.subsystems.AgitatorSub;
-import frc.robot.subsystems.ShooterSubFolder.ShooterSub;
+import frc.robot.subsystems.ShooterSubFolder.LFlywheel;
+import frc.robot.subsystems.ShooterSubFolder.RFlywheel;
 
 /* You should consider using the more terse Command factories API instead https://docs.wpilib.org/en/stable/docs/software/commandbased/organizing-command-based.html#defining-commands */
 public class Shoot extends Command {
 
-  ShooterSub s_Shooter;
   AgitatorSub s_Agitator;
 
-  double lvoltage;
-  double rvoltage;
+  RFlywheel s_RFlywheel;
+  LFlywheel s_LFlywheel;
+
+  public static double desiredvelocity;
 
   /** Creates a new Shooter. */
-  public Shoot(ShooterSub shooter, AgitatorSub agitator, double lv, double rv) {
-    s_Shooter = shooter;
+  public Shoot(
+      LFlywheel lFlywheel, RFlywheel rFlywheel, AgitatorSub agitator, double Desiredvelocity) {
+
+    s_LFlywheel = lFlywheel;
+    s_RFlywheel = rFlywheel;
+    desiredvelocity = 0;
+    desiredvelocity = Desiredvelocity;
+
     s_Agitator = agitator;
-
-    lvoltage = lv;
-    rvoltage = rv;
-
     // Use addRequirements() here to declare subsystem dependencies.
-    addRequirements(s_Shooter, agitator);
+    addRequirements(agitator);
   }
 
   // Called when the command is initially scheduled.
   @Override
-  public void initialize() {}
+  public void initialize() {
+
+    /// we shouldn't have to do this
+    if (RobotState.isAutonomous()) {
+      desiredvelocity =
+          ShooterConstants.SHOOTER_VELOCITY_MAP.get(LimelightHelpers.getTA("limelight-shooter"));
+    }
+  }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    s_Shooter.runShooter(lvoltage, rvoltage);
-    if (true) {
-      s_Agitator.RunAgitatorAndKicker(3, 3);
-
-      // (LeftShooter, RightShooter)
+    SmartDashboard.putNumber("Desired Velocity", desiredvelocity);
+    if (s_LFlywheel.getvelocity() >= desiredvelocity - 1
+        && s_LFlywheel.getvelocity() <= desiredvelocity + 1
+        && s_RFlywheel.getvelocity() >= desiredvelocity - 1
+        && s_RFlywheel.getvelocity() <= desiredvelocity + 1) {
+      s_Agitator.RunAgitatorAndKicker(10, 12);
     }
   }
 
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
-    s_Shooter.runShooter(0, 0);
     s_Agitator.RunAgitatorAndKicker(0, 0);
   }
 

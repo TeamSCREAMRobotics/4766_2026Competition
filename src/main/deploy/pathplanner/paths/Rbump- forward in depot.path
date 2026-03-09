@@ -1,0 +1,54 @@
+{
+  "version": "2025.0",
+  "waypoints": [
+    {
+      "anchor": {
+        "x": 1.4729638554216864,
+        "y": 5.925493975903614
+      },
+      "prevControl": null,
+      "nextControl": {
+        "x": 0.7735903614457831,
+        "y": 5.914566265060241
+      },
+      "isLocked": false,
+      "linkedName": "infront of depot rBump"
+    },
+    {
+      "anchor": {
+        "x": 0.7189518072289156,
+        "y": 5.925493975903614
+      },
+      "prevControl": {
+        "x": 0.9674227408973204,
+        "y": 5.953101857422325
+      },
+      "nextControl": null,
+      "isLocked": false,
+      "linkedName": "in depot"
+    }
+  ],
+  "rotationTargets": [],
+  "constraintZones": [],
+  "pointTowardsZones": [],
+  "eventMarkers": [],
+  "globalConstraints": {
+    "maxVelocity": 3.0,
+    "maxAcceleration": 3.0,
+    "maxAngularVelocity": 540.0,
+    "maxAngularAcceleration": 720.0,
+    "nominalVoltage": 12.0,
+    "unlimited": false
+  },
+  "goalEndState": {
+    "velocity": 0,
+    "rotation": 180.0
+  },
+  "reversed": false,
+  "folder": "Right Bump Paths",
+  "idealStartingState": {
+    "velocity": 0,
+    "rotation": 180.0
+  },
+  "useDefaultConstraints": true
+}
