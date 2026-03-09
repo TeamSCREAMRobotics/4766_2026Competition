@@ -4,7 +4,7 @@
   "holonomicMode": true,
   "pathFolders": [
     "Mid Paths",
-    "SDepot Paths",
+    "SDipot Paths",
     "SOutpost Paths"
   ],
   "autoFolders": [
@@ -39,6 +39,7 @@
   "robotFeatures": [
     "{\"name\":\"actual bot without bumper\",\"type\":\"rounded_rect\",\"data\":{\"center\":{\"x\":0.0,\"y\":0.0},\"size\":{\"width\":0.74,\"length\":0.74},\"borderRadius\":0.05,\"strokeWidth\":0.02,\"filled\":false}}",
     "{\"name\":\"climber holr\",\"type\":\"rounded_rect\",\"data\":{\"center\":{\"x\":-0.401,\"y\":0.0},\"size\":{\"width\":0.159131,\"length\":0.07},\"borderRadius\":0.05,\"strokeWidth\":0.02,\"filled\":false}}",
-    "{\"name\":\"intake\",\"type\":\"rounded_rect\",\"data\":{\"center\":{\"x\":0.49,\"y\":0.0},\"size\":{\"width\":0.85,\"length\":0.24},\"borderRadius\":0.05,\"strokeWidth\":0.02,\"filled\":false}}"
+    "{\"name\":\"intake\",\"type\":\"rounded_rect\",\"data\":{\"center\":{\"x\":0.49,\"y\":0.0},\"size\":{\"width\":0.85,\"length\":0.24},\"borderRadius\":0.05,\"strokeWidth\":0.02,\"filled\":false}}",
+    "{\"name\":\"Circle\",\"type\":\"circle\",\"data\":{\"center\":{\"x\":-0.16,\"y\":0.0},\"radius\":0.14,\"strokeWidth\":0.02,\"filled\":false}}"
   ]
 }

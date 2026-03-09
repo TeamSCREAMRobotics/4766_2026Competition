@@ -12,7 +12,7 @@
         "y": 0.6474096385542172
       },
       "isLocked": false,
-      "linkedName": "refuel"
+      "linkedName": null
     },
     {
       "anchor": {
@@ -25,7 +25,7 @@
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": "shoot at hub 2"
+      "linkedName": null
     }
   ],
   "rotationTargets": [],

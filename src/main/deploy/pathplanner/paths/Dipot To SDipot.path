@@ -12,20 +12,20 @@
         "y": 6.277168674698795
       },
       "isLocked": false,
-      "linkedName": null
+      "linkedName": "On Dipot"
     },
     {
       "anchor": {
-        "x": 3.2869638554216865,
-        "y": 5.728795180722891
+        "x": 3.2432530120481924,
+        "y": 5.739722891566265
       },
       "prevControl": {
-        "x": 2.871710843373494,
-        "y": 6.31889156626506
+        "x": 2.828,
+        "y": 6.3298192771084345
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": null
+      "linkedName": "Point To Mid END!"
     }
   ],
   "rotationTargets": [],
@@ -42,10 +42,10 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": -51.20344790169182
+    "rotation": -51.115503566285405
   },
   "reversed": false,
-  "folder": "SDepot Paths",
+  "folder": "SDipot Paths",
   "idealStartingState": {
     "velocity": 0,
     "rotation": -179.37725554669967

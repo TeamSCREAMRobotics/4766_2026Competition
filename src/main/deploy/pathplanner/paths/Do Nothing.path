@@ -3,29 +3,29 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 0.6533855421686747,
-        "y": 5.9473493975903615
+        "x": 2.7077951807228917,
+        "y": 5.663228915662651
       },
       "prevControl": null,
       "nextControl": {
-        "x": 2.1504819277108433,
-        "y": 6.045698795180724
+        "x": 2.9577951807228917,
+        "y": 5.663228915662651
       },
       "isLocked": false,
-      "linkedName": "On Dipot"
+      "linkedName": null
     },
     {
       "anchor": {
-        "x": 3.3853132530120478,
-        "y": 4.013144578313253
+        "x": 2.7077951807228917,
+        "y": 5.663228915662651
       },
       "prevControl": {
-        "x": 2.019349397590361,
-        "y": 4.013144578313253
+        "x": 2.458053045670317,
+        "y": 5.651877000432988
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": "Mid Start (With Intake Out)"
+      "linkedName": null
     }
   ],
   "rotationTargets": [],
@@ -45,10 +45,10 @@
     "rotation": 0.0
   },
   "reversed": false,
-  "folder": "Mid Paths",
+  "folder": null,
   "idealStartingState": {
     "velocity": 0,
-    "rotation": -179.37725554669967
+    "rotation": 0.0
   },
   "useDefaultConstraints": true
 }

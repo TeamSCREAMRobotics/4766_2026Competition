@@ -3,32 +3,37 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 3.3525301204819278,
-        "y": 4.024072289156626
+        "x": 3.3853132530120478,
+        "y": 4.013144578313253
       },
       "prevControl": null,
       "nextControl": {
-        "x": 2.041204819277109,
-        "y": 4.078710843373494
+        "x": 2.073987951807229,
+        "y": 4.067783132530121
       },
       "isLocked": false,
-      "linkedName": null
+      "linkedName": "Mid Start (With Intake Out)"
     },
     {
       "anchor": {
-        "x": 0.5878192771084336,
-        "y": 5.925493975903614
+        "x": 0.653,
+        "y": 5.947
       },
       "prevControl": {
-        "x": 2.2816144578313247,
-        "y": 6.286108433734939
+        "x": 3.097,
+        "y": 5.947
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": null
+      "linkedName": "On Dipot"
     }
   ],
-  "rotationTargets": [],
+  "rotationTargets": [
+    {
+      "waypointRelativePos": 0.6485039370078723,
+      "rotationDegrees": 180.0
+    }
+  ],
   "constraintZones": [],
   "pointTowardsZones": [],
   "eventMarkers": [],
@@ -42,7 +47,7 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": 180.0
+    "rotation": -179.37725554669967
   },
   "reversed": false,
   "folder": "Mid Paths",
