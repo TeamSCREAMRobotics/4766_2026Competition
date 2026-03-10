@@ -27,5 +27,6 @@ public class LFlywheelConfig {
 
     LFLYWHEEL_CONFIG.enableSupplyCurrentLimit = true;
     LFLYWHEEL_CONFIG.supplyCurrentLimit = 20;
+    
   }
 }

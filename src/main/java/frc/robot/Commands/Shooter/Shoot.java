@@ -9,6 +9,7 @@ import edu.wpi.first.wpilibj.RobotState;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.Constants.ShooterConstants;
+import frc.robot.Dashboard;
 import frc.robot.subsystems.AgitatorSub;
 import frc.robot.subsystems.ShooterSubFolder.LFlywheel;
 import frc.robot.subsystems.ShooterSubFolder.RFlywheel;
@@ -52,11 +53,14 @@ public class Shoot extends Command {
   @Override
   public void execute() {
     SmartDashboard.putNumber("Desired Velocity", desiredvelocity);
-    if (s_LFlywheel.getvelocity() >= desiredvelocity - 1
-        && s_LFlywheel.getvelocity() <= desiredvelocity + 1
-        && s_RFlywheel.getvelocity() >= desiredvelocity - 1
-        && s_RFlywheel.getvelocity() <= desiredvelocity + 1) {
+    if (s_LFlywheel.getvelocity() >= Dashboard.flywheelVelocity.get() - 1
+        && s_LFlywheel.getvelocity() <= Dashboard.flywheelVelocity.get() + 1
+        && s_RFlywheel.getvelocity() >= Dashboard.flywheelVelocity.get() - 1
+        && s_RFlywheel.getvelocity() <= Dashboard.flywheelVelocity.get() + 1) {
       s_Agitator.RunAgitatorAndKicker(10, 12);
+    }
+    else {
+      s_Agitator.RunAgitatorAndKicker(1, 0);
     }
   }
 

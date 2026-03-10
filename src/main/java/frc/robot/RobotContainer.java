@@ -61,7 +61,7 @@ public class RobotContainer {
       RotationsPerSecond.of(0.75).in(RadiansPerSecond)
           ; // 3/4 of a rotation per second max angular velocity
 
-  /* Setting up bindings for necessary control of the swerve drive platform */
+  /* Setti ng up bindings for necessary control of the swerve drive platform */
   private final SwerveRequest.FieldCentric drive =
       new SwerveRequest.FieldCentric()
           .withDeadband(MaxSpeed * 0.1)
@@ -204,7 +204,7 @@ public class RobotContainer {
 
     driverController
         .leftBumper()
-        .whileTrue(new RunIntake(m_intake, -6).alongWith(new Agitate(m_agitator, -2)));
+        .whileTrue(new RunIntake(m_intake, -6).alongWith(new Agitate(m_agitator, -6)));
 
     driverController
         .povUp()
@@ -302,13 +302,13 @@ public class RobotContainer {
         .rightTrigger(0.5)
         .whileTrue(
             Commands.run(
-                    () -> lFlywheel.setSetpointVelocity(desiredFlyWheelVelocity.getAsDouble()),
+                    () -> lFlywheel.setSetpointVelocity(Dashboard.flywheelVelocity.get()),
                     lFlywheel)
                 .alongWith(
                     Commands.run(
                             () ->
                                 rFlywheel.setSetpointVelocity(
-                                    desiredFlyWheelVelocity.getAsDouble()),
+                                    Dashboard.flywheelVelocity.get()),
                             rFlywheel)
                         .alongWith(
                             new Jostle(m_intake)
