@@ -52,7 +52,6 @@ import frc.robot.subsystems.ShooterSubFolder.RFlywheelConfig;
 import frc.robot.subsystems.ShooterSubFolder.ShooterSub;
 import java.util.function.DoubleSupplier;
 
-// TODO: Need to test the new trench/neutralzone autos
 public class RobotContainer {
   ShooterSub s_Shooter = new ShooterSub();
   private double MaxSpeed =
@@ -131,15 +130,11 @@ public class RobotContainer {
                         .withVelocityX(
                             -driverController.getLeftY()
                                 * MaxSpeed
-                                / 0.3) // Drive forward with negative Y (forward)
+                                / 0.6) // Drive forward with negative Y (forward)
                         .withVelocityY(
                             -driverController.getLeftX()
                                 * MaxSpeed
-                                / 0.3) // Drive left with negative X (left)
-                        .withRotationalRate(
-                            -driverController.getRightX()
-                                * MaxAngularRate
-                                / 0.4) // Drive counterclockwise with negative X (left)
+                                / 0.6)
                 ));
     // Note that X is defined as forward according to WPILib convention,
     // and Y is defined as to the left according to WPILib convention.
