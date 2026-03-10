@@ -5,11 +5,9 @@
 package frc.robot.commands.Shooter;
 
 import com.teamscreamrobotics.vision.LimelightHelpers;
-
 import edu.wpi.first.wpilibj.RobotState;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
-import frc.robot.Dashboard;
 import frc.robot.Constants.ShooterConstants;
 import frc.robot.subsystems.AgitatorSub;
 import frc.robot.subsystems.ShooterSubFolder.LFlywheel;
@@ -41,12 +39,11 @@ public class Shoot40 extends Command {
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-    if(RobotState.isAutonomous() ){
-     desiredvelocity =
-         ShooterConstants.SHOOTER_VELOCITY_MAP.get(LimelightHelpers.getTA("limelight-shooter"));
-
+    if (RobotState.isAutonomous()) {
+      desiredvelocity =
+          ShooterConstants.SHOOTER_VELOCITY_MAP.get(LimelightHelpers.getTA("limelight-shooter"));
+    }
   }
-}
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override

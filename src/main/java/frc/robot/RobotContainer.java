@@ -14,13 +14,11 @@ import com.pathplanner.lib.commands.FollowPathCommand;
 import com.pathplanner.lib.commands.PathPlannerAuto;
 import dev.doglog.DogLog;
 import dev.doglog.DogLogOptions;
-import edu.wpi.first.math.geometry.Rotation2d;
 import edu.wpi.first.wpilibj.PowerDistribution;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.Commands;
-import edu.wpi.first.wpilibj2.command.RunCommand;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.RobotModeTriggers;
 import edu.wpi.first.wpilibj2.command.sysid.SysIdRoutine.Direction;
@@ -29,7 +27,6 @@ import frc.robot.Constants.IntakeConstants;
 import frc.robot.Constants.ShooterConstants;
 import frc.robot.commands.Agitator.Agitate;
 import frc.robot.commands.Agitator.AgitateAndKick;
-import frc.robot.commands.Ferry;
 import frc.robot.commands.IntakeGoToSetpoint;
 import frc.robot.commands.Jostle;
 import frc.robot.commands.ManualClimber;
@@ -204,25 +201,28 @@ public class RobotContainer {
         .and(driverController.x())
         .whileTrue(drivetrain.sysIdQuasistatic(Direction.kReverse));
 
-    driverController.leftBumper().whileTrue(new RunIntake(m_intake, -6).alongWith(new Agitate(m_agitator, -2)));
+    driverController
+        .leftBumper()
+        .whileTrue(new RunIntake(m_intake, -6).alongWith(new Agitate(m_agitator, -2)));
 
-    driverController.povUp().whileTrue(
-            Commands.run(() -> lFlywheel.setSetpointVelocity(ShooterConstants.closeShoot), lFlywheel)
+    driverController
+        .povUp()
+        .whileTrue(
+            Commands.run(
+                    () -> lFlywheel.setSetpointVelocity(ShooterConstants.closeShoot), lFlywheel)
                 .alongWith(
                     Commands.run(
                             () -> rFlywheel.setSetpointVelocity(ShooterConstants.closeShoot),
                             rFlywheel)
                         .alongWith(
                             new Shoot40(
-                                lFlywheel,
-                                rFlywheel,
-                                m_agitator,
-                                ShooterConstants.closeShoot))
+                                lFlywheel, rFlywheel, m_agitator, ShooterConstants.closeShoot))
                         .alongWith(drivetrain.applyRequest(() -> brake))
-                        .alongWith(new Jostle(m_intake))
-                        ));
+                        .alongWith(new Jostle(m_intake))));
 
-    driverController.povLeft().whileTrue(
+    driverController
+        .povLeft()
+        .whileTrue(
             Commands.run(() -> lFlywheel.setSetpointVelocity(ShooterConstants.midShoot), lFlywheel)
                 .alongWith(
                     Commands.run(
@@ -230,14 +230,13 @@ public class RobotContainer {
                             rFlywheel)
                         .alongWith(
                             new Shoot50(
-                                lFlywheel,
-                                rFlywheel,
-                                m_agitator,
-                                ShooterConstants.midShoot))
+                                lFlywheel, rFlywheel, m_agitator, ShooterConstants.midShoot))
                         .alongWith(drivetrain.applyRequest(() -> brake))
                         .alongWith(new Jostle(m_intake))));
 
-    driverController.povDown().whileTrue(
+    driverController
+        .povDown()
+        .whileTrue(
             Commands.run(() -> lFlywheel.setSetpointVelocity(ShooterConstants.farShoot), lFlywheel)
                 .alongWith(
                     Commands.run(
@@ -245,16 +244,9 @@ public class RobotContainer {
                             rFlywheel)
                         .alongWith(
                             new Shoot60(
-                                lFlywheel,
-                                rFlywheel,
-                                m_agitator,
-                                ShooterConstants.farShoot))
+                                lFlywheel, rFlywheel, m_agitator, ShooterConstants.farShoot))
                         .alongWith(drivetrain.applyRequest(() -> brake))
-                        .alongWith(new Jostle(m_intake))
-                        
-                        )
-                        );
-        
+                        .alongWith(new Jostle(m_intake))));
 
     // driverController.rightTrigger(.5).whileTrue(new
     // FeedForwardCharacterization(flywheel,flywheel::setVoltage, flywheel::getVelocity));
@@ -285,18 +277,28 @@ public class RobotContainer {
     operatorController
         .rightTrigger(0.5)
         .whileTrue(
-            Commands.run(() -> lFlywheel.setSetpointVelocity(desiredFlyWheelVelocity.getAsDouble()),lFlywheel)
+            Commands.run(
+                    () -> lFlywheel.setSetpointVelocity(desiredFlyWheelVelocity.getAsDouble()),
+                    lFlywheel)
                 .alongWith(
                     Commands.run(
-                            () -> rFlywheel.setSetpointVelocity(desiredFlyWheelVelocity.getAsDouble()),
-                            rFlywheel).alongWith(new Jostle(m_intake).alongWith(new AgitateAndKick(m_agitator, 10, 12)))));
+                            () ->
+                                rFlywheel.setSetpointVelocity(
+                                    desiredFlyWheelVelocity.getAsDouble()),
+                            rFlywheel)
+                        .alongWith(
+                            new Jostle(m_intake)
+                                .alongWith(new AgitateAndKick(m_agitator, 10, 12)))));
 
     m_agitator.setDefaultCommand(new AgitateAndKick(m_agitator, 1.5, -2));
     lFlywheel.setDefaultCommand(Commands.run(() -> lFlywheel.setSetpointVelocity(10), lFlywheel));
     rFlywheel.setDefaultCommand(Commands.run(() -> rFlywheel.setSetpointVelocity(10), rFlywheel));
 
     // Reset the field-centric heading on left bumper press.
-    driverController.leftBumper().and(driverController.start()).onTrue(drivetrain.runOnce(drivetrain::seedFieldCentric));
+    driverController
+        .leftBumper()
+        .and(driverController.start())
+        .onTrue(drivetrain.runOnce(drivetrain::seedFieldCentric));
 
     drivetrain.registerTelemetry(logger::telemeterize);
   }
@@ -310,7 +312,8 @@ public class RobotContainer {
     NamedCommands.registerCommand(
         "Intake Down", new IntakeGoToSetpoint(m_intake, IntakeConstants.intakePivotDownSetpoint));
     NamedCommands.registerCommand(
-        "Intake Up", new IntakeGoToSetpoint(m_intake, IntakeConstants.intakePivotUpSetpoint).withTimeout(1));
+        "Intake Up",
+        new IntakeGoToSetpoint(m_intake, IntakeConstants.intakePivotUpSetpoint).withTimeout(1));
     NamedCommands.registerCommand("Run Intake", new RunIntake(m_intake, 8.5));
     NamedCommands.registerCommand("Agitate And Kick", new AgitateAndKick(m_agitator, 1, -1));
 
@@ -323,7 +326,7 @@ public class RobotContainer {
                         new Shoot(
                             lFlywheel,
                             rFlywheel,
-                            m_agitator, 
+                            m_agitator,
                             ShooterConstants.SHOOTER_VELOCITY_MAP.get(
                                 LimelightHelpers.getTA("limelight-shooter"))))
                     .alongWith(drivetrain.applyRequest(() -> brake))
@@ -348,7 +351,8 @@ public class RobotContainer {
     NamedCommands.registerCommand(
         "Climnber to 0", new RunClimber(m_climber, ClimberConstants.climberLowSetpoint));
     NamedCommands.registerCommand(
-        "Climber to max",(Commands.run(() -> m_climber.climberGoToSetpoint(ClimberConstants.climberTopSetpoint)))
+        "Climber to max",
+        (Commands.run(() -> m_climber.climberGoToSetpoint(ClimberConstants.climberTopSetpoint)))
             .withTimeout(3));
     NamedCommands.registerCommand(
         "Climber down", new RunClimber(m_climber, ClimberConstants.climberClimbSetpoint));
