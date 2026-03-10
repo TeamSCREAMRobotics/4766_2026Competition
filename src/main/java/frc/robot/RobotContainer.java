@@ -56,10 +56,10 @@ import java.util.function.DoubleSupplier;
 public class RobotContainer {
   ShooterSub s_Shooter = new ShooterSub();
   private double MaxSpeed =
-       0.6 * TunerConstants.kSpeedAt12Volts.in(MetersPerSecond); // kSpeedAt12Volts desired top speed
+      0.6 * TunerConstants.kSpeedAt12Volts.in(MetersPerSecond); // kSpeedAt12Volts desired top speed
   private double MaxAngularRate =
-      RotationsPerSecond.of(0.75).in(RadiansPerSecond)
-          ; // 3/4 of a rotation per second max angular velocity
+      RotationsPerSecond.of(0.75)
+          .in(RadiansPerSecond); // 3/4 of a rotation per second max angular velocity
 
   /* Setti ng up bindings for necessary control of the swerve drive platform */
   private final SwerveRequest.FieldCentric drive =
@@ -306,9 +306,7 @@ public class RobotContainer {
                     lFlywheel)
                 .alongWith(
                     Commands.run(
-                            () ->
-                                rFlywheel.setSetpointVelocity(
-                                    Dashboard.flywheelVelocity.get()),
+                            () -> rFlywheel.setSetpointVelocity(Dashboard.flywheelVelocity.get()),
                             rFlywheel)
                         .alongWith(
                             new Jostle(m_intake)

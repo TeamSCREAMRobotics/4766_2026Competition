@@ -58,8 +58,7 @@ public class Shoot extends Command {
         && s_RFlywheel.getvelocity() >= Dashboard.flywheelVelocity.get() - 1
         && s_RFlywheel.getvelocity() <= Dashboard.flywheelVelocity.get() + 1) {
       s_Agitator.RunAgitatorAndKicker(10, 12);
-    }
-    else {
+    } else {
       s_Agitator.RunAgitatorAndKicker(1, 0);
     }
   }

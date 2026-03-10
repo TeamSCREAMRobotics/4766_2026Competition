@@ -30,7 +30,7 @@ public class AgitatorSub extends SubsystemBase {
     agitatorConfig.MotorOutput.Inverted = InvertedValue.Clockwise_Positive; // placeholder
     kickerConfig.MotorOutput.Inverted = InvertedValue.CounterClockwise_Positive;
     kickerlimitconfigs.SupplyCurrentLimit = 30;
-    kickerlimitconfigs.SupplyCurrentLimitEnable = true; 
+    kickerlimitconfigs.SupplyCurrentLimitEnable = true;
 
     agitatorConfig.CurrentLimits.SupplyCurrentLimit = 30;
     agitatorConfig.CurrentLimits.SupplyCurrentLimitEnable = true;
