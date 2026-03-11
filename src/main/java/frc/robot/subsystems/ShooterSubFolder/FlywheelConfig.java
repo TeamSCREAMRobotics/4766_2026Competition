@@ -24,10 +24,11 @@ public class FlywheelConfig {
             new CANDevice(ShooterConstants.RshooterMotorID),
             InvertedValue.CounterClockwise_Positive);
 
-    FLYWHEEL_CONFIG.slaveConstants = new TalonFXConstants[] {
-      new TalonFXConstants(new CANDevice(ShooterConstants.LshooterMoterID), InvertedValue.Clockwise_Positive)
-    };
-    
+    FLYWHEEL_CONFIG.slaveConstants =
+        new TalonFXConstants[] {
+          new TalonFXConstants(
+              new CANDevice(ShooterConstants.LshooterMoterID), InvertedValue.Clockwise_Positive)
+        };
 
     FLYWHEEL_CONFIG.slot0 =
         new ScreamPIDConstants(0.1, 0, 0)

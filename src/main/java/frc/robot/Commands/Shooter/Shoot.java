@@ -19,10 +19,7 @@ public class Shoot extends Command {
   public static DoubleSupplier desiredvelocity;
 
   /** Creates a new Shooter. */
-  public Shoot(
-      Flywheel flywheel,
-      AgitatorSub agitator,
-      DoubleSupplier Desiredvelocity) {
+  public Shoot(Flywheel flywheel, AgitatorSub agitator, DoubleSupplier Desiredvelocity) {
 
     s_Flywheel = flywheel;
     desiredvelocity = Desiredvelocity;
@@ -45,7 +42,7 @@ public class Shoot extends Command {
     && s_LFlywheel.getvelocity() <= Dashboard.flywheelVelocity.get() + 1
     && s_RFlywheel.getvelocity() >= Dashboard.flywheelVelocity.get() - 1
     && s_RFlywheel.getvelocity() <= Dashboard.flywheelVelocity.get() + 1)*/
-        s_Flywheel.getvelocity() >= desiredvelocity.getAsDouble() - 1
+    s_Flywheel.getvelocity() >= desiredvelocity.getAsDouble() - 1
         && s_Flywheel.getvelocity() <= desiredvelocity.getAsDouble() + 1) {
       s_Agitator.RunAgitatorAndKicker(10, 12);
     } else {
