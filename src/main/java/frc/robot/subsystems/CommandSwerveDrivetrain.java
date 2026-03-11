@@ -11,6 +11,7 @@ import com.pathplanner.lib.auto.AutoBuilder;
 import com.pathplanner.lib.config.PIDConstants;
 import com.pathplanner.lib.config.RobotConfig;
 import com.pathplanner.lib.controllers.PPHolonomicDriveController;
+import com.teamscreamrobotics.drivers.PhoenixSwerveHelper;
 import com.teamscreamrobotics.util.Logger;
 import com.teamscreamrobotics.vision.LimelightHelpers;
 import com.teamscreamrobotics.vision.LimelightHelpers.PoseEstimate;
@@ -33,11 +34,14 @@ import edu.wpi.first.wpilibj.RobotController;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.Subsystem;
 import edu.wpi.first.wpilibj2.command.sysid.SysIdRoutine;
-import frc.robot.Constants.FieldConstants;
-import frc.robot.Constants.VisionConstants;
-import frc.robot.generated.TunerConstants.TunerSwerveDrivetrain;
+import frc.robot.constants.Constants.FieldConstants;
+import frc.robot.constants.Constants.VisionConstants;
+import frc.robot.constants.DrivetrainConstants;
+import frc.robot.constants.generated.TunerConstants;
+import frc.robot.constants.generated.TunerConstants.TunerSwerveDrivetrain;
 import java.util.Optional;
 import java.util.function.Supplier;
+import lombok.Getter;
 
 /**
  * Class that extends the Phoenix 6 SwerveDrivetrain class and implements Subsystem so it can easily
@@ -53,6 +57,7 @@ public class CommandSwerveDrivetrain extends TunerSwerveDrivetrain implements Su
   boolean doRejectVisionUpdate = false;
   public boolean UpdatingPose = false;
   public boolean hasEnabled = false;
+  @Getter public PhoenixSwerveHelper helper;
   Limelight backleftLimelight = new Limelight("limelight-lclimb", new Pose3d());
   Limelight backrightLimelight = new Limelight("limelight-rclimb", new Pose3d());
   Limelight shooterLimelight = new Limelight("limelight-shooter", new Pose3d());
@@ -146,6 +151,13 @@ public class CommandSwerveDrivetrain extends TunerSwerveDrivetrain implements Su
       startSimThread();
     }
     configureAutoBuilder();
+
+    helper =
+        new PhoenixSwerveHelper(
+            this::getPose,
+            TunerConstants.kSpeedAt12Volts.in(MetersPerSecond),
+            DrivetrainConstants.headingCorrectionConstants,
+            DrivetrainConstants.headingCorrectionConstants);
   }
 
   /**

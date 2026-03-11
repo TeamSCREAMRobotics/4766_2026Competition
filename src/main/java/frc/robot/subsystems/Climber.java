@@ -16,9 +16,9 @@ import com.teamscreamrobotics.math.Conversions;
 import dev.doglog.DogLog;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
-import frc.robot.Constants;
-import frc.robot.Constants.ClimberConstants;
-import frc.robot.Constants.IntakeConstants;
+import frc.robot.constants.Constants;
+import frc.robot.constants.Constants.ClimberConstants;
+import frc.robot.constants.Constants.IntakeConstants;
 
 public class Climber extends SubsystemBase {
   TalonFX climbermotor = new TalonFX(Constants.ClimberConstants.climbermotorID);

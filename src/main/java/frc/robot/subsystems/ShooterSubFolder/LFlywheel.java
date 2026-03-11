@@ -2,7 +2,7 @@ package frc.robot.subsystems.ShooterSubFolder;
 
 import com.ctre.phoenix6.hardware.TalonFX;
 import com.teamscreamrobotics.drivers.TalonFXSubsystem;
-import frc.robot.Constants.ShooterConstants;
+import frc.robot.constants.Constants.ShooterConstants;
 
 public class LFlywheel extends TalonFXSubsystem {
   TalonFX lflywheel = new TalonFX(ShooterConstants.LshooterMoterID);

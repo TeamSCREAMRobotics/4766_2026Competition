@@ -6,7 +6,7 @@ import com.teamscreamrobotics.drivers.TalonFXSubsystem.TalonFXConstants;
 import com.teamscreamrobotics.drivers.TalonFXSubsystem.TalonFXSubsystemConfiguration;
 import com.teamscreamrobotics.pid.ScreamPIDConstants;
 import com.teamscreamrobotics.pid.ScreamPIDConstants.FeedforwardConstants;
-import frc.robot.Constants.ShooterConstants;
+import frc.robot.constants.Constants.ShooterConstants;
 
 public class RFlywheelConfig {
   public static final TalonFXSubsystemConfiguration RFLYWHEEL_CONFIG =

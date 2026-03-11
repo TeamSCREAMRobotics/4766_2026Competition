@@ -1,4 +1,4 @@
-package frc.robot.generated;
+package frc.robot.constants.generated;
 
 import static edu.wpi.first.units.Units.*;
 
@@ -9,6 +9,7 @@ import com.ctre.phoenix6.signals.*;
 import com.ctre.phoenix6.swerve.*;
 import com.ctre.phoenix6.swerve.SwerveModuleConstants.*;
 import edu.wpi.first.math.Matrix;
+import edu.wpi.first.math.geometry.Translation2d;
 import edu.wpi.first.math.numbers.N1;
 import edu.wpi.first.math.numbers.N3;
 import edu.wpi.first.units.measure.*;
@@ -152,6 +153,9 @@ public class TunerConstants {
   private static final Distance kFrontLeftXPos = Inches.of(10.75);
   private static final Distance kFrontLeftYPos = Inches.of(10.75);
 
+  public static final Translation2d frontLeftPose =
+      new Translation2d(kFrontLeftXPos.in(Meters), kFrontLeftYPos.in(Meters));
+
   // Front Right
   private static final int kFrontRightDriveMotorId = 3;
   private static final int kFrontRightSteerMotorId = 2;
@@ -162,6 +166,9 @@ public class TunerConstants {
 
   private static final Distance kFrontRightXPos = Inches.of(10.75);
   private static final Distance kFrontRightYPos = Inches.of(-10.75);
+
+  public static final Translation2d frontRightPose =
+      new Translation2d(kFrontRightXPos.in(Meters), kFrontRightYPos.in(Meters));
 
   // Back Left
   private static final int kBackLeftDriveMotorId = 7;
@@ -174,6 +181,9 @@ public class TunerConstants {
   private static final Distance kBackLeftXPos = Inches.of(-10.75);
   private static final Distance kBackLeftYPos = Inches.of(10.75);
 
+  public static final Translation2d backLeftPose =
+      new Translation2d(kBackLeftXPos.in(Meters), kBackLeftYPos.in(Meters));
+
   // Back Right
   private static final int kBackRightDriveMotorId = 5;
   private static final int kBackRightSteerMotorId = 4;
@@ -184,6 +194,9 @@ public class TunerConstants {
 
   private static final Distance kBackRightXPos = Inches.of(-10.75);
   private static final Distance kBackRightYPos = Inches.of(-10.75);
+
+  public static final Translation2d backRightPose =
+      new Translation2d(kBackRightXPos.in(Meters), kBackRightYPos.in(Meters));
 
   public static final SwerveModuleConstants<
           TalonFXConfiguration, TalonFXConfiguration, CANcoderConfiguration>

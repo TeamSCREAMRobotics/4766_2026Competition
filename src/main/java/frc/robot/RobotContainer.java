@@ -12,9 +12,11 @@ import com.pathplanner.lib.auto.AutoBuilder;
 import com.pathplanner.lib.auto.NamedCommands;
 import com.pathplanner.lib.commands.FollowPathCommand;
 import com.pathplanner.lib.commands.PathPlannerAuto;
+import com.teamscreamrobotics.math.ScreamMath;
 import com.teamscreamrobotics.util.AllianceFlipUtil;
 import dev.doglog.DogLog;
 import dev.doglog.DogLogOptions;
+import edu.wpi.first.math.geometry.Translation2d;
 import edu.wpi.first.wpilibj.PowerDistribution;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -23,10 +25,6 @@ import edu.wpi.first.wpilibj2.command.Commands;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.RobotModeTriggers;
 import edu.wpi.first.wpilibj2.command.sysid.SysIdRoutine.Direction;
-import frc.robot.Constants.ClimberConstants;
-import frc.robot.Constants.IntakeConstants;
-import frc.robot.Constants.ShooterConstants;
-import frc.robot.FieldConstants.Hub;
 import frc.robot.commands.Agitator.Agitate;
 import frc.robot.commands.Agitator.AgitateAndKick;
 import frc.robot.commands.IntakeGoToSetpoint;
@@ -38,7 +36,13 @@ import frc.robot.commands.RunClimber;
 import frc.robot.commands.RunIntake;
 import frc.robot.commands.Shooter.QuickJostle;
 import frc.robot.commands.Shooter.Shoot;
-import frc.robot.generated.TunerConstants;
+import frc.robot.constants.Constants.ClimberConstants;
+import frc.robot.constants.Constants.IntakeConstants;
+import frc.robot.constants.Constants.ShooterConstants;
+import frc.robot.constants.DrivetrainConstants;
+import frc.robot.constants.FieldConstants;
+import frc.robot.constants.FieldConstants.Hub;
+import frc.robot.constants.generated.TunerConstants;
 import frc.robot.subsystems.AgitatorSub;
 import frc.robot.subsystems.Climber;
 import frc.robot.subsystems.CommandSwerveDrivetrain;
@@ -66,18 +70,18 @@ public class RobotContainer {
           .withDriveRequestType(
               DriveRequestType.OpenLoopVoltage); // Use open-loop control for drive motors
   private final SwerveRequest.SwerveDriveBrake brake = new SwerveRequest.SwerveDriveBrake();
-  private final SwerveRequest.PointWheelsAt point = new SwerveRequest.PointWheelsAt();
-  private final SwerveRequest.RobotCentric forwardStraight =
-      new SwerveRequest.RobotCentric().withDriveRequestType(DriveRequestType.OpenLoopVoltage);
+  //   private final SwerveRequest.PointWheelsAt point = new SwerveRequest.PointWheelsAt();
+  //   private final SwerveRequest.RobotCentric forwardStraight =
+  //       new SwerveRequest.RobotCentric().withDriveRequestType(DriveRequestType.OpenLoopVoltage);
   private final LFlywheel lFlywheel = new LFlywheel(LFlywheelConfig.LFLYWHEEL_CONFIG);
   private final RFlywheel rFlywheel = new RFlywheel(RFlywheelConfig.RFLYWHEEL_CONFIG);
 
   private final Telemetry logger = new Telemetry(MaxSpeed);
   public final Climber m_climber = new Climber();
   private final Intake m_intake = new Intake();
-  private final ShooterSub m_shooter = new ShooterSub();
+  //   private final ShooterSub m_shooter = new ShooterSub();
   private final AgitatorSub m_agitator = new AgitatorSub();
-  private final LimelightHelpers m_limelight = new LimelightHelpers();
+  //   private final LimelightHelpers m_limelight = new LimelightHelpers();
 
   private final CommandXboxController driverController = new CommandXboxController(0);
   private final CommandXboxController operatorController = new CommandXboxController(1);
@@ -123,16 +127,32 @@ public class RobotContainer {
   private void configureBindings() {
 
     driverController
-        .leftTrigger(0.5)
+        .povUp()
         .whileTrue(
             drivetrain.applyRequest(
                 () ->
-                    drive
-                        .withVelocityX(
-                            -driverController.getLeftY()
-                                * MaxSpeed
-                                / 0.6) // Drive forward with negative Y (forward)
-                        .withVelocityY(-driverController.getLeftX() * MaxSpeed / 0.6)));
+                    drivetrain
+                        .getHelper()
+                        .getFacingAngleProfiled(
+                            new Translation2d(
+                                -driverController.getLeftY(), -driverController.getLeftX()),
+                            ScreamMath.calculateAngleToPoint(
+                                drivetrain.getState().Pose.getTranslation(),
+                                AllianceFlipUtil.get(
+                                    FieldConstants.Hub.hubCenter, FieldConstants.Hub.oppHubCenter)),
+                            DrivetrainConstants.headingControllerProfiled)));
+
+    // driverController
+    //     .leftTrigger(0.5)
+    //     .whileTrue(
+    //         drivetrain.applyRequest(
+    //             () ->
+    //                 drive
+    //                     .withVelocityX(
+    //                         -driverController.getLeftY()
+    //                             * MaxSpeed
+    //                             / 2) // Drive forward with negative Y (forward)
+    //                     .withVelocityY(-driverController.getLeftX() * MaxSpeed / 2)));
     // Note that X is defined as forward according to WPILib convention,
     // and Y is defined as to the left according to WPILib convention.
     drivetrain.setDefaultCommand(
@@ -142,10 +162,16 @@ public class RobotContainer {
                 drive
                     .withVelocityX(
                         -driverController.getLeftY()
-                            * MaxSpeed) // Drive forward with negative Y (forward)
+                            * MaxSpeed
+                            * (driverController.getLeftTriggerAxis() >= 0.5
+                                ? 0.5
+                                : 1.0)) // Drive forward with negative Y (forward)
                     .withVelocityY(
                         -driverController.getLeftX()
-                            * MaxSpeed) // Drive left with negative X (left)
+                            * MaxSpeed
+                            * (driverController.getLeftTriggerAxis() >= 0.5
+                                ? 0.5
+                                : 1.0)) // Drive left with negative X (left)
                     .withRotationalRate(
                         -driverController.getRightX()
                             * MaxAngularRate) // Drive counterclockwise with negative X (left)

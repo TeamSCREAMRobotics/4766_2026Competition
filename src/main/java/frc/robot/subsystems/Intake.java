@@ -15,8 +15,8 @@ import com.ctre.phoenix6.signals.NeutralModeValue;
 import dev.doglog.DogLog;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
-import frc.robot.Constants;
-import frc.robot.Constants.IntakeConstants;
+import frc.robot.constants.Constants;
+import frc.robot.constants.Constants.IntakeConstants;
 
 // Creates the Master and the Follower and Voltage (mostly just variables)
 public class Intake extends SubsystemBase {

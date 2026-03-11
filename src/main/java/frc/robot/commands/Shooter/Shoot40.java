@@ -8,7 +8,7 @@ import com.teamscreamrobotics.vision.LimelightHelpers;
 import edu.wpi.first.wpilibj.RobotState;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
-import frc.robot.Constants.ShooterConstants;
+import frc.robot.constants.Constants.ShooterConstants;
 import frc.robot.subsystems.AgitatorSub;
 import frc.robot.subsystems.ShooterSubFolder.LFlywheel;
 import frc.robot.subsystems.ShooterSubFolder.RFlywheel;
