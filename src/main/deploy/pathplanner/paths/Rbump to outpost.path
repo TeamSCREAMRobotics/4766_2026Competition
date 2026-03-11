@@ -48,7 +48,7 @@
   "folder": "Right Bump Paths",
   "idealStartingState": {
     "velocity": 0,
-    "rotation": 0.6419805909089568
+    "rotation": 179.5033854192117
   },
   "useDefaultConstraints": true
 }

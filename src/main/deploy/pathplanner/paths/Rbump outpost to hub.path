@@ -8,20 +8,20 @@
       },
       "prevControl": null,
       "nextControl": {
-        "x": 2.5997710843373474,
-        "y": 0.5810795249471481
+        "x": 2.0302771084337343,
+        "y": 0.6146265060240967
       },
       "isLocked": false,
       "linkedName": "Rbump at outpost"
     },
     {
       "anchor": {
-        "x": 2.3471807228915655,
-        "y": 4.067783132530121
+        "x": 1.8226506024096385,
+        "y": 3.2591325301204814
       },
       "prevControl": {
-        "x": 1.3471807228915655,
-        "y": 4.067783132530121
+        "x": 1.5736773007927127,
+        "y": 3.281766466631112
       },
       "nextControl": null,
       "isLocked": false,
@@ -42,7 +42,7 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": -0.5456575934157271
+    "rotation": 16.0631066331328
   },
   "reversed": false,
   "folder": "Right Bump Paths",
