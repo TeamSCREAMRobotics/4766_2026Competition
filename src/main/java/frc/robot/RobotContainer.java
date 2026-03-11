@@ -12,6 +12,8 @@ import com.pathplanner.lib.auto.AutoBuilder;
 import com.pathplanner.lib.auto.NamedCommands;
 import com.pathplanner.lib.commands.FollowPathCommand;
 import com.pathplanner.lib.commands.PathPlannerAuto;
+import com.teamscreamrobotics.util.AllianceFlipUtil;
+
 import dev.doglog.DogLog;
 import dev.doglog.DogLogOptions;
 import edu.wpi.first.wpilibj.PowerDistribution;
@@ -114,6 +116,7 @@ public class RobotContainer {
     DogLog.setPdh(new PowerDistribution());
 
     SmartDashboard.getNumber("Shooter Limelight TA", LimelightHelpers.getTA("limelight-shooter"));
+    SmartDashboard.getNumber("shooter distance", drivetrain.getPose().getTranslation().getDistance(Hub.topCenterPoint.toTranslation2d()));
 
     // Warmup PathPlanner to avoid Java pauses
     FollowPathCommand.warmupCommand().schedule();
@@ -197,48 +200,48 @@ public class RobotContainer {
         .leftBumper()
         .whileTrue(new RunIntake(m_intake, -6).alongWith(new Agitate(m_agitator, -6)));
 
-    driverController
-        .povUp()
-        .whileTrue(
-            Commands.run(
-                    () -> lFlywheel.setSetpointVelocity(ShooterConstants.closeShoot), lFlywheel)
-                .alongWith(
-                    Commands.run(
-                            () -> rFlywheel.setSetpointVelocity(ShooterConstants.closeShoot),
-                            rFlywheel)
-                        .alongWith(
-                            new Shoot40(
-                                lFlywheel, rFlywheel, m_agitator, ShooterConstants.closeShoot))
-                        .alongWith(drivetrain.applyRequest(() -> brake))
-                        .alongWith(new Jostle(m_intake))));
+    // driverController
+    //     .povUp()
+    //     .whileTrue(
+    //         Commands.run(
+    //                 () -> lFlywheel.setSetpointVelocity(ShooterConstants.closeShoot), lFlywheel)
+    //             .alongWith(
+    //                 Commands.run(
+    //                         () -> rFlywheel.setSetpointVelocity(ShooterConstants.closeShoot),
+    //                         rFlywheel)
+    //                     .alongWith(
+    //                         new Shoot40(
+    //                             lFlywheel, rFlywheel, m_agitator, ShooterConstants.closeShoot))
+    //                     .alongWith(drivetrain.applyRequest(() -> brake))
+    //                     .alongWith(new Jostle(m_intake))));
 
-    driverController
-        .povLeft()
-        .whileTrue(
-            Commands.run(() -> lFlywheel.setSetpointVelocity(ShooterConstants.midShoot), lFlywheel)
-                .alongWith(
-                    Commands.run(
-                            () -> rFlywheel.setSetpointVelocity(ShooterConstants.midShoot),
-                            rFlywheel)
-                        .alongWith(
-                            new Shoot50(
-                                lFlywheel, rFlywheel, m_agitator, ShooterConstants.midShoot))
-                        .alongWith(drivetrain.applyRequest(() -> brake))
-                        .alongWith(new Jostle(m_intake))));
+    // driverController
+    //     .povLeft()
+    //     .whileTrue(
+    //         Commands.run(() -> lFlywheel.setSetpointVelocity(ShooterConstants.midShoot), lFlywheel)
+    //             .alongWith(
+    //                 Commands.run(
+    //                         () -> rFlywheel.setSetpointVelocity(ShooterConstants.midShoot),
+    //                         rFlywheel)
+    //                     .alongWith(
+    //                         new Shoot50(
+    //                             lFlywheel, rFlywheel, m_agitator, ShooterConstants.midShoot))
+    //                     .alongWith(drivetrain.applyRequest(() -> brake))
+    //                     .alongWith(new Jostle(m_intake))));
 
-    driverController
-        .povDown()
-        .whileTrue(
-            Commands.run(() -> lFlywheel.setSetpointVelocity(ShooterConstants.farShoot), lFlywheel)
-                .alongWith(
-                    Commands.run(
-                            () -> rFlywheel.setSetpointVelocity(ShooterConstants.farShoot),
-                            rFlywheel)
-                        .alongWith(
-                            new Shoot60(
-                                lFlywheel, rFlywheel, m_agitator, ShooterConstants.farShoot))
-                        .alongWith(drivetrain.applyRequest(() -> brake))
-                        .alongWith(new Jostle(m_intake))));
+    // driverController
+    //     .povDown()
+    //     .whileTrue(
+    //         Commands.run(() -> lFlywheel.setSetpointVelocity(ShooterConstants.farShoot), lFlywheel)
+    //             .alongWith(
+    //                 Commands.run(
+    //                         () -> rFlywheel.setSetpointVelocity(ShooterConstants.farShoot),
+    //                         rFlywheel)
+    //                     .alongWith(
+    //                         new Shoot60(
+    //                             lFlywheel, rFlywheel, m_agitator, ShooterConstants.farShoot))
+    //                     .alongWith(drivetrain.applyRequest(() -> brake))
+    //                     .alongWith(new Jostle(m_intake))));
 
     // driverController.rightTrigger(.5).whileTrue(new
     // FeedForwardCharacterization(flywheel,flywheel::setVoltage, flywheel::getVelocity));
@@ -262,7 +265,7 @@ public class RobotContainer {
                                 lFlywheel,
                                 rFlywheel,
                                 m_agitator,
-                                ShooterConstants.SHOOTER_VELOCITY_MAP.get(getShooterDistance())))
+                                getDesiredShooterVelocity))
                         .alongWith(drivetrain.applyRequest(() -> brake))
                         .alongWith(new Jostle(m_intake))));
 
@@ -298,14 +301,13 @@ public class RobotContainer {
                 .alongWith(
                     Commands.run(
                             () -> rFlywheel.setSetpointVelocity(Dashboard.flywheelVelocity.get()),
-                            rFlywheel)
+                            rFlywheel).alongWith(new Shoot(lFlywheel, rFlywheel, m_agitator, getDesiredShooterVelocity))
                         .alongWith(
-                            new Jostle(m_intake)
-                                .alongWith(new AgitateAndKick(m_agitator, 10, 12)))));
+                            new Jostle(m_intake))));
 
     m_agitator.setDefaultCommand(new AgitateAndKick(m_agitator, 1.5, -2));
-    lFlywheel.setDefaultCommand(Commands.run(() -> lFlywheel.setSetpointVelocity(10), lFlywheel));
-    rFlywheel.setDefaultCommand(Commands.run(() -> rFlywheel.setSetpointVelocity(10), rFlywheel));
+    lFlywheel.setDefaultCommand(Commands.run(() -> lFlywheel.setSetpointVelocity(getDesiredShooterVelocity.getAsDouble() * 0.25), lFlywheel));
+    rFlywheel.setDefaultCommand(Commands.run(() -> rFlywheel.setSetpointVelocity(getDesiredShooterVelocity.getAsDouble() * 0.25), rFlywheel));
 
     // Reset the field-centric heading on left bumper press.
     driverController
@@ -332,29 +334,29 @@ public class RobotContainer {
 
     NamedCommands.registerCommand(
         "Shoot",
-        Commands.run(() -> lFlywheel.setSetpointVelocity(Shoot.desiredvelocity), lFlywheel)
+        Commands.run(() -> lFlywheel.setSetpointVelocity(Shoot.desiredvelocity.getAsDouble()), lFlywheel)
             .alongWith(
-                Commands.run(() -> rFlywheel.setSetpointVelocity(Shoot.desiredvelocity), rFlywheel)
+                Commands.run(() -> rFlywheel.setSetpointVelocity(Shoot.desiredvelocity.getAsDouble()), rFlywheel)
                     .alongWith(
                         new Shoot(
                             lFlywheel,
                             rFlywheel,
                             m_agitator,
-                            ShooterConstants.SHOOTER_VELOCITY_MAP.get(getShooterDistance())))
+                            getDesiredShooterVelocity))
                     .alongWith(drivetrain.applyRequest(() -> brake))
                     .alongWith(new Jostle(m_intake)))
             .withTimeout(6.5));
     NamedCommands.registerCommand(
         "Shoot Preload",
-        Commands.run(() -> lFlywheel.setSetpointVelocity(Shoot.desiredvelocity), lFlywheel)
+        Commands.run(() -> lFlywheel.setSetpointVelocity(Shoot.desiredvelocity.getAsDouble()), lFlywheel)
             .alongWith(
-                Commands.run(() -> rFlywheel.setSetpointVelocity(Shoot.desiredvelocity), rFlywheel)
+                Commands.run(() -> rFlywheel.setSetpointVelocity(Shoot.desiredvelocity.getAsDouble()), rFlywheel)
                     .alongWith(
                         new Shoot(
                             lFlywheel,
                             rFlywheel,
                             m_agitator,
-                            ShooterConstants.SHOOTER_VELOCITY_MAP.get(getShooterDistance())))
+                            getDesiredShooterVelocity))
                     .alongWith(drivetrain.applyRequest(() -> brake))
                     .alongWith(new Jostle(m_intake)))
             .withTimeout(5));
@@ -376,6 +378,20 @@ public class RobotContainer {
     double targetY = Hub.topCenterPoint.getY(); */
 
     // return Math.sqrt(Math.pow(targetX - botX, 2) + Math.pow(targetY - botY, 2));
-    return drivetrain.getPose().getTranslation().getDistance(Hub.topCenterPoint.toTranslation2d());
+    return drivetrain.getPose().getTranslation().getDistance(
+        AllianceFlipUtil.get(Hub.topCenterPoint.toTranslation2d(), Hub.oppTopCenterPoint.toTranslation2d()));
   }
+
+  public DoubleSupplier getDesiredShooterVelocity = new DoubleSupplier() {
+
+    @Override
+    public double getAsDouble() {
+        return ShooterConstants.SHOOTER_VELOCITY_MAP.get(getShooterDistance());
+    }
+    
+  };
 }
+//    return drivetrain.getPose().getTranslation().getDistance(
+        // AllianceFlipUtil.get(
+        // Hub.hubCenter, 
+        // Hub.oppHubCenter));
