@@ -38,14 +38,22 @@ public class Climber extends SubsystemBase {
     climberConfigs.SoftwareLimitSwitch.ForwardSoftLimitEnable = false;
     climberConfigs.SoftwareLimitSwitch.ReverseSoftLimitEnable = false;
     climberConfigs.Feedback.SensorToMechanismRatio = 25;
+
+    climberConfigs.CurrentLimits.StatorCurrentLimit = 60;
+    climberConfigs.CurrentLimits.StatorCurrentLimitEnable = true;
+    climberConfigs.CurrentLimits.SupplyCurrentLimit = 40;
+    climberConfigs.CurrentLimits.StatorCurrentLimitEnable = true;
+
     climberPIDConfigs.kP = ClimberConstants.kP;
     climberPIDConfigs.kI = ClimberConstants.kI;
     climberPIDConfigs.kD = ClimberConstants.kD;
     climberPIDConfigs.kV = ClimberConstants.kV;
     climberPIDConfigs.kG = ClimberConstants.kG;
     climberPIDConfigs.kS = ClimberConstants.kS;
+
     climberMagicConfigs.MotionMagicAcceleration = ClimberConstants.climberMagicAccereation;
     climberMagicConfigs.MotionMagicCruiseVelocity = ClimberConstants.climberMagicCruiseVelocity;
+
     climberConfigs.Slot0 = climberPIDConfigs;
     climberConfigs.MotionMagic = climberMagicConfigs;
     climbermotor.getConfigurator().apply(climberConfigs);

@@ -35,6 +35,9 @@ public class Intake extends SubsystemBase {
     intakeConfig.MotorOutput.NeutralMode = NeutralModeValue.Brake;
     intakeConfig.CurrentLimits.StatorCurrentLimit = 60;
     intakeConfig.CurrentLimits.StatorCurrentLimitEnable = true;
+    intakeConfig.CurrentLimits.SupplyCurrentLimit = 40;
+    intakeConfig.CurrentLimits.SupplyCurrentLimitEnable = true;
+
     intakePIDConfigs.kP = IntakeConstants.kP;
     intakePIDConfigs.kI = IntakeConstants.kI;
     intakePIDConfigs.kD = IntakeConstants.kD;
@@ -42,8 +45,10 @@ public class Intake extends SubsystemBase {
     intakePIDConfigs.kG = IntakeConstants.kG;
     intakePIDConfigs.kS = IntakeConstants.kS;
     intakePIDConfigs.GravityType = GravityTypeValue.Arm_Cosine;
+
     intakeMagicConfigs.MotionMagicAcceleration = IntakeConstants.intakeMagicAcceleration;
     intakeMagicConfigs.MotionMagicCruiseVelocity = IntakeConstants.intakeMagicVelocity;
+
     intakeMotor.getConfigurator().apply(intakeConfig);
 
     intakeConfig.SoftwareLimitSwitch.ForwardSoftLimitThreshold =
@@ -52,6 +57,7 @@ public class Intake extends SubsystemBase {
         IntakeConstants.intakePivotReverseSoftLimit;
     intakeConfig.SoftwareLimitSwitch.ForwardSoftLimitEnable = true;
     intakeConfig.SoftwareLimitSwitch.ReverseSoftLimitEnable = true;
+
     intakePivot.getConfigurator().apply(intakeConfig);
     intakePivot.getConfigurator().apply(intakePIDConfigs);
     intakePivot.getConfigurator().apply(intakeMagicConfigs);

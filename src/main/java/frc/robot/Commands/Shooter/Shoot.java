@@ -4,12 +4,18 @@
 
 package frc.robot.commands.Shooter;
 
+import java.util.function.DoubleSupplier;
+
 import com.teamscreamrobotics.vision.LimelightHelpers;
 import edu.wpi.first.wpilibj.RobotState;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.Constants.ShooterConstants;
+import frc.robot.Dashboard;
+import frc.robot.FieldConstants.Hub;
+import frc.robot.RobotContainer;
 import frc.robot.subsystems.AgitatorSub;
+import frc.robot.subsystems.CommandSwerveDrivetrain;
 import frc.robot.subsystems.ShooterSubFolder.LFlywheel;
 import frc.robot.subsystems.ShooterSubFolder.RFlywheel;
 
@@ -17,19 +23,18 @@ import frc.robot.subsystems.ShooterSubFolder.RFlywheel;
 public class Shoot extends Command {
 
   AgitatorSub s_Agitator;
-
   RFlywheel s_RFlywheel;
   LFlywheel s_LFlywheel;
 
-  public static double desiredvelocity;
+
+  public static DoubleSupplier desiredvelocity;
 
   /** Creates a new Shooter. */
   public Shoot(
-      LFlywheel lFlywheel, RFlywheel rFlywheel, AgitatorSub agitator, double Desiredvelocity) {
-
+      LFlywheel lFlywheel, RFlywheel rFlywheel, AgitatorSub agitator, DoubleSupplier Desiredvelocity) {
+  
     s_LFlywheel = lFlywheel;
     s_RFlywheel = rFlywheel;
-    desiredvelocity = 0;
     desiredvelocity = Desiredvelocity;
 
     s_Agitator = agitator;
@@ -40,23 +45,24 @@ public class Shoot extends Command {
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-
-    /// we shouldn't have to do this
-    if (RobotState.isAutonomous()) {
-      desiredvelocity =
-          ShooterConstants.SHOOTER_VELOCITY_MAP.get(LimelightHelpers.getTA("limelight-shooter"));
-    }
   }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    SmartDashboard.putNumber("Desired Velocity", desiredvelocity);
-    if (s_LFlywheel.getvelocity() >= desiredvelocity - 1
-        && s_LFlywheel.getvelocity() <= desiredvelocity + 1
-        && s_RFlywheel.getvelocity() >= desiredvelocity - 1
-        && s_RFlywheel.getvelocity() <= desiredvelocity + 1) {
+    SmartDashboard.putNumber("Desired Velocity", desiredvelocity.getAsDouble());
+    if (/*s_LFlywheel.getvelocity() >= Dashboard.flywheelVelocity.get() - 1
+        && s_LFlywheel.getvelocity() <= Dashboard.flywheelVelocity.get() + 1
+        && s_RFlywheel.getvelocity() >= Dashboard.flywheelVelocity.get() - 1
+        && s_RFlywheel.getvelocity() <= Dashboard.flywheelVelocity.get() + 1)*/
+        s_LFlywheel.getvelocity() >= desiredvelocity.getAsDouble() - 1
+        && s_LFlywheel.getvelocity() <= desiredvelocity.getAsDouble() + 1
+        && s_RFlywheel.getvelocity() >= desiredvelocity.getAsDouble() - 1
+        && s_RFlywheel.getvelocity() <= desiredvelocity.getAsDouble() + 1) 
+    {
       s_Agitator.RunAgitatorAndKicker(10, 12);
+    } else {
+      s_Agitator.RunAgitatorAndKicker(1, 0);
     }
   }
 
