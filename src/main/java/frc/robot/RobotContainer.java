@@ -16,6 +16,7 @@ import com.teamscreamrobotics.math.ScreamMath;
 import com.teamscreamrobotics.util.AllianceFlipUtil;
 import dev.doglog.DogLog;
 import dev.doglog.DogLogOptions;
+import edu.wpi.first.math.geometry.Rotation2d;
 import edu.wpi.first.math.geometry.Translation2d;
 import edu.wpi.first.wpilibj.PowerDistribution;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
@@ -138,6 +139,19 @@ public class RobotContainer {
                                 drivetrain.getState().Pose.getTranslation(),
                                 AllianceFlipUtil.get(
                                     FieldConstants.Hub.hubCenter, FieldConstants.Hub.oppHubCenter)),
+                            DrivetrainConstants.headingControllerProfiled)));
+
+    driverController
+        .povDown()
+        .whileTrue(
+            drivetrain.applyRequest(
+                () ->
+                    drivetrain
+                        .getHelper()
+                        .getFacingAngleProfiled(
+                            new Translation2d(
+                                -driverController.getLeftY(), -driverController.getLeftX()),
+                            new Rotation2d(0.0),
                             DrivetrainConstants.headingControllerProfiled)));
 
     // driverController
