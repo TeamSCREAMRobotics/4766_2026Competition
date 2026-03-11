@@ -141,9 +141,9 @@ public class RobotContainer {
                                 drivetrain.getState().Pose.getTranslation(),
                                 AllianceFlipUtil.get(
                                     FieldConstants.Hub.hubCenter, FieldConstants.Hub.oppHubCenter)),
-                            DrivetrainConstants.headingControllerProfiled))); 
+                            DrivetrainConstants.headingControllerProfiled)));
 
-        driverController
+    driverController
         .povDown()
         .whileTrue(
             drivetrain.applyRequest(
@@ -152,7 +152,8 @@ public class RobotContainer {
                         .getHelper()
                         .getFacingAngleProfiled(
                             new Translation2d(
-                                -driverController.getLeftY(), -driverController.getLeftX()),new Rotation2d(0.0),
+                                -driverController.getLeftY(), -driverController.getLeftX()),
+                            new Rotation2d(0.0),
                             DrivetrainConstants.headingControllerProfiled)));
 
     // driverController
