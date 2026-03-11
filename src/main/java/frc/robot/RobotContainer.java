@@ -47,10 +47,9 @@ import frc.robot.subsystems.AgitatorSub;
 import frc.robot.subsystems.Climber;
 import frc.robot.subsystems.CommandSwerveDrivetrain;
 import frc.robot.subsystems.Intake;
-import frc.robot.subsystems.ShooterSubFolder.LFlywheel;
 import frc.robot.subsystems.ShooterSubFolder.LFlywheelConfig;
-import frc.robot.subsystems.ShooterSubFolder.RFlywheel;
-import frc.robot.subsystems.ShooterSubFolder.RFlywheelConfig;
+import frc.robot.subsystems.ShooterSubFolder.Flywheel;
+import frc.robot.subsystems.ShooterSubFolder.FlywheelConfig;
 import frc.robot.subsystems.ShooterSubFolder.ShooterSub;
 import java.util.function.DoubleSupplier;
 
@@ -73,8 +72,7 @@ public class RobotContainer {
   //   private final SwerveRequest.PointWheelsAt point = new SwerveRequest.PointWheelsAt();
   //   private final SwerveRequest.RobotCentric forwardStraight =
   //       new SwerveRequest.RobotCentric().withDriveRequestType(DriveRequestType.OpenLoopVoltage);
-  private final LFlywheel lFlywheel = new LFlywheel(LFlywheelConfig.LFLYWHEEL_CONFIG);
-  private final RFlywheel rFlywheel = new RFlywheel(RFlywheelConfig.RFLYWHEEL_CONFIG);
+  private final Flywheel m_flywheel = new Flywheel(FlywheelConfig.FLYWHEEL_CONFIG);
 
   private final Telemetry logger = new Telemetry(MaxSpeed);
   public final Climber m_climber = new Climber();
@@ -273,23 +271,16 @@ public class RobotContainer {
     // FeedForwardCharacterization(flywheel,flywheel::setVoltage, flywheel::getVelocity));
     driverController
         .rightTrigger(.5)
-        .whileTrue(
-            Commands.run(
-                    () ->
-                        lFlywheel.setSetpointVelocity(
-                            ShooterConstants.SHOOTER_VELOCITY_MAP.get(getShooterDistance())),
-                    lFlywheel)
-                .alongWith(
-                    Commands.run(
+        .whileTrue(Commands.run(
                             () ->
-                                rFlywheel.setSetpointVelocity(
+                                m_flywheel.setSetpointVelocity(
                                     ShooterConstants.SHOOTER_VELOCITY_MAP.get(
                                         getShooterDistance())),
-                            rFlywheel)
+                            m_flywheel)
                         .alongWith(
-                            new Shoot(lFlywheel, rFlywheel, m_agitator, getDesiredShooterVelocity))
+                            new Shoot(m_flywheel, m_agitator, getDesiredShooterVelocity))
                         .alongWith(drivetrain.applyRequest(() -> brake))
-                        .alongWith(new Jostle(m_intake))));
+                        .alongWith(new Jostle(m_intake)));
 
     driverController
         .a()
@@ -318,25 +309,17 @@ public class RobotContainer {
         .rightTrigger(0.5)
         .whileTrue(
             Commands.run(
-                    () -> lFlywheel.setSetpointVelocity(Dashboard.flywheelVelocity.get()),
-                    lFlywheel)
-                .alongWith(
-                    Commands.run(
-                            () -> rFlywheel.setSetpointVelocity(Dashboard.flywheelVelocity.get()),
-                            rFlywheel)
+                    () -> m_flywheel.setSetpointVelocity(Dashboard.flywheelVelocity.get()),
+                    m_flywheel)
                         .alongWith(
-                            new Shoot(lFlywheel, rFlywheel, m_agitator, getDesiredShooterVelocity))
-                        .alongWith(new Jostle(m_intake))));
+                            new Shoot(m_flywheel, m_agitator, getDesiredShooterVelocity))
+                        .alongWith(new Jostle(m_intake)));
 
     m_agitator.setDefaultCommand(new AgitateAndKick(m_agitator, 1.5, -2));
-    lFlywheel.setDefaultCommand(
+    m_flywheel.setDefaultCommand(
         Commands.run(
-            () -> lFlywheel.setSetpointVelocity(getDesiredShooterVelocity.getAsDouble() * 0.25),
-            lFlywheel));
-    rFlywheel.setDefaultCommand(
-        Commands.run(
-            () -> rFlywheel.setSetpointVelocity(getDesiredShooterVelocity.getAsDouble() * 0.25),
-            rFlywheel));
+            () -> m_flywheel.setSetpointVelocity(getDesiredShooterVelocity.getAsDouble() * 0.25),
+            m_flywheel));
 
     // Reset the field-centric heading on left bumper press.
     driverController
@@ -364,28 +347,20 @@ public class RobotContainer {
     NamedCommands.registerCommand(
         "Shoot",
         Commands.run(
-                () -> lFlywheel.setSetpointVelocity(Shoot.desiredvelocity.getAsDouble()), lFlywheel)
-            .alongWith(
-                Commands.run(
-                        () -> rFlywheel.setSetpointVelocity(Shoot.desiredvelocity.getAsDouble()),
-                        rFlywheel)
+                () -> m_flywheel.setSetpointVelocity(Shoot.desiredvelocity.getAsDouble()), m_flywheel)
                     .alongWith(
-                        new Shoot(lFlywheel, rFlywheel, m_agitator, getDesiredShooterVelocity))
+                        new Shoot(m_flywheel, m_agitator, getDesiredShooterVelocity))
                     .alongWith(drivetrain.applyRequest(() -> brake))
-                    .alongWith(new Jostle(m_intake)))
+                    .alongWith(new Jostle(m_intake))
             .withTimeout(6.5));
     NamedCommands.registerCommand(
         "Shoot Preload",
         Commands.run(
-                () -> lFlywheel.setSetpointVelocity(Shoot.desiredvelocity.getAsDouble()), lFlywheel)
-            .alongWith(
-                Commands.run(
-                        () -> rFlywheel.setSetpointVelocity(Shoot.desiredvelocity.getAsDouble()),
-                        rFlywheel)
+                () -> m_flywheel.setSetpointVelocity(Shoot.desiredvelocity.getAsDouble()), m_flywheel)
                     .alongWith(
-                        new Shoot(lFlywheel, rFlywheel, m_agitator, getDesiredShooterVelocity))
+                        new Shoot(m_flywheel, m_agitator, getDesiredShooterVelocity))
                     .alongWith(drivetrain.applyRequest(() -> brake))
-                    .alongWith(new Jostle(m_intake)))
+                    .alongWith(new Jostle(m_intake))
             .withTimeout(5));
 
     NamedCommands.registerCommand(

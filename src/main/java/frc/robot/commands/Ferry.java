@@ -7,24 +7,21 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.Dashboard;
 import frc.robot.subsystems.AgitatorSub;
-import frc.robot.subsystems.ShooterSubFolder.LFlywheel;
-import frc.robot.subsystems.ShooterSubFolder.RFlywheel;
+import frc.robot.subsystems.ShooterSubFolder.Flywheel;
 
 /* You should consider using the more terse Command factories API instead https://docs.wpilib.org/en/stable/docs/software/commandbased/organizing-command-based.html#defining-commands */
 public class Ferry extends Command {
   AgitatorSub s_Agitator;
 
-  RFlywheel s_RFlywheel;
-  LFlywheel s_LFlywheel;
+  Flywheel s_Flywheel;
 
   public static double desiredferryvelocity;
 
   /** Creates a new Ferry. */
   public Ferry(
-      LFlywheel lFlywheel, RFlywheel rFlywheel, AgitatorSub agitator, double Desiredferryvelocity) {
+     Flywheel flywheel, AgitatorSub agitator, double Desiredferryvelocity) {
 
-    s_LFlywheel = lFlywheel;
-    s_RFlywheel = rFlywheel;
+    s_Flywheel = flywheel;
     desiredferryvelocity = Desiredferryvelocity;
 
     s_Agitator = agitator;
@@ -42,10 +39,8 @@ public class Ferry extends Command {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    if (s_LFlywheel.getvelocity() >= desiredferryvelocity - 1
-        && s_LFlywheel.getvelocity() <= desiredferryvelocity + 1
-        && s_RFlywheel.getvelocity() >= desiredferryvelocity - 1
-        && s_RFlywheel.getvelocity() <= desiredferryvelocity + 1) {
+    if (   s_Flywheel.getvelocity() >= desiredferryvelocity - 1
+        && s_Flywheel.getvelocity() <= desiredferryvelocity + 1) {
       s_Agitator.RunAgitatorAndKicker(10, 12);
     }
   }
