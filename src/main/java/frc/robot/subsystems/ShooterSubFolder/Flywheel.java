@@ -1,6 +1,5 @@
 package frc.robot.subsystems.ShooterSubFolder;
 
-import com.ctre.phoenix6.controls.Follower;
 import com.ctre.phoenix6.hardware.TalonFX;
 import com.teamscreamrobotics.drivers.TalonFXSubsystem;
 import frc.robot.constants.Constants.ShooterConstants;
@@ -10,7 +9,7 @@ public class Flywheel extends TalonFXSubsystem {
   TalonFX lflywheel = new TalonFX(ShooterConstants.LshooterMoterID);
 
   public Flywheel(TalonFXSubsystemConfiguration config) {
-    
+
     super(config);
   }
 

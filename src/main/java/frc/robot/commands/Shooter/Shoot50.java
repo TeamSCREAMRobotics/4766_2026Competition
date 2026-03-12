@@ -22,8 +22,7 @@ public class Shoot50 extends Command {
   public static double desiredvelocity;
 
   /** Creates a new Shooter. */
-  public Shoot50(
-       Flywheel flywheel, AgitatorSub agitator, double Desiredvelocity) {
+  public Shoot50(Flywheel flywheel, AgitatorSub agitator, double Desiredvelocity) {
 
     s_Flywheel = flywheel;
     desiredvelocity = 50;
@@ -46,7 +45,7 @@ public class Shoot50 extends Command {
   @Override
   public void execute() {
     SmartDashboard.putNumber("Desired Velocity", desiredvelocity);
-    if (   s_Flywheel.getvelocity() >= desiredvelocity - 1
+    if (s_Flywheel.getvelocity() >= desiredvelocity - 1
         && s_Flywheel.getvelocity() <= desiredvelocity + 1) {
       s_Agitator.RunAgitatorAndKicker(10, 12);
     }

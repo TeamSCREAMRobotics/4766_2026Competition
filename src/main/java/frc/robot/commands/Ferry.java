@@ -18,8 +18,7 @@ public class Ferry extends Command {
   public static double desiredferryvelocity;
 
   /** Creates a new Ferry. */
-  public Ferry(
-     Flywheel flywheel, AgitatorSub agitator, double Desiredferryvelocity) {
+  public Ferry(Flywheel flywheel, AgitatorSub agitator, double Desiredferryvelocity) {
 
     s_Flywheel = flywheel;
     desiredferryvelocity = Desiredferryvelocity;
@@ -39,7 +38,7 @@ public class Ferry extends Command {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    if (   s_Flywheel.getvelocity() >= desiredferryvelocity - 1
+    if (s_Flywheel.getvelocity() >= desiredferryvelocity - 1
         && s_Flywheel.getvelocity() <= desiredferryvelocity + 1) {
       s_Agitator.RunAgitatorAndKicker(10, 12);
     }
