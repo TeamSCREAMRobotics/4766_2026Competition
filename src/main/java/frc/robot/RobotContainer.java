@@ -23,8 +23,6 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.Commands;
-import edu.wpi.first.wpilibj2.command.ParallelCommandGroup;
-import edu.wpi.first.wpilibj2.command.RunCommand;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.RobotModeTriggers;
 import edu.wpi.first.wpilibj2.command.sysid.SysIdRoutine.Direction;
@@ -110,7 +108,6 @@ public class RobotContainer {
     SmartDashboard.putNumber("Flywheel RPS", m_flywheel.getvelocity());
     SmartDashboard.putNumber("Flywheel RPM", m_flywheel.getvelocity() * 60);
     Dashboard.initialize();
-
 
     configureBindings();
 
@@ -307,8 +304,9 @@ public class RobotContainer {
 
     driverController
         .rightBumper()
-        .whileTrue(Commands.run(() -> m_intake.runIntake(7)).alongWith
-        (Commands.run(() -> m_agitator.RunAgitator(2))));
+        .whileTrue(
+            Commands.run(() -> m_intake.runIntake(7))
+                .alongWith(Commands.run(() -> m_agitator.RunAgitator(2))));
     driverController.start().onTrue(new ResetIntake(m_intake));
 
     operatorController.back().onTrue(new ResetClimber(m_climber));
@@ -331,7 +329,8 @@ public class RobotContainer {
                 .alongWith(new Shoot(m_flywheel, m_agitator, getDesiredShooterVelocity))
                 .alongWith(new Jostle(m_intake)));
 
-    m_agitator.setDefaultCommand(Commands.run(() -> m_agitator.RunAgitatorAndKicker(1.5, -2), m_agitator));
+    m_agitator.setDefaultCommand(
+        Commands.run(() -> m_agitator.RunAgitatorAndKicker(1.5, -2), m_agitator));
     m_flywheel.setDefaultCommand(
         Commands.run(
             () -> m_flywheel.setSetpointVelocity(getDesiredShooterVelocity.getAsDouble() * 0.25),
