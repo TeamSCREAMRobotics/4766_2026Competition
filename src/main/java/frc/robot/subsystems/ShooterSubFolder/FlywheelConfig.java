@@ -13,7 +13,7 @@ public class FlywheelConfig {
       new TalonFXSubsystemConfiguration();
 
   static {
-    FLYWHEEL_CONFIG.name = "RFlywheel";
+    FLYWHEEL_CONFIG.name = "Flywheel";
 
     FLYWHEEL_CONFIG.codeEnabled = true;
     FLYWHEEL_CONFIG.logTelemetry = false;
