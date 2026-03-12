@@ -8,11 +8,11 @@ import com.ctre.phoenix6.HootAutoReplay;
 import com.ctre.phoenix6.SignalLogger;
 import edu.wpi.first.math.util.Units;
 import edu.wpi.first.wpilibj.DriverStation;
+import edu.wpi.first.wpilibj.Threads;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
-import frc.robot.constants.Constants.ShooterConstants;
 import java.util.function.DoubleSupplier;
 
 public class Robot extends TimedRobot {
@@ -29,6 +29,8 @@ public class Robot extends TimedRobot {
     m_robotContainer = new RobotContainer();
     SmartDashboard.putBoolean("Disable Climber limits", false);
     Dashboard.initialize();
+
+    Threads.setCurrentThreadPriority(true, 10);
   }
 
   @Override
@@ -49,10 +51,6 @@ public class Robot extends TimedRobot {
             return Dashboard.flywheelVelocity.get();
           }
         };
-    SmartDashboard.putNumber("Calculated Distance", m_robotContainer.getShooterDistance());
-    SmartDashboard.putNumber(
-        "Treemap Velocity",
-        ShooterConstants.SHOOTER_VELOCITY_MAP.get(m_robotContainer.getShooterDistance()));
 
     /*
      * This example of adding Limelight is very simple and may not be sufficient for on-field use.

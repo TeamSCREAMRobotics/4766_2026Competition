@@ -107,6 +107,9 @@ public class RobotContainer {
     SmartDashboard.getNumber("Climber Pose", m_climber.getClimberPose());
     SmartDashboard.putNumber("Flywheel RPS", m_flywheel.getvelocity());
     SmartDashboard.putNumber("Flywheel RPM", m_flywheel.getvelocity() * 60);
+    SmartDashboard.putNumber("Calculated Distance", this.getShooterDistance());
+    SmartDashboard.putNumber(
+        "Treemap Velocity", ShooterConstants.SHOOTER_VELOCITY_MAP.get(this.getShooterDistance()));
     Dashboard.initialize();
 
     configureBindings();
