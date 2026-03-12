@@ -7,28 +7,21 @@ package frc.robot.commands.Shooter;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.subsystems.AgitatorSub;
-import frc.robot.subsystems.ShooterSubFolder.LFlywheel;
-import frc.robot.subsystems.ShooterSubFolder.RFlywheel;
+import frc.robot.subsystems.ShooterSubFolder.Flywheel;
 import java.util.function.DoubleSupplier;
 
 /* You should consider using the more terse Command factories API instead https://docs.wpilib.org/en/stable/docs/software/commandbased/organizing-command-based.html#defining-commands */
 public class Shoot extends Command {
 
   AgitatorSub s_Agitator;
-  RFlywheel s_RFlywheel;
-  LFlywheel s_LFlywheel;
+  Flywheel s_Flywheel;
 
   public static DoubleSupplier desiredvelocity;
 
   /** Creates a new Shooter. */
-  public Shoot(
-      LFlywheel lFlywheel,
-      RFlywheel rFlywheel,
-      AgitatorSub agitator,
-      DoubleSupplier Desiredvelocity) {
+  public Shoot(Flywheel flywheel, AgitatorSub agitator, DoubleSupplier Desiredvelocity) {
 
-    s_LFlywheel = lFlywheel;
-    s_RFlywheel = rFlywheel;
+    s_Flywheel = flywheel;
     desiredvelocity = Desiredvelocity;
 
     s_Agitator = agitator;
@@ -49,10 +42,8 @@ public class Shoot extends Command {
     && s_LFlywheel.getvelocity() <= Dashboard.flywheelVelocity.get() + 1
     && s_RFlywheel.getvelocity() >= Dashboard.flywheelVelocity.get() - 1
     && s_RFlywheel.getvelocity() <= Dashboard.flywheelVelocity.get() + 1)*/
-    s_LFlywheel.getvelocity() >= desiredvelocity.getAsDouble() - 1
-        && s_LFlywheel.getvelocity() <= desiredvelocity.getAsDouble() + 1
-        && s_RFlywheel.getvelocity() >= desiredvelocity.getAsDouble() - 1
-        && s_RFlywheel.getvelocity() <= desiredvelocity.getAsDouble() + 1) {
+    s_Flywheel.getvelocity() >= desiredvelocity.getAsDouble() - 1
+        && s_Flywheel.getvelocity() <= desiredvelocity.getAsDouble() + 1) {
       s_Agitator.RunAgitatorAndKicker(10, 12);
     } else {
       s_Agitator.RunAgitatorAndKicker(1, 0);
