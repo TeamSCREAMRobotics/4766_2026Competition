@@ -58,10 +58,10 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": 178.6028189727037
+    "rotation": 178.60281897270372
   },
   "reversed": false,
-  "folder": "SDepot Paths",
+  "folder": "Left bump Paths",
   "idealStartingState": {
     "velocity": 0,
     "rotation": -89.13038240966375

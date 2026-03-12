@@ -3,29 +3,29 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 2.6640843373493976,
-        "y": 4.974783132530121
+        "x": 3.647578313253012,
+        "y": 7.47
       },
       "prevControl": null,
       "nextControl": {
-        "x": 2.5207583991784053,
-        "y": 4.769947404573778
+        "x": 2.871710843373494,
+        "y": 7.25867469879518
       },
       "isLocked": false,
-      "linkedName": "infront of Lbump"
+      "linkedName": "shooting under trench"
     },
     {
       "anchor": {
-        "x": 1.8226506024096385,
-        "y": 3.2591325301204814
+        "x": 1.8882168674698794,
+        "y": 4.155204819277109
       },
       "prevControl": {
-        "x": 1.9280365461847397,
-        "y": 3.4894493975903607
+        "x": 1.6696626506024095,
+        "y": 4.843650602409639
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": "Hub-at hub"
+      "linkedName": null
     }
   ],
   "rotationTargets": [],
@@ -42,13 +42,13 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": 16.0631066331328
+    "rotation": 0.0
   },
   "reversed": false,
-  "folder": "Left bump Paths",
+  "folder": null,
   "idealStartingState": {
     "velocity": 0,
-    "rotation": -25.319686910309663
+    "rotation": -74.53166034790888
   },
   "useDefaultConstraints": true
 }
