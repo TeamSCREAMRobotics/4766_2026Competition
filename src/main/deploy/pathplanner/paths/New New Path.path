@@ -16,16 +16,16 @@
     },
     {
       "anchor": {
-        "x": 1.8882168674698794,
-        "y": 4.155204819277109
+        "x": 1.8226506024096385,
+        "y": 3.2591325301204814
       },
       "prevControl": {
-        "x": 1.6696626506024095,
-        "y": 4.843650602409639
+        "x": 1.6040963855421686,
+        "y": 3.9475783132530116
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": null
+      "linkedName": "Hub-at hub"
     }
   ],
   "rotationTargets": [],
@@ -42,7 +42,7 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": 0.0
+    "rotation": 16.0631066331328
   },
   "reversed": false,
   "folder": null,
