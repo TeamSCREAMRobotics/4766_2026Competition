@@ -105,7 +105,8 @@ public class RobotContainer {
     autoChooser.addOption("Depot Auto", new PathPlannerAuto("Depot Auto"));
     SmartDashboard.putData("Auto Mode", autoChooser);
     SmartDashboard.getNumber("Climber Pose", m_climber.getClimberPose());
-
+    SmartDashboard.putNumber("Flywheel RPS", m_flywheel.getvelocity());
+    SmartDashboard.putNumber("Flywheel RPM", m_flywheel.getvelocity() * 60);
     Dashboard.initialize();
 
     configureBindings();
@@ -303,12 +304,14 @@ public class RobotContainer {
 
     driverController
         .rightBumper()
-        .whileTrue(new RunIntake(m_intake, 7).alongWith(new Agitate(m_agitator, 2)));
+        .whileTrue(
+            Commands.run(() -> m_intake.runIntake(7))
+                .alongWith(Commands.run(() -> m_agitator.RunAgitator(2))));
     driverController.start().onTrue(new ResetIntake(m_intake));
 
     operatorController.back().onTrue(new ResetClimber(m_climber));
     operatorController.a().onTrue(new RunClimber(m_climber, ClimberConstants.climberLowSetpoint));
-    operatorController.x().onTrue(new RunClimber(m_climber, ClimberConstants.climberClimbSetpoint));
+    operatorController.x().onTrue(new RunClimber(m_climber, ClimberConstants.climberLowSetpoint));
     operatorController
         .y()
         .onTrue(
@@ -326,7 +329,8 @@ public class RobotContainer {
                 .alongWith(new Shoot(m_flywheel, m_agitator, getDesiredShooterVelocity))
                 .alongWith(new Jostle(m_intake)));
 
-    m_agitator.setDefaultCommand(new AgitateAndKick(m_agitator, 1.5, -2));
+    m_agitator.setDefaultCommand(
+        Commands.run(() -> m_agitator.RunAgitatorAndKicker(1.5, -2), m_agitator));
     m_flywheel.setDefaultCommand(
         Commands.run(
             () -> m_flywheel.setSetpointVelocity(getDesiredShooterVelocity.getAsDouble() * 0.25),
