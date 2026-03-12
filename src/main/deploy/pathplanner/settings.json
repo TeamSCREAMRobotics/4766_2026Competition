@@ -5,11 +5,13 @@
   "pathFolders": [
     "Hub Paths",
     "Left bump Paths",
+    "Left Trench Paths",
     "Right Bump Paths"
   ],
   "autoFolders": [
     "Hub Autos",
     "Left bump Autos",
+    "Left Trench Autos",
     "Right Bump Autos"
   ],
   "defaultMaxVel": 3.0,

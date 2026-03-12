@@ -1,0 +1,59 @@
+{
+  "version": "2025.0",
+  "waypoints": [
+    {
+      "anchor": {
+        "x": 7.679903614457833,
+        "y": 4.625096385542168
+      },
+      "prevControl": null,
+      "nextControl": {
+        "x": 7.625265060240963,
+        "y": 7.739493975903613
+      },
+      "isLocked": false,
+      "linkedName": "In neutral fuel"
+    },
+    {
+      "anchor": {
+        "x": 3.647578313253012,
+        "y": 7.47
+      },
+      "prevControl": {
+        "x": 7.439493975903618,
+        "y": 7.666698795180723
+      },
+      "nextControl": null,
+      "isLocked": false,
+      "linkedName": "shooting under trench"
+    }
+  ],
+  "rotationTargets": [
+    {
+      "waypointRelativePos": 0.9717842323651454,
+      "rotationDegrees": -89.19803216820672
+    }
+  ],
+  "constraintZones": [],
+  "pointTowardsZones": [],
+  "eventMarkers": [],
+  "globalConstraints": {
+    "maxVelocity": 3.0,
+    "maxAcceleration": 3.0,
+    "maxAngularVelocity": 540.0,
+    "maxAngularAcceleration": 720.0,
+    "nominalVoltage": 12.0,
+    "unlimited": false
+  },
+  "goalEndState": {
+    "velocity": 0,
+    "rotation": -74.53166034790888
+  },
+  "reversed": false,
+  "folder": "Left Trench Paths",
+  "idealStartingState": {
+    "velocity": 0,
+    "rotation": -88.6677801461304
+  },
+  "useDefaultConstraints": true
+}
