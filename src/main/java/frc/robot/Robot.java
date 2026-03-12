@@ -52,7 +52,6 @@ public class Robot extends TimedRobot {
           }
         };
 
-
     /*
      * This example of adding Limelight is very simple and may not be sufficient for on-field use.
      * Users typically need to provide a standard deviation that scales with the distance to target
