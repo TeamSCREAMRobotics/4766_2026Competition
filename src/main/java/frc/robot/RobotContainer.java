@@ -147,11 +147,28 @@ public class RobotContainer {
                         .getFacingAngleProfiled(
                             new Translation2d(
                                 -driverController.getLeftY(), -driverController.getLeftX()),
-                            new Rotation2d(AllianceFlipUtil.get(Degrees.of(0.0), Degrees.of(180.0))),
+                            new Rotation2d(
+                                AllianceFlipUtil.get(Degrees.of(0.0), Degrees.of(180.0))),
                             DrivetrainConstants.headingControllerProfiled)));
 
-    driverController.povLeft().whileTrue(new DriveToPose(drivetrain, AllianceFlipUtil.get(new Pose2d(new Translation2d(1.969, 4.158), new Rotation2d(Degrees.of(0.0))), new Pose2d(new Translation2d(14.636, 3.9), new Rotation2d(Degrees.of(180.0))))));
-    driverController.povRight().whileTrue(new DriveToPose(drivetrain, AllianceFlipUtil.get(new Pose2d(new Translation2d(1.969, 3.3), new Rotation2d(Degrees.of(0.0))), new Pose2d(new Translation2d(14.636, 4.730), new Rotation2d(Degrees.of(180.0))))));
+    driverController
+        .povLeft()
+        .whileTrue(
+            new DriveToPose(
+                drivetrain,
+                AllianceFlipUtil.get(
+                    new Pose2d(new Translation2d(1.969, 4.158), new Rotation2d(Degrees.of(0.0))),
+                    new Pose2d(
+                        new Translation2d(14.636, 3.9), new Rotation2d(Degrees.of(180.0))))));
+    driverController
+        .povRight()
+        .whileTrue(
+            new DriveToPose(
+                drivetrain,
+                AllianceFlipUtil.get(
+                    new Pose2d(new Translation2d(1.969, 3.3), new Rotation2d(Degrees.of(0.0))),
+                    new Pose2d(
+                        new Translation2d(14.636, 4.730), new Rotation2d(Degrees.of(180.0))))));
     // driverController
     //     .leftTrigger(0.5)
     //     .whileTrue(
