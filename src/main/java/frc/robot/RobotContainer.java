@@ -299,8 +299,8 @@ public class RobotContainer {
     driverController
         .rightBumper()
         .whileTrue(
-            Commands.run(() -> m_intake.runIntake(7))
-                .alongWith(Commands.run(() -> m_agitator.RunAgitator(2))));
+            new RunIntake(m_intake, 7)
+                .alongWith(new Agitate(m_agitator, 2)));
     driverController.start().onTrue(new ResetIntake(m_intake));
 
     operatorController.back().onTrue(new ResetClimber(m_climber));
