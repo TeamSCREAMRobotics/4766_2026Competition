@@ -19,6 +19,7 @@ import dev.doglog.DogLogOptions;
 import edu.wpi.first.math.geometry.Rotation2d;
 import edu.wpi.first.math.geometry.Translation2d;
 import edu.wpi.first.wpilibj.PowerDistribution;
+import edu.wpi.first.wpilibj.smartdashboard.Field2d;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
@@ -81,6 +82,8 @@ public class RobotContainer {
   private final AgitatorSub m_agitator = new AgitatorSub();
   //   private final LimelightHelpers m_limelight = new LimelightHelpers();
 
+  Field2d field = new Field2d();
+
   private final CommandXboxController driverController = new CommandXboxController(0);
   private final CommandXboxController operatorController = new CommandXboxController(1);
   public final CommandSwerveDrivetrain drivetrain = TunerConstants.createDrivetrain();
@@ -104,23 +107,12 @@ public class RobotContainer {
 
     autoChooser.addOption("Depot Auto", new PathPlannerAuto("Depot Auto"));
     SmartDashboard.putData("Auto Mode", autoChooser);
-    SmartDashboard.getNumber("Climber Pose", m_climber.getClimberPose());
-    SmartDashboard.putNumber("Flywheel RPS", m_flywheel.getvelocity());
-    SmartDashboard.putNumber("Flywheel RPM", m_flywheel.getvelocity() * 60);
-    SmartDashboard.putNumber("Calculated Distance", this.getShooterDistance());
-    SmartDashboard.putNumber(
-        "Treemap Velocity", ShooterConstants.SHOOTER_VELOCITY_MAP.get(this.getShooterDistance()));
-    Dashboard.initialize();
+
 
     configureBindings();
 
     DogLog.setOptions(new DogLogOptions().withCaptureDs(true).withCaptureNt(true));
     DogLog.setPdh(new PowerDistribution());
-
-    SmartDashboard.getNumber("Shooter Limelight TA", LimelightHelpers.getTA("limelight-shooter"));
-    SmartDashboard.getNumber(
-        "shooter distance",
-        drivetrain.getPose().getTranslation().getDistance(Hub.topCenterPoint.toTranslation2d()));
 
     // Warmup PathPlanner to avoid Java pauses
     FollowPathCommand.warmupCommand().schedule();
@@ -414,7 +406,19 @@ public class RobotContainer {
           return ShooterConstants.SHOOTER_VELOCITY_MAP.get(getShooterDistance());
         }
       };
+  public void Periodic(){
+    field.setRobotPose(drivetrain.getPose());
+    SmartDashboard.putData(field);
+        SmartDashboard.getNumber("Climber Pose", m_climber.getClimberPose());
+    SmartDashboard.putNumber("Flywheel RPS", m_flywheel.getvelocity());
+    SmartDashboard.putNumber("Flywheel RPM", m_flywheel.getvelocity() * 60);
+    SmartDashboard.putNumber("Calculated Distance", this.getShooterDistance());
+    SmartDashboard.putNumber(
+        "Treemap Velocity", ShooterConstants.SHOOTER_VELOCITY_MAP.get(this.getShooterDistance()));
+    Dashboard.initialize();
+  }
 }
+
 //    return drivetrain.getPose().getTranslation().getDistance(
         // AllianceFlipUtil.get(
         // Hub.hubCenter,
