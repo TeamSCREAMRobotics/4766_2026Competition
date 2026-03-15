@@ -56,7 +56,6 @@ public class Constants {
     public static final int RshooterMotorID = 16;
     public static final int shooterCANID = 0;
 
-    
     public static final int pivotMotorID = 0;
     public static final int pivotCanID = 0;
 
