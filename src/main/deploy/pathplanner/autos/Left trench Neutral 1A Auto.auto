@@ -43,15 +43,15 @@
           }
         },
         {
-          "type": "named",
-          "data": {
-            "name": "Stop Intake"
-          }
-        },
-        {
           "type": "path",
           "data": {
             "pathName": "neuteral to shoot trench"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Stop Intake"
           }
         },
         {
@@ -63,13 +63,25 @@
         {
           "type": "path",
           "data": {
-            "pathName": "New New Path"
+            "pathName": "Shoot trench go to 1A"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Climber to max"
           }
         },
         {
           "type": "path",
           "data": {
-            "pathName": "Hub- 1C climb"
+            "pathName": "Right Trench 1A climb"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Climber down"
           }
         }
       ]
