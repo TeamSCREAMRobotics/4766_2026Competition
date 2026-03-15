@@ -108,7 +108,6 @@ public class RobotContainer {
     autoChooser.addOption("Depot Auto", new PathPlannerAuto("Depot Auto"));
     SmartDashboard.putData("Auto Mode", autoChooser);
 
-
     configureBindings();
 
     DogLog.setOptions(new DogLogOptions().withCaptureDs(true).withCaptureNt(true));
@@ -406,10 +405,11 @@ public class RobotContainer {
           return ShooterConstants.SHOOTER_VELOCITY_MAP.get(getShooterDistance());
         }
       };
-  public void Periodic(){
+
+  public void Periodic() {
     field.setRobotPose(drivetrain.getPose());
     SmartDashboard.putData(field);
-        SmartDashboard.getNumber("Climber Pose", m_climber.getClimberPose());
+    SmartDashboard.getNumber("Climber Pose", m_climber.getClimberPose());
     SmartDashboard.putNumber("Flywheel RPS", m_flywheel.getvelocity());
     SmartDashboard.putNumber("Flywheel RPM", m_flywheel.getvelocity() * 60);
     SmartDashboard.putNumber("Calculated Distance", this.getShooterDistance());
