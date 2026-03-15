@@ -13,7 +13,7 @@ Dpad:
 Down = 0 To Field
 Up = Point At Hub
 Left = Robot to climb C
-Right = Robot to climb position
+Right = Robot to climb position A
 
 Bumpers:
 
