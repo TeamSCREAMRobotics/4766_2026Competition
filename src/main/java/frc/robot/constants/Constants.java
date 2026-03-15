@@ -42,7 +42,7 @@ public class Constants {
     public static final double kS = 1;
     public static final double intakeMagicAcceleration = 52;
     public static final double intakeMagicVelocity = 60;
-    public static final double intakePivotDownSetpoint = 7.75;
+    public static final double intakePivotDownSetpoint = 7.65;
     public static final double intakePivotUpSetpoint = 0.1;
     public static final double intakeClimbSetpoint = 0.1;
     public static final double intakeAgitateHighSetpoint = 5.5;

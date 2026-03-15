@@ -322,7 +322,7 @@ public class RobotContainer {
                 .alongWith(new Jostle(m_intake)));
 
     m_agitator.setDefaultCommand(
-        Commands.run(() -> m_agitator.RunAgitatorAndKicker(1.5, -2), m_agitator));
+        Commands.run(() -> m_agitator.RunAgitatorAndKicker(-2, 0), m_agitator));
     m_flywheel.setDefaultCommand(
         Commands.run(
             () -> m_flywheel.setSetpointVelocity(getDesiredShooterVelocity.getAsDouble() * 0.25),
