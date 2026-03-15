@@ -16,6 +16,7 @@ import com.teamscreamrobotics.math.ScreamMath;
 import com.teamscreamrobotics.util.AllianceFlipUtil;
 import dev.doglog.DogLog;
 import dev.doglog.DogLogOptions;
+import edu.wpi.first.math.geometry.Pose2d;
 import edu.wpi.first.math.geometry.Rotation2d;
 import edu.wpi.first.math.geometry.Translation2d;
 import edu.wpi.first.wpilibj.PowerDistribution;
@@ -29,6 +30,7 @@ import edu.wpi.first.wpilibj2.command.button.RobotModeTriggers;
 import edu.wpi.first.wpilibj2.command.sysid.SysIdRoutine.Direction;
 import frc.robot.commands.Agitator.Agitate;
 import frc.robot.commands.Agitator.AgitateAndKick;
+import frc.robot.commands.DriveToPose;
 import frc.robot.commands.IntakeGoToSetpoint;
 import frc.robot.commands.Jostle;
 import frc.robot.commands.ManualClimber;
@@ -145,9 +147,11 @@ public class RobotContainer {
                         .getFacingAngleProfiled(
                             new Translation2d(
                                 -driverController.getLeftY(), -driverController.getLeftX()),
-                            new Rotation2d(0.0),
+                            new Rotation2d(AllianceFlipUtil.get(Degrees.of(0.0), Degrees.of(180.0))),
                             DrivetrainConstants.headingControllerProfiled)));
 
+    driverController.povLeft().whileTrue(new DriveToPose(drivetrain, AllianceFlipUtil.get(new Pose2d(new Translation2d(1.969, 4.158), new Rotation2d(Degrees.of(0.0))), new Pose2d(new Translation2d(14.636, 3.9), new Rotation2d(Degrees.of(180.0))))));
+    driverController.povRight().whileTrue(new DriveToPose(drivetrain, AllianceFlipUtil.get(new Pose2d(new Translation2d(1.969, 3.3), new Rotation2d(Degrees.of(0.0))), new Pose2d(new Translation2d(14.636, 4.730), new Rotation2d(Degrees.of(180.0))))));
     // driverController
     //     .leftTrigger(0.5)
     //     .whileTrue(
