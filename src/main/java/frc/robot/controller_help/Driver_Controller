@@ -12,8 +12,8 @@ Dpad:
 
 Down = 0 To Field
 Up = Point At Hub
-Left = Robot to climb position C
-Right = Robot to climb position A
+Left = Robot to climb C
+Right = Robot to climb position
 
 Bumpers:
 
@@ -22,7 +22,7 @@ right = Run Intake AND Agitator
 
 Triggers:
 
-Left = Nothing
+Left = Slow Robot Down
 Right = Shoot AND Jostle
 
 Menu Buttons:
@@ -33,4 +33,4 @@ Mode = NEVER USE, sets robot to tank drive and, if pressed again, goes back to n
 
 Combinations: 
 
-Left Bumper + Start = Rest Field Centric, DO NOT USE unless told to(or you know what it does)
+Left Bumper + Start = Reset Field Centric, DO NOT USE unless told to(or you know what it does)

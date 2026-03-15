@@ -42,7 +42,7 @@ public class Climber extends SubsystemBase {
     climberConfigs.CurrentLimits.StatorCurrentLimit = 60;
     climberConfigs.CurrentLimits.StatorCurrentLimitEnable = true;
     climberConfigs.CurrentLimits.SupplyCurrentLimit = 40;
-    climberConfigs.CurrentLimits.StatorCurrentLimitEnable = true;
+    climberConfigs.CurrentLimits.SupplyCurrentLimitEnable = true;
 
     climberPIDConfigs.kP = ClimberConstants.kP;
     climberPIDConfigs.kI = ClimberConstants.kI;
