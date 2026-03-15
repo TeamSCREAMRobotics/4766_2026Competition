@@ -307,7 +307,7 @@ public class RobotContainer {
 
     operatorController.back().onTrue(new ResetClimber(m_climber));
     operatorController.a().onTrue(new RunClimber(m_climber, ClimberConstants.climberLowSetpoint));
-    operatorController.x().onTrue(new RunClimber(m_climber, ClimberConstants.climberLowSetpoint));
+    operatorController.x().onTrue(new RunClimber(m_climber, ClimberConstants.climberClimbSetpoint));
     operatorController
         .y()
         .onTrue(
