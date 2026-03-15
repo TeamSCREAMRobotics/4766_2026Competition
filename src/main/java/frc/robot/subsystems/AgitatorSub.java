@@ -29,7 +29,7 @@ public class AgitatorSub extends SubsystemBase {
     agitatorConfig.MotorOutput.NeutralMode = NeutralModeValue.Coast;
     agitatorConfig.MotorOutput.Inverted = InvertedValue.Clockwise_Positive; // placeholder
     kickerConfig.MotorOutput.Inverted = InvertedValue.CounterClockwise_Positive;
-    kickerlimitconfigs.SupplyCurrentLimit = 30;
+    kickerlimitconfigs.SupplyCurrentLimit = 15;
     kickerlimitconfigs.SupplyCurrentLimitEnable = true;
 
     agitatorConfig.CurrentLimits.SupplyCurrentLimit = 30;
