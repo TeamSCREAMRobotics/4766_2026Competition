@@ -4,24 +4,24 @@
     {
       "anchor": {
         "x": 1.7570843373493976,
-        "y": 3.36
+        "y": 4.29
       },
       "prevControl": null,
       "nextControl": {
         "x": 1.5070843373493976,
-        "y": 3.36
+        "y": 4.29
       },
       "isLocked": false,
-      "linkedName": "before 1A climb Right trench"
+      "linkedName": "before 1C climb Right Trench"
     },
     {
       "anchor": {
-        "x": 1.41,
-        "y": 3.36
+        "x": 1.37,
+        "y": 4.29
       },
       "prevControl": {
-        "x": 1.6587892413287026,
-        "y": 3.384574649521173
+        "x": 1.6187892413287028,
+        "y": 4.314574649521173
       },
       "nextControl": null,
       "isLocked": false,

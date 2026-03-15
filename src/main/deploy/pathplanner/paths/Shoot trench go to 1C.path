@@ -8,24 +8,24 @@
       },
       "prevControl": null,
       "nextControl": {
-        "x": 2.1941927710843374,
-        "y": 6.187759036144579
+        "x": 1.5385301204819273,
+        "y": 6.745072289156626
       },
       "isLocked": false,
       "linkedName": "shooting under trench"
     },
     {
       "anchor": {
-        "x": 2.270686746987952,
-        "y": 3.936650602409639
+        "x": 1.7570843373493976,
+        "y": 4.29
       },
       "prevControl": {
-        "x": 1.270686746987952,
-        "y": 3.936650602409639
+        "x": 2.0193493975903616,
+        "y": 4.75989156626506
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": null
+      "linkedName": "before 1C climb Right Trench"
     }
   ],
   "rotationTargets": [],

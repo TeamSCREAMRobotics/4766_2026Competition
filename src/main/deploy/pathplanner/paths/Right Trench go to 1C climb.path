@@ -3,29 +3,29 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 1.7570843373493976,
-        "y": 3.36
+        "x": 4.117,
+        "y": 0.527
       },
       "prevControl": null,
       "nextControl": {
-        "x": 1.5070843373493976,
-        "y": 3.36
+        "x": 1.759035714285715,
+        "y": 0.2774285714285726
       },
       "isLocked": false,
-      "linkedName": "before 1A climb Right trench"
+      "linkedName": null
     },
     {
       "anchor": {
-        "x": 1.41,
-        "y": 3.36
+        "x": 1.7570843373493976,
+        "y": 4.29
       },
       "prevControl": {
-        "x": 1.6587892413287026,
-        "y": 3.384574649521173
+        "x": 2.9016319563970168,
+        "y": 3.9228809523809525
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": null
+      "linkedName": "before 1C climb Right Trench"
     }
   ],
   "rotationTargets": [],
@@ -48,7 +48,7 @@
   "folder": "Right Trench Paths",
   "idealStartingState": {
     "velocity": 0,
-    "rotation": 0.0
+    "rotation": 82.2823321675921
   },
   "useDefaultConstraints": true
 }
