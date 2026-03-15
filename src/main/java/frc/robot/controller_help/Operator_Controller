@@ -17,7 +17,7 @@ Right = NOTHING
 
 Bumpers:
 
-Left = NOTHING
+Left = run outtake
 right = NOTHING
 
 Triggers:

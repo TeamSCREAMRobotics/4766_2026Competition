@@ -17,7 +17,7 @@ Right = Robot to climb position A
 
 Bumpers:
 
-Left = Run Outake
+Left = none
 right = Run Intake AND Agitator
 
 Triggers:

@@ -226,7 +226,7 @@ public class RobotContainer {
         .and(driverController.x())
         .whileTrue(drivetrain.sysIdQuasistatic(Direction.kReverse));
 
-    driverController
+    operatorController
         .leftBumper()
         .whileTrue(new RunIntake(m_intake, -6).alongWith(new Agitate(m_agitator, -6)));
 
