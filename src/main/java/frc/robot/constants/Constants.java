@@ -43,7 +43,7 @@ public class Constants {
     public static final double intakeMagicAcceleration = 52;
     public static final double intakeMagicVelocity = 60;
     public static final double intakePivotDownSetpoint = 7.65;
-    public static final double intakePivotUpSetpoint = 0.1;
+    public static final double intakePivotUpSetpoint = 0.15;
     public static final double intakeClimbSetpoint = 0.1;
     public static final double intakeAgitateHighSetpoint = 5.5;
     public static final double intakeAgitateLowSetpoint = 6.5;
@@ -130,7 +130,7 @@ public class Constants {
 
   public class ClimberConstants {
     public static final int climbermotorID = 20;
-    public static final double kP = 70;
+    public static final double kP = 90;
     public static final double kI = 0;
     public static final double kD = 0.7;
     public static final double kV = 0;
@@ -142,7 +142,7 @@ public class Constants {
     public static final double climberReverseThreshold = -0.005;
     public static final double climberForwardThreshold = 8.75;
 
-    public static final double climberMagicAccereation = 2;
+    public static final double climberMagicAccereation = 6;
     public static final double climberMagicCruiseVelocity = 2;
   }
 
