@@ -319,18 +319,24 @@ public class RobotContainer {
 
     driverController
         .rightBumper()
-        .whileTrue(new RunIntake(m_intake, 7).alongWith(new Agitate(m_agitator, 2).alongWith(drivetrain.applyRequest(() -> drive
-                    .withVelocityX(
-                        -driverController.getLeftY()
-                            * MaxSpeed
-                            * 0.5) // Drive forward with negative Y (forward)
-                    .withVelocityY(
-                        -driverController.getLeftX()
-                            * MaxSpeed
-                            * 0.5) // Drive left with negative X (left)
-                    .withRotationalRate(
-                        -driverController.getRightX()
-                            * MaxAngularRate)))));
+        .whileTrue(
+            new RunIntake(m_intake, 7)
+                .alongWith(
+                    new Agitate(m_agitator, 2)
+                        .alongWith(
+                            drivetrain.applyRequest(
+                                () ->
+                                    drive
+                                        .withVelocityX(
+                                            -driverController.getLeftY()
+                                                * MaxSpeed
+                                                * 0.5) // Drive forward with negative Y (forward)
+                                        .withVelocityY(
+                                            -driverController.getLeftX()
+                                                * MaxSpeed
+                                                * 0.5) // Drive left with negative X (left)
+                                        .withRotationalRate(
+                                            -driverController.getRightX() * MaxAngularRate)))));
     driverController.start().onTrue(new ResetIntake(m_intake));
 
     operatorController.back().onTrue(new ResetClimber(m_climber));
