@@ -1,0 +1,12 @@
+{
+  "name": "Case",
+  "isFTC": false,
+  "rotations": [
+    {
+      "axis": "x",
+      "degrees": 90
+    }
+  ],
+  "cameras": [],
+  "components": []
+}
