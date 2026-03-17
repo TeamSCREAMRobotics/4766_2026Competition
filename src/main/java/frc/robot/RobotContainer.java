@@ -397,7 +397,7 @@ public class RobotContainer {
             .alongWith(new Shoot(m_flywheel, m_agitator, getDesiredShooterVelocity))
             .alongWith(drivetrain.applyRequest(() -> brake))
             .alongWith(new Jostle(m_intake))
-            .withTimeout(6.5));
+            .withTimeout(5));
     NamedCommands.registerCommand(
         "Shoot Preload",
         Commands.run(
