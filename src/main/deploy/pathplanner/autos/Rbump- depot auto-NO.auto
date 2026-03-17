@@ -1,0 +1,85 @@
+{
+  "version": "2025.0",
+  "command": {
+    "type": "sequential",
+    "data": {
+      "commands": [
+        {
+          "type": "named",
+          "data": {
+            "name": "Intake Down"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Shoot"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Wait 5s"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Shooter Idle"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "Rbump to depot"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Run Intake"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "Rbump- forward in depot"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "RBump depot to hub"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Stop Intake"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Shoot"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Wait 5s"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Shooter Idle"
+          }
+        }
+      ]
+    }
+  },
+  "resetOdom": true,
+  "folder": "Right Bump Autos",
+  "choreoAuto": false
+}

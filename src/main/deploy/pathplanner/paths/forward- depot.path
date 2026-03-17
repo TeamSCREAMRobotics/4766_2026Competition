@@ -3,25 +3,25 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 1.582240963855421,
-        "y": 6.023843373493976
+        "x": 1.6259518072289159,
+        "y": 5.827144578313253
       },
       "prevControl": null,
       "nextControl": {
-        "x": 1.335148039442085,
-        "y": 5.985829077434921
+        "x": 1.37885888281558,
+        "y": 5.789130282254199
       },
       "isLocked": false,
       "linkedName": "infront of depot"
     },
     {
       "anchor": {
-        "x": 0.686,
-        "y": 6.023843373493976
+        "x": 1.0904939759036145,
+        "y": 5.88178313253012
       },
       "prevControl": {
-        "x": 0.936,
-        "y": 6.023843373496463
+        "x": 1.3404939759036145,
+        "y": 5.8817831325326075
       },
       "nextControl": null,
       "isLocked": false,
@@ -45,7 +45,7 @@
     "rotation": -178.69804732768011
   },
   "reversed": false,
-  "folder": "Claire and Roy's Hub Paths",
+  "folder": "Hub Paths",
   "idealStartingState": {
     "velocity": 0,
     "rotation": -178.83086067209263

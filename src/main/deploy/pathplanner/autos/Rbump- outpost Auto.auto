@@ -5,6 +5,12 @@
     "data": {
       "commands": [
         {
+          "type": "path",
+          "data": {
+            "pathName": "Backup from Rbump"
+          }
+        },
+        {
           "type": "named",
           "data": {
             "name": "Intake Down"
@@ -19,7 +25,7 @@
         {
           "type": "wait",
           "data": {
-            "waitTime": 3.0
+            "waitTime": 2.0
           }
         },
         {

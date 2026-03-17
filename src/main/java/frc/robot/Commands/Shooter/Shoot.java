@@ -4,35 +4,27 @@
 
 package frc.robot.commands.Shooter;
 
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
-import frc.robot.Dashboard;
 import frc.robot.subsystems.AgitatorSub;
-import frc.robot.subsystems.ShooterSubFolder.LFlywheel;
-import frc.robot.subsystems.ShooterSubFolder.RFlywheel;
+import frc.robot.subsystems.ShooterSubFolder.Flywheel;
+import java.util.function.DoubleSupplier;
 
 /* You should consider using the more terse Command factories API instead https://docs.wpilib.org/en/stable/docs/software/commandbased/organizing-command-based.html#defining-commands */
 public class Shoot extends Command {
 
   AgitatorSub s_Agitator;
+  Flywheel s_Flywheel;
 
-  RFlywheel s_RFlywheel;
-  LFlywheel s_LFlywheel;
-
-  double lvelocity;
-  double rvelocity;
+  public static DoubleSupplier desiredvelocity;
 
   /** Creates a new Shooter. */
-  public Shoot(
-      LFlywheel lFlywheel, RFlywheel rFlywheel, AgitatorSub agitator, double lv, double rv) {
+  public Shoot(Flywheel flywheel, AgitatorSub agitator, DoubleSupplier Desiredvelocity) {
 
-    s_LFlywheel = lFlywheel;
-    s_RFlywheel = rFlywheel;
+    s_Flywheel = flywheel;
+    desiredvelocity = Desiredvelocity;
 
     s_Agitator = agitator;
-
-    lvelocity = lv;
-    rvelocity = rv;
-
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(agitator);
   }
@@ -44,11 +36,17 @@ public class Shoot extends Command {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    if (s_LFlywheel.getvelocity() >= Dashboard.flywheelVelocity.get() - 2
-        && s_LFlywheel.getvelocity() <= Dashboard.flywheelVelocity.get() + 2
-        && s_RFlywheel.getvelocity() >= Dashboard.flywheelVelocity.get() - 2
-        && s_RFlywheel.getvelocity() <= Dashboard.flywheelVelocity.get() + 2) {
-      s_Agitator.RunAgitatorAndKicker(10, 12);
+    SmartDashboard.putNumber("Desired Velocity", desiredvelocity.getAsDouble());
+    if (
+    /*s_LFlywheel.getvelocity() >= Dashboard.flywheelVelocity.get() - 1
+    && s_LFlywheel.getvelocity() <= Dashboard.flywheelVelocity.get() + 1
+    && s_RFlywheel.getvelocity() >= Dashboard.flywheelVelocity.get() - 1
+    && s_RFlywheel.getvelocity() <= Dashboard.flywheelVelocity.get() + 1)*/
+    s_Flywheel.getVelocity() >= desiredvelocity.getAsDouble() - 3.5
+        && s_Flywheel.getVelocity() <= desiredvelocity.getAsDouble() + 3.5) {
+      s_Agitator.RunAgitatorAndKicker(12, 12);
+    } else {
+      s_Agitator.RunAgitatorAndKicker(-2, 0);
     }
   }
 

@@ -15,8 +15,8 @@ import com.ctre.phoenix6.signals.NeutralModeValue;
 import dev.doglog.DogLog;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
-import frc.robot.Constants;
-import frc.robot.Constants.IntakeConstants;
+import frc.robot.constants.Constants;
+import frc.robot.constants.Constants.IntakeConstants;
 
 // Creates the Master and the Follower and Voltage (mostly just variables)
 public class Intake extends SubsystemBase {
@@ -33,22 +33,31 @@ public class Intake extends SubsystemBase {
   // Creates a new Intake.
   public Intake() {
     intakeConfig.MotorOutput.NeutralMode = NeutralModeValue.Brake;
+    intakeConfig.CurrentLimits.StatorCurrentLimit = 60;
+    intakeConfig.CurrentLimits.StatorCurrentLimitEnable = true;
+    intakeConfig.CurrentLimits.SupplyCurrentLimit = 40;
+    intakeConfig.CurrentLimits.SupplyCurrentLimitEnable = true;
+
     intakePIDConfigs.kP = IntakeConstants.kP;
     intakePIDConfigs.kI = IntakeConstants.kI;
     intakePIDConfigs.kD = IntakeConstants.kD;
     intakePIDConfigs.kV = IntakeConstants.kV;
     intakePIDConfigs.kG = IntakeConstants.kG;
+    intakePIDConfigs.kS = IntakeConstants.kS;
     intakePIDConfigs.GravityType = GravityTypeValue.Arm_Cosine;
+
     intakeMagicConfigs.MotionMagicAcceleration = IntakeConstants.intakeMagicAcceleration;
     intakeMagicConfigs.MotionMagicCruiseVelocity = IntakeConstants.intakeMagicVelocity;
+
     intakeMotor.getConfigurator().apply(intakeConfig);
 
     intakeConfig.SoftwareLimitSwitch.ForwardSoftLimitThreshold =
         IntakeConstants.intakePivotForwardSoftLimit;
     intakeConfig.SoftwareLimitSwitch.ReverseSoftLimitThreshold =
-        IntakeConstants.intakePivotReversSoftLimit;
+        IntakeConstants.intakePivotReverseSoftLimit;
     intakeConfig.SoftwareLimitSwitch.ForwardSoftLimitEnable = true;
     intakeConfig.SoftwareLimitSwitch.ReverseSoftLimitEnable = true;
+
     intakePivot.getConfigurator().apply(intakeConfig);
     intakePivot.getConfigurator().apply(intakePIDConfigs);
     intakePivot.getConfigurator().apply(intakeMagicConfigs);
@@ -73,8 +82,8 @@ public class Intake extends SubsystemBase {
   }
 
   public boolean isFinished(double setpoint) {
-    return intakePivot.getPosition().getValueAsDouble() >= setpoint - 0.55
-        && intakePivot.getPosition().getValueAsDouble() <= setpoint + 0.55;
+    return intakePivot.getPosition().getValueAsDouble() >= setpoint - 0.25
+        && intakePivot.getPosition().getValueAsDouble() <= setpoint + 0.25;
   }
 
   @Override

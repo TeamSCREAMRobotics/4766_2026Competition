@@ -1,0 +1,54 @@
+{
+  "version": "2025.0",
+  "waypoints": [
+    {
+      "anchor": {
+        "x": 0.7267617689015686,
+        "y": 0.7291726105563499
+      },
+      "prevControl": null,
+      "nextControl": {
+        "x": 1.7267617689015688,
+        "y": 0.7291726105563502
+      },
+      "isLocked": false,
+      "linkedName": "at outpost"
+    },
+    {
+      "anchor": {
+        "x": 1.6150240963855422,
+        "y": 1.1937951807228921
+      },
+      "prevControl": {
+        "x": 0.6150240963855422,
+        "y": 1.1937951807228924
+      },
+      "nextControl": null,
+      "isLocked": false,
+      "linkedName": "before under tower"
+    }
+  ],
+  "rotationTargets": [],
+  "constraintZones": [],
+  "pointTowardsZones": [],
+  "eventMarkers": [],
+  "globalConstraints": {
+    "maxVelocity": 3.0,
+    "maxAcceleration": 3.0,
+    "maxAngularVelocity": 540.0,
+    "maxAngularAcceleration": 720.0,
+    "nominalVoltage": 12.0,
+    "unlimited": false
+  },
+  "goalEndState": {
+    "velocity": 0,
+    "rotation": 43.18677269886102
+  },
+  "reversed": false,
+  "folder": "Hub Paths",
+  "idealStartingState": {
+    "velocity": 0,
+    "rotation": -179.29690672228836
+  },
+  "useDefaultConstraints": true
+}

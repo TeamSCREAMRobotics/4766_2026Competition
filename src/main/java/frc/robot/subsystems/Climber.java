@@ -16,9 +16,9 @@ import com.teamscreamrobotics.math.Conversions;
 import dev.doglog.DogLog;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
-import frc.robot.Constants;
-import frc.robot.Constants.ClimberConstants;
-import frc.robot.Constants.IntakeConstants;
+import frc.robot.constants.Constants;
+import frc.robot.constants.Constants.ClimberConstants;
+import frc.robot.constants.Constants.IntakeConstants;
 
 public class Climber extends SubsystemBase {
   TalonFX climbermotor = new TalonFX(ClimberConstants.climbermotorID);
@@ -34,17 +34,26 @@ public class Climber extends SubsystemBase {
     climberConfigs.SoftwareLimitSwitch.ForwardSoftLimitThreshold =
         IntakeConstants.intakePivotForwardSoftLimit;
     climberConfigs.SoftwareLimitSwitch.ReverseSoftLimitThreshold =
-        IntakeConstants.intakePivotReversSoftLimit;
-    climberConfigs.SoftwareLimitSwitch.ForwardSoftLimitEnable = true;
-    climberConfigs.SoftwareLimitSwitch.ReverseSoftLimitEnable = true;
-    climberConfigs.Feedback.SensorToMechanismRatio = 25;
-    climberPIDConfigs.kP = Constants.ClimberConstants.kP;
-    climberPIDConfigs.kI = Constants.ClimberConstants.kI;
-    climberPIDConfigs.kD = Constants.ClimberConstants.kD;
-    climberPIDConfigs.kV = Constants.ClimberConstants.kV;
-    climberPIDConfigs.kG = Constants.ClimberConstants.kG;
+        IntakeConstants.intakePivotReverseSoftLimit;
+    climberConfigs.SoftwareLimitSwitch.ForwardSoftLimitEnable = false;
+    climberConfigs.SoftwareLimitSwitch.ReverseSoftLimitEnable = false;
+    climberConfigs.Feedback.SensorToMechanismRatio = 45;
+
+    climberConfigs.CurrentLimits.StatorCurrentLimit = 60;
+    climberConfigs.CurrentLimits.StatorCurrentLimitEnable = true;
+    climberConfigs.CurrentLimits.SupplyCurrentLimit = 40;
+    climberConfigs.CurrentLimits.SupplyCurrentLimitEnable = true;
+
+    climberPIDConfigs.kP = ClimberConstants.kP;
+    climberPIDConfigs.kI = ClimberConstants.kI;
+    climberPIDConfigs.kD = ClimberConstants.kD;
+    climberPIDConfigs.kV = ClimberConstants.kV;
+    climberPIDConfigs.kG = ClimberConstants.kG;
+    climberPIDConfigs.kS = ClimberConstants.kS;
+
     climberMagicConfigs.MotionMagicAcceleration = ClimberConstants.climberMagicAccereation;
     climberMagicConfigs.MotionMagicCruiseVelocity = ClimberConstants.climberMagicCruiseVelocity;
+
     climberConfigs.Slot0 = climberPIDConfigs;
     climberConfigs.MotionMagic = climberMagicConfigs;
     climbermotor.getConfigurator().apply(climberConfigs);
@@ -79,6 +88,10 @@ public class Climber extends SubsystemBase {
 
   public double distanceToRotations(Length distance) {
     return Conversions.linearDistanceToRotations(distance, Length.fromInches(2.256 * Math.PI));
+  }
+
+  public void manualClimber(double voltage) {
+    climbermotor.setControl(m_request.withOutput(voltage));
   }
 
   // Dog Log(overall logging)

@@ -40,6 +40,7 @@ public class RunClimber extends Command {
   @Override
   public boolean isFinished() {
     DogLog.log("Climber Finished", m_Climber.climberIsFinished(m_setpoint));
+    SmartDashboard.putNumber("Climber Finish Setpoint", m_setpoint);
     SmartDashboard.putBoolean("Climber is Finished", m_Climber.climberIsFinished(m_setpoint));
     return m_Climber.climberIsFinished(m_setpoint);
   }

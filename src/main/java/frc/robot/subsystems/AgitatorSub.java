@@ -11,7 +11,7 @@ import com.ctre.phoenix6.hardware.TalonFX;
 import com.ctre.phoenix6.signals.InvertedValue;
 import com.ctre.phoenix6.signals.NeutralModeValue;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
-import frc.robot.Constants.AgitatorConstants;
+import frc.robot.constants.Constants.AgitatorConstants;
 
 public class AgitatorSub extends SubsystemBase {
 
@@ -28,7 +28,11 @@ public class AgitatorSub extends SubsystemBase {
     agitatorConfig.MotorOutput.NeutralMode = NeutralModeValue.Coast;
     agitatorConfig.MotorOutput.Inverted = InvertedValue.Clockwise_Positive; // placeholder
     kickerConfig.MotorOutput.Inverted = InvertedValue.CounterClockwise_Positive;
-    kickerlimitconfigs.StatorCurrentLimitEnable = true;
+    kickerlimitconfigs.SupplyCurrentLimit = 20.0;
+    kickerlimitconfigs.SupplyCurrentLimitEnable = true;
+
+    agitatorConfig.CurrentLimits.SupplyCurrentLimit = 30;
+    agitatorConfig.CurrentLimits.SupplyCurrentLimitEnable = true;
 
     agitatorMotor.getConfigurator().apply(agitatorConfig);
 

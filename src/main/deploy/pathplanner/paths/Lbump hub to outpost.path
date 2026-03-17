@@ -20,7 +20,7 @@
         "y": 0.448
       },
       "prevControl": {
-        "x": 2.1395542168674693,
+        "x": 2.139554216867469,
         "y": 0.1556626506024099
       },
       "nextControl": null,
@@ -50,7 +50,7 @@
     "rotation": 88.95837332399003
   },
   "reversed": false,
-  "folder": "Claire and Roy's Left bump Paths",
+  "folder": "Left bump Paths",
   "idealStartingState": {
     "velocity": 0,
     "rotation": 0.0

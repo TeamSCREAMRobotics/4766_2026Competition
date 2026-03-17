@@ -16,12 +16,12 @@
     },
     {
       "anchor": {
-        "x": 0.7080240963855422,
-        "y": 0.6255542168674697
+        "x": 0.7138231098430812,
+        "y": 0.6903566333808839
       },
       "prevControl": {
-        "x": 2.437473248927914,
-        "y": 0.6896078891838534
+        "x": 2.4444580349982235,
+        "y": 0.6903566333808842
       },
       "nextControl": null,
       "isLocked": false,
@@ -42,13 +42,13 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": 89.86858789209805
+    "rotation": 180.0
   },
   "reversed": false,
-  "folder": "Claire and Roy's Left bump Paths",
+  "folder": "Left bump Paths",
   "idealStartingState": {
     "velocity": 0,
-    "rotation": -46.0
+    "rotation": -25.319686910309663
   },
   "useDefaultConstraints": true
 }

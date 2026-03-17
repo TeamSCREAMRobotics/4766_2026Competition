@@ -3,25 +3,25 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 3.429,
-        "y": 2.527
+        "x": 3.56,
+        "y": 2.01
       },
       "prevControl": null,
       "nextControl": {
-        "x": 2.2816144578313255,
-        "y": 1.2484337349397594
+        "x": 3.017744444444445,
+        "y": 1.6086333333333322
       },
       "isLocked": false,
-      "linkedName": null
+      "linkedName": "infront of Rbump"
     },
     {
       "anchor": {
-        "x": 0.4676144578313255,
-        "y": 0.4616385542168677
+        "x": 0.6,
+        "y": 0.6903566333808839
       },
       "prevControl": {
-        "x": 2.128626506024096,
-        "y": 0.4616385542168677
+        "x": 2.2610120481927725,
+        "y": 0.6903566333808839
       },
       "nextControl": null,
       "isLocked": false,
@@ -42,13 +42,13 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": 90.0
+    "rotation": 179.72988400671753
   },
   "reversed": false,
   "folder": "Right Bump Paths",
   "idealStartingState": {
     "velocity": 0,
-    "rotation": 49.510684265812976
+    "rotation": 179.5033854192117
   },
   "useDefaultConstraints": true
 }

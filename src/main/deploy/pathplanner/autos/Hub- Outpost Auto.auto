@@ -13,7 +13,7 @@
         {
           "type": "named",
           "data": {
-            "name": "Shoot"
+            "name": "Intake Down"
           }
         },
         {
@@ -25,7 +25,7 @@
         {
           "type": "wait",
           "data": {
-            "waitTime": 3.0
+            "waitTime": 2.0
           }
         },
         {
@@ -44,6 +44,6 @@
     }
   },
   "resetOdom": true,
-  "folder": "Claire and Roy's Hub Autos",
+  "folder": "Hub Autos",
   "choreoAuto": false
 }
