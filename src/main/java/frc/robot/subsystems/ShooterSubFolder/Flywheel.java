@@ -1,9 +1,7 @@
 package frc.robot.subsystems.ShooterSubFolder;
 
 import com.ctre.phoenix6.controls.VelocityTorqueCurrentFOC;
-import com.ctre.phoenix6.hardware.TalonFX;
 import com.teamscreamrobotics.drivers.TalonFXSubsystem;
-import frc.robot.constants.Constants.ShooterConstants;
 
 public class Flywheel extends TalonFXSubsystem {
 
