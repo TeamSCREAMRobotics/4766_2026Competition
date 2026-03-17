@@ -42,9 +42,9 @@ public class Shoot extends Command {
     && s_LFlywheel.getvelocity() <= Dashboard.flywheelVelocity.get() + 1
     && s_RFlywheel.getvelocity() >= Dashboard.flywheelVelocity.get() - 1
     && s_RFlywheel.getvelocity() <= Dashboard.flywheelVelocity.get() + 1)*/
-    s_Flywheel.getvelocity() >= desiredvelocity.getAsDouble() - 1
-        && s_Flywheel.getvelocity() <= desiredvelocity.getAsDouble() + 1) {
-      s_Agitator.RunAgitatorAndKicker(10, 12);
+    s_Flywheel.getVelocity() >= desiredvelocity.getAsDouble() - 3.5
+        && s_Flywheel.getVelocity() <= desiredvelocity.getAsDouble() + 3.5) {
+      s_Agitator.RunAgitatorAndKicker(12, 12);
     } else {
       s_Agitator.RunAgitatorAndKicker(-2, 0);
     }

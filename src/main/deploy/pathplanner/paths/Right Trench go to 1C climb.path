@@ -12,16 +12,16 @@
         "y": 0.2774285714285726
       },
       "isLocked": false,
-      "linkedName": null
+      "linkedName": "shooting under right trench"
     },
     {
       "anchor": {
         "x": 1.7570843373493976,
-        "y": 4.29
+        "y": 4.22
       },
       "prevControl": {
         "x": 2.9016319563970168,
-        "y": 3.9228809523809525
+        "y": 3.852880952380952
       },
       "nextControl": null,
       "isLocked": false,

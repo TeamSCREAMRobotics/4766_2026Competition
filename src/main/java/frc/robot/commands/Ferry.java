@@ -38,9 +38,9 @@ public class Ferry extends Command {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    if (s_Flywheel.getvelocity() >= desiredferryvelocity - 1
-        && s_Flywheel.getvelocity() <= desiredferryvelocity + 1) {
-      s_Agitator.RunAgitatorAndKicker(10, 12);
+    if (s_Flywheel.getVelocity() >= desiredferryvelocity - 1
+        && s_Flywheel.getVelocity() <= desiredferryvelocity + 1) {
+      s_Agitator.RunAgitatorAndKicker(12, 12);
     }
   }
 

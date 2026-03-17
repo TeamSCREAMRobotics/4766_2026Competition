@@ -33,7 +33,7 @@ public final class DrivetrainConstants {
       new ScreamPIDConstants(8.0, 0.0, 0.0);
 
   public static final ProfiledPIDController headingControllerProfiled =
-      new ProfiledPIDController(7.0, 0, 0, new Constraints(7.0, Units.degreesToRadians(720.0 * 5)));
+      new ProfiledPIDController(7.0, 0, 0, new Constraints(7.0, Units.degreesToRadians(720.0 * 3)));
 
   static {
     headingControllerProfiled.enableContinuousInput(-Math.PI, Math.PI);

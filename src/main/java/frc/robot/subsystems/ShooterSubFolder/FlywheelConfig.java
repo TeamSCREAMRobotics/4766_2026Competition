@@ -31,10 +31,10 @@ public class FlywheelConfig {
         };
 
     FLYWHEEL_CONFIG.slot0 =
-        new ScreamPIDConstants(0.1, 0, 0)
+        new ScreamPIDConstants(0.4, 0, 0)
             .getSlot0Configs(new FeedforwardConstants(0.11635, 0.17347, 0.0, 0.001));
 
-    FLYWHEEL_CONFIG.enableStatorCurrentLimit = true;
+    FLYWHEEL_CONFIG.enableStatorCurrentLimit = false;
     FLYWHEEL_CONFIG.statorCurrentLimit = 20;
   }
 }

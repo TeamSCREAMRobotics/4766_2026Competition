@@ -37,7 +37,7 @@ public class Climber extends SubsystemBase {
         IntakeConstants.intakePivotReverseSoftLimit;
     climberConfigs.SoftwareLimitSwitch.ForwardSoftLimitEnable = false;
     climberConfigs.SoftwareLimitSwitch.ReverseSoftLimitEnable = false;
-    climberConfigs.Feedback.SensorToMechanismRatio = 25;
+    climberConfigs.Feedback.SensorToMechanismRatio = 45;
 
     climberConfigs.CurrentLimits.StatorCurrentLimit = 60;
     climberConfigs.CurrentLimits.StatorCurrentLimitEnable = true;

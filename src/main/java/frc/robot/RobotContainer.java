@@ -386,7 +386,7 @@ public class RobotContainer {
     NamedCommands.registerCommand(
         "Intake Up",
         new IntakeGoToSetpoint(m_intake, IntakeConstants.intakePivotUpSetpoint).withTimeout(1));
-    NamedCommands.registerCommand("Run Intake", new RunIntake(m_intake, 8.5));
+    NamedCommands.registerCommand("Run Intake", new RunIntake(m_intake, 8.5).withTimeout(2));
     NamedCommands.registerCommand("Agitate And Kick", new AgitateAndKick(m_agitator, 1, -1));
 
     NamedCommands.registerCommand(
@@ -413,7 +413,7 @@ public class RobotContainer {
     NamedCommands.registerCommand(
         "Climber to max",
         (Commands.run(() -> m_climber.climberGoToSetpoint(ClimberConstants.climberTopSetpoint)))
-            .withTimeout(3));
+            .withTimeout(2));
     NamedCommands.registerCommand(
         "Climber down", new RunClimber(m_climber, ClimberConstants.climberClimbSetpoint));
   }
@@ -446,8 +446,8 @@ public class RobotContainer {
     field.setRobotPose(drivetrain.getPose());
     SmartDashboard.putData(field);
     SmartDashboard.getNumber("Climber Pose", m_climber.getClimberPose());
-    SmartDashboard.putNumber("Flywheel RPS", m_flywheel.getvelocity());
-    SmartDashboard.putNumber("Flywheel RPM", m_flywheel.getvelocity() * 60);
+    SmartDashboard.putNumber("Flywheel RPS", m_flywheel.getVelocity());
+    SmartDashboard.putNumber("Flywheel RPM", m_flywheel.getVelocity() * 60);
     SmartDashboard.putNumber("Calculated Distance", this.getShooterDistance());
     SmartDashboard.putNumber(
         "Treemap Velocity", ShooterConstants.SHOOTER_VELOCITY_MAP.get(this.getShooterDistance()));
