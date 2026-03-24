@@ -11,7 +11,6 @@ import com.ctre.phoenix6.hardware.TalonFX;
 import com.ctre.phoenix6.signals.InvertedValue;
 import com.ctre.phoenix6.signals.MotorAlignmentValue;
 import com.ctre.phoenix6.signals.NeutralModeValue;
-
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class Indexer extends SubsystemBase {
@@ -21,9 +20,11 @@ public class Indexer extends SubsystemBase {
   VoltageOut m_request = new VoltageOut(0);
 
   TalonFXConfiguration indexerConfig = new TalonFXConfiguration();
+
   /** Creates a new indexer. */
   public Indexer() {
-    indexerFollower.setControl(new Follower(indexerMaster.getDeviceID(), MotorAlignmentValue.Opposed));
+    indexerFollower.setControl(
+        new Follower(indexerMaster.getDeviceID(), MotorAlignmentValue.Opposed));
 
     indexerConfig.MotorOutput.NeutralMode = NeutralModeValue.Coast;
     indexerConfig.MotorOutput.Inverted = InvertedValue.Clockwise_Positive;

@@ -11,6 +11,7 @@ import frc.robot.subsystems.Indexer;
 public class Index extends Command {
   Indexer s_Indexer;
   double voltage;
+
   /** Creates a new Index. */
   public Index(Indexer s_Indexer, double volatge) {
     this.s_Indexer = s_Indexer;

@@ -24,7 +24,7 @@ public class Shoot extends Command {
     this.s_Flywheel = flywheel;
     this.s_Indexer = s_Indexer;
     desiredvelocity = Desiredvelocity;
-    
+
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(s_Indexer);
   }
