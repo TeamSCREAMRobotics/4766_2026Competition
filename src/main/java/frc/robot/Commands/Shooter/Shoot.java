@@ -6,27 +6,27 @@ package frc.robot.commands.Shooter;
 
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
-import frc.robot.subsystems.AgitatorSub;
+import frc.robot.subsystems.Indexer;
 import frc.robot.subsystems.ShooterSubFolder.Flywheel;
 import java.util.function.DoubleSupplier;
 
 /* You should consider using the more terse Command factories API instead https://docs.wpilib.org/en/stable/docs/software/commandbased/organizing-command-based.html#defining-commands */
 public class Shoot extends Command {
 
-  AgitatorSub s_Agitator;
+  Indexer s_Indexer;
   Flywheel s_Flywheel;
 
   public static DoubleSupplier desiredvelocity;
 
   /** Creates a new Shooter. */
-  public Shoot(Flywheel flywheel, AgitatorSub agitator, DoubleSupplier Desiredvelocity) {
+  public Shoot(Flywheel flywheel, Indexer s_Indexer, DoubleSupplier Desiredvelocity) {
 
-    s_Flywheel = flywheel;
+    this.s_Flywheel = flywheel;
+    this.s_Indexer = s_Indexer;
     desiredvelocity = Desiredvelocity;
 
-    s_Agitator = agitator;
     // Use addRequirements() here to declare subsystem dependencies.
-    addRequirements(agitator);
+    addRequirements(s_Indexer);
   }
 
   // Called when the command is initially scheduled.
@@ -42,16 +42,16 @@ public class Shoot extends Command {
     && s_Flywheel.getvelocity() <= 40.0 + 1*/
     s_Flywheel.getVelocity() >= desiredvelocity.getAsDouble() - 3.5
         && s_Flywheel.getVelocity() <= desiredvelocity.getAsDouble() + 3.5) {
-      s_Agitator.RunAgitatorAndKicker(12, 12);
+      s_Indexer.runIndexer(12);
     } else {
-      s_Agitator.RunAgitatorAndKicker(-2, 0);
+      s_Indexer.runIndexer(0);
     }
   }
 
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
-    s_Agitator.RunAgitatorAndKicker(0, 0);
+    s_Indexer.runIndexer(0);
   }
 
   // Returns true when the command should end.

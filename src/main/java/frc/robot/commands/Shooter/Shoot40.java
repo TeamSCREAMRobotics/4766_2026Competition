@@ -9,27 +9,27 @@ import edu.wpi.first.wpilibj.RobotState;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.constants.Constants.ShooterConstants;
-import frc.robot.subsystems.AgitatorSub;
+import frc.robot.subsystems.Indexer;
 import frc.robot.subsystems.ShooterSubFolder.Flywheel;
 
 /* You should consider using the more terse Command factories API instead https://docs.wpilib.org/en/stable/docs/software/commandbased/organizing-command-based.html#defining-commands */
 public class Shoot40 extends Command {
 
-  AgitatorSub s_Agitator;
+  Indexer s_Indexer;
 
   Flywheel s_Flywheel;
 
   public static double desiredvelocity;
 
   /** Creates a new Shooter. */
-  public Shoot40(Flywheel flywheel, AgitatorSub agitator, double Desiredvelocity) {
+  public Shoot40(Flywheel flywheel, Indexer s_Indexer, double Desiredvelocity) {
 
     s_Flywheel = flywheel;
+    this.s_Indexer = s_Indexer;
     desiredvelocity = 40;
 
-    s_Agitator = agitator;
     // Use addRequirements() here to declare subsystem dependencies.
-    addRequirements(agitator);
+    addRequirements(s_Indexer);
   }
 
   // Called when the command is initially scheduled.
@@ -47,14 +47,14 @@ public class Shoot40 extends Command {
     SmartDashboard.putNumber("Desired Velocity", desiredvelocity);
     if (s_Flywheel.getVelocity() >= desiredvelocity - 1
         && s_Flywheel.getVelocity() <= desiredvelocity + 1) {
-      s_Agitator.RunAgitatorAndKicker(10, 12);
+      s_Indexer.runIndexer(12);
     }
   }
 
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
-    s_Agitator.RunAgitatorAndKicker(0, 0);
+    s_Indexer.runIndexer(0);
   }
 
   // Returns true when the command should end.
