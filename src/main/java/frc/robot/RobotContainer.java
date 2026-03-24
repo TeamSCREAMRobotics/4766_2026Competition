@@ -28,9 +28,8 @@ import edu.wpi.first.wpilibj2.command.Commands;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.RobotModeTriggers;
 import edu.wpi.first.wpilibj2.command.sysid.SysIdRoutine.Direction;
-import frc.robot.commands.Agitator.Agitate;
-import frc.robot.commands.Agitator.AgitateAndKick;
 import frc.robot.commands.DriveToPose;
+import frc.robot.commands.Index;
 import frc.robot.commands.IntakeGoToSetpoint;
 import frc.robot.commands.Jostle;
 import frc.robot.commands.ManualClimber;
@@ -47,9 +46,9 @@ import frc.robot.constants.DrivetrainConstants;
 import frc.robot.constants.FieldConstants;
 import frc.robot.constants.FieldConstants.Hub;
 import frc.robot.constants.generated.TunerConstants;
-import frc.robot.subsystems.AgitatorSub;
 import frc.robot.subsystems.Climber;
 import frc.robot.subsystems.CommandSwerveDrivetrain;
+import frc.robot.subsystems.Indexer;
 import frc.robot.subsystems.Intake;
 import frc.robot.subsystems.ShooterSubFolder.Flywheel;
 import frc.robot.subsystems.ShooterSubFolder.FlywheelConfig;
@@ -81,7 +80,7 @@ public class RobotContainer {
   public final Climber m_climber = new Climber();
   private final Intake m_intake = new Intake();
   //   private final ShooterSub m_shooter = new ShooterSub();
-  private final AgitatorSub m_agitator = new AgitatorSub();
+  private final Indexer m_indexer = new Indexer();
   //   private final LimelightHelpers m_limelight = new LimelightHelpers();
 
   Field2d field = new Field2d();
@@ -252,7 +251,7 @@ public class RobotContainer {
 
     operatorController
         .leftBumper()
-        .whileTrue(new RunIntake(m_intake, -6).alongWith(new Agitate(m_agitator, -6)));
+        .whileTrue(new RunIntake(m_intake, -6).alongWith(new Index(m_indexer, -6)));
 
     // driverController
     //     .povUp()
@@ -309,7 +308,7 @@ public class RobotContainer {
                         m_flywheel.setSetpointVelocity(
                             ShooterConstants.SHOOTER_VELOCITY_MAP.get(getShooterDistance())),
                     m_flywheel)
-                .alongWith(new Shoot(m_flywheel, m_agitator, getDesiredShooterVelocity))
+                .alongWith(new Shoot(m_flywheel, m_indexer, getDesiredShooterVelocity))
                 .alongWith(drivetrain.applyRequest(() -> brake))
                 .alongWith(new Jostle(m_intake)));
 
@@ -325,7 +324,7 @@ public class RobotContainer {
         .whileTrue(
             new RunIntake(m_intake, 8.5)
                 .alongWith(
-                    new Agitate(m_agitator, 2)
+                    new Index(m_indexer, -2)
                         .alongWith(
                             drivetrain.applyRequest(
                                 () ->
@@ -357,11 +356,11 @@ public class RobotContainer {
         .rightTrigger(0.5)
         .whileTrue(
             Commands.run(() -> m_flywheel.setSetpointVelocity(40.0), m_flywheel)
-                .alongWith(new Shoot(m_flywheel, m_agitator, getDesiredShooterVelocity))
+                .alongWith(new Shoot(m_flywheel, m_indexer, getDesiredShooterVelocity))
                 .alongWith(new Jostle(m_intake)));
 
-    m_agitator.setDefaultCommand(
-        Commands.run(() -> m_agitator.RunAgitatorAndKicker(-2, 0), m_agitator));
+    m_indexer.setDefaultCommand(
+        Commands.run(() -> m_indexer.runIndexer(0), m_indexer));
     m_flywheel.setDefaultCommand(
         Commands.run(
             () -> m_flywheel.setSetpointVelocity(getDesiredShooterVelocity.getAsDouble() * 0.25),
@@ -389,14 +388,14 @@ public class RobotContainer {
         "Intake Up",
         new IntakeGoToSetpoint(m_intake, IntakeConstants.intakePivotUpSetpoint).withTimeout(1));
     NamedCommands.registerCommand("Run Intake", new RunIntake(m_intake, 8.5));
-    NamedCommands.registerCommand("Agitate And Kick", new AgitateAndKick(m_agitator, 1, -1));
+    NamedCommands.registerCommand("Run Indexer", new Index(m_indexer, -1));
 
     NamedCommands.registerCommand(
         "Shoot",
         Commands.run(
                 () -> m_flywheel.setSetpointVelocity(Shoot.desiredvelocity.getAsDouble()),
                 m_flywheel)
-            .alongWith(new Shoot(m_flywheel, m_agitator, getDesiredShooterVelocity))
+            .alongWith(new Shoot(m_flywheel, m_indexer, getDesiredShooterVelocity))
             .alongWith(drivetrain.applyRequest(() -> brake))
             .alongWith(new Jostle(m_intake))
             .withTimeout(5));
@@ -405,7 +404,7 @@ public class RobotContainer {
         Commands.run(
                 () -> m_flywheel.setSetpointVelocity(Shoot.desiredvelocity.getAsDouble()),
                 m_flywheel)
-            .alongWith(new Shoot(m_flywheel, m_agitator, getDesiredShooterVelocity))
+            .alongWith(new Shoot(m_flywheel, m_indexer, getDesiredShooterVelocity))
             .alongWith(drivetrain.applyRequest(() -> brake))
             .alongWith(new Jostle(m_intake))
             .withTimeout(5));

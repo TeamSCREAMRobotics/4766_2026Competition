@@ -6,26 +6,25 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.Dashboard;
-import frc.robot.subsystems.AgitatorSub;
+import frc.robot.subsystems.Indexer;
 import frc.robot.subsystems.ShooterSubFolder.Flywheel;
 
 /* You should consider using the more terse Command factories API instead https://docs.wpilib.org/en/stable/docs/software/commandbased/organizing-command-based.html#defining-commands */
 public class Ferry extends Command {
-  AgitatorSub s_Agitator;
 
+  Indexer s_Indexer;
   Flywheel s_Flywheel;
 
   public static double desiredferryvelocity;
 
   /** Creates a new Ferry. */
-  public Ferry(Flywheel flywheel, AgitatorSub agitator, double Desiredferryvelocity) {
+  public Ferry(Flywheel flywheel, Indexer s_Indexer, double Desiredferryvelocity) {
 
     s_Flywheel = flywheel;
+    this.s_Indexer = s_Indexer;
     desiredferryvelocity = Desiredferryvelocity;
 
-    s_Agitator = agitator;
-    // Use addRequirements() here to declare subsystem dependencies.
-    addRequirements(agitator);
+    addRequirements(s_Indexer);
     // Use addRequirements() here to declare subsystem dependencies.
   }
 
@@ -40,14 +39,14 @@ public class Ferry extends Command {
   public void execute() {
     if (s_Flywheel.getVelocity() >= desiredferryvelocity - 1
         && s_Flywheel.getVelocity() <= desiredferryvelocity + 1) {
-      s_Agitator.RunAgitatorAndKicker(12, 12);
+      s_Indexer.runIndexer(12);
     }
   }
 
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
-    s_Agitator.RunAgitatorAndKicker(0, 0);
+    s_Indexer.runIndexer(0);
   }
 
   // Returns true when the command should end.
