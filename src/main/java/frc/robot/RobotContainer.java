@@ -150,25 +150,25 @@ public class RobotContainer {
                             new Rotation2d(
                                 AllianceFlipUtil.get(Degrees.of(0.0), Degrees.of(180.0))),
                             DrivetrainConstants.headingControllerProfiled)));
-
+//TODO: fix the xy poses for autoalign
     driverController
         .povLeft()
         .whileTrue(
             new DriveToPose(
                 drivetrain,
                 () -> AllianceFlipUtil.get(
-                    new Pose2d(new Translation2d(1.969, 4.158), new Rotation2d(Degrees.of(0.0))),
+                    new Pose2d(new Translation2d(1.969, 4.158), new Rotation2d(Degrees.of(-90.0))),
                     new Pose2d(
-                        new Translation2d(14.636, 3.9), new Rotation2d(Degrees.of(180.0))))));
+                        new Translation2d(14.636, 3.9), new Rotation2d(Degrees.of(-90.0))))));
     driverController
         .povRight()
         .whileTrue(
             new DriveToPose(
                 drivetrain,
                 () -> AllianceFlipUtil.get(
-                    new Pose2d(new Translation2d(1.969, 3.3), new Rotation2d(Degrees.of(0.0))),
+                    new Pose2d(new Translation2d(1.969, 3.3), new Rotation2d(Degrees.of(90.0))),
                     new Pose2d(
-                        new Translation2d(14.636, 4.730), new Rotation2d(Degrees.of(180.0))))));
+                        new Translation2d(14.636, 4.730), new Rotation2d(Degrees.of(90.0))))));
     // driverController
     //     .leftTrigger(0.5)
     //     .whileTrue(
@@ -337,19 +337,19 @@ public class RobotContainer {
                                                 * 0.4) // Drive left with negative X (left)
                                         .withRotationalRate(
                                             -driverController.getRightX() * MaxAngularRate)))));
-    driverController.start().onTrue(new ResetIntake(m_intake));
+    driverController.start().onTrue(Commands.runOnce(() -> m_intake.resetIntake(), m_intake));
 
-    operatorController.back().onTrue(new ResetClimber(m_climber));
-    operatorController.a().onTrue(new RunClimber(m_climber, ClimberConstants.climberLowSetpoint));
-    operatorController.x().onTrue(new RunClimber(m_climber, ClimberConstants.climberClimbSetpoint));
+    operatorController.back().onTrue(Commands.runOnce(() -> m_climber.resetClimberPose(), m_climber));
+    operatorController.a().onTrue(Commands.runOnce(() -> m_climber.climberGoToSetpoint(ClimberConstants.climberLowSetpoint), m_climber));
+    operatorController.x().onTrue(Commands.runOnce(() -> m_climber.climberGoToSetpoint(ClimberConstants.climberClimbSetpoint), m_climber));
     operatorController
         .y()
         .onTrue(
-            new IntakeGoToSetpoint(m_intake, IntakeConstants.intakeClimbSetpoint)
-                .andThen(new RunClimber(m_climber, ClimberConstants.climberTopSetpoint)));
+            Commands.runOnce(() -> m_intake.IntakeGoToSetpoint(IntakeConstants.intakeClimbSetpoint), m_intake)
+                .andThen(Commands.runOnce(() -> m_climber.climberGoToSetpoint(ClimberConstants.climberTopSetpoint), m_climber)));
     operatorController.leftTrigger().whileTrue(new QuickJostle(m_intake));
-    operatorController.povDown().whileTrue(new ManualClimber(m_climber, -1));
-    operatorController.povUp().whileTrue(new ManualClimber(m_climber, 1));
+    operatorController.povDown().whileTrue(Commands.runEnd(()-> m_climber.manualClimber(-1), ()-> m_climber.manualClimber(0), m_climber));
+    operatorController.povUp().whileTrue(Commands.runEnd(()-> m_climber.manualClimber(1), ()-> m_climber.manualClimber(0), m_climber));
     operatorController
         .rightTrigger(0.5)
         .whileTrue(
