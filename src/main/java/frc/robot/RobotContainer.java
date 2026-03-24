@@ -156,7 +156,7 @@ public class RobotContainer {
         .whileTrue(
             new DriveToPose(
                 drivetrain,
-                AllianceFlipUtil.get(
+                () -> AllianceFlipUtil.get(
                     new Pose2d(new Translation2d(1.969, 4.158), new Rotation2d(Degrees.of(0.0))),
                     new Pose2d(
                         new Translation2d(14.636, 3.9), new Rotation2d(Degrees.of(180.0))))));
@@ -165,7 +165,7 @@ public class RobotContainer {
         .whileTrue(
             new DriveToPose(
                 drivetrain,
-                AllianceFlipUtil.get(
+                () -> AllianceFlipUtil.get(
                     new Pose2d(new Translation2d(1.969, 3.3), new Rotation2d(Degrees.of(0.0))),
                     new Pose2d(
                         new Translation2d(14.636, 4.730), new Rotation2d(Degrees.of(180.0))))));
@@ -320,7 +320,7 @@ public class RobotContainer {
     driverController
         .rightBumper()
         .whileTrue(
-            new RunIntake(m_intake, 7)
+            new RunIntake(m_intake, 8.5)
                 .alongWith(
                     new Agitate(m_agitator, 2)
                         .alongWith(
@@ -330,11 +330,11 @@ public class RobotContainer {
                                         .withVelocityX(
                                             -driverController.getLeftY()
                                                 * MaxSpeed
-                                                * 0.5) // Drive forward with negative Y (forward)
+                                                * 0.4) // Drive forward with negative Y (forward)
                                         .withVelocityY(
                                             -driverController.getLeftX()
                                                 * MaxSpeed
-                                                * 0.5) // Drive left with negative X (left)
+                                                * 0.4) // Drive left with negative X (left)
                                         .withRotationalRate(
                                             -driverController.getRightX() * MaxAngularRate)))));
     driverController.start().onTrue(new ResetIntake(m_intake));
@@ -354,7 +354,7 @@ public class RobotContainer {
         .rightTrigger(0.5)
         .whileTrue(
             Commands.run(
-                    () -> m_flywheel.setSetpointVelocity(Dashboard.flywheelVelocity.get()),
+                    () -> m_flywheel.setSetpointVelocity(40.0),
                     m_flywheel)
                 .alongWith(new Shoot(m_flywheel, m_agitator, getDesiredShooterVelocity))
                 .alongWith(new Jostle(m_intake)));
@@ -382,11 +382,11 @@ public class RobotContainer {
 
   public void addNamedCommands() {
     NamedCommands.registerCommand(
-        "Intake Down", new IntakeGoToSetpoint(m_intake, IntakeConstants.intakePivotDownSetpoint));
+        "Intake Down", new IntakeGoToSetpoint(m_intake, IntakeConstants.intakePivotDownSetpoint).withTimeout(1.5));
     NamedCommands.registerCommand(
         "Intake Up",
         new IntakeGoToSetpoint(m_intake, IntakeConstants.intakePivotUpSetpoint).withTimeout(1));
-    NamedCommands.registerCommand("Run Intake", new RunIntake(m_intake, 8.5).withTimeout(2));
+    NamedCommands.registerCommand("Run Intake", new RunIntake(m_intake, 8.5));
     NamedCommands.registerCommand("Agitate And Kick", new AgitateAndKick(m_agitator, 1, -1));
 
     NamedCommands.registerCommand(

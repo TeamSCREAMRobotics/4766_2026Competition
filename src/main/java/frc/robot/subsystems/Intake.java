@@ -27,6 +27,7 @@ public class Intake extends SubsystemBase {
       new VoltageOut(0); // m_request == make request (i forget what it means sometimes)
   private MotionMagicVoltage m_magicrequest = new MotionMagicVoltage(0);
   private TalonFXConfiguration intakeConfig = new TalonFXConfiguration();
+  // private TalonFXConfiguration intakePivotConfig = new TalonFXConfiguration();
   private Slot0Configs intakePIDConfigs = new Slot0Configs();
   private MotionMagicConfigs intakeMagicConfigs = new MotionMagicConfigs();
 

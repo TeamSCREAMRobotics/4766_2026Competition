@@ -3,32 +3,41 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 1.8226506024096385,
-        "y": 3.2591325301204814
+        "x": 6.457533333335491,
+        "y": 5.204333333332484
       },
       "prevControl": null,
       "nextControl": {
-        "x": 1.713373493975904,
-        "y": 3.6962409638554203
+        "x": 7.548911111113268,
+        "y": 8.225111111110262
       },
       "isLocked": false,
-      "linkedName": "Hub-at hub"
+      "linkedName": "in fuel 2"
     },
     {
       "anchor": {
-        "x": 1.37,
-        "y": 4.16
+        "x": 3.31,
+        "y": 7.465
       },
       "prevControl": {
-        "x": 2.084915662650602,
-        "y": 4.167265060240964
+        "x": 4.919574419584764,
+        "y": 7.443198985387177
       },
       "nextControl": null,
       "isLocked": false,
       "linkedName": null
     }
   ],
-  "rotationTargets": [],
+  "rotationTargets": [
+    {
+      "waypointRelativePos": 0.034024896265563556,
+      "rotationDegrees": -90.83504553764057
+    },
+    {
+      "waypointRelativePos": 0.921991701244811,
+      "rotationDegrees": -89.98134298492336
+    }
+  ],
   "constraintZones": [],
   "pointTowardsZones": [],
   "eventMarkers": [],
@@ -42,13 +51,13 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": 0.0
+    "rotation": -68.873900811408
   },
   "reversed": false,
-  "folder": "Hub Paths",
+  "folder": "Left Trench Paths",
   "idealStartingState": {
     "velocity": 0,
-    "rotation": 16.0631066331328
+    "rotation": -107.74467162505714
   },
   "useDefaultConstraints": true
 }

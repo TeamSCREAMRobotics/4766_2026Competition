@@ -4,12 +4,12 @@
     {
       "anchor": {
         "x": 1.7570843373493976,
-        "y": 4.220000000000001
+        "y": 4.18
       },
       "prevControl": null,
       "nextControl": {
         "x": 1.5070843373493976,
-        "y": 4.220000000000001
+        "y": 4.18
       },
       "isLocked": false,
       "linkedName": "before 1C climb Right Trench"
@@ -17,11 +17,11 @@
     {
       "anchor": {
         "x": 1.3904222222222222,
-        "y": 4.210399999999999
+        "y": 4.17
       },
       "prevControl": {
         "x": 1.639211463550925,
-        "y": 4.234974649521172
+        "y": 4.194574649521173
       },
       "nextControl": null,
       "isLocked": false,

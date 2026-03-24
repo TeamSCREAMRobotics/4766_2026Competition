@@ -21,7 +21,7 @@
                     {
                       "type": "wait",
                       "data": {
-                        "waitTime": 1.0
+                        "waitTime": 0.35
                       }
                     },
                     {
@@ -51,7 +51,39 @@
         {
           "type": "named",
           "data": {
-            "name": "Stop Intake"
+            "name": "Shoot"
+          }
+        },
+        {
+          "type": "parallel",
+          "data": {
+            "commands": [
+              {
+                "type": "path",
+                "data": {
+                  "pathName": "Double left trench neutral"
+                }
+              },
+              {
+                "type": "sequential",
+                "data": {
+                  "commands": [
+                    {
+                      "type": "wait",
+                      "data": {
+                        "waitTime": 0.25
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "second shootPath"
           }
         },
         {
@@ -61,33 +93,9 @@
           }
         },
         {
-          "type": "path",
+          "type": "parallel",
           "data": {
-            "pathName": "Shoot trench go to 1C"
-          }
-        },
-        {
-          "type": "named",
-          "data": {
-            "name": "Intake Up"
-          }
-        },
-        {
-          "type": "named",
-          "data": {
-            "name": "Climber to max"
-          }
-        },
-        {
-          "type": "path",
-          "data": {
-            "pathName": "Right Trench 1C climb"
-          }
-        },
-        {
-          "type": "named",
-          "data": {
-            "name": "Climber down"
+            "commands": []
           }
         }
       ]
