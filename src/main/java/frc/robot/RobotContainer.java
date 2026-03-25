@@ -152,19 +152,22 @@ public class RobotContainer {
         .whileTrue(
             new DriveToPose(
                 drivetrain,
-                () -> AllianceFlipUtil.get(
-                    new Pose2d(new Translation2d(1.0, 5.0), new Rotation2d(Degrees.of(90.0))),
-                    new Pose2d(
-                        new Translation2d(15.477, 3.05), new Rotation2d(Degrees.of(-90.0))))));
+                () ->
+                    AllianceFlipUtil.get(
+                        new Pose2d(new Translation2d(1.0, 5.0), new Rotation2d(Degrees.of(90.0))),
+                        new Pose2d(
+                            new Translation2d(15.477, 3.05), new Rotation2d(Degrees.of(-90.0))))));
     driverController
         .povRight()
         .whileTrue(
             new DriveToPose(
                 drivetrain,
-                () -> AllianceFlipUtil.get(
-                    new Pose2d(new Translation2d(1.0, 2.489), new Rotation2d(Degrees.of(-90.0))),
-                    new Pose2d(
-                        new Translation2d(15.477, 5.594), new Rotation2d(Degrees.of(90.0))))));
+                () ->
+                    AllianceFlipUtil.get(
+                        new Pose2d(
+                            new Translation2d(1.0, 2.489), new Rotation2d(Degrees.of(-90.0))),
+                        new Pose2d(
+                            new Translation2d(15.477, 5.594), new Rotation2d(Degrees.of(90.0))))));
     // driverController
     //     .leftTrigger(0.5)
     //     .whileTrue(
@@ -245,8 +248,13 @@ public class RobotContainer {
 
     operatorController
         .leftBumper()
-        .whileTrue(Commands.parallel(Commands.runEnd(()-> m_intake.runIntake(-6), ()-> m_intake.runIntake(0), m_intake), Commands.runEnd(()-> m_indexer.runIndexer(-6), ()-> m_indexer.runIndexer(0), m_indexer)));
- 
+        .whileTrue(
+            Commands.parallel(
+                Commands.runEnd(
+                    () -> m_intake.runIntake(-6), () -> m_intake.runIntake(0), m_intake),
+                Commands.runEnd(
+                    () -> m_indexer.runIndexer(-6), () -> m_indexer.runIndexer(0), m_indexer)));
+
     // driverController
     //     .povUp()
     //     .whileTrue(
@@ -308,17 +316,26 @@ public class RobotContainer {
 
     driverController
         .a()
-        .onTrue(Commands.runOnce(()-> m_intake.IntakeGoToSetpoint(IntakeConstants.intakePivotDownSetpoint), m_intake));
+        .onTrue(
+            Commands.runOnce(
+                () -> m_intake.IntakeGoToSetpoint(IntakeConstants.intakePivotDownSetpoint),
+                m_intake));
     driverController
         .x()
-        .onTrue(Commands.runOnce(()-> m_intake.IntakeGoToSetpoint(IntakeConstants.intakePivotUpSetpoint), m_intake));
+        .onTrue(
+            Commands.runOnce(
+                () -> m_intake.IntakeGoToSetpoint(IntakeConstants.intakePivotUpSetpoint),
+                m_intake));
 
     driverController
         .rightBumper()
         .whileTrue(
-            Commands.runEnd(()-> m_intake.runIntake(8.5), ()-> m_intake.runIntake(0), m_intake)
+            Commands.runEnd(() -> m_intake.runIntake(8.5), () -> m_intake.runIntake(0), m_intake)
                 .alongWith(
-                    Commands.runEnd(()-> m_indexer.runIndexer(-2), ()-> m_indexer.runIndexer(0), m_indexer)
+                    Commands.runEnd(
+                            () -> m_indexer.runIndexer(-2),
+                            () -> m_indexer.runIndexer(0),
+                            m_indexer)
                         .alongWith(
                             drivetrain.applyRequest(
                                 () ->
