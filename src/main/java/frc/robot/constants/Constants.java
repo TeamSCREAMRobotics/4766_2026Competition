@@ -147,7 +147,7 @@ public class Constants {
     public static final double climberMagicCruiseVelocity = 2;
   }
 
-  public class AgitatorConstants {
+  public class IndexerConstants {
     public static final int agitatorMotorID = 13;
     public static final int kickerMotorID = 15;
   }
