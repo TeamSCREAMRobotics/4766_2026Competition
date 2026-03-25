@@ -381,7 +381,7 @@ public class RobotContainer {
                 .alongWith(new Shoot(m_flywheel, m_indexer, getDesiredShooterVelocity))
                 .alongWith(new Jostle(m_intake)));
 
-    m_indexer.setDefaultCommand(Commands.run(() -> m_indexer.runIndexer(0), m_indexer));
+    m_indexer.setDefaultCommand(Commands.run(() -> m_indexer.runIndexer(-2), m_indexer));
     m_flywheel.setDefaultCommand(
         Commands.run(
             () -> m_flywheel.setSetpointVelocity(getDesiredShooterVelocity.getAsDouble() * 0.25),
