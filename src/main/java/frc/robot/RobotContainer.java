@@ -32,9 +32,6 @@ import frc.robot.commands.DriveToPose;
 import frc.robot.commands.Index;
 import frc.robot.commands.IntakeGoToSetpoint;
 import frc.robot.commands.Jostle;
-import frc.robot.commands.ManualClimber;
-import frc.robot.commands.ResetClimber;
-import frc.robot.commands.ResetIntake;
 import frc.robot.commands.RunClimber;
 import frc.robot.commands.RunIntake;
 import frc.robot.commands.Shooter.QuickJostle;
@@ -149,7 +146,7 @@ public class RobotContainer {
                             new Rotation2d(
                                 AllianceFlipUtil.get(Degrees.of(0.0), Degrees.of(180.0))),
                             DrivetrainConstants.headingControllerProfiled)));
-//TODO: fix the xy poses for autoalign
+    // TODO: fix the xy poses for autoalign
     driverController
         .povLeft()
         .whileTrue(
@@ -338,17 +335,42 @@ public class RobotContainer {
                                             -driverController.getRightX() * MaxAngularRate)))));
     driverController.start().onTrue(Commands.runOnce(() -> m_intake.resetIntake(), m_intake));
 
-    operatorController.back().onTrue(Commands.runOnce(() -> m_climber.resetClimberPose(), m_climber));
-    operatorController.a().onTrue(Commands.runOnce(() -> m_climber.climberGoToSetpoint(ClimberConstants.climberLowSetpoint), m_climber));
-    operatorController.x().onTrue(Commands.runOnce(() -> m_climber.climberGoToSetpoint(ClimberConstants.climberClimbSetpoint), m_climber));
+    operatorController
+        .back()
+        .onTrue(Commands.runOnce(() -> m_climber.resetClimberPose(), m_climber));
+    operatorController
+        .a()
+        .onTrue(
+            Commands.runOnce(
+                () -> m_climber.climberGoToSetpoint(ClimberConstants.climberLowSetpoint),
+                m_climber));
+    operatorController
+        .x()
+        .onTrue(
+            Commands.runOnce(
+                () -> m_climber.climberGoToSetpoint(ClimberConstants.climberClimbSetpoint),
+                m_climber));
     operatorController
         .y()
         .onTrue(
-            Commands.runOnce(() -> m_intake.IntakeGoToSetpoint(IntakeConstants.intakeClimbSetpoint), m_intake)
-                .andThen(Commands.runOnce(() -> m_climber.climberGoToSetpoint(ClimberConstants.climberTopSetpoint), m_climber)));
+            Commands.runOnce(
+                    () -> m_intake.IntakeGoToSetpoint(IntakeConstants.intakeClimbSetpoint),
+                    m_intake)
+                .andThen(
+                    Commands.runOnce(
+                        () -> m_climber.climberGoToSetpoint(ClimberConstants.climberTopSetpoint),
+                        m_climber)));
     operatorController.leftTrigger().whileTrue(new QuickJostle(m_intake));
-    operatorController.povDown().whileTrue(Commands.runEnd(()-> m_climber.manualClimber(-1), ()-> m_climber.manualClimber(0), m_climber));
-    operatorController.povUp().whileTrue(Commands.runEnd(()-> m_climber.manualClimber(1), ()-> m_climber.manualClimber(0), m_climber));
+    operatorController
+        .povDown()
+        .whileTrue(
+            Commands.runEnd(
+                () -> m_climber.manualClimber(-1), () -> m_climber.manualClimber(0), m_climber));
+    operatorController
+        .povUp()
+        .whileTrue(
+            Commands.runEnd(
+                () -> m_climber.manualClimber(1), () -> m_climber.manualClimber(0), m_climber));
     operatorController
         .rightTrigger(0.5)
         .whileTrue(
