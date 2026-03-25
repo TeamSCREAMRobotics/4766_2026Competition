@@ -146,7 +146,7 @@ public class RobotContainer {
                             new Rotation2d(
                                 AllianceFlipUtil.get(Degrees.of(0.0), Degrees.of(180.0))),
                             DrivetrainConstants.headingControllerProfiled)));
-    // TODO: fix the xy poses for autoalign
+
     driverController
         .povLeft()
         .whileTrue(
@@ -155,7 +155,7 @@ public class RobotContainer {
                 () -> AllianceFlipUtil.get(
                     new Pose2d(new Translation2d(1.0, 5.0), new Rotation2d(Degrees.of(90.0))),
                     new Pose2d(
-                        new Translation2d(14.636, 3.9), new Rotation2d(Degrees.of(90.0))))));
+                        new Translation2d(15.477, 3.05), new Rotation2d(Degrees.of(-90.0))))));
     driverController
         .povRight()
         .whileTrue(
@@ -164,7 +164,7 @@ public class RobotContainer {
                 () -> AllianceFlipUtil.get(
                     new Pose2d(new Translation2d(1.0, 2.489), new Rotation2d(Degrees.of(-90.0))),
                     new Pose2d(
-                        new Translation2d(14.636, 4.730), new Rotation2d(Degrees.of(-90.0))))));
+                        new Translation2d(15.477, 5.594), new Rotation2d(Degrees.of(90.0))))));
     // driverController
     //     .leftTrigger(0.5)
     //     .whileTrue(
