@@ -69,7 +69,8 @@ public class CommandSwerveDrivetrain extends TunerSwerveDrivetrain implements Su
   private static final Rotation2d kRedAlliancePerspectiveRotation = Rotation2d.k180deg;
   /* Keep track if we've ever applied the operator perspective before or not */
   private boolean m_hasAppliedOperatorPerspective = false;
-  Optional<Alliance> ally = DriverStation.getAlliance();
+  
+  // Optional<Alliance> ally = DriverStation.getAlliance();
 
   private final SwerveRequest.ApplyRobotSpeeds m_pathApplyRobotSpeeds =
       new SwerveRequest.ApplyRobotSpeeds();
@@ -303,7 +304,7 @@ public class CommandSwerveDrivetrain extends TunerSwerveDrivetrain implements Su
               });
     }
 
-    SmartDashboard.putString("Alliance Color", ally.get().toString());
+    //SmartDashboard.putString("Alliance Color", ally.get().toString());
   }
 
   private void startSimThread() {
