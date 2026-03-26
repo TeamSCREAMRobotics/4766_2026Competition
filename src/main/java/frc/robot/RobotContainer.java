@@ -330,7 +330,7 @@ public class RobotContainer {
     driverController
         .rightBumper()
         .whileTrue(
-            Commands.runEnd(()-> m_intake.runIntake(12), ()-> m_intake.runIntake(0), m_intake)
+            Commands.runEnd(() -> m_intake.runIntake(12), () -> m_intake.runIntake(0), m_intake)
                 .alongWith(
                     Commands.runEnd(
                             () -> m_indexer.runIndexer(-2),
