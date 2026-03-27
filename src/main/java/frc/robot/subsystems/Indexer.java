@@ -42,14 +42,12 @@ public class Indexer extends SubsystemBase {
     indexerMaster.setControl(m_request.withOutput(voltage));
   }
 
-  public static void setShouldBeEnabled(boolean setEnabled) 
-  {
-      shouldBeEnabled = setEnabled;
+  public static void setShouldBeEnabled(boolean setEnabled) {
+    shouldBeEnabled = setEnabled;
   }
 
-  public static boolean getShouldBeEnabled()
-  {
-      return shouldBeEnabled;
+  public static boolean getShouldBeEnabled() {
+    return shouldBeEnabled;
   }
 
   @Override

@@ -29,13 +29,10 @@ public class StopAllRollers extends Command {
   }
 
   @Override
-  public void execute () {
-    
-  }
+  public void execute() {}
 
   @Override
   public boolean isFinished() {
     return !Indexer.getShouldBeEnabled();
   }
-  
 }

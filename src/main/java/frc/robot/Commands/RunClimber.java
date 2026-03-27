@@ -26,12 +26,9 @@ public class RunClimber extends Command {
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-    if(m_setpoint != 0.0)
-    {
+    if (m_setpoint != 0.0) {
       Indexer.setShouldBeEnabled(false);
-    }
-    else
-    {
+    } else {
       Indexer.setShouldBeEnabled(true);
     }
   }

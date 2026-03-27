@@ -34,9 +34,9 @@ import frc.robot.commands.IntakeGoToSetpoint;
 import frc.robot.commands.Jostle;
 import frc.robot.commands.RunClimber;
 import frc.robot.commands.RunIntake;
-import frc.robot.commands.StopAllRollers;
 import frc.robot.commands.Shooter.QuickJostle;
 import frc.robot.commands.Shooter.Shoot;
+import frc.robot.commands.StopAllRollers;
 import frc.robot.constants.Constants.ClimberConstants;
 import frc.robot.constants.Constants.IntakeConstants;
 import frc.robot.constants.Constants.ShooterConstants;
@@ -366,8 +366,9 @@ public class RobotContainer {
         .x()
         .onTrue(
             Commands.runOnce(
-                () -> m_climber.climberGoToSetpoint(ClimberConstants.climberClimbSetpoint),
-                m_climber).alongWith(new StopAllRollers(m_flywheel, m_indexer)));
+                    () -> m_climber.climberGoToSetpoint(ClimberConstants.climberClimbSetpoint),
+                    m_climber)
+                .alongWith(new StopAllRollers(m_flywheel, m_indexer)));
     operatorController
         .y()
         .onTrue(
@@ -377,7 +378,8 @@ public class RobotContainer {
                 .andThen(
                     Commands.runOnce(
                         () -> m_climber.climberGoToSetpoint(ClimberConstants.climberTopSetpoint),
-                        m_climber)).alongWith(new StopAllRollers(m_flywheel, m_indexer)));
+                        m_climber))
+                .alongWith(new StopAllRollers(m_flywheel, m_indexer)));
     operatorController.leftTrigger().whileTrue(new QuickJostle(m_intake));
     operatorController
         .povDown()
