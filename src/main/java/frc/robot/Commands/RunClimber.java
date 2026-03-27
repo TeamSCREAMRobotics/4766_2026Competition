@@ -8,6 +8,7 @@ import dev.doglog.DogLog;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.subsystems.Climber;
+import frc.robot.subsystems.Indexer;
 
 /* You should consider using the more terse Command factories API instead https://docs.wpilib.org/en/stable/docs/software/commandbased/organizing-command-based.html#defining-commands */
 public class RunClimber extends Command {
@@ -24,7 +25,16 @@ public class RunClimber extends Command {
 
   // Called when the command is initially scheduled.
   @Override
-  public void initialize() {}
+  public void initialize() {
+    if(m_setpoint != 0.0)
+    {
+      Indexer.setShouldBeEnabled(false);
+    }
+    else
+    {
+      Indexer.setShouldBeEnabled(true);
+    }
+  }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override

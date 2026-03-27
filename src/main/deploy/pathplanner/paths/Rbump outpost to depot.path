@@ -3,50 +3,58 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 3.560156626506024,
-        "y": 7.411662650602409
+        "x": 0.6,
+        "y": 0.6903566333808839
       },
       "prevControl": null,
       "nextControl": {
-        "x": 6.772903614457831,
-        "y": 7.7504216867469875
+        "x": 2.3908915662650605,
+        "y": 1.0626626506024093
       },
       "isLocked": false,
-      "linkedName": "shooting under trench"
+      "linkedName": "Rbump at outpost"
     },
     {
       "anchor": {
-        "x": 6.457533333335491,
-        "y": 5.204333333332484
+        "x": 2.4018192771084337,
+        "y": 5.761578313253012
       },
       "prevControl": {
-        "x": 6.506255555557714,
-        "y": 7.416322222221375
+        "x": 3.2292701408042364,
+        "y": 5.035036091471331
+      },
+      "nextControl": {
+        "x": 1.9537831325301203,
+        "y": 6.154975903614458
+      },
+      "isLocked": false,
+      "linkedName": null
+    },
+    {
+      "anchor": {
+        "x": 1.0467831325301202,
+        "y": 5.9364216867469874
+      },
+      "prevControl": {
+        "x": 1.2936873013493877,
+        "y": 5.897200118450108
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": "in fuel 2"
+      "linkedName": "after depot"
     }
   ],
   "rotationTargets": [
     {
-      "waypointRelativePos": 0.027385892116180678,
-      "rotationDegrees": -87.25281913126395
-    },
-    {
-      "waypointRelativePos": 0.390871369294601,
-      "rotationDegrees": -90.3907529054896
-    },
-    {
-      "waypointRelativePos": 0.5070539419087144,
-      "rotationDegrees": -109.78910658388189
+      "waypointRelativePos": 0.7626556016597501,
+      "rotationDegrees": -178.63330691852738
     }
   ],
   "constraintZones": [
     {
       "name": "Constraints Zone",
-      "minWaypointRelativePos": 0.5290322580645128,
-      "maxWaypointRelativePos": 0.9657568238213353,
+      "minWaypointRelativePos": 0.9310173697270467,
+      "maxWaypointRelativePos": 2.0,
       "constraints": {
         "maxVelocity": 1.5,
         "maxAcceleration": 3.0,
@@ -69,13 +77,13 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": -107.74467162505714
+    "rotation": 180.0
   },
   "reversed": false,
-  "folder": "Left Trench Paths",
+  "folder": "Right Bump Paths",
   "idealStartingState": {
     "velocity": 0,
-    "rotation": -72.51895740182819
+    "rotation": 179.72988400671753
   },
   "useDefaultConstraints": true
 }

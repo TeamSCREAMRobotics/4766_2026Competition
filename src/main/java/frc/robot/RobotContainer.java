@@ -34,6 +34,7 @@ import frc.robot.commands.IntakeGoToSetpoint;
 import frc.robot.commands.Jostle;
 import frc.robot.commands.RunClimber;
 import frc.robot.commands.RunIntake;
+import frc.robot.commands.StopAllRollers;
 import frc.robot.commands.Shooter.QuickJostle;
 import frc.robot.commands.Shooter.Shoot;
 import frc.robot.constants.Constants.ClimberConstants;
@@ -366,7 +367,7 @@ public class RobotContainer {
         .onTrue(
             Commands.runOnce(
                 () -> m_climber.climberGoToSetpoint(ClimberConstants.climberClimbSetpoint),
-                m_climber));
+                m_climber).alongWith(new StopAllRollers(m_flywheel, m_indexer)));
     operatorController
         .y()
         .onTrue(
@@ -376,7 +377,7 @@ public class RobotContainer {
                 .andThen(
                     Commands.runOnce(
                         () -> m_climber.climberGoToSetpoint(ClimberConstants.climberTopSetpoint),
-                        m_climber)));
+                        m_climber)).alongWith(new StopAllRollers(m_flywheel, m_indexer)));
     operatorController.leftTrigger().whileTrue(new QuickJostle(m_intake));
     operatorController
         .povDown()
@@ -445,7 +446,7 @@ public class RobotContainer {
             .withTimeout(5));
 
     NamedCommands.registerCommand(
-        "Climnber to 0", new RunClimber(m_climber, ClimberConstants.climberLowSetpoint));
+        "Climber to 0", new RunClimber(m_climber, ClimberConstants.climberLowSetpoint));
     NamedCommands.registerCommand(
         "Climber to max",
         (Commands.run(() -> m_climber.climberGoToSetpoint(ClimberConstants.climberTopSetpoint)))

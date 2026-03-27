@@ -7,37 +7,19 @@
         {
           "type": "path",
           "data": {
-            "pathName": "back up"
-          }
-        },
-        {
-          "type": "named",
-          "data": {
-            "name": "Intake Down"
+            "pathName": "Rbump to outpost"
           }
         },
         {
           "type": "path",
           "data": {
-            "pathName": "hub to outpost"
-          }
-        },
-        {
-          "type": "wait",
-          "data": {
-            "waitTime": 3.0
+            "pathName": "Rbump outpost to depot"
           }
         },
         {
           "type": "path",
           "data": {
-            "pathName": "Outpost To Hub"
-          }
-        },
-        {
-          "type": "named",
-          "data": {
-            "name": "Shoot"
+            "pathName": "Depot to shoot Double"
           }
         },
         {
@@ -50,6 +32,6 @@
     }
   },
   "resetOdom": true,
-  "folder": "Hub Autos",
+  "folder": "Right Bump Autos",
   "choreoAuto": false
 }

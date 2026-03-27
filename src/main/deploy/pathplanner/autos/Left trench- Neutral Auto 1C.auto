@@ -61,12 +61,6 @@
           }
         },
         {
-          "type": "path",
-          "data": {
-            "pathName": "Shoot trench go to 1C"
-          }
-        },
-        {
           "type": "named",
           "data": {
             "name": "Intake Up"
@@ -81,7 +75,7 @@
         {
           "type": "path",
           "data": {
-            "pathName": "Right Trench 1C climb"
+            "pathName": "1C Climb"
           }
         },
         {

@@ -3,29 +3,29 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 1.8226506024096385,
-        "y": 3.2591325301204814
+        "x": 1.0467831325301202,
+        "y": 5.9364216867469874
       },
       "prevControl": null,
       "nextControl": {
-        "x": 1.713373493975904,
-        "y": 3.6962409638554203
+        "x": 2.0467831325301207,
+        "y": 5.9364216867469874
       },
       "isLocked": false,
-      "linkedName": "Hub-at hub"
+      "linkedName": "after depot"
     },
     {
       "anchor": {
-        "x": 1.37,
-        "y": 4.16
+        "x": 1.6150240963855422,
+        "y": 5.138698795180724
       },
       "prevControl": {
-        "x": 2.084915662650602,
-        "y": 4.167265060240964
+        "x": 0.9156506024096382,
+        "y": 5.805289156626507
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": null
+      "linkedName": "After double shoot"
     }
   ],
   "rotationTargets": [],
@@ -42,13 +42,13 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": 0.0
+    "rotation": -9.710569266013476
   },
   "reversed": false,
-  "folder": "Hub Paths",
+  "folder": "Right Bump Paths",
   "idealStartingState": {
     "velocity": 0,
-    "rotation": 16.0631066331328
+    "rotation": 180.0
   },
   "useDefaultConstraints": true
 }

@@ -3,52 +3,44 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 3.560156626506024,
-        "y": 7.411662650602409
+        "x": 1.6150240963855422,
+        "y": 5.138698795180724
       },
       "prevControl": null,
       "nextControl": {
-        "x": 6.772903614457831,
-        "y": 7.7504216867469875
+        "x": 1.5057469879518073,
+        "y": 5.947349397590362
       },
       "isLocked": false,
-      "linkedName": "shooting under trench"
+      "linkedName": "After double shoot"
     },
     {
       "anchor": {
-        "x": 6.457533333335491,
-        "y": 5.204333333332484
+        "x": 1.079566265060241,
+        "y": 4.657879518072289
       },
       "prevControl": {
-        "x": 6.506255555557714,
-        "y": 7.416322222221375
+        "x": 1.1779156626506024,
+        "y": 5.728795180722891
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": "in fuel 2"
+      "linkedName": "1C climb"
     }
   ],
   "rotationTargets": [
     {
-      "waypointRelativePos": 0.027385892116180678,
-      "rotationDegrees": -87.25281913126395
-    },
-    {
-      "waypointRelativePos": 0.390871369294601,
-      "rotationDegrees": -90.3907529054896
-    },
-    {
-      "waypointRelativePos": 0.5070539419087144,
-      "rotationDegrees": -109.78910658388189
+      "waypointRelativePos": 0.6365145228215722,
+      "rotationDegrees": 90.0
     }
   ],
   "constraintZones": [
     {
       "name": "Constraints Zone",
-      "minWaypointRelativePos": 0.5290322580645128,
-      "maxWaypointRelativePos": 0.9657568238213353,
+      "minWaypointRelativePos": 0.0,
+      "maxWaypointRelativePos": 1.0,
       "constraints": {
-        "maxVelocity": 1.5,
+        "maxVelocity": 1.0,
         "maxAcceleration": 3.0,
         "maxAngularVelocity": 540.0,
         "maxAngularAcceleration": 720.0,
@@ -69,13 +61,13 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": -107.74467162505714
+    "rotation": 89.19307054489762
   },
   "reversed": false,
-  "folder": "Left Trench Paths",
+  "folder": "Hub Paths",
   "idealStartingState": {
     "velocity": 0,
-    "rotation": -72.51895740182819
+    "rotation": -9.710569266013476
   },
   "useDefaultConstraints": true
 }

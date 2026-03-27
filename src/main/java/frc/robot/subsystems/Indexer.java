@@ -22,6 +22,8 @@ public class Indexer extends SubsystemBase {
 
   TalonFXConfiguration indexerConfig = new TalonFXConfiguration();
 
+  private static boolean shouldBeEnabled = true;
+
   /** Creates a new indexer. */
   public Indexer() {
     indexerFollower.setControl(
@@ -38,6 +40,16 @@ public class Indexer extends SubsystemBase {
 
   public void runIndexer(double voltage) {
     indexerMaster.setControl(m_request.withOutput(voltage));
+  }
+
+  public static void setShouldBeEnabled(boolean setEnabled) 
+  {
+      shouldBeEnabled = setEnabled;
+  }
+
+  public static boolean getShouldBeEnabled()
+  {
+      return shouldBeEnabled;
   }
 
   @Override

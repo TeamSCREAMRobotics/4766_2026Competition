@@ -3,13 +3,13 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 1.6259518072289159,
-        "y": 5.827144578313253
+        "x": 1.1014216867469877,
+        "y": 6.788783132530121
       },
       "prevControl": null,
       "nextControl": {
-        "x": 1.37885888281558,
-        "y": 5.789130282254199
+        "x": 0.8543287623336517,
+        "y": 6.7507688364710665
       },
       "isLocked": false,
       "linkedName": "infront of depot"
@@ -48,7 +48,7 @@
   "folder": "Hub Paths",
   "idealStartingState": {
     "velocity": 0,
-    "rotation": -178.83086067209263
+    "rotation": 150.5545712700744
   },
   "useDefaultConstraints": true
 }

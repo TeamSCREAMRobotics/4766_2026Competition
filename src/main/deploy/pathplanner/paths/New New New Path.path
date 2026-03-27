@@ -3,13 +3,13 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 3.38,
-        "y": 7.47
+        "x": 3.560156626506024,
+        "y": 7.411662650602409
       },
       "prevControl": null,
       "nextControl": {
-        "x": 3.7583222222222226,
-        "y": 7.572233333333333
+        "x": 3.9384788487282467,
+        "y": 7.513895983935742
       },
       "isLocked": false,
       "linkedName": "shooting under trench"
@@ -48,7 +48,7 @@
   "folder": "Left Trench Paths",
   "idealStartingState": {
     "velocity": 0,
-    "rotation": -69.91121461940277
+    "rotation": -72.51895740182819
   },
   "useDefaultConstraints": true
 }
