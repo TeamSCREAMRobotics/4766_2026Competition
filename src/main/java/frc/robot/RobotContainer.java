@@ -333,10 +333,7 @@ public class RobotContainer {
 
     driverController
         .rightBumper()
-        .whileTrue(Commands.runEnd(
-                            () -> m_indexer.runIndexer(12),
-                            () -> m_indexer.runIndexer(0),
-                            m_indexer).alongWith(Commands.runEnd(() -> m_intake.runIntake(8.5), () -> m_intake.runIntake(0), m_intake))
+        .whileTrue(Commands.runEnd(() -> m_intake.runIntake(8.5), () -> m_intake.runIntake(0), m_intake)
                         .alongWith(
                             drivetrain.applyRequest(
                                 () ->
@@ -399,10 +396,10 @@ public class RobotContainer {
                 .alongWith(new Jostle(m_intake)));
 
     m_indexer.setDefaultCommand(Commands.run(() -> m_indexer.runIndexer(-2), m_indexer));
-    m_flywheel.setDefaultCommand(
-        Commands.run(
-            () -> m_flywheel.setSetpointVelocity(getDesiredShooterVelocity.getAsDouble() * 0.25),
-            m_flywheel));
+    // m_flywheel.setDefaultCommand(
+    //     Commands.run(
+    //         () -> m_flywheel.setSetpointVelocity(getDesiredShooterVelocity.getAsDouble() * 0.25),
+    //         m_flywheel));
 
     // Reset the field-centric heading on left bumper press.
     driverController
