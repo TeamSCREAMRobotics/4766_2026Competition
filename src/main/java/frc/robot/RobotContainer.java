@@ -332,21 +332,22 @@ public class RobotContainer {
 
     driverController
         .rightBumper()
-        .whileTrue(Commands.runEnd(() -> m_intake.runIntake(8.5), () -> m_intake.runIntake(0), m_intake)
-                        .alongWith(
-                            drivetrain.applyRequest(
-                                () ->
-                                    drive
-                                        .withVelocityX(
-                                            -driverController.getLeftY()
-                                                * MaxSpeed
-                                                * 0.4) // Drive forward with negative Y (forward)
-                                        .withVelocityY(
-                                            -driverController.getLeftX()
-                                                * MaxSpeed
-                                                * 0.4) // Drive left with negative X (left)
-                                        .withRotationalRate(
-                                            -driverController.getRightX() * MaxAngularRate))));
+        .whileTrue(
+            Commands.runEnd(() -> m_intake.runIntake(8.5), () -> m_intake.runIntake(0), m_intake)
+                .alongWith(
+                    drivetrain.applyRequest(
+                        () ->
+                            drive
+                                .withVelocityX(
+                                    -driverController.getLeftY()
+                                        * MaxSpeed
+                                        * 0.4) // Drive forward with negative Y (forward)
+                                .withVelocityY(
+                                    -driverController.getLeftX()
+                                        * MaxSpeed
+                                        * 0.4) // Drive left with negative X (left)
+                                .withRotationalRate(
+                                    -driverController.getRightX() * MaxAngularRate))));
     driverController.start().onTrue(Commands.runOnce(() -> m_intake.resetIntake(), m_intake));
 
     operatorController
