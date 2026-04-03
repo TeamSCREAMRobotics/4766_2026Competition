@@ -12,7 +12,6 @@ import com.pathplanner.lib.auto.AutoBuilder;
 import com.pathplanner.lib.auto.NamedCommands;
 import com.pathplanner.lib.commands.FollowPathCommand;
 import com.pathplanner.lib.commands.PathPlannerAuto;
-import com.team6328.FeedForwardCharacterization;
 import com.teamscreamrobotics.math.ScreamMath;
 import com.teamscreamrobotics.util.AllianceFlipUtil;
 import dev.doglog.DogLog;
@@ -329,7 +328,7 @@ public class RobotContainer {
                 () -> m_intake.IntakeGoToSetpoint(IntakeConstants.intakePivotUpSetpoint),
                 m_intake));
 
-        // driverController.rightBumper().whileTrue(new RunIntake(m_intake, 12));
+    // driverController.rightBumper().whileTrue(new RunIntake(m_intake, 12));
 
     driverController
         .rightBumper()
@@ -391,7 +390,9 @@ public class RobotContainer {
     operatorController
         .rightTrigger(0.5)
         .whileTrue(
-            Commands.run(() -> m_flywheel.setSetpointVelocity(Dashboard.flywheelVelocity.get()), m_flywheel)
+            Commands.run(
+                    () -> m_flywheel.setSetpointVelocity(Dashboard.flywheelVelocity.get()),
+                    m_flywheel)
                 .alongWith(new Shoot(m_flywheel, m_indexer, getDesiredShooterVelocity))
                 .alongWith(new Jostle(m_intake)));
 
