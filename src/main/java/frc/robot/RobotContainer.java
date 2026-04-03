@@ -12,6 +12,7 @@ import com.pathplanner.lib.auto.AutoBuilder;
 import com.pathplanner.lib.auto.NamedCommands;
 import com.pathplanner.lib.commands.FollowPathCommand;
 import com.pathplanner.lib.commands.PathPlannerAuto;
+import com.team6328.FeedForwardCharacterization;
 import com.teamscreamrobotics.math.ScreamMath;
 import com.teamscreamrobotics.util.AllianceFlipUtil;
 import dev.doglog.DogLog;
@@ -301,8 +302,8 @@ public class RobotContainer {
     //                     .alongWith(drivetrain.applyRequest(() -> brake))
     //                     .alongWith(new Jostle(m_intake))));
 
-    // driverController.rightTrigger(.5).whileTrue(new
-    // FeedForwardCharacterization(flywheel,flywheel::setVoltage, flywheel::getVelocity));
+    //  operatorController.leftTrigger(0.5).whileTrue(new
+    //  FeedForwardCharacterization(m_flywheel,m_flywheel::setVoltage, m_flywheel::getVelocity));
     driverController
         .rightTrigger(.5)
         .whileTrue(
@@ -328,15 +329,14 @@ public class RobotContainer {
                 () -> m_intake.IntakeGoToSetpoint(IntakeConstants.intakePivotUpSetpoint),
                 m_intake));
 
+        // driverController.rightBumper().whileTrue(new RunIntake(m_intake, 12));
+
     driverController
         .rightBumper()
-        .whileTrue(
-            Commands.runEnd(() -> m_intake.runIntake(12), () -> m_intake.runIntake(0), m_intake)
-                .alongWith(
-                    Commands.runEnd(
-                            () -> m_indexer.runIndexer(-2),
+        .whileTrue(Commands.runEnd(
+                            () -> m_indexer.runIndexer(12),
                             () -> m_indexer.runIndexer(0),
-                            m_indexer)
+                            m_indexer).alongWith(Commands.runEnd(() -> m_intake.runIntake(8.5), () -> m_intake.runIntake(0), m_intake))
                         .alongWith(
                             drivetrain.applyRequest(
                                 () ->
@@ -350,7 +350,7 @@ public class RobotContainer {
                                                 * MaxSpeed
                                                 * 0.4) // Drive left with negative X (left)
                                         .withRotationalRate(
-                                            -driverController.getRightX() * MaxAngularRate)))));
+                                            -driverController.getRightX() * MaxAngularRate))));
     driverController.start().onTrue(Commands.runOnce(() -> m_intake.resetIntake(), m_intake));
 
     operatorController
@@ -394,7 +394,7 @@ public class RobotContainer {
     operatorController
         .rightTrigger(0.5)
         .whileTrue(
-            Commands.run(() -> m_flywheel.setSetpointVelocity(40.0), m_flywheel)
+            Commands.run(() -> m_flywheel.setSetpointVelocity(Dashboard.flywheelVelocity.get()), m_flywheel)
                 .alongWith(new Shoot(m_flywheel, m_indexer, getDesiredShooterVelocity))
                 .alongWith(new Jostle(m_intake)));
 
@@ -491,6 +491,7 @@ public class RobotContainer {
     SmartDashboard.putNumber(
         "Treemap Velocity", ShooterConstants.SHOOTER_VELOCITY_MAP.get(this.getShooterDistance()));
     Dashboard.initialize();
+    SmartDashboard.putNumber("Flywheel Voltage", m_flywheel.getflywheelvoltage());
   }
 }
 

@@ -22,19 +22,27 @@ public class FlywheelConfig {
     FLYWHEEL_CONFIG.masterConstants =
         new TalonFXConstants(
             new CANDevice(ShooterConstants.RshooterMotorID),
-            InvertedValue.CounterClockwise_Positive);
+            InvertedValue.Clockwise_Positive);
 
     FLYWHEEL_CONFIG.slaveConstants =
         new TalonFXConstants[] {
           new TalonFXConstants(
-              new CANDevice(ShooterConstants.LshooterMoterID), InvertedValue.Clockwise_Positive)
+              new CANDevice(ShooterConstants.LshooterMoterID), InvertedValue.CounterClockwise_Positive)
         };
 
     FLYWHEEL_CONFIG.slot0 =
-        new ScreamPIDConstants(0.4, 0, 0)
-            .getSlot0Configs(new FeedforwardConstants(0.11635, 0.17347, 0.0, 0.001));
-
-    FLYWHEEL_CONFIG.enableStatorCurrentLimit = false;
-    FLYWHEEL_CONFIG.statorCurrentLimit = 20;
+        new ScreamPIDConstants(0.6, 0, 0)
+            .getSlot0Configs(new FeedforwardConstants(0.11855, 0.31992, 0.0, 0.0));
+/* FF Characterization Results: ﻿
+ 	Count=5540 
+ 	R2=0.99969 
+ 	kS=0.31992 
+ 	kV=0.11855 */
+// 
+// 
+// 
+// 
+    FLYWHEEL_CONFIG.enableSupplyCurrentLimit = true;
+    FLYWHEEL_CONFIG.supplyCurrentLimit = 40;
   }
 }

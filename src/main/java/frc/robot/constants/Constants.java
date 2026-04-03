@@ -42,12 +42,16 @@ public class Constants {
     public static final double kS = 1;
     public static final double intakeMagicAcceleration = 52;
     public static final double intakeMagicVelocity = 60;
-    public static final double intakePivotDownSetpoint = 7.65;
+
+    public static final double intakePivotDownSetpoint = 11.26;
     public static final double intakePivotUpSetpoint = 0.15;
+
     public static final double intakeClimbSetpoint = 0.1;
-    public static final double intakeAgitateHighSetpoint = 5.0;
-    public static final double intakeAgitateLowSetpoint = 6.0;
-    public static final double intakePivotForwardSoftLimit = 7.9;
+
+    public static final double intakeAgitateHighSetpoint = 6.0;
+    public static final double intakeAgitateLowSetpoint = 9.88;
+
+    public static final double intakePivotForwardSoftLimit = 11.3;
     public static final double intakePivotReverseSoftLimit = -0.3;
   }
 
@@ -89,22 +93,7 @@ public class Constants {
 
     static {
       SHOOTER_VELOCITY_MAP.put(0.0, 40.0);
-      SHOOTER_VELOCITY_MAP.put(1.5712248315861592, 44.0);
-      SHOOTER_VELOCITY_MAP.put(1.7042090314762044, 47.0);
-      SHOOTER_VELOCITY_MAP.put(1.7997310581926904, 49.0);
-      SHOOTER_VELOCITY_MAP.put(2.0745474125618006, 50.0);
-      SHOOTER_VELOCITY_MAP.put(2.1491222020255094, 50.5);
-      SHOOTER_VELOCITY_MAP.put(2.2166904708641653, 51.0);
-      SHOOTER_VELOCITY_MAP.put(2.339248914028543, 52.0);
-      SHOOTER_VELOCITY_MAP.put(2.413016454345864, 52.5);
-      SHOOTER_VELOCITY_MAP.put(2.5272805006693466, 54.0);
-      SHOOTER_VELOCITY_MAP.put(2.6912420634838585, 56.0);
-      SHOOTER_VELOCITY_MAP.put(2.736193300881284, 57.5);
-      SHOOTER_VELOCITY_MAP.put(2.7990671472582207, 59.0);
-      SHOOTER_VELOCITY_MAP.put(3.013952922884264, 60.0);
-      SHOOTER_VELOCITY_MAP.put(3.27, 63.0);
-      SHOOTER_VELOCITY_MAP.put(3.45, 70.0);
-      SHOOTER_VELOCITY_MAP.put(4.138674723468472, 79.0);
+
     }
 
     public static final InterpolatingDoubleTreeMap FERRY_VELOCITY_MAP =

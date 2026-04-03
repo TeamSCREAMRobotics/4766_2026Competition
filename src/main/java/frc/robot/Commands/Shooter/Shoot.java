@@ -6,6 +6,7 @@ package frc.robot.commands.Shooter;
 
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
+import frc.robot.Dashboard;
 import frc.robot.subsystems.Indexer;
 import frc.robot.subsystems.ShooterSubFolder.Flywheel;
 import java.util.function.DoubleSupplier;
@@ -38,10 +39,10 @@ public class Shoot extends Command {
   public void execute() {
     SmartDashboard.putNumber("Desired Velocity", desiredvelocity.getAsDouble());
     if (
-    /*s_Flywheel.getvelocity() >= 40.0 - 1
-    && s_Flywheel.getvelocity() <= 40.0 + 1*/
-    s_Flywheel.getVelocity() >= desiredvelocity.getAsDouble() - 3.5
-        && s_Flywheel.getVelocity() <= desiredvelocity.getAsDouble() + 3.5) {
+    s_Flywheel.getVelocity() >= Dashboard.flywheelVelocity.get() - 0.5
+    && s_Flywheel.getVelocity() <= Dashboard.flywheelVelocity.get() + 0.5)
+    /*s_Flywheel.getVelocity() >= desiredvelocity.getAsDouble() - 0.5
+        && s_Flywheel.getVelocity() <= desiredvelocity.getAsDouble() + 0.5)*/ {
       s_Indexer.runIndexer(12);
     } else {
       s_Indexer.runIndexer(0);

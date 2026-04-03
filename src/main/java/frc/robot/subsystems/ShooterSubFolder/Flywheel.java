@@ -22,4 +22,7 @@ public class Flywheel extends TalonFXSubsystem {
   public void periodic() {
     super.periodic();
   }
+  public double getflywheelvoltage(){
+    return master.getMotorVoltage().getValueAsDouble();
+  }
 }
