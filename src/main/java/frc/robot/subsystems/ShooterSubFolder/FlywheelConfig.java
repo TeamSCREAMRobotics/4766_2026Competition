@@ -1,6 +1,7 @@
 package frc.robot.subsystems.ShooterSubFolder;
 
 import com.ctre.phoenix6.signals.InvertedValue;
+import com.ctre.phoenix6.signals.NeutralModeValue;
 import com.teamscreamrobotics.drivers.TalonFXSubsystem.CANDevice;
 import com.teamscreamrobotics.drivers.TalonFXSubsystem.TalonFXConstants;
 import com.teamscreamrobotics.drivers.TalonFXSubsystem.TalonFXSubsystemConfiguration;
@@ -44,5 +45,6 @@ public class FlywheelConfig {
     //
     FLYWHEEL_CONFIG.enableSupplyCurrentLimit = true;
     FLYWHEEL_CONFIG.supplyCurrentLimit = 40;
+    FLYWHEEL_CONFIG.neutralMode = NeutralModeValue.Coast;
   }
 }
