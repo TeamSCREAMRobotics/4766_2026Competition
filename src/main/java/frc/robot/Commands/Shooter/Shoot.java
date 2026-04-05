@@ -4,13 +4,12 @@
 
 package frc.robot.commands.Shooter;
 
-import java.util.function.DoubleSupplier;
-
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.Dashboard;
 import frc.robot.subsystems.Indexer;
 import frc.robot.subsystems.ShooterSubFolder.Flywheel;
+import java.util.function.DoubleSupplier;
 
 /* You should consider using the more terse Command factories API instead https://docs.wpilib.org/en/stable/docs/software/commandbased/organizing-command-based.html#defining-commands */
 public class Shoot extends Command {
@@ -39,8 +38,8 @@ public class Shoot extends Command {
   @Override
   public void execute() {
     SmartDashboard.putNumber("Desired Velocity", desiredvelocity.getAsDouble());
-    if (s_Flywheel.getVelocity() >= Dashboard.flywheelVelocity.get()  - 2.0
-        && s_Flywheel.getVelocity() <= Dashboard.flywheelVelocity.get()  + 2.0)
+    if (s_Flywheel.getVelocity() >= Dashboard.flywheelVelocity.get() - 2.0
+        && s_Flywheel.getVelocity() <= Dashboard.flywheelVelocity.get() + 2.0)
     /*s_Flywheel.getVelocity() >= desiredvelocity.getAsDouble() - 0.5
     && s_Flywheel.getVelocity() <= desiredvelocity.getAsDouble() + 0.5)*/ {
       s_Indexer.runIndexer(12);
