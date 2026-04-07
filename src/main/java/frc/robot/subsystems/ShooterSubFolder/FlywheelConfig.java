@@ -32,7 +32,7 @@ public class FlywheelConfig {
         };
 
     FLYWHEEL_CONFIG.slot0 =
-        new ScreamPIDConstants(0.6, 0, 0)
+        new ScreamPIDConstants(0.555, 0, 0)
             .getSlot0Configs(new FeedforwardConstants(0.11855, 0.31992, 0.0, 0.0));
     /* FF Characterization Results: ﻿
     Count=5540
