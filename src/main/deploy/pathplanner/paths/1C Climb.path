@@ -16,12 +16,12 @@
     },
     {
       "anchor": {
-        "x": 1.079566265060241,
-        "y": 4.657879518072289
+        "x": 1.18,
+        "y": 4.658
       },
       "prevControl": {
-        "x": 1.1779156626506024,
-        "y": 5.728795180722891
+        "x": 1.354433734939759,
+        "y": 5.701420481927711
       },
       "nextControl": null,
       "isLocked": false,
@@ -67,7 +67,7 @@
   "folder": "Hub Paths",
   "idealStartingState": {
     "velocity": 0,
-    "rotation": -9.710569266013476
+    "rotation": -20.07367348809936
   },
   "useDefaultConstraints": true
 }
