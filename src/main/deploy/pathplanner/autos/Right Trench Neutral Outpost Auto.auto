@@ -51,19 +51,31 @@
         {
           "type": "path",
           "data": {
-            "pathName": "neutral to outpost"
+            "pathName": "single swipe"
           }
         },
         {
-          "type": "wait",
+          "type": "named",
           "data": {
-            "waitTime": 2.3
+            "name": "Shoot Preload"
           }
         },
         {
           "type": "path",
           "data": {
-            "pathName": "Rbump outpost to hub"
+            "pathName": "in between single swipe"
+          }
+        },
+        {
+          "type": "wait",
+          "data": {
+            "waitTime": 2.0
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "outpost shoot"
           }
         },
         {

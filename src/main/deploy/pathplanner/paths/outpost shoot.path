@@ -3,25 +3,25 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 1.7570843373493976,
-        "y": 3.36
+        "x": 0.6,
+        "y": 0.6903566333808839
       },
       "prevControl": null,
       "nextControl": {
-        "x": 1.5070843373493976,
-        "y": 3.36
+        "x": 1.6,
+        "y": 0.6903566333808842
       },
       "isLocked": false,
-      "linkedName": "before 1A climb Right trench"
+      "linkedName": "Rbump at outpost"
     },
     {
       "anchor": {
-        "x": 1.36,
-        "y": 3.36
+        "x": 1.7680120481927712,
+        "y": 1.5981204819277117
       },
       "prevControl": {
-        "x": 1.6087892413287028,
-        "y": 3.384574649521173
+        "x": 1.2216265060240965,
+        "y": 0.8113253012048198
       },
       "nextControl": null,
       "isLocked": false,
@@ -42,13 +42,13 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": 0.0
+    "rotation": 39.699073483474315
   },
   "reversed": false,
-  "folder": "Right Trench Paths",
+  "folder": null,
   "idealStartingState": {
     "velocity": 0,
-    "rotation": 0.0
+    "rotation": 179.72988400671753
   },
   "useDefaultConstraints": true
 }
