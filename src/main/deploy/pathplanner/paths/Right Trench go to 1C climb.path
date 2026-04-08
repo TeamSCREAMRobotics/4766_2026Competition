@@ -16,16 +16,16 @@
     },
     {
       "anchor": {
-        "x": 1.7570843373493976,
-        "y": 4.180000000000001
+        "x": 1.6150240963855422,
+        "y": 5.138698795180724
       },
       "prevControl": {
-        "x": 2.9016319563970168,
-        "y": 3.812880952380953
+        "x": 2.7595717154331627,
+        "y": 4.771579747561677
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": "before 1C climb Right Trench"
+      "linkedName": "After double shoot"
     }
   ],
   "rotationTargets": [],
@@ -42,7 +42,7 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": 0.0
+    "rotation": -20.166906875563782
   },
   "reversed": false,
   "folder": "Right Trench Paths",

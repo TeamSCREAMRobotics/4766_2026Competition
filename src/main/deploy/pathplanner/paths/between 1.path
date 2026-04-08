@@ -3,29 +3,29 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 1.7570843373493976,
-        "y": 4.18
+        "x": 3.0957,
+        "y": 5.662322222222222
       },
       "prevControl": null,
       "nextControl": {
-        "x": 1.5070843373493976,
-        "y": 4.18
+        "x": 2.3198325301204816,
+        "y": 5.450996921017402
       },
       "isLocked": false,
-      "linkedName": "before 1C climb Right Trench"
+      "linkedName": "shooting under trench"
     },
     {
       "anchor": {
-        "x": 1.3904222222222222,
-        "y": 4.17
+        "x": 2.379963855415813,
+        "y": 3.051506024102648
       },
       "prevControl": {
-        "x": 1.639211463550925,
-        "y": 4.194574649521173
+        "x": 2.161409638548343,
+        "y": 3.7399518072351783
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": null
+      "linkedName": "Hub-at hub"
     }
   ],
   "rotationTargets": [],
@@ -42,13 +42,13 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": 0.0
+    "rotation": 23.644329656077595
   },
   "reversed": false,
-  "folder": "Right Trench Paths",
+  "folder": null,
   "idealStartingState": {
     "velocity": 0,
-    "rotation": 0.0
+    "rotation": -45.0
   },
   "useDefaultConstraints": true
 }
