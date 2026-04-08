@@ -3,25 +3,41 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 7.7345421686746985,
-        "y": 4.778084337349397
+        "x": 8.0069,
+        "y": 4.785322222222223
       },
       "prevControl": null,
       "nextControl": {
-        "x": 7.7930088353413645,
-        "y": 7.116751004016062
+        "x": 6.876544444444444,
+        "y": 4.6489
       },
       "isLocked": false,
       "linkedName": "In neutral fuel"
     },
     {
       "anchor": {
-        "x": 3.5634333333333332,
-        "y": 7.542999999999999
+        "x": 4.537877777777778,
+        "y": 5.818233333333333
       },
       "prevControl": {
-        "x": 7.267927309236948,
-        "y": 7.958253012048193
+        "x": 5.0348444444444445,
+        "y": 5.691555555555555
+      },
+      "nextControl": {
+        "x": 4.283630460692444,
+        "y": 5.883041472982535
+      },
+      "isLocked": false,
+      "linkedName": null
+    },
+    {
+      "anchor": {
+        "x": 3.0957,
+        "y": 5.662322222222222
+      },
+      "prevControl": {
+        "x": 3.8460222222222225,
+        "y": 5.7500222222222215
       },
       "nextControl": null,
       "isLocked": false,
@@ -31,11 +47,15 @@
   "rotationTargets": [
     {
       "waypointRelativePos": 0.44232365145228064,
-      "rotationDegrees": -90.0
+      "rotationDegrees": 163.8900462701226
     },
     {
       "waypointRelativePos": 0.9535269709543487,
-      "rotationDegrees": -89.19803216820672
+      "rotationDegrees": -179.41471441205042
+    },
+    {
+      "waypointRelativePos": 1.531950207468884,
+      "rotationDegrees": 178.88413646327874
     }
   ],
   "constraintZones": [],
@@ -51,7 +71,7 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": -72.51895740182819
+    "rotation": -45.0
   },
   "reversed": false,
   "folder": "Left Trench Paths",

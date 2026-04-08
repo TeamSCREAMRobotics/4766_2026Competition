@@ -3,13 +3,13 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 6.457533333335491,
-        "y": 5.204333333332484
+        "x": 6.486766666666667,
+        "y": 4.658644444444445
       },
       "prevControl": null,
       "nextControl": {
-        "x": 7.548911111113268,
-        "y": 8.225111111110262
+        "x": 7.578144444444444,
+        "y": 7.679422222222223
       },
       "isLocked": false,
       "linkedName": "in fuel 2"
@@ -57,7 +57,7 @@
   "folder": "Left Trench Paths",
   "idealStartingState": {
     "velocity": 0,
-    "rotation": -107.74467162505714
+    "rotation": -93.99091309842973
   },
   "useDefaultConstraints": true
 }

@@ -77,6 +77,8 @@ public class Constants {
     public static final double midShoot = 50.0;
     public static final double farShoot = 60.0;
 
+    public static final double FerryMultiplier = 1.4;
+
     //  public static final InterpolatingDoubleTreeMap HOOD_MAP = new InterpolatingDoubleTreeMap();
     //
     //  static {
@@ -114,22 +116,11 @@ public class Constants {
         new InterpolatingDoubleTreeMap();
 
     static {
-      FERRY_VELOCITY_MAP.put(0.0, 37.0 * 1.5);
-      FERRY_VELOCITY_MAP.put(1.172617836430566, 37.0* 1.5);
-      FERRY_VELOCITY_MAP.put(1.346530562720079, 39.0* 1.5);
-      FERRY_VELOCITY_MAP.put(1.478706275947643, 40.0* 1.5);
-      FERRY_VELOCITY_MAP.put(2.2684219219170934, 42.0* 1.5);
-      FERRY_VELOCITY_MAP.put(2.055824253850473, 44.25* 1.5);
-      FERRY_VELOCITY_MAP.put(2.2183737723024715, 45.0* 1.5);
-      FERRY_VELOCITY_MAP.put(2.3117374055228126, 46.5* 1.5);
-      FERRY_VELOCITY_MAP.put(2.380634439956445, 48.5* 1.5);
-      FERRY_VELOCITY_MAP.put(2.7278039312097353, 51.0* 1.5);
-      FERRY_VELOCITY_MAP.put(2.683809483762821, 51.5* 1.5);
-      FERRY_VELOCITY_MAP.put(3.1532988426000435, 51.875* 1.5);
-      FERRY_VELOCITY_MAP.put(3.4170126639197895, 55.0* 1.5);
-      FERRY_VELOCITY_MAP.put(3.675951047182713, 57.0* 1.5);
-      FERRY_VELOCITY_MAP.put(3.856427421283271, 58.75* 1.5);
-      FERRY_VELOCITY_MAP.put(4.131069897490271, 59.5* 1.5);
+      FERRY_VELOCITY_MAP.put(5.2017290654681645,60.0);
+      FERRY_VELOCITY_MAP.put(5.6121598744553705,65.0);
+      FERRY_VELOCITY_MAP.put(5.672028795779401, 70.0);
+      FERRY_VELOCITY_MAP.put(5.847200109873536, 72.0);
+      FERRY_VELOCITY_MAP.put(6.3485489201924254, 75.0);
     }
 
     // public static final InterpolatingDoubleTreeMap RSHOOTER_VELOCITY_MAP =

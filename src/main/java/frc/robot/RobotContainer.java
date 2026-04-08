@@ -29,6 +29,7 @@ import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.RobotModeTriggers;
 import edu.wpi.first.wpilibj2.command.sysid.SysIdRoutine.Direction;
 import frc.robot.commands.DriveToPose;
+import frc.robot.commands.Ferry;
 import frc.robot.commands.Index;
 import frc.robot.commands.IntakeGoToSetpoint;
 import frc.robot.commands.Jostle;
@@ -95,7 +96,6 @@ public class RobotContainer {
 
         @Override
         public double getAsDouble() {
-          // TODO Auto-generated method stub
           return Dashboard.flywheelVelocity.get();
         }
       };
@@ -392,15 +392,15 @@ public class RobotContainer {
         .rightTrigger(0.5)
         .whileTrue(
             Commands.run(
-                    () -> m_flywheel.setSetpointVelocity(Dashboard.flywheelVelocity.get()),
+                    () -> m_flywheel.setSetpointVelocity(ShooterConstants.FERRY_VELOCITY_MAP.get(getFerryDistance())),
                     m_flywheel)
-                .alongWith(new Shoot(m_flywheel, m_indexer, getDesiredShooterVelocity))
+                .alongWith(new Ferry(m_flywheel, m_indexer, getDesiredFerryVelocity))
                 .alongWith(new Jostle(m_intake)));
 
     m_indexer.setDefaultCommand(Commands.run(() -> m_indexer.runIndexer(-2), m_indexer));
     m_flywheel.setDefaultCommand(
         Commands.run(
-            () -> m_flywheel.setSetpointVelocity(getDesiredShooterVelocity.getAsDouble() * 0.25),
+            () -> m_flywheel.setSetpointVelocity(getDesiredShooterVelocity.getAsDouble() * 0.4),
             m_flywheel));
 
     // Reset the field-centric heading on left bumper press.
@@ -424,7 +424,7 @@ public class RobotContainer {
     NamedCommands.registerCommand(
         "Intake Up",
         new IntakeGoToSetpoint(m_intake, IntakeConstants.intakePivotUpSetpoint).withTimeout(1));
-    NamedCommands.registerCommand("Run Intake", new RunIntake(m_intake, 8.5));
+    NamedCommands.registerCommand("Run Intake", new RunIntake(m_intake, 10));
     NamedCommands.registerCommand("Run Indexer", new Index(m_indexer, -1));
 
     NamedCommands.registerCommand(
@@ -434,8 +434,8 @@ public class RobotContainer {
                 m_flywheel)
             .alongWith(new Shoot(m_flywheel, m_indexer, getDesiredShooterVelocity))
             .alongWith(drivetrain.applyRequest(() -> brake))
-            .alongWith(new Jostle(m_intake))
-            .withTimeout(5));
+            //.alongWith(new Jostle(m_intake))
+            .withTimeout(7));
     NamedCommands.registerCommand(
         "Shoot Preload",
         Commands.run(
@@ -471,12 +471,25 @@ public class RobotContainer {
                 Hub.topCenterPoint.toTranslation2d(), Hub.oppTopCenterPoint.toTranslation2d()));
   }
 
+  public double getFerryDistance(){
+    return drivetrain.getPose().getTranslation().getDistance(AllianceFlipUtil.get(new Translation2d(0.1, drivetrain.getPose().getY()), new Translation2d(16.4, drivetrain.getPose().getY())));
+  }
+
   public DoubleSupplier getDesiredShooterVelocity =
       new DoubleSupplier() {
 
         @Override
         public double getAsDouble() {
           return ShooterConstants.SHOOTER_VELOCITY_MAP.get(getShooterDistance());
+        }
+      };
+
+        public DoubleSupplier getDesiredFerryVelocity =
+      new DoubleSupplier() {
+
+        @Override
+        public double getAsDouble() {
+          return ShooterConstants.FERRY_VELOCITY_MAP.get(getShooterDistance());
         }
       };
 
@@ -491,6 +504,7 @@ public class RobotContainer {
         "Treemap Velocity", ShooterConstants.SHOOTER_VELOCITY_MAP.get(this.getShooterDistance()));
     Dashboard.initialize();
     SmartDashboard.putNumber("Flywheel Voltage", m_flywheel.getflywheelvoltage());
+    SmartDashboard.putNumber("Calculated Ferry Distance", this.getFerryDistance());
   }
 }
 

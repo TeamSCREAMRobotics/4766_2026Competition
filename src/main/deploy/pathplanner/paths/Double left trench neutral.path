@@ -3,25 +3,41 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 3.5634333333333332,
-        "y": 7.542999999999999
+        "x": 3.0957,
+        "y": 5.662322222222222
       },
       "prevControl": null,
       "nextControl": {
-        "x": 6.77618032128514,
-        "y": 7.881759036144578
+        "x": 1.7996888888847222,
+        "y": 7.698911111112928
       },
       "isLocked": false,
       "linkedName": "shooting under trench"
     },
     {
       "anchor": {
-        "x": 6.457533333335491,
-        "y": 5.204333333332484
+        "x": 4.654811111106943,
+        "y": 7.591722222224039
       },
       "prevControl": {
-        "x": 6.506255555557714,
-        "y": 7.416322222221375
+        "x": 4.1578444444402765,
+        "y": 7.591722222224039
+      },
+      "nextControl": {
+        "x": 6.944755555551387,
+        "y": 7.591722222224039
+      },
+      "isLocked": false,
+      "linkedName": null
+    },
+    {
+      "anchor": {
+        "x": 6.486766666666667,
+        "y": 4.658644444444445
+      },
+      "prevControl": {
+        "x": 6.403561637232883,
+        "y": 4.422896861048722
       },
       "nextControl": null,
       "isLocked": false,
@@ -39,7 +55,7 @@
     },
     {
       "waypointRelativePos": 0.5070539419087144,
-      "rotationDegrees": -109.78910658388189
+      "rotationDegrees": -88.85486902492617
     }
   ],
   "constraintZones": [
@@ -69,13 +85,13 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": -107.74467162505714
+    "rotation": -93.99091309842973
   },
   "reversed": false,
   "folder": "Left Trench Paths",
   "idealStartingState": {
     "velocity": 0,
-    "rotation": -72.51895740182819
+    "rotation": -45.0
   },
   "useDefaultConstraints": true
 }

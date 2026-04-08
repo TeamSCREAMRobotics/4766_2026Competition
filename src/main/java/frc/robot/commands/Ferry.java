@@ -4,9 +4,9 @@
 
 package frc.robot.commands;
 
+import java.util.function.DoubleSupplier;
+
 import edu.wpi.first.wpilibj2.command.Command;
-import frc.robot.Dashboard;
-import frc.robot.constants.Constants.ShooterConstants;
 import frc.robot.subsystems.Indexer;
 import frc.robot.subsystems.ShooterSubFolder.Flywheel;
 
@@ -16,10 +16,10 @@ public class Ferry extends Command {
   Indexer s_Indexer;
   Flywheel s_Flywheel;
 
-  public static double desiredferryvelocity;
+  public static DoubleSupplier desiredferryvelocity;
 
   /** Creates a new Ferry. */
-  public Ferry(Flywheel flywheel, Indexer s_Indexer, double Desiredferryvelocity) {
+  public Ferry(Flywheel flywheel, Indexer s_Indexer, DoubleSupplier Desiredferryvelocity) {
 
     s_Flywheel = flywheel;
     this.s_Indexer = s_Indexer;
@@ -32,14 +32,13 @@ public class Ferry extends Command {
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-    desiredferryvelocity = ShooterConstants.FERRY_VELOCITY_MAP.get(desiredferryvelocity);
   }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    if (s_Flywheel.getVelocity() >= desiredferryvelocity - 1
-        && s_Flywheel.getVelocity() <= desiredferryvelocity + 1) {
+    if (s_Flywheel.getVelocity() >= desiredferryvelocity.getAsDouble() - 1
+        && s_Flywheel.getVelocity() <= desiredferryvelocity.getAsDouble() + 1) {
       s_Indexer.runIndexer(12);
     }
   }
