@@ -452,7 +452,8 @@ public class RobotContainer {
         "Climber to 0", new RunClimber(m_climber, ClimberConstants.climberLowSetpoint));
     NamedCommands.registerCommand(
         "Climber to max",
-        (Commands.run(() -> m_climber.climberGoToSetpoint(ClimberConstants.climberTopSetpoint)).alongWith(new StopAllRollers(m_flywheel, m_indexer)))
+        (Commands.run(() -> m_climber.climberGoToSetpoint(ClimberConstants.climberTopSetpoint))
+                .alongWith(new StopAllRollers(m_flywheel, m_indexer)))
             .withTimeout(2));
     NamedCommands.registerCommand(
         "Climber down", new RunClimber(m_climber, ClimberConstants.climberClimbSetpoint));
