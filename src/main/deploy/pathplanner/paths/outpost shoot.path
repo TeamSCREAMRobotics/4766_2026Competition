@@ -4,24 +4,24 @@
     {
       "anchor": {
         "x": 0.6,
-        "y": 0.6903566333808839
+        "y": 0.43
       },
       "prevControl": null,
       "nextControl": {
         "x": 1.6,
-        "y": 0.6903566333808842
+        "y": 0.4300000000000002
       },
       "isLocked": false,
       "linkedName": "Rbump at outpost"
     },
     {
       "anchor": {
-        "x": 1.7680120481927712,
-        "y": 1.5981204819277117
+        "x": 2.161409638554217,
+        "y": 2.843879518072289
       },
       "prevControl": {
-        "x": 1.2216265060240965,
-        "y": 0.8113253012048198
+        "x": 1.6150240963855422,
+        "y": 2.057084337349397
       },
       "nextControl": null,
       "isLocked": false,
@@ -42,7 +42,7 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": 39.699073483474315
+    "rotation": 25.542020988410155
   },
   "reversed": false,
   "folder": null,

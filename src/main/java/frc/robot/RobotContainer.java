@@ -436,7 +436,7 @@ public class RobotContainer {
                 m_flywheel)
             .alongWith(new Shoot(m_flywheel, m_indexer, getDesiredShooterVelocity))
             .alongWith(drivetrain.applyRequest(() -> brake))
-            // .alongWith(new Jostle(m_intake))
+            .alongWith(new Jostle(m_intake))
             .withTimeout(7));
     NamedCommands.registerCommand(
         "Shoot Preload",
@@ -452,7 +452,7 @@ public class RobotContainer {
         "Climber to 0", new RunClimber(m_climber, ClimberConstants.climberLowSetpoint));
     NamedCommands.registerCommand(
         "Climber to max",
-        (Commands.run(() -> m_climber.climberGoToSetpoint(ClimberConstants.climberTopSetpoint)))
+        (Commands.run(() -> m_climber.climberGoToSetpoint(ClimberConstants.climberTopSetpoint)).alongWith(new StopAllRollers(m_flywheel, m_indexer)))
             .withTimeout(2));
     NamedCommands.registerCommand(
         "Climber down", new RunClimber(m_climber, ClimberConstants.climberClimbSetpoint));

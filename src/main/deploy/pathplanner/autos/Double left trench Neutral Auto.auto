@@ -47,12 +47,6 @@
           "data": {
             "commands": [
               {
-                "type": "named",
-                "data": {
-                  "name": "Run Intake"
-                }
-              },
-              {
                 "type": "sequential",
                 "data": {
                   "commands": [

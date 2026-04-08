@@ -24,12 +24,14 @@ public class StopAllRollers extends Command {
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-    m_Flywheel.setSetpointVelocity(0);
-    m_Indexer.runIndexer(0);
+    
   }
 
   @Override
-  public void execute() {}
+  public void execute() {
+    m_Flywheel.setSetpointVelocity(0);
+    m_Indexer.runIndexer(0);
+  }
 
   @Override
   public boolean isFinished() {

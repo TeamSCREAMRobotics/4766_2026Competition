@@ -3,13 +3,13 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 1.6150240963855422,
-        "y": 1.532554216867469
+        "x": 2.2160481927710847,
+        "y": 3.029650602409638
       },
       "prevControl": null,
       "nextControl": {
-        "x": 1.516674698795181,
-        "y": 0.669265060240964
+        "x": 2.5766626506024095,
+        "y": 1.9259518072289166
       },
       "isLocked": false,
       "linkedName": "shoot"
@@ -17,18 +17,23 @@
     {
       "anchor": {
         "x": 0.6,
-        "y": 0.6903566333808839
+        "y": 0.43
       },
       "prevControl": {
         "x": 1.2775180722891566,
-        "y": 0.8979831394049802
+        "y": 0.6376265060240962
       },
       "nextControl": null,
       "isLocked": false,
       "linkedName": "Rbump at outpost"
     }
   ],
-  "rotationTargets": [],
+  "rotationTargets": [
+    {
+      "waypointRelativePos": 0.6431535269709523,
+      "rotationDegrees": 179.98118530832065
+    }
+  ],
   "constraintZones": [],
   "pointTowardsZones": [],
   "eventMarkers": [],
@@ -48,7 +53,7 @@
   "folder": null,
   "idealStartingState": {
     "velocity": 0,
-    "rotation": 39.501240847813364
+    "rotation": 22.601453708470714
   },
   "useDefaultConstraints": true
 }

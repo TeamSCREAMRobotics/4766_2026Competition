@@ -4,12 +4,12 @@
     {
       "anchor": {
         "x": 0.6,
-        "y": 0.6903566333808839
+        "y": 0.43
       },
       "prevControl": null,
       "nextControl": {
         "x": 2.3908915662650605,
-        "y": 1.0626626506024093
+        "y": 0.8023060172215253
       },
       "isLocked": false,
       "linkedName": "Rbump at outpost"
