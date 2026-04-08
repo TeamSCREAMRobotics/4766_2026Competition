@@ -392,7 +392,9 @@ public class RobotContainer {
         .rightTrigger(0.5)
         .whileTrue(
             Commands.run(
-                    () -> m_flywheel.setSetpointVelocity(ShooterConstants.FERRY_VELOCITY_MAP.get(getFerryDistance())),
+                    () ->
+                        m_flywheel.setSetpointVelocity(
+                            ShooterConstants.FERRY_VELOCITY_MAP.get(getFerryDistance())),
                     m_flywheel)
                 .alongWith(new Ferry(m_flywheel, m_indexer, getDesiredFerryVelocity))
                 .alongWith(new Jostle(m_intake)));
@@ -434,7 +436,7 @@ public class RobotContainer {
                 m_flywheel)
             .alongWith(new Shoot(m_flywheel, m_indexer, getDesiredShooterVelocity))
             .alongWith(drivetrain.applyRequest(() -> brake))
-            //.alongWith(new Jostle(m_intake))
+            // .alongWith(new Jostle(m_intake))
             .withTimeout(7));
     NamedCommands.registerCommand(
         "Shoot Preload",
@@ -471,8 +473,14 @@ public class RobotContainer {
                 Hub.topCenterPoint.toTranslation2d(), Hub.oppTopCenterPoint.toTranslation2d()));
   }
 
-  public double getFerryDistance(){
-    return drivetrain.getPose().getTranslation().getDistance(AllianceFlipUtil.get(new Translation2d(0.1, drivetrain.getPose().getY()), new Translation2d(16.4, drivetrain.getPose().getY())));
+  public double getFerryDistance() {
+    return drivetrain
+        .getPose()
+        .getTranslation()
+        .getDistance(
+            AllianceFlipUtil.get(
+                new Translation2d(0.1, drivetrain.getPose().getY()),
+                new Translation2d(16.4, drivetrain.getPose().getY())));
   }
 
   public DoubleSupplier getDesiredShooterVelocity =
@@ -484,7 +492,7 @@ public class RobotContainer {
         }
       };
 
-        public DoubleSupplier getDesiredFerryVelocity =
+  public DoubleSupplier getDesiredFerryVelocity =
       new DoubleSupplier() {
 
         @Override
