@@ -67,7 +67,7 @@
   "folder": "Hub Paths",
   "idealStartingState": {
     "velocity": 0,
-    "rotation": -20.07367348809936
+    "rotation": -20.166906875563782
   },
   "useDefaultConstraints": true
 }

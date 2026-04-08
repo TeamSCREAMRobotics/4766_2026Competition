@@ -8,8 +8,8 @@
       },
       "prevControl": null,
       "nextControl": {
-        "x": 8.586903614457832,
-        "y": 0.33050602409638485
+        "x": 9.133289156626507,
+        "y": 0.37421686746987914
       },
       "isLocked": false,
       "linkedName": null
@@ -28,7 +28,12 @@
       "linkedName": "in neutral zone"
     }
   ],
-  "rotationTargets": [],
+  "rotationTargets": [
+    {
+      "waypointRelativePos": 0.32448132780082917,
+      "rotationDegrees": 88.96285814252047
+    }
+  ],
   "constraintZones": [
     {
       "name": "Constraints Zone",
@@ -56,7 +61,7 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": 90.567266409858
+    "rotation": 106.33375164110618
   },
   "reversed": false,
   "folder": "Right Trench Paths",

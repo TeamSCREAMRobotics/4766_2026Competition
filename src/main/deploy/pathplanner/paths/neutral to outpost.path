@@ -8,8 +8,8 @@
       },
       "prevControl": null,
       "nextControl": {
-        "x": 7.546089644291452,
-        "y": 1.6807451233505448
+        "x": 5.472506024096386,
+        "y": 3.739951807228915
       },
       "isLocked": false,
       "linkedName": "in neutral zone"
@@ -20,18 +20,34 @@
         "y": 0.6583373493975899
       },
       "prevControl": {
-        "x": 8.510409638554219,
-        "y": 0.6146265060240955
+        "x": 9.100506024096385,
+        "y": 0.4944216867469879
+      },
+      "nextControl": {
+        "x": 3.9003899548383005,
+        "y": 0.6666109605634803
+      },
+      "isLocked": false,
+      "linkedName": "shooting under right trench"
+    },
+    {
+      "anchor": {
+        "x": 0.6,
+        "y": 0.6903566333808839
+      },
+      "prevControl": {
+        "x": 0.8042419658161893,
+        "y": 0.5461858339812189
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": "shooting under right trench"
+      "linkedName": "Rbump at outpost"
     }
   ],
   "rotationTargets": [
     {
-      "waypointRelativePos": 0.955371900826447,
-      "rotationDegrees": 90.55036509598584
+      "waypointRelativePos": 0.7717842323651372,
+      "rotationDegrees": -179.84082178917132
     }
   ],
   "constraintZones": [],
@@ -47,7 +63,7 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": 82.2823321675921
+    "rotation": 179.72988400671753
   },
   "reversed": false,
   "folder": "Right Trench Paths",
