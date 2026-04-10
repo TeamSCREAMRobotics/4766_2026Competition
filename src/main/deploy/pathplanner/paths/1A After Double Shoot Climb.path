@@ -3,40 +3,40 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 3.56,
-        "y": 2.01
+        "x": 1.6150240963855422,
+        "y": 5.138698795180724
       },
       "prevControl": null,
       "nextControl": {
-        "x": 3.017744444444445,
-        "y": 1.6086333333333322
+        "x": 2.6150240963855422,
+        "y": 5.138698795180724
       },
       "isLocked": false,
-      "linkedName": "infront of Rbump"
+      "linkedName": "After double shoot"
     },
     {
       "anchor": {
-        "x": 0.6,
-        "y": 0.51
+        "x": 1.36,
+        "y": 3.32
       },
       "prevControl": {
-        "x": 2.2610120481927725,
-        "y": 0.51
+        "x": 2.3061444444444446,
+        "y": 3.406055555555555
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": "Rbump at outpost"
+      "linkedName": "1A climb"
     }
   ],
   "rotationTargets": [],
   "constraintZones": [
     {
       "name": "Constraints Zone",
-      "minWaypointRelativePos": 0.13002481389578185,
-      "maxWaypointRelativePos": 0.8069478908188586,
+      "minWaypointRelativePos": 0.4893300248138952,
+      "maxWaypointRelativePos": 1.0,
       "constraints": {
-        "maxVelocity": 3.0,
-        "maxAcceleration": 6.0,
+        "maxVelocity": 2.0,
+        "maxAcceleration": 3.0,
         "maxAngularVelocity": 540.0,
         "maxAngularAcceleration": 720.0,
         "nominalVoltage": 12.0,
@@ -56,13 +56,13 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": 179.72988400671753
+    "rotation": 0.0
   },
   "reversed": false,
-  "folder": "Right Bump Paths",
+  "folder": null,
   "idealStartingState": {
     "velocity": 0,
-    "rotation": 179.5033854192117
+    "rotation": -20.166906875563782
   },
   "useDefaultConstraints": true
 }

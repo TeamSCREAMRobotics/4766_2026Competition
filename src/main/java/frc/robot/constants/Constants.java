@@ -58,10 +58,10 @@ public class Constants {
   public class ShooterConstants {
     public static final int LshooterMoterID = 17; // testing on testbed
     public static final int RshooterMotorID = 16;
-    public static final int shooterCANID = 0;
+    //public static final int shooterCANID = 0;
 
     public static final int pivotMotorID = 0;
-    public static final int pivotCanID = 0;
+    //public static final int pivotCanID = 0;
 
     public static final double kG = 0.0;
     public static final double kV = 0.0;
@@ -95,21 +95,21 @@ public class Constants {
 
     static {
       SHOOTER_VELOCITY_MAP.put(0.0, 37.0);
-      SHOOTER_VELOCITY_MAP.put(1.172617836430566, 37.0);
-      SHOOTER_VELOCITY_MAP.put(1.346530562720079, 39.0);
-      SHOOTER_VELOCITY_MAP.put(1.478706275947643, 40.0);
-      SHOOTER_VELOCITY_MAP.put(2.2684219219170934, 42.0);
-      SHOOTER_VELOCITY_MAP.put(2.055824253850473, 44.25);
-      SHOOTER_VELOCITY_MAP.put(2.2183737723024715, 45.0);
-      SHOOTER_VELOCITY_MAP.put(2.3117374055228126, 46.5);
-      SHOOTER_VELOCITY_MAP.put(2.380634439956445, 48.5);
-      SHOOTER_VELOCITY_MAP.put(2.7278039312097353, 51.0);
-      SHOOTER_VELOCITY_MAP.put(2.683809483762821, 51.5);
-      SHOOTER_VELOCITY_MAP.put(3.1532988426000435, 51.875);
-      SHOOTER_VELOCITY_MAP.put(3.4170126639197895, 55.0);
-      SHOOTER_VELOCITY_MAP.put(3.675951047182713, 57.0);
-      SHOOTER_VELOCITY_MAP.put(3.856427421283271, 58.75);
-      SHOOTER_VELOCITY_MAP.put(4.131069897490271, 59.5);
+      SHOOTER_VELOCITY_MAP.put(1.172617836430566, 35.0);
+      SHOOTER_VELOCITY_MAP.put(1.346530562720079, 37.0);
+      SHOOTER_VELOCITY_MAP.put(1.478706275947643, 38.0);
+      SHOOTER_VELOCITY_MAP.put(2.2684219219170934, 40.0);
+      SHOOTER_VELOCITY_MAP.put(2.055824253850473, 42.25);
+      SHOOTER_VELOCITY_MAP.put(2.2183737723024715, 43.0);
+      SHOOTER_VELOCITY_MAP.put(2.3117374055228126, 44.5);
+      SHOOTER_VELOCITY_MAP.put(2.380634439956445, 46.5);
+      SHOOTER_VELOCITY_MAP.put(2.7278039312097353, 49.0);
+      SHOOTER_VELOCITY_MAP.put(2.683809483762821, 49.5);
+      SHOOTER_VELOCITY_MAP.put(3.1532988426000435, 49.875);
+      SHOOTER_VELOCITY_MAP.put(3.4170126639197895, 53.0);
+      SHOOTER_VELOCITY_MAP.put(3.675951047182713, 55.0);
+      SHOOTER_VELOCITY_MAP.put(3.856427421283271, 56.75);
+      SHOOTER_VELOCITY_MAP.put(4.131069897490271, 57.5);
     }
 
     public static final InterpolatingDoubleTreeMap FERRY_VELOCITY_MAP =

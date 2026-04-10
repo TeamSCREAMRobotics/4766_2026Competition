@@ -8,32 +8,27 @@
       },
       "prevControl": null,
       "nextControl": {
-        "x": 1.5057469879518073,
-        "y": 5.947349397590362
+        "x": 1.9750888888888891,
+        "y": 5.106888888888888
       },
       "isLocked": false,
       "linkedName": "After double shoot"
     },
     {
       "anchor": {
-        "x": 1.18,
-        "y": 4.658
+        "x": 1.37,
+        "y": 4.29
       },
       "prevControl": {
-        "x": 1.354433734939759,
-        "y": 5.701420481927711
+        "x": 2.425985463475325,
+        "y": 4.35362492373349
       },
       "nextControl": null,
       "isLocked": false,
       "linkedName": "1C climb"
     }
   ],
-  "rotationTargets": [
-    {
-      "waypointRelativePos": 0.6365145228215722,
-      "rotationDegrees": 90.0
-    }
-  ],
+  "rotationTargets": [],
   "constraintZones": [
     {
       "name": "Constraints Zone",
@@ -52,8 +47,8 @@
   "pointTowardsZones": [],
   "eventMarkers": [],
   "globalConstraints": {
-    "maxVelocity": 4.5,
-    "maxAcceleration": 6.0,
+    "maxVelocity": 4.0,
+    "maxAcceleration": 5.5,
     "maxAngularVelocity": 540.0,
     "maxAngularAcceleration": 720.0,
     "nominalVoltage": 12.0,
@@ -61,7 +56,7 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": 89.19307054489762
+    "rotation": 0.0
   },
   "reversed": false,
   "folder": "Hub Paths",

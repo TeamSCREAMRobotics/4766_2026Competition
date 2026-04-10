@@ -155,9 +155,9 @@ public class RobotContainer {
                 drivetrain,
                 () ->
                     AllianceFlipUtil.get(
-                        new Pose2d(new Translation2d(1.0, 5.0), new Rotation2d(Degrees.of(90.0))),
+                        new Pose2d(new Translation2d(1.969, 4.158), new Rotation2d(Degrees.of(0.0))),
                         new Pose2d(
-                            new Translation2d(15.477, 3.05), new Rotation2d(Degrees.of(-90.0))))));
+                            new Translation2d(14.636, 3.9), new Rotation2d(Degrees.of(180.0))))));
     driverController
         .povRight()
         .whileTrue(
@@ -166,9 +166,9 @@ public class RobotContainer {
                 () ->
                     AllianceFlipUtil.get(
                         new Pose2d(
-                            new Translation2d(1.0, 2.489), new Rotation2d(Degrees.of(-90.0))),
+                            new Translation2d(1.969, 3.3), new Rotation2d(Degrees.of(0.0))),
                         new Pose2d(
-                            new Translation2d(15.477, 5.594), new Rotation2d(Degrees.of(90.0))))));
+                            new Translation2d(14.636, 4.730), new Rotation2d(Degrees.of(180.0))))));
     // driverController
     //     .leftTrigger(0.5)
     //     .whileTrue(
@@ -252,9 +252,9 @@ public class RobotContainer {
         .whileTrue(
             Commands.parallel(
                 Commands.runEnd(
-                    () -> m_intake.runIntake(-6), () -> m_intake.runIntake(0), m_intake),
+                    () -> m_intake.runIntake(-10), () -> m_intake.runIntake(0), m_intake),
                 Commands.runEnd(
-                    () -> m_indexer.runIndexer(-6), () -> m_indexer.runIndexer(0), m_indexer)));
+                    () -> m_indexer.runIndexer(-10), () -> m_indexer.runIndexer(0), m_indexer)));
 
     // driverController
     //     .povUp()
@@ -402,7 +402,7 @@ public class RobotContainer {
     m_indexer.setDefaultCommand(Commands.run(() -> m_indexer.runIndexer(-2), m_indexer));
     m_flywheel.setDefaultCommand(
         Commands.run(
-            () -> m_flywheel.setSetpointVelocity(getDesiredShooterVelocity.getAsDouble() * 0.4),
+            () -> m_flywheel.setSetpointVelocity(getDesiredShooterVelocity.getAsDouble() * 0.30),
             m_flywheel));
 
     // Reset the field-centric heading on left bumper press.

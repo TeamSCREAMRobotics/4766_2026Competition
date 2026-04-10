@@ -21,7 +21,7 @@ import frc.robot.constants.Constants.ShooterConstants;
 public class ShooterSub extends SubsystemBase {
   TalonFX LshooterMotor = new TalonFX(Constants.ShooterConstants.LshooterMoterID);
   TalonFX RshooterMotor = new TalonFX(Constants.ShooterConstants.RshooterMotorID);
-  CANrange shooterCAN = new CANrange(Constants.ShooterConstants.shooterCANID);
+  //CANrange shooterCAN = new CANrange(Constants.ShooterConstants.shooterCANID);
 
   CurrentLimitsConfigs shooterLimitsConfigs = new CurrentLimitsConfigs();
   MotionMagicConfigs shooterMagicConfigs = new MotionMagicConfigs();
@@ -66,9 +66,9 @@ public class ShooterSub extends SubsystemBase {
     RshooterMotor.getConfigurator().apply(RshooterConfig);
   }
 
-  public boolean hasFuel() {
-    return shooterCAN.getIsDetected().getValue();
-  }
+  //  public boolean hasFuel() {
+  //   return shooterCAN.getIsDetected().getValue();
+  // }
 
   public void runShooter(double LVelocity, double RVelocity) {
     LshooterMotor.setControl(m_request.withOutput(LVelocity));
