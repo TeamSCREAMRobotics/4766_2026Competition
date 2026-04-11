@@ -4,12 +4,12 @@
     {
       "anchor": {
         "x": 0.6,
-        "y": 0.51
+        "y": 0.5700000000000001
       },
       "prevControl": null,
       "nextControl": {
         "x": 1.6,
-        "y": 0.5100000000000002
+        "y": 0.5700000000000003
       },
       "isLocked": false,
       "linkedName": "Rbump at outpost"
@@ -42,7 +42,7 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": 25.542020988410155
+    "rotation": 26.070910087622735
   },
   "reversed": false,
   "folder": null,

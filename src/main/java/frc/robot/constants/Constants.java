@@ -94,7 +94,7 @@ public class Constants {
         new InterpolatingDoubleTreeMap();
 
     static {
-      SHOOTER_VELOCITY_MAP.put(0.0, 37.0);
+      SHOOTER_VELOCITY_MAP.put(0.0, 35.0);
       SHOOTER_VELOCITY_MAP.put(1.172617836430566, 35.0);
       SHOOTER_VELOCITY_MAP.put(1.346530562720079, 37.0);
       SHOOTER_VELOCITY_MAP.put(1.478706275947643, 38.0);
@@ -145,7 +145,7 @@ public class Constants {
     public static final double kV = 0;
     public static final double kG = 0;
     public static final double kS = 0.396;
-    public static final double climberTopSetpoint = 8.7;
+    public static final double climberTopSetpoint = 9.2;
     public static final double climberLowSetpoint = 0.0;
     public static final double climberClimbSetpoint = 4;
     public static final double climberReverseThreshold = -0.005;
