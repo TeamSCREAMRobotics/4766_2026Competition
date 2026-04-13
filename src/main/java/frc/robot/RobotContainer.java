@@ -402,7 +402,7 @@ public class RobotContainer {
     m_indexer.setDefaultCommand(Commands.run(() -> m_indexer.runIndexer(-2), m_indexer));
     m_flywheel.setDefaultCommand(
         Commands.run(
-            () -> m_flywheel.setSetpointVelocity(getDesiredShooterVelocity.getAsDouble() * 0.35),
+            () -> m_flywheel.setSetpointVelocity(getDesiredShooterVelocity.getAsDouble() * 0.40),
             m_flywheel));
 
     // Reset the field-centric heading on left bumper press.
@@ -437,7 +437,7 @@ public class RobotContainer {
             .alongWith(new Shoot(m_flywheel, m_indexer, getDesiredShooterVelocity))
             .alongWith(drivetrain.applyRequest(() -> brake))
             .alongWith(new Jostle(m_intake))
-            .withTimeout(7));
+            .withTimeout(6));
     NamedCommands.registerCommand(
         "Shoot Preload",
         Commands.run(

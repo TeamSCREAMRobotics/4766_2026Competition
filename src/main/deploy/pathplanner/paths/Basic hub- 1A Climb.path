@@ -3,13 +3,13 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 2.8813222222222223,
-        "y": 2.427166666666666
+        "x": 3.037233333333333,
+        "y": 3.206722222222222
       },
       "prevControl": null,
       "nextControl": {
-        "x": 2.633099060049068,
-        "y": 2.397413317934801
+        "x": 2.7890101711601787,
+        "y": 3.176968873490357
       },
       "isLocked": false,
       "linkedName": "Hub-at hub"
@@ -48,7 +48,7 @@
   "folder": "Hub Paths",
   "idealStartingState": {
     "velocity": 0,
-    "rotation": 44.34145682243642
+    "rotation": 36.38435181583588
   },
   "useDefaultConstraints": true
 }
