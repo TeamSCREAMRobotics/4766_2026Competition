@@ -155,7 +155,8 @@ public class RobotContainer {
                 drivetrain,
                 () ->
                     AllianceFlipUtil.get(
-                        new Pose2d(new Translation2d(1.969, 4.158), new Rotation2d(Degrees.of(0.0))),
+                        new Pose2d(
+                            new Translation2d(1.969, 4.158), new Rotation2d(Degrees.of(0.0))),
                         new Pose2d(
                             new Translation2d(14.636, 3.9), new Rotation2d(Degrees.of(180.0))))));
     driverController
@@ -165,8 +166,7 @@ public class RobotContainer {
                 drivetrain,
                 () ->
                     AllianceFlipUtil.get(
-                        new Pose2d(
-                            new Translation2d(1.969, 3.3), new Rotation2d(Degrees.of(0.0))),
+                        new Pose2d(new Translation2d(1.969, 3.3), new Rotation2d(Degrees.of(0.0))),
                         new Pose2d(
                             new Translation2d(14.636, 4.730), new Rotation2d(Degrees.of(180.0))))));
     // driverController

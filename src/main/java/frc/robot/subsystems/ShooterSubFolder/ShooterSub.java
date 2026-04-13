@@ -9,7 +9,6 @@ import com.ctre.phoenix6.configs.MotionMagicConfigs;
 import com.ctre.phoenix6.configs.Slot0Configs;
 import com.ctre.phoenix6.configs.TalonFXConfiguration;
 import com.ctre.phoenix6.controls.VoltageOut;
-import com.ctre.phoenix6.hardware.CANrange;
 import com.ctre.phoenix6.hardware.TalonFX;
 import com.ctre.phoenix6.signals.InvertedValue;
 import com.ctre.phoenix6.signals.NeutralModeValue;
@@ -21,7 +20,7 @@ import frc.robot.constants.Constants.ShooterConstants;
 public class ShooterSub extends SubsystemBase {
   TalonFX LshooterMotor = new TalonFX(Constants.ShooterConstants.LshooterMoterID);
   TalonFX RshooterMotor = new TalonFX(Constants.ShooterConstants.RshooterMotorID);
-  //CANrange shooterCAN = new CANrange(Constants.ShooterConstants.shooterCANID);
+  // CANrange shooterCAN = new CANrange(Constants.ShooterConstants.shooterCANID);
 
   CurrentLimitsConfigs shooterLimitsConfigs = new CurrentLimitsConfigs();
   MotionMagicConfigs shooterMagicConfigs = new MotionMagicConfigs();
