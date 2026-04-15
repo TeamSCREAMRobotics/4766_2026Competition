@@ -22,7 +22,7 @@ public class Intake extends SubsystemBase {
   private TalonFX intakePivot = new TalonFX(Constants.IntakeConstants.intakePivotID);
   private TalonFX intakeMotor = new TalonFX(Constants.IntakeConstants.intakeMotorID);
 
-  private VoltageOut m_request = new VoltageOut(0); 
+  private VoltageOut m_request = new VoltageOut(0);
   private MotionMagicVoltage m_magicrequest = new MotionMagicVoltage(0);
 
   private TalonFXConfiguration intakeConfig = new TalonFXConfiguration();
