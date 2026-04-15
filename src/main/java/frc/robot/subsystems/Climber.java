@@ -18,11 +18,13 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.constants.Constants;
 import frc.robot.constants.Constants.ClimberConstants;
-import frc.robot.constants.Constants.IntakeConstants;
+
+//TODO: Clean and make easier to read
 
 public class Climber extends SubsystemBase {
   TalonFX climbermotor = new TalonFX(Constants.ClimberConstants.climbermotorID);
   VoltageOut m_request = new VoltageOut(0);
+
   TalonFXConfiguration climberConfigs = new TalonFXConfiguration();
   Slot0Configs climberPIDConfigs = new Slot0Configs();
   MotionMagicConfigs climberMagicConfigs = new MotionMagicConfigs();
@@ -31,12 +33,7 @@ public class Climber extends SubsystemBase {
   /** Creates a new Climber. */
   public Climber() {
     climberConfigs.MotorOutput.NeutralMode = NeutralModeValue.Brake;
-    climberConfigs.SoftwareLimitSwitch.ForwardSoftLimitThreshold =
-        IntakeConstants.intakePivotForwardSoftLimit;
-    climberConfigs.SoftwareLimitSwitch.ReverseSoftLimitThreshold =
-        IntakeConstants.intakePivotReverseSoftLimit;
-    climberConfigs.SoftwareLimitSwitch.ForwardSoftLimitEnable = false;
-    climberConfigs.SoftwareLimitSwitch.ReverseSoftLimitEnable = false;
+
     climberConfigs.Feedback.SensorToMechanismRatio = 45;
 
     climberConfigs.CurrentLimits.StatorCurrentLimit = 60;
@@ -76,7 +73,7 @@ public class Climber extends SubsystemBase {
   }
 
   // This tells you when the climber has finished going to the position given
-  public boolean climberIsFinished(double setpoint) {
+  public boolean climberAtSetpoint(double setpoint) {
     return climbermotor.getPosition().getValueAsDouble() >= setpoint - 0.05
         && climbermotor.getPosition().getValueAsDouble() <= setpoint + 0.05;
   }

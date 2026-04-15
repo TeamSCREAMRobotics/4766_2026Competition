@@ -2,7 +2,7 @@
 // Open Source Software; you can modify and/or share it under the terms of
 // the WPILib BSD license file in the root directory of this project.
 
-package frc.robot.commands.Shooter;
+package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
@@ -47,13 +47,13 @@ public class QuickJostle extends Command {
     // }
     m_Intake.runIntake(8);
     if (timer > 24) {
-      m_Intake.IntakeGoToSetpoint(IntakeConstants.intakeAgitateLowSetpoint);
+      m_Intake.IntakeGoToSetpoint(IntakeConstants.intakeJostleLowSetpoint);
       timer++;
       if (timer > 50) {
         timer = 0;
       }
     } else {
-      m_Intake.IntakeGoToSetpoint(IntakeConstants.intakeAgitateHighSetpoint);
+      m_Intake.IntakeGoToSetpoint(IntakeConstants.intakeJostleHighSetpoint);
       timer++;
     }
   }

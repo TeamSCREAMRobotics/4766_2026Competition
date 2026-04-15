@@ -34,6 +34,10 @@ public class Constants {
   public class IntakeConstants {
     public static final int intakeMotorID = 14;
     public static final int intakePivotID = 12;
+
+    public static final double intakePivotForwardSoftLimit = 11.3;
+    public static final double intakePivotReverseSoftLimit = -0.3;
+
     public static final double kP = 3.0;
     public static final double kI = 0;
     public static final double kD = 0;
@@ -48,20 +52,13 @@ public class Constants {
 
     public static final double intakeClimbSetpoint = 0.1;
 
-    public static final double intakeAgitateHighSetpoint = 6.0;
-    public static final double intakeAgitateLowSetpoint = 9.88;
-
-    public static final double intakePivotForwardSoftLimit = 11.3;
-    public static final double intakePivotReverseSoftLimit = -0.3;
+    public static final double intakeJostleHighSetpoint = 6.0;
+    public static final double intakeJostleLowSetpoint = 9.88;
   }
 
   public class ShooterConstants {
     public static final int LshooterMoterID = 17; // testing on testbed
     public static final int RshooterMotorID = 16;
-    // public static final int shooterCANID = 0;
-
-    public static final int pivotMotorID = 0;
-    // public static final int pivotCanID = 0;
 
     public static final double kG = 0.0;
     public static final double kV = 0.0;
@@ -79,20 +76,8 @@ public class Constants {
 
     public static final double FerryMultiplier = 1.4;
 
-    //  public static final InterpolatingDoubleTreeMap HOOD_MAP = new InterpolatingDoubleTreeMap();
-    //
-    //  static {
-    //    // placeholder values before testing
-    //    // (distance to hub, hood angle)
-    //    HOOD_MAP.put(1.0, 10.0);
-    //    HOOD_MAP.put(2.0, 20.0);
-    //    HOOD_MAP.put(3.0, 30.0);
-    //    HOOD_MAP.put(4.0, 40.0);
-    //  }
-
     public static final InterpolatingDoubleTreeMap SHOOTER_VELOCITY_MAP =
         new InterpolatingDoubleTreeMap();
-
     static {
       SHOOTER_VELOCITY_MAP.put(0.0, 35.0);
       SHOOTER_VELOCITY_MAP.put(1.172617836430566, 35.0);
@@ -114,7 +99,6 @@ public class Constants {
 
     public static final InterpolatingDoubleTreeMap FERRY_VELOCITY_MAP =
         new InterpolatingDoubleTreeMap();
-
     static {
       FERRY_VELOCITY_MAP.put(5.2017290654681645, 60.0);
       FERRY_VELOCITY_MAP.put(5.6121598744553705, 65.0);
@@ -122,37 +106,26 @@ public class Constants {
       FERRY_VELOCITY_MAP.put(5.847200109873536, 72.0);
       FERRY_VELOCITY_MAP.put(6.3485489201924254, 75.0);
     }
-
-    // public static final InterpolatingDoubleTreeMap RSHOOTER_VELOCITY_MAP =
-    //     new InterpolatingDoubleTreeMap();
-
-    // static {
-    //   // placeholder values before testing
-    //   // (distance to hub, flywheel voltage)
-    //   RSHOOTER_VELOCITY_MAP.put(1.0, 8.0);
-    //   RSHOOTER_VELOCITY_MAP.put(2.0, 3.0);\[]
-
-    //   RSHOOTER_VELOCITY_MAP.put(3.0, 5.0);
-    //   RSHOOTER_VELOCITY_MAP.put(4.0, 6.5);
-    // }
   }
 
   public class ClimberConstants {
     public static final int climbermotorID = 20;
+
+    public static final double climberReverseThreshold = -0.005;
+    public static final double climberForwardThreshold = 8.75;
+
     public static final double kP = 70;
     public static final double kI = 0;
     public static final double kD = 0.7;
     public static final double kV = 0;
     public static final double kG = 0;
     public static final double kS = 0.396;
-    public static final double climberTopSetpoint = 9.2;
-    public static final double climberLowSetpoint = 0.0;
-    public static final double climberClimbSetpoint = 4;
-    public static final double climberReverseThreshold = -0.005;
-    public static final double climberForwardThreshold = 8.75;
-
     public static final double climberMagicAccereation = 6;
     public static final double climberMagicCruiseVelocity = 2;
+
+    public static final double climberTopSetpoint = 9.2;
+    public static final double climberRestSetpoint = 0.0;
+    public static final double climberClimbSetpoint = 4;
   }
 
   public class IndexerConstants {
