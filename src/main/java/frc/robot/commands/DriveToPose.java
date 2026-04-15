@@ -29,7 +29,8 @@ public class DriveToPose extends Command {
       DrivetrainConstants.driveAlignmentController;
   private final PIDController headingController = DrivetrainConstants.headingController;
 
-  private double driveErrorAbs = 1.0;
+  private double driveErrorAbs;
+  private double deadband = 1.0;
   private Translation2d lastSetpointTranslation;
 
   private Optional<DoubleSupplier> yOverride = Optional.empty();
@@ -92,6 +93,10 @@ public class DriveToPose extends Command {
     double currentDistance = currentPose.getTranslation().getDistance(targetPose.getTranslation());
     double ffScaler = MathUtil.clamp((currentDistance - 0.2) / (0.8 - 0.2), 0.0, 1.0);
     driveErrorAbs = currentDistance;
+
+    if(Math.abs(driveErrorAbs) < deadband){
+      driveErrorAbs = 0;
+    }
 
     lastSetpointTranslation =
         new Pose2d(
