@@ -48,13 +48,13 @@ public class Jostle extends Command {
     m_Intake.runIntake(8);
     if (intTimer > 70) {
       if (timer > 24) {
-        m_Intake.IntakeGoToSetpoint(IntakeConstants.intakeAgitateLowSetpoint);
+        m_Intake.IntakeGoToSetpoint(IntakeConstants.intakeJostleLowSetpoint);
         timer++;
         if (timer > 50) {
           timer = 0;
         }
       } else {
-        m_Intake.IntakeGoToSetpoint(IntakeConstants.intakeAgitateHighSetpoint);
+        m_Intake.IntakeGoToSetpoint(IntakeConstants.intakeJostleHighSetpoint);
         timer++;
       }
     }

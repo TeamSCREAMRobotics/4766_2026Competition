@@ -20,7 +20,6 @@ import frc.robot.constants.Constants.ShooterConstants;
 public class ShooterSub extends SubsystemBase {
   TalonFX LshooterMotor = new TalonFX(Constants.ShooterConstants.LshooterMoterID);
   TalonFX RshooterMotor = new TalonFX(Constants.ShooterConstants.RshooterMotorID);
-  // CANrange shooterCAN = new CANrange(Constants.ShooterConstants.shooterCANID);
 
   CurrentLimitsConfigs shooterLimitsConfigs = new CurrentLimitsConfigs();
   MotionMagicConfigs shooterMagicConfigs = new MotionMagicConfigs();

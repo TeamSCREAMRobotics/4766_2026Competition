@@ -31,11 +31,9 @@ import edu.wpi.first.wpilibj2.command.sysid.SysIdRoutine.Direction;
 import frc.robot.commands.DriveToPose;
 import frc.robot.commands.Ferry;
 import frc.robot.commands.Index;
-import frc.robot.commands.IntakeGoToSetpoint;
 import frc.robot.commands.Jostle;
-import frc.robot.commands.RunClimber;
+import frc.robot.commands.QuickJostle;
 import frc.robot.commands.RunIntake;
-import frc.robot.commands.Shooter.QuickJostle;
 import frc.robot.commands.Shooter.Shoot;
 import frc.robot.commands.StopAllRollers;
 import frc.robot.constants.Constants.ClimberConstants;
@@ -256,51 +254,6 @@ public class RobotContainer {
                 Commands.runEnd(
                     () -> m_indexer.runIndexer(-10), () -> m_indexer.runIndexer(0), m_indexer)));
 
-    // driverController
-    //     .povUp()
-    //     .whileTrue(
-    //         Commands.run(
-    //                 () -> lFlywheel.setSetpointVelocity(ShooterConstants.closeShoot), lFlywheel)
-    //             .alongWith(
-    //                 Commands.run(
-    //                         () -> rFlywheel.setSetpointVelocity(ShooterConstants.closeShoot),
-    //                         rFlywheel)
-    //                     .alongWith(
-    //                         new Shoot40(
-    //                             lFlywheel, rFlywheel, m_agitator, ShooterConstants.closeShoot))
-    //                     .alongWith(drivetrain.applyRequest(() -> brake))
-    //                     .alongWith(new Jostle(m_intake))));
-
-    // driverController
-    //     .povLeft()
-    //     .whileTrue(
-    //         Commands.run(() -> lFlywheel.setSetpointVelocity(ShooterConstants.midShoot),
-    // lFlywheel)
-    //             .alongWith(
-    //                 Commands.run(
-    //                         () -> rFlywheel.setSetpointVelocity(ShooterConstants.midShoot),
-    //                         rFlywheel)
-    //                     .alongWith(
-    //                         new Shoot50(
-    //                             lFlywheel, rFlywheel, m_agitator, ShooterConstants.midShoot))
-    //                     .alongWith(drivetrain.applyRequest(() -> brake))
-    //                     .alongWith(new Jostle(m_intake))));
-
-    // driverController
-    //     .povDown()
-    //     .whileTrue(
-    //         Commands.run(() -> lFlywheel.setSetpointVelocity(ShooterConstants.farShoot),
-    // lFlywheel)
-    //             .alongWith(
-    //                 Commands.run(
-    //                         () -> rFlywheel.setSetpointVelocity(ShooterConstants.farShoot),
-    //                         rFlywheel)
-    //                     .alongWith(
-    //                         new Shoot60(
-    //                             lFlywheel, rFlywheel, m_agitator, ShooterConstants.farShoot))
-    //                     .alongWith(drivetrain.applyRequest(() -> brake))
-    //                     .alongWith(new Jostle(m_intake))));
-
     //  operatorController.leftTrigger(0.5).whileTrue(new
     //  FeedForwardCharacterization(m_flywheel,m_flywheel::setVoltage, m_flywheel::getVelocity));
     driverController
@@ -328,8 +281,6 @@ public class RobotContainer {
                 () -> m_intake.IntakeGoToSetpoint(IntakeConstants.intakePivotUpSetpoint),
                 m_intake));
 
-    // driverController.rightBumper().whileTrue(new RunIntake(m_intake, 12));
-
     driverController
         .rightBumper()
         .whileTrue(
@@ -348,17 +299,20 @@ public class RobotContainer {
                                         * 0.4) // Drive left with negative X (left)
                                 .withRotationalRate(
                                     -driverController.getRightX() * MaxAngularRate))));
+
     driverController.start().onTrue(Commands.runOnce(() -> m_intake.resetIntake(), m_intake));
 
     operatorController
         .back()
         .onTrue(Commands.runOnce(() -> m_climber.resetClimberPose(), m_climber));
+
     operatorController
         .a()
         .onTrue(
             Commands.runOnce(
-                () -> m_climber.climberGoToSetpoint(ClimberConstants.climberLowSetpoint),
+                () -> m_climber.climberGoToSetpoint(ClimberConstants.climberRestSetpoint),
                 m_climber));
+
     operatorController
         .x()
         .onTrue(
@@ -366,6 +320,7 @@ public class RobotContainer {
                     () -> m_climber.climberGoToSetpoint(ClimberConstants.climberClimbSetpoint),
                     m_climber)
                 .alongWith(new StopAllRollers(m_flywheel, m_indexer)));
+
     operatorController
         .y()
         .onTrue(
@@ -377,17 +332,21 @@ public class RobotContainer {
                         () -> m_climber.climberGoToSetpoint(ClimberConstants.climberTopSetpoint),
                         m_climber))
                 .alongWith(new StopAllRollers(m_flywheel, m_indexer)));
+
     operatorController.leftTrigger().whileTrue(new QuickJostle(m_intake));
+
     operatorController
         .povDown()
         .whileTrue(
             Commands.runEnd(
                 () -> m_climber.manualClimber(-1), () -> m_climber.manualClimber(0), m_climber));
+
     operatorController
         .povUp()
         .whileTrue(
             Commands.runEnd(
                 () -> m_climber.manualClimber(1), () -> m_climber.manualClimber(0), m_climber));
+
     operatorController
         .rightTrigger(0.5)
         .whileTrue(
@@ -400,6 +359,7 @@ public class RobotContainer {
                 .alongWith(new Jostle(m_intake)));
 
     m_indexer.setDefaultCommand(Commands.run(() -> m_indexer.runIndexer(-2), m_indexer));
+
     m_flywheel.setDefaultCommand(
         Commands.run(
             () -> m_flywheel.setSetpointVelocity(getDesiredShooterVelocity.getAsDouble() * 0.40),
@@ -422,10 +382,16 @@ public class RobotContainer {
   public void addNamedCommands() {
     NamedCommands.registerCommand(
         "Intake Down",
-        new IntakeGoToSetpoint(m_intake, IntakeConstants.intakePivotDownSetpoint).withTimeout(1.5));
+        Commands.runOnce(
+                () -> m_intake.IntakeGoToSetpoint(IntakeConstants.intakePivotDownSetpoint),
+                m_intake)
+            .withTimeout(1.5));
     NamedCommands.registerCommand(
         "Intake Up",
-        new IntakeGoToSetpoint(m_intake, IntakeConstants.intakePivotUpSetpoint).withTimeout(1));
+        Commands.runOnce(
+                () -> m_intake.IntakeGoToSetpoint(IntakeConstants.intakePivotUpSetpoint), m_intake)
+            .withTimeout(1));
+
     NamedCommands.registerCommand("Run Intake", new RunIntake(m_intake, 10));
     NamedCommands.registerCommand("Run Indexer", new Index(m_indexer, -1));
 
@@ -449,14 +415,18 @@ public class RobotContainer {
             .withTimeout(5));
 
     NamedCommands.registerCommand(
-        "Climber to 0", new RunClimber(m_climber, ClimberConstants.climberLowSetpoint));
+        "Climber to 0",
+        Commands.runOnce(
+            () -> m_climber.climberGoToSetpoint(ClimberConstants.climberRestSetpoint)));
     NamedCommands.registerCommand(
         "Climber to max",
         (Commands.run(() -> m_climber.climberGoToSetpoint(ClimberConstants.climberTopSetpoint))
                 .alongWith(new StopAllRollers(m_flywheel, m_indexer)))
             .withTimeout(2));
     NamedCommands.registerCommand(
-        "Climber down", new RunClimber(m_climber, ClimberConstants.climberClimbSetpoint));
+        "Climber down",
+        m_climber.runOnce(
+            () -> m_climber.climberGoToSetpoint(ClimberConstants.climberClimbSetpoint)));
   }
 
   public double getShooterDistance() {
@@ -504,6 +474,7 @@ public class RobotContainer {
 
   public void Periodic() {
     field.setRobotPose(drivetrain.getPose());
+    Dashboard.initialize();
     SmartDashboard.putData(field);
     SmartDashboard.getNumber("Climber Pose", m_climber.getClimberPose());
     SmartDashboard.putNumber("Flywheel RPS", m_flywheel.getVelocity());
@@ -511,13 +482,7 @@ public class RobotContainer {
     SmartDashboard.putNumber("Calculated Distance", this.getShooterDistance());
     SmartDashboard.putNumber(
         "Treemap Velocity", ShooterConstants.SHOOTER_VELOCITY_MAP.get(this.getShooterDistance()));
-    Dashboard.initialize();
     SmartDashboard.putNumber("Flywheel Voltage", m_flywheel.getflywheelvoltage());
     SmartDashboard.putNumber("Calculated Ferry Distance", this.getFerryDistance());
   }
 }
-
-//    return drivetrain.getPose().getTranslation().getDistance(
-        // AllianceFlipUtil.get(
-        // Hub.hubCenter,
-        // Hub.oppHubCenter));

@@ -18,6 +18,8 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.constants.Constants;
 import frc.robot.constants.Constants.IntakeConstants;
 
+// TODO: Clean and make easier to read
+
 // Creates the Master and the Follower and Voltage (mostly just variables)
 public class Intake extends SubsystemBase {
   private TalonFX intakePivot = new TalonFX(Constants.IntakeConstants.intakePivotID);

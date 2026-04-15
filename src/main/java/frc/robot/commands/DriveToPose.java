@@ -29,7 +29,7 @@ public class DriveToPose extends Command {
       DrivetrainConstants.driveAlignmentController;
   private final PIDController headingController = DrivetrainConstants.headingController;
 
-  private double driveErrorAbs;
+  private double driveErrorAbs = 1.0;
   private Translation2d lastSetpointTranslation;
 
   private Optional<DoubleSupplier> yOverride = Optional.empty();
