@@ -126,7 +126,6 @@ public class DriveToPose extends Command {
               .getTranslation();
     }
 
-
     drivetrain.setControl(
         drivetrain
             .getHelper()
@@ -150,8 +149,8 @@ public class DriveToPose extends Command {
     return driveController.atGoal() && headingController.atSetpoint();
   }
 
-    @Override
-    public boolean isFinished(){
-      return atGoal();
-    }
+  @Override
+  public boolean isFinished() {
+    return atGoal();
+  }
 }
