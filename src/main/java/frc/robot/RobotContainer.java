@@ -49,11 +49,9 @@ import frc.robot.subsystems.Indexer;
 import frc.robot.subsystems.Intake;
 import frc.robot.subsystems.ShooterSubFolder.Flywheel;
 import frc.robot.subsystems.ShooterSubFolder.FlywheelConfig;
-import frc.robot.subsystems.ShooterSubFolder.ShooterSub;
 import java.util.function.DoubleSupplier;
 
 public class RobotContainer {
-  ShooterSub s_Shooter = new ShooterSub();
   private double MaxSpeed =
       0.6 * TunerConstants.kSpeedAt12Volts.in(MetersPerSecond); // kSpeedAt12Volts desired top speed
   private double MaxAngularRate =
@@ -76,9 +74,7 @@ public class RobotContainer {
   private final Telemetry logger = new Telemetry(MaxSpeed);
   public final Climber m_climber = new Climber();
   private final Intake m_intake = new Intake();
-  //   private final ShooterSub m_shooter = new ShooterSub();
   private final Indexer m_indexer = new Indexer();
-  //   private final LimelightHelpers m_limelight = new LimelightHelpers();
 
   Field2d field = new Field2d();
 

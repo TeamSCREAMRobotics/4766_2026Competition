@@ -18,24 +18,21 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.constants.Constants;
 import frc.robot.constants.Constants.IntakeConstants;
 
-// TODO: Clean and make easier to read
-
-// Creates the Master and the Follower and Voltage (mostly just variables)
 public class Intake extends SubsystemBase {
   private TalonFX intakePivot = new TalonFX(Constants.IntakeConstants.intakePivotID);
   private TalonFX intakeMotor = new TalonFX(Constants.IntakeConstants.intakeMotorID);
 
-  private VoltageOut m_request =
-      new VoltageOut(0); // m_request == make request (i forget what it means sometimes)
+  private VoltageOut m_request = new VoltageOut(0); 
   private MotionMagicVoltage m_magicrequest = new MotionMagicVoltage(0);
+
   private TalonFXConfiguration intakeConfig = new TalonFXConfiguration();
-  // private TalonFXConfiguration intakePivotConfig = new TalonFXConfiguration();
   private Slot0Configs intakePIDConfigs = new Slot0Configs();
   private MotionMagicConfigs intakeMagicConfigs = new MotionMagicConfigs();
 
   // Creates a new Intake.
   public Intake() {
     intakeConfig.MotorOutput.NeutralMode = NeutralModeValue.Brake;
+
     intakeConfig.CurrentLimits.StatorCurrentLimit = 60;
     intakeConfig.CurrentLimits.StatorCurrentLimitEnable = true;
     intakeConfig.CurrentLimits.SupplyCurrentLimit = 40;
