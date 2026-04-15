@@ -78,6 +78,7 @@ public class Constants {
 
     public static final InterpolatingDoubleTreeMap SHOOTER_VELOCITY_MAP =
         new InterpolatingDoubleTreeMap();
+
     static {
       SHOOTER_VELOCITY_MAP.put(0.0, 35.0);
       SHOOTER_VELOCITY_MAP.put(1.172617836430566, 35.0);
@@ -99,6 +100,7 @@ public class Constants {
 
     public static final InterpolatingDoubleTreeMap FERRY_VELOCITY_MAP =
         new InterpolatingDoubleTreeMap();
+
     static {
       FERRY_VELOCITY_MAP.put(5.2017290654681645, 60.0);
       FERRY_VELOCITY_MAP.put(5.6121598744553705, 65.0);

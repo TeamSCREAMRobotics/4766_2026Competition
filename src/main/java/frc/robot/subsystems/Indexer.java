@@ -14,7 +14,7 @@ import com.ctre.phoenix6.signals.NeutralModeValue;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.constants.Constants.IndexerConstants;
 
-//TODO: Clean and make easier to read
+// TODO: Clean and make easier to read
 
 public class Indexer extends SubsystemBase {
   TalonFX indexerMaster = new TalonFX(IndexerConstants.agitatorMotorID);

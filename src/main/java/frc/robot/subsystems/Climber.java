@@ -19,7 +19,7 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.constants.Constants;
 import frc.robot.constants.Constants.ClimberConstants;
 
-//TODO: Clean and make easier to read
+// TODO: Clean and make easier to read
 
 public class Climber extends SubsystemBase {
   TalonFX climbermotor = new TalonFX(Constants.ClimberConstants.climbermotorID);
