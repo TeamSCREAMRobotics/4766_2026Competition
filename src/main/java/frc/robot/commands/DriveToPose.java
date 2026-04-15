@@ -30,7 +30,7 @@ public class DriveToPose extends Command {
   private final PIDController headingController = DrivetrainConstants.headingController;
 
   private double driveErrorAbs;
-  private double deadband = 1.0;
+  private double deadband = 0.1;
   private Translation2d lastSetpointTranslation;
 
   private Optional<DoubleSupplier> yOverride = Optional.empty();
@@ -126,6 +126,7 @@ public class DriveToPose extends Command {
               .getTranslation();
     }
 
+
     drivetrain.setControl(
         drivetrain
             .getHelper()
@@ -148,4 +149,9 @@ public class DriveToPose extends Command {
   public boolean atGoal() {
     return driveController.atGoal() && headingController.atSetpoint();
   }
+
+    @Override
+    public boolean isFinished(){
+      return atGoal();
+    }
 }

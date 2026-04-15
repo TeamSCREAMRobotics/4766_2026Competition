@@ -46,7 +46,7 @@ public final class DrivetrainConstants {
       headingCorrectionConstants.getPIDController(-Math.PI, Math.PI);
 
   public static final ScreamPIDConstants pathTranslationConstants =
-      new ScreamPIDConstants(10.0, 0.0, 0.0);
+      new ScreamPIDConstants(5.0, 0.0, 0.0);
   public static final ScreamPIDConstants pathRotationConstants =
       new ScreamPIDConstants(7.0, 0.0, 0.0);
 
