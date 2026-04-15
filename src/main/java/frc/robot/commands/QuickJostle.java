@@ -34,17 +34,6 @@ public class QuickJostle extends Command {
   @Override
   public void execute() {
     SmartDashboard.putNumber("timer", timer);
-    // if(Timer.getTimestamp() > 0.25){
-    // m_Intake.IntakeGoToSetpoint(IntakeConstants.intakePivotDownSetpoint);
-    //   if(Timer.getTimestamp() > 0.5){
-    //     timer = new Timer();
-    //     timer.start();
-
-    //   }
-    // }
-    // else{
-    //   m_Intake.IntakeGoToSetpoint(IntakeConstants.intakeAgitateSetpoint);
-    // }
     m_Intake.runIntake(8);
     if (timer > 24) {
       m_Intake.IntakeGoToSetpoint(IntakeConstants.intakeJostleLowSetpoint);

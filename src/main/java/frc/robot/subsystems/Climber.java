@@ -19,16 +19,15 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.constants.Constants;
 import frc.robot.constants.Constants.ClimberConstants;
 
-// TODO: Clean and make easier to read
-
 public class Climber extends SubsystemBase {
   TalonFX climbermotor = new TalonFX(Constants.ClimberConstants.climbermotorID);
   VoltageOut m_request = new VoltageOut(0);
 
+  MotionMagicVoltage m_MagicVoltage = new MotionMagicVoltage(0);
+
   TalonFXConfiguration climberConfigs = new TalonFXConfiguration();
   Slot0Configs climberPIDConfigs = new Slot0Configs();
   MotionMagicConfigs climberMagicConfigs = new MotionMagicConfigs();
-  MotionMagicVoltage m_MagicVoltage = new MotionMagicVoltage(0);
 
   /** Creates a new Climber. */
   public Climber() {

@@ -94,7 +94,7 @@ public class DriveToPose extends Command {
     double ffScaler = MathUtil.clamp((currentDistance - 0.2) / (0.8 - 0.2), 0.0, 1.0);
     driveErrorAbs = currentDistance;
 
-    if(Math.abs(driveErrorAbs) < deadband){
+    if (Math.abs(driveErrorAbs) < deadband) {
       driveErrorAbs = 0;
     }
 
