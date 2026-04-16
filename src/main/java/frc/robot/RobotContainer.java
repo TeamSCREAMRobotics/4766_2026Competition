@@ -144,47 +144,26 @@ public class RobotContainer {
 
     driverController //1C
         .povLeft()
-        .onTrue(
+        .onTrue(Commands.runOnce(() -> m_intake.IntakeGoToSetpoint(IntakeConstants.intakeClimbSetpoint), m_intake).andThen(Commands.runOnce(() -> m_climber.climberGoToSetpoint(ClimberConstants.climberTopSetpoint)).andThen(new DriveToPose(drivetrain, () -> AllianceFlipUtil.get(new Pose2d(new Translation2d(2.1, 4.15), new Rotation2d(Degrees.of(0.0))), 
+         new Pose2d(new Translation2d(14.3, 3.9), new Rotation2d(Degrees.of(180.0))))).andThen(
             new DriveToPose(
-                    drivetrain,
-                    () ->
-                        AllianceFlipUtil.get(
-                            new Pose2d(
-                                new Translation2d(2.1, 4.15), new Rotation2d(Degrees.of(0.0))),
-                            new Pose2d(
-                                new Translation2d(14.3, 3.9), new Rotation2d(Degrees.of(180.0)))))
-                .andThen(
-                    new DriveToPose(
-                        drivetrain,
-                        () ->
-                            AllianceFlipUtil.get(
-                                new Pose2d(
-                                    new Translation2d(1.370, 4.15),
-                                    new Rotation2d(Degrees.of(0.0))), // <- blue side
-                                new Pose2d(
-                                    new Translation2d(15.1, 3.9),
-                                    new Rotation2d(Degrees.of(180.0))))))); // <- red side
-    driverController //1A
+                drivetrain,
+                () ->
+                    AllianceFlipUtil.get(
+                        new Pose2d(
+                            new Translation2d(1.370, 4.15), new Rotation2d(Degrees.of(0.0))), // <- blue side
+                        new Pose2d(
+                            new Translation2d(15.1, 3.9), new Rotation2d(Degrees.of(180.0))))))))); //<- red side
+    driverController
         .povRight()
-        .onTrue(
+        .onTrue(Commands.runOnce(() -> m_intake.IntakeGoToSetpoint(IntakeConstants.intakeClimbSetpoint), m_intake).andThen(Commands.runOnce(() -> m_climber.climberGoToSetpoint(ClimberConstants.climberTopSetpoint)).andThen(new DriveToPose(drivetrain, () -> AllianceFlipUtil.get(new Pose2d(new Translation2d(2.1, 3.270), new Rotation2d(Degrees.of(0.0))),
+         new Pose2d(new Translation2d(14.3, 4.8), new Rotation2d(Degrees.of(180.0))))).andThen(Commands.runOnce(() -> m_climber.climberGoToSetpoint(ClimberConstants.climberTopSetpoint), m_climber))).andThen(
             new DriveToPose(
                     drivetrain,
-                    () ->
-                        AllianceFlipUtil.get(
-                            new Pose2d(
-                                new Translation2d(2.1, 3.270), new Rotation2d(Degrees.of(0.0))),
-                            new Pose2d(
-                                new Translation2d(14.3, 4.8), new Rotation2d(Degrees.of(180.0)))))
-                .andThen(
-                    new DriveToPose(
-                        drivetrain,
-                        AllianceFlipUtil.get(
-                            new Pose2d(
-                                new Translation2d(1.30, 3.270),
-                                new Rotation2d(Degrees.of(0.0))), // <- blue side
-                            new Pose2d(
-                                new Translation2d(15.1, 4.8),
-                                new Rotation2d(Degrees.of(180.0))))))); // <- red side
+                    AllianceFlipUtil.get(
+                        new Pose2d(new Translation2d(1.30, 3.270), new Rotation2d(Degrees.of(0.0))), // <- blue side
+                        new Pose2d(
+                            new Translation2d(15.1, 4.8), new Rotation2d(Degrees.of(180.0)))))))); // <- red side
     // driverController
     //     .leftTrigger(0.5)
     //     .whileTrue(
@@ -448,10 +427,10 @@ public class RobotContainer {
     NamedCommands.registerCommand(
         "Drive To 1A",
         new DriveToPose(
-            drivetrain,
-            AllianceFlipUtil.get(
-                new Pose2d(new Translation2d(2.1, 3.270), new Rotation2d(Degrees.of(0.0))),
-                new Pose2d(new Translation2d(14.3, 4.8), new Rotation2d(Degrees.of(180.0)))))
+                drivetrain,
+                AllianceFlipUtil.get(
+                    new Pose2d(new Translation2d(2.1, 4.15), new Rotation2d(Degrees.of(0.0))),
+                    new Pose2d(new Translation2d(13.9, 3.9), new Rotation2d(Degrees.of(180.0)))))
             .andThen(
                 new DriveToPose(
                     drivetrain,
@@ -462,23 +441,12 @@ public class RobotContainer {
                         new Pose2d
                             (new Translation2d(15.1, 4.8), 
                             new Rotation2d(Degrees.of(180.0))))))); // <- red side
-        NamedCommands.registerCommand(
         "Drive To 1C",
         new DriveToPose(
             drivetrain,
             AllianceFlipUtil.get(
                 new Pose2d(new Translation2d(2.1, 4.15), new Rotation2d(Degrees.of(0.0))),
-                new Pose2d(new Translation2d(14.3, 3.9), new Rotation2d(Degrees.of(180.0)))))
-            .andThen(
-                new DriveToPose(
-                    drivetrain,
-                    AllianceFlipUtil.get(
-                        new Pose2d
-                            (new Translation2d(1.370, 4.15), 
-                            new Rotation2d(Degrees.of(0.0))), // <- blue side
-                        new Pose2d
-                            (new Translation2d(15.1, 3.9), 
-                            new Rotation2d(Degrees.of(180.0))))))); // <- red side
+                new Pose2d(new Translation2d(14.3, 3.9), new Rotation2d(Degrees.of(180.0)))));
   }
 
   public double getShooterDistance() {
