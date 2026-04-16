@@ -445,6 +445,32 @@ public class RobotContainer {
         "Climber down",
         m_climber.runOnce(
             () -> m_climber.climberGoToSetpoint(ClimberConstants.climberClimbSetpoint)));
+    NamedCommands.registerCommand(
+        "Drive To 1A",
+        new DriveToPose(
+            drivetrain,
+            AllianceFlipUtil.get(
+                new Pose2d(new Translation2d(2.1, 4.15), new Rotation2d(Degrees.of(0.0))),
+                new Pose2d(new Translation2d(13.9, 3.9), new Rotation2d(Degrees.of(180.0)))))
+            .andThen(
+                new DriveToPose(
+                    drivetrain,
+                    AllianceFlipUtil.get(
+                        new Pose2d(new Translation2d(1.370, 4.15), new Rotation2d(Degrees.of(0.0))),
+                        new Pose2d(new Translation2d(14.636, 3.9), new Rotation2d(Degrees.of(180.0)))))));
+        NamedCommands.registerCommand(
+        "Drive To 1C",
+        new DriveToPose(
+            drivetrain,
+            AllianceFlipUtil.get(
+                new Pose2d(new Translation2d(2.1, 4.15), new Rotation2d(Degrees.of(0.0))),
+                new Pose2d(new Translation2d(13.9, 3.9), new Rotation2d(Degrees.of(180.0)))))
+            .andThen(
+                new DriveToPose(
+                    drivetrain,
+                    AllianceFlipUtil.get(
+                        new Pose2d(new Translation2d(1.370, 4.15), new Rotation2d(Degrees.of(0.0))),
+                        new Pose2d(new Translation2d(14.636, 3.9), new Rotation2d(Degrees.of(180.0)))))));
   }
 
   public double getShooterDistance() {
