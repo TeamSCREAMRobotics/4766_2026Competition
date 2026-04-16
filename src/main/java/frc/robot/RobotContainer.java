@@ -12,6 +12,7 @@ import com.pathplanner.lib.auto.AutoBuilder;
 import com.pathplanner.lib.auto.NamedCommands;
 import com.pathplanner.lib.commands.FollowPathCommand;
 import com.pathplanner.lib.commands.PathPlannerAuto;
+import com.team6328.FeedForwardCharacterization;
 import com.teamscreamrobotics.math.ScreamMath;
 import com.teamscreamrobotics.util.AllianceFlipUtil;
 import dev.doglog.DogLog;
@@ -159,7 +160,7 @@ public class RobotContainer {
         .onTrue(Commands.runOnce(() -> m_intake.IntakeGoToSetpoint(IntakeConstants.intakeClimbSetpoint), m_intake).andThen(Commands.runOnce(() -> m_climber.climberGoToSetpoint(ClimberConstants.climberTopSetpoint)).andThen(new DriveToPose(drivetrain, () -> AllianceFlipUtil.get(new Pose2d(new Translation2d(2.1, 3.270), new Rotation2d(Degrees.of(0.0))),
          new Pose2d(new Translation2d(14.3, 4.8), new Rotation2d(Degrees.of(180.0))))).andThen(Commands.runOnce(() -> m_climber.climberGoToSetpoint(ClimberConstants.climberTopSetpoint), m_climber))).andThen(
             new DriveToPose(
-                    drivetrain,
+                    drivetrain, () ->
                     AllianceFlipUtil.get(
                         new Pose2d(new Translation2d(1.30, 3.270), new Rotation2d(Degrees.of(0.0))), // <- blue side
                         new Pose2d(
@@ -251,15 +252,14 @@ public class RobotContainer {
                 Commands.runEnd(
                     () -> m_indexer.runIndexer(-10), () -> m_indexer.runIndexer(0), m_indexer)));
 
-    //  operatorController.leftTrigger(0.5).whileTrue(new
-    //  FeedForwardCharacterization(m_flywheel,m_flywheel::setVoltage, m_flywheel::getVelocity));
+      //operatorController.leftTrigger(0.5).whileTrue(new
+      //FeedForwardCharacterization(m_flywheel,m_flywheel::setVoltage, m_flywheel::getVelocity));
     driverController
         .rightTrigger(.5)
         .whileTrue(
             Commands.run(
                     () ->
-                        m_flywheel.setSetpointVelocity(
-                            ShooterConstants.SHOOTER_VELOCITY_MAP.get(getShooterDistance())),
+                        m_flywheel.setSetpointVelocity(ShooterConstants.SHOOTER_VELOCITY_MAP.get(getShooterDistance())),
                     m_flywheel)
                 .alongWith(new Shoot(m_flywheel, m_indexer, getDesiredShooterVelocity))
                 .alongWith(drivetrain.applyRequest(() -> brake))
