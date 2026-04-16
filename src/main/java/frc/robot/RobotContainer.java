@@ -32,8 +32,8 @@ import frc.robot.commands.DriveToPose;
 import frc.robot.commands.Ferry;
 import frc.robot.commands.Index;
 import frc.robot.commands.Jostle;
-import frc.robot.commands.RunIntake;
 import frc.robot.commands.QuickJostle;
+import frc.robot.commands.RunIntake;
 import frc.robot.commands.Shooter.Shoot;
 import frc.robot.commands.StopAllRollers;
 import frc.robot.constants.Constants.ClimberConstants;
@@ -154,14 +154,12 @@ public class RobotContainer {
                             new Translation2d(1.370, 4.15), new Rotation2d(Degrees.of(0.0))), // <- blue side
                         new Pose2d(
                             new Translation2d(15.1, 3.9), new Rotation2d(Degrees.of(180.0))))))); //<- red side
-    //TODO: Test Red Side Setpoints For Below Code
     driverController
         .povRight()
         .onTrue(new DriveToPose(drivetrain, () -> AllianceFlipUtil.get(new Pose2d(new Translation2d(2.1, 3.270), new Rotation2d(Degrees.of(0.0))),
          new Pose2d(new Translation2d(14.3, 4.8), new Rotation2d(Degrees.of(180.0))))).andThen(
             new DriveToPose(
-                drivetrain,
-                () ->
+                    drivetrain,
                     AllianceFlipUtil.get(
                         new Pose2d(new Translation2d(1.30, 3.270), new Rotation2d(Degrees.of(0.0))), // <- blue side
                         new Pose2d(
@@ -253,7 +251,6 @@ public class RobotContainer {
                 Commands.runEnd(
                     () -> m_indexer.runIndexer(-10), () -> m_indexer.runIndexer(0), m_indexer)));
 
-
     //  operatorController.leftTrigger(0.5).whileTrue(new
     //  FeedForwardCharacterization(m_flywheel,m_flywheel::setVoltage, m_flywheel::getVelocity));
     driverController
@@ -300,9 +297,7 @@ public class RobotContainer {
                                 .withRotationalRate(
                                     -driverController.getRightX() * MaxAngularRate))));
 
-    driverController
-        .start()
-        .onTrue(Commands.runOnce(() -> m_intake.resetIntake(), m_intake));
+    driverController.start().onTrue(Commands.runOnce(() -> m_intake.resetIntake(), m_intake));
 
     operatorController
         .back()
@@ -335,9 +330,7 @@ public class RobotContainer {
                         m_climber))
                 .alongWith(new StopAllRollers(m_flywheel, m_indexer)));
 
-    operatorController
-        .leftTrigger()
-        .whileTrue(new QuickJostle(m_intake));
+    operatorController.leftTrigger().whileTrue(new QuickJostle(m_intake));
 
     operatorController
         .povDown()
@@ -362,8 +355,7 @@ public class RobotContainer {
                 .alongWith(new Ferry(m_flywheel, m_indexer, getDesiredFerryVelocity))
                 .alongWith(new Jostle(m_intake)));
 
-    m_indexer.setDefaultCommand(
-        Commands.run(() -> m_indexer.runIndexer(-2), m_indexer));
+    m_indexer.setDefaultCommand(Commands.run(() -> m_indexer.runIndexer(-2), m_indexer));
 
     m_flywheel.setDefaultCommand(
         Commands.run(
@@ -387,12 +379,15 @@ public class RobotContainer {
   public void addNamedCommands() {
     NamedCommands.registerCommand(
         "Intake Down",
-        Commands.runOnce(() -> m_intake.IntakeGoToSetpoint(IntakeConstants.intakePivotDownSetpoint), m_intake)
-        .withTimeout(1.5));
+        Commands.runOnce(
+                () -> m_intake.IntakeGoToSetpoint(IntakeConstants.intakePivotDownSetpoint),
+                m_intake)
+            .withTimeout(1.5));
     NamedCommands.registerCommand(
         "Intake Up",
-       Commands.runOnce(() -> m_intake.IntakeGoToSetpoint(IntakeConstants.intakePivotUpSetpoint), m_intake)
-       .withTimeout(1));
+        Commands.runOnce(
+                () -> m_intake.IntakeGoToSetpoint(IntakeConstants.intakePivotUpSetpoint), m_intake)
+            .withTimeout(1));
 
     NamedCommands.registerCommand("Run Intake", new RunIntake(m_intake, 10));
     NamedCommands.registerCommand("Run Indexer", new Index(m_indexer, -1));
@@ -417,14 +412,18 @@ public class RobotContainer {
             .withTimeout(5));
 
     NamedCommands.registerCommand(
-        "Climber to 0", Commands.runOnce(() -> m_climber.climberGoToSetpoint(ClimberConstants.climberRestSetpoint)));
+        "Climber to 0",
+        Commands.runOnce(
+            () -> m_climber.climberGoToSetpoint(ClimberConstants.climberRestSetpoint)));
     NamedCommands.registerCommand(
         "Climber to max",
         (Commands.run(() -> m_climber.climberGoToSetpoint(ClimberConstants.climberTopSetpoint))
                 .alongWith(new StopAllRollers(m_flywheel, m_indexer)))
             .withTimeout(2));
     NamedCommands.registerCommand(
-        "Climber down", m_climber.runOnce(() -> m_climber.climberGoToSetpoint(ClimberConstants.climberClimbSetpoint)));
+        "Climber down",
+        m_climber.runOnce(
+            () -> m_climber.climberGoToSetpoint(ClimberConstants.climberClimbSetpoint)));
   }
 
   public double getShooterDistance() {
@@ -474,19 +473,13 @@ public class RobotContainer {
     field.setRobotPose(drivetrain.getPose());
     Dashboard.initialize();
     SmartDashboard.putData(field);
-    SmartDashboard.getNumber(
-        "Climber Pose", m_climber.getClimberPose());
-    SmartDashboard.putNumber(
-        "Flywheel RPS", m_flywheel.getVelocity());
-    SmartDashboard.putNumber(
-        "Flywheel RPM", m_flywheel.getVelocity() * 60);
-    SmartDashboard.putNumber(
-        "Calculated Distance", this.getShooterDistance());
+    SmartDashboard.getNumber("Climber Pose", m_climber.getClimberPose());
+    SmartDashboard.putNumber("Flywheel RPS", m_flywheel.getVelocity());
+    SmartDashboard.putNumber("Flywheel RPM", m_flywheel.getVelocity() * 60);
+    SmartDashboard.putNumber("Calculated Distance", this.getShooterDistance());
     SmartDashboard.putNumber(
         "Treemap Velocity", ShooterConstants.SHOOTER_VELOCITY_MAP.get(this.getShooterDistance()));
-    SmartDashboard.putNumber(
-        "Flywheel Voltage", m_flywheel.getflywheelvoltage());
-    SmartDashboard.putNumber(
-        "Calculated Ferry Distance", this.getFerryDistance());
+    SmartDashboard.putNumber("Flywheel Voltage", m_flywheel.getflywheelvoltage());
+    SmartDashboard.putNumber("Calculated Ferry Distance", this.getFerryDistance());
   }
 }
