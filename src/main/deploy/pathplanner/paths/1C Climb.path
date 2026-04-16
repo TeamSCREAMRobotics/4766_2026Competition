@@ -3,13 +3,13 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 1.6150240963855422,
-        "y": 5.138698795180724
+        "x": 2.084915662650602,
+        "y": 3.9803614457831324
       },
       "prevControl": null,
       "nextControl": {
-        "x": 1.9750888888888891,
-        "y": 5.106888888888888
+        "x": 2.444980455153949,
+        "y": 3.948551539491297
       },
       "isLocked": false,
       "linkedName": "After double shoot"
@@ -62,7 +62,7 @@
   "folder": "Hub Paths",
   "idealStartingState": {
     "velocity": 0,
-    "rotation": -20.166906875563782
+    "rotation": 0.0
   },
   "useDefaultConstraints": true
 }

@@ -142,7 +142,7 @@ public class RobotContainer {
                                 AllianceFlipUtil.get(Degrees.of(0.0), Degrees.of(180.0))),
                             DrivetrainConstants.headingControllerProfiled)));
 
-    driverController
+    driverController //1C
         .povLeft()
         .onTrue(
             new DriveToPose(
@@ -164,7 +164,7 @@ public class RobotContainer {
                                 new Pose2d(
                                     new Translation2d(15.1, 3.9),
                                     new Rotation2d(Degrees.of(180.0))))))); // <- red side
-    driverController
+    driverController //1A
         .povRight()
         .onTrue(
             new DriveToPose(
@@ -421,7 +421,7 @@ public class RobotContainer {
             .alongWith(new Shoot(m_flywheel, m_indexer, getDesiredShooterVelocity))
             .alongWith(drivetrain.applyRequest(() -> brake))
             .alongWith(new Jostle(m_intake))
-            .withTimeout(6));
+            .withTimeout(4));
     NamedCommands.registerCommand(
         "Shoot Preload",
         Commands.run(
@@ -450,27 +450,35 @@ public class RobotContainer {
         new DriveToPose(
             drivetrain,
             AllianceFlipUtil.get(
-                new Pose2d(new Translation2d(2.1, 4.15), new Rotation2d(Degrees.of(0.0))),
-                new Pose2d(new Translation2d(13.9, 3.9), new Rotation2d(Degrees.of(180.0)))))
+                new Pose2d(new Translation2d(2.1, 3.270), new Rotation2d(Degrees.of(0.0))),
+                new Pose2d(new Translation2d(14.3, 4.8), new Rotation2d(Degrees.of(180.0)))))
             .andThen(
                 new DriveToPose(
                     drivetrain,
                     AllianceFlipUtil.get(
-                        new Pose2d(new Translation2d(1.370, 4.15), new Rotation2d(Degrees.of(0.0))),
-                        new Pose2d(new Translation2d(14.636, 3.9), new Rotation2d(Degrees.of(180.0)))))));
+                        new Pose2d
+                            (new Translation2d(1.30, 3.270), 
+                            new Rotation2d(Degrees.of(0.0))), // <- blue side
+                        new Pose2d
+                            (new Translation2d(15.1, 4.8), 
+                            new Rotation2d(Degrees.of(180.0))))))); // <- red side
         NamedCommands.registerCommand(
         "Drive To 1C",
         new DriveToPose(
             drivetrain,
             AllianceFlipUtil.get(
                 new Pose2d(new Translation2d(2.1, 4.15), new Rotation2d(Degrees.of(0.0))),
-                new Pose2d(new Translation2d(13.9, 3.9), new Rotation2d(Degrees.of(180.0)))))
+                new Pose2d(new Translation2d(14.3, 3.9), new Rotation2d(Degrees.of(180.0)))))
             .andThen(
                 new DriveToPose(
                     drivetrain,
                     AllianceFlipUtil.get(
-                        new Pose2d(new Translation2d(1.370, 4.15), new Rotation2d(Degrees.of(0.0))),
-                        new Pose2d(new Translation2d(14.636, 3.9), new Rotation2d(Degrees.of(180.0)))))));
+                        new Pose2d
+                            (new Translation2d(1.370, 4.15), 
+                            new Rotation2d(Degrees.of(0.0))), // <- blue side
+                        new Pose2d
+                            (new Translation2d(15.1, 3.9), 
+                            new Rotation2d(Degrees.of(180.0))))))); // <- red side
   }
 
   public double getShooterDistance() {
