@@ -142,7 +142,7 @@ public class RobotContainer {
                                 AllianceFlipUtil.get(Degrees.of(0.0), Degrees.of(180.0))),
                             DrivetrainConstants.headingControllerProfiled)));
 
-    driverController //1C
+    driverController // 1C
         .povLeft()
         .onTrue(
             Commands.runOnce(
@@ -484,25 +484,26 @@ public class RobotContainer {
                 new DriveToPose(
                     drivetrain,
                     AllianceFlipUtil.get(
-                        new Pose2d
-                            (new Translation2d(1.30, 3.270), 
+                        new Pose2d(
+                            new Translation2d(1.30, 3.270),
                             new Rotation2d(Degrees.of(0.0))), // <- blue side
-                        new Pose2d
-                            (new Translation2d(15.1, 4.8), 
+                        new Pose2d(
+                            new Translation2d(15.1, 4.8),
                             new Rotation2d(Degrees.of(180.0))))))); // <- red side
     NamedCommands.registerCommand(
         "Drive To 1C",
         new DriveToPose(
-            drivetrain,
-            AllianceFlipUtil.get(
-                new Pose2d(new Translation2d(2.1, 4.15), new Rotation2d(Degrees.of(0.0))),
-                new Pose2d(new Translation2d(14.3, 3.9), new Rotation2d(Degrees.of(180.0)))))
+                drivetrain,
+                AllianceFlipUtil.get(
+                    new Pose2d(new Translation2d(2.1, 4.15), new Rotation2d(Degrees.of(0.0))),
+                    new Pose2d(new Translation2d(14.3, 3.9), new Rotation2d(Degrees.of(180.0)))))
             .andThen(
                 new DriveToPose(
                     drivetrain,
                     AllianceFlipUtil.get(
                         new Pose2d(new Translation2d(1.370, 4.15), new Rotation2d(Degrees.of(0.0))),
-                        new Pose2d(new Translation2d(15.1, 3.9), new Rotation2d(Degrees.of(180.0)))))));
+                        new Pose2d(
+                            new Translation2d(15.1, 3.9), new Rotation2d(Degrees.of(180.0)))))));
   }
 
   public double getShooterDistance() {
