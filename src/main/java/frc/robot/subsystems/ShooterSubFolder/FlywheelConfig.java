@@ -35,10 +35,10 @@ public class FlywheelConfig {
         new ScreamPIDConstants(0.5, 0, 0.0)
             .getSlot0Configs(new FeedforwardConstants(0.12009, 0.12060, 0.0, 0.0));
     /* FF Characterization Results: ﻿
-    Count=5637
-R2=0.99821
-kS=0.12060
-kV=0.12009 */
+        Count=5637
+    R2=0.99821
+    kS=0.12060
+    kV=0.12009 */
     //
     //
     //

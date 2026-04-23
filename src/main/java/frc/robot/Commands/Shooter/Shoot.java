@@ -6,7 +6,6 @@ package frc.robot.commands.Shooter;
 
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
-import frc.robot.Dashboard;
 import frc.robot.subsystems.Indexer;
 import frc.robot.subsystems.ShooterSubFolder.Flywheel;
 import java.util.function.DoubleSupplier;
