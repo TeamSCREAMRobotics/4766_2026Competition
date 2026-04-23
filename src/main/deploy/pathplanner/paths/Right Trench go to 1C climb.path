@@ -16,12 +16,12 @@
     },
     {
       "anchor": {
-        "x": 1.6150240963855422,
-        "y": 5.138698795180724
+        "x": 2.084915662650602,
+        "y": 3.9803614457831324
       },
       "prevControl": {
-        "x": 2.7595717154331627,
-        "y": 4.771579747561677
+        "x": 3.2294632816982225,
+        "y": 3.6132423981640853
       },
       "nextControl": null,
       "isLocked": false,
@@ -42,7 +42,7 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": -20.166906875563782
+    "rotation": 0.0
   },
   "reversed": false,
   "folder": "Right Trench Paths",
