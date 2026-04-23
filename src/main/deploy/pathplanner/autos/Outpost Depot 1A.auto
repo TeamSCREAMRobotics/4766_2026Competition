@@ -5,27 +5,114 @@
     "data": {
       "commands": [
         {
-          "type": "path",
+          "type": "race",
           "data": {
-            "pathName": "Rbump to outpost"
+            "commands": [
+              {
+                "type": "wait",
+                "data": {
+                  "waitTime": 0.01
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "Shoot"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "parallel",
+          "data": {
+            "commands": [
+              {
+                "type": "path",
+                "data": {
+                  "pathName": "Rbump to outpost"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "Intake Down"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "wait",
+          "data": {
+            "waitTime": 2.0
           }
         },
         {
           "type": "path",
           "data": {
-            "pathName": "Rbump outpost to depot"
+            "pathName": "outpost shoot"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Shoot"
           }
         },
         {
           "type": "path",
           "data": {
-            "pathName": "Depot to shoot Double"
+            "pathName": "hub to depot"
           }
         },
         {
-          "type": "path",
+          "type": "race",
           "data": {
-            "pathName": "1A climb"
+            "commands": [
+              {
+                "type": "named",
+                "data": {
+                  "name": "Run Intake"
+                }
+              },
+              {
+                "type": "path",
+                "data": {
+                  "pathName": "Side Depot Pass Through"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Stop Intake"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Shoot Preload"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Climber to max"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Drive To 1A"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Climber down"
           }
         }
       ]

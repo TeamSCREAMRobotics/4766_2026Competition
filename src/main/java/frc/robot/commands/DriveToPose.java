@@ -30,7 +30,7 @@ public class DriveToPose extends Command {
   private final PIDController headingController = DrivetrainConstants.headingController;
 
   private double driveErrorAbs;
-  private double deadband = 0.1;
+  private double deadband = 0.025;
   private Translation2d lastSetpointTranslation;
 
   private Optional<DoubleSupplier> yOverride = Optional.empty();

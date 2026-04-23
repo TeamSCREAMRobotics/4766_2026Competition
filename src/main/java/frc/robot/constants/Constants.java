@@ -34,6 +34,7 @@ public class Constants {
   public class IntakeConstants {
     public static final int intakeMotorID = 14;
     public static final int intakePivotID = 12;
+    public static final int intakeFollowerID = 18;
 
     public static final double intakePivotForwardSoftLimit = 11.3;
     public static final double intakePivotReverseSoftLimit = -0.3;
@@ -47,13 +48,13 @@ public class Constants {
     public static final double intakeMagicAcceleration = 52;
     public static final double intakeMagicVelocity = 60;
 
-    public static final double intakePivotDownSetpoint = 11.26;
-    public static final double intakePivotUpSetpoint = 0.15;
+    public static final double intakePivotDownSetpoint = 8.2;
+    public static final double intakePivotUpSetpoint = 0.2;
 
     public static final double intakeClimbSetpoint = 0.1;
 
-    public static final double intakeJostleHighSetpoint = 6.0;
-    public static final double intakeJostleLowSetpoint = 9.88;
+    public static final double intakeJostleHighSetpoint = 3.5;
+    public static final double intakeJostleLowSetpoint = 6.2;
   }
 
   public class ShooterConstants {

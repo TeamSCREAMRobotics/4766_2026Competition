@@ -152,9 +152,9 @@ public class RobotContainer {
                 () ->
                     AllianceFlipUtil.get(
                         new Pose2d(
-                            new Translation2d(1.370, 4.15), new Rotation2d(Degrees.of(0.0))), // <- blue side
+                            new Translation2d(1.370, 4.0), new Rotation2d(Degrees.of(0.0))), // <- blue side
                         new Pose2d(
-                            new Translation2d(15.1, 3.9), new Rotation2d(Degrees.of(180.0))))))))); //<- red side
+                            new Translation2d(15.1, 3.9), new Rotation2d(Degrees.of(180.0))))).andThen(Commands.runOnce(() -> m_climber.climberGoToSetpoint(ClimberConstants.climberClimbSetpoint), m_climber)))))); //<- red side
     driverController
         .povRight()
         .onTrue(Commands.runOnce(() -> m_intake.IntakeGoToSetpoint(IntakeConstants.intakeClimbSetpoint), m_intake).andThen(Commands.runOnce(() -> m_climber.climberGoToSetpoint(ClimberConstants.climberTopSetpoint)).andThen(new DriveToPose(drivetrain, () -> AllianceFlipUtil.get(new Pose2d(new Translation2d(2.1, 3.270), new Rotation2d(Degrees.of(0.0))),
@@ -162,9 +162,9 @@ public class RobotContainer {
             new DriveToPose(
                     drivetrain, () ->
                     AllianceFlipUtil.get(
-                        new Pose2d(new Translation2d(1.30, 3.270), new Rotation2d(Degrees.of(0.0))), // <- blue side
+                        new Pose2d(new Translation2d(1.370, 3.270), new Rotation2d(Degrees.of(0.0))), // <- blue side
                         new Pose2d(
-                            new Translation2d(15.1, 4.8), new Rotation2d(Degrees.of(180.0)))))))); // <- red side
+                            new Translation2d(15.1, 4.8), new Rotation2d(Degrees.of(180.0))))).andThen(Commands.runOnce(() -> m_climber.climberGoToSetpoint(ClimberConstants.climberClimbSetpoint), m_climber))))); // <- red side
     // driverController
     //     .leftTrigger(0.5)
     //     .whileTrue(
@@ -289,11 +289,11 @@ public class RobotContainer {
                                 .withVelocityX(
                                     -driverController.getLeftY()
                                         * MaxSpeed
-                                        * 0.4) // Drive forward with negative Y (forward)
+                                        * 1) // Drive forward with negative Y (forward)
                                 .withVelocityY(
                                     -driverController.getLeftX()
                                         * MaxSpeed
-                                        * 0.4) // Drive left with negative X (left)
+                                        * 1) // Drive left with negative X (left)
                                 .withRotationalRate(
                                     -driverController.getRightX() * MaxAngularRate))));
 
@@ -355,7 +355,7 @@ public class RobotContainer {
                 .alongWith(new Ferry(m_flywheel, m_indexer, getDesiredFerryVelocity))
                 .alongWith(new Jostle(m_intake)));
 
-    m_indexer.setDefaultCommand(Commands.run(() -> m_indexer.runIndexer(-2), m_indexer));
+    // m_indexer.setDefaultCommand(Commands.run(() -> m_indexer.runIndexer(-2), m_indexer));
 
     m_flywheel.setDefaultCommand(
         Commands.run(
@@ -400,7 +400,7 @@ public class RobotContainer {
             .alongWith(new Shoot(m_flywheel, m_indexer, getDesiredShooterVelocity))
             .alongWith(drivetrain.applyRequest(() -> brake))
             .alongWith(new Jostle(m_intake))
-            .withTimeout(6));
+            .withTimeout(4));
     NamedCommands.registerCommand(
         "Shoot Preload",
         Commands.run(
@@ -417,7 +417,8 @@ public class RobotContainer {
             () -> m_climber.climberGoToSetpoint(ClimberConstants.climberRestSetpoint)));
     NamedCommands.registerCommand(
         "Climber to max",
-        (Commands.run(() -> m_climber.climberGoToSetpoint(ClimberConstants.climberTopSetpoint))
+        Commands.runOnce(() -> m_intake.IntakeGoToSetpoint(IntakeConstants.intakeClimbSetpoint), m_intake)
+        .andThen(Commands.run(() -> m_climber.climberGoToSetpoint(ClimberConstants.climberTopSetpoint))
                 .alongWith(new StopAllRollers(m_flywheel, m_indexer)))
             .withTimeout(2));
     NamedCommands.registerCommand(
@@ -425,29 +426,29 @@ public class RobotContainer {
         m_climber.runOnce(
             () -> m_climber.climberGoToSetpoint(ClimberConstants.climberClimbSetpoint)));
     NamedCommands.registerCommand(
-        "Drive To 1A",
+        "Drive To 1C",
         new DriveToPose(
-                drivetrain,
+                drivetrain, () ->
                 AllianceFlipUtil.get(
                     new Pose2d(new Translation2d(2.1, 4.15), new Rotation2d(Degrees.of(0.0))),
                     new Pose2d(new Translation2d(13.9, 3.9), new Rotation2d(Degrees.of(180.0)))))
             .andThen(
                 new DriveToPose(
-                    drivetrain,
+                    drivetrain, () ->
                     AllianceFlipUtil.get(
                         new Pose2d(new Translation2d(1.370, 4.15), new Rotation2d(Degrees.of(0.0))),
                         new Pose2d(
                             new Translation2d(14.636, 3.9), new Rotation2d(Degrees.of(180.0)))))));
     NamedCommands.registerCommand(
-        "Drive To 1C",
+        "Drive To 1A",
         new DriveToPose(
-                drivetrain,
+                drivetrain, () ->
                 AllianceFlipUtil.get(
                     new Pose2d(new Translation2d(2.1, 4.15), new Rotation2d(Degrees.of(0.0))),
                     new Pose2d(new Translation2d(13.9, 3.9), new Rotation2d(Degrees.of(180.0)))))
             .andThen(
                 new DriveToPose(
-                    drivetrain,
+                    drivetrain, () ->
                     AllianceFlipUtil.get(
                         new Pose2d(new Translation2d(1.370, 4.15), new Rotation2d(Degrees.of(0.0))),
                         new Pose2d(

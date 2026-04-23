@@ -3,29 +3,29 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 0.7189518072289156,
-        "y": 5.925493975903614
+        "x": 2.719315263908701,
+        "y": 4.947175463623396
       },
       "prevControl": null,
       "nextControl": {
-        "x": 2.216048192771085,
-        "y": 6.0894096385542165
+        "x": 3.719315263908701,
+        "y": 4.947175463623396
       },
       "isLocked": false,
-      "linkedName": "in depot"
+      "linkedName": "After depot Pass"
     },
     {
       "anchor": {
-        "x": 3.2432530120481924,
-        "y": 3.958506024096385
+        "x": 2.2160481927710847,
+        "y": 3.029650602409638
       },
       "prevControl": {
-        "x": 1.4948192771084317,
-        "y": 3.9147951807228916
+        "x": 2.4864194008559197,
+        "y": 3.45922967189729
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": "at hub Rbump"
+      "linkedName": "shoot"
     }
   ],
   "rotationTargets": [],
@@ -42,13 +42,13 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": 0.0
+    "rotation": 23.125107909660308
   },
   "reversed": false,
-  "folder": "Right Bump Paths",
+  "folder": null,
   "idealStartingState": {
     "velocity": 0,
-    "rotation": 180.0
+    "rotation": -27.339271342006075
   },
   "useDefaultConstraints": true
 }

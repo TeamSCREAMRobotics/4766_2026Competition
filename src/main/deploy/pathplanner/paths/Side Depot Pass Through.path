@@ -3,32 +3,37 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 0.7189518072289156,
-        "y": 5.925493975903614
+        "x": 0.8690870185449355,
+        "y": 5.904636233951498
       },
       "prevControl": null,
       "nextControl": {
-        "x": 2.216048192771085,
-        "y": 6.0894096385542165
+        "x": 1.1186001631656577,
+        "y": 5.889041662412703
       },
       "isLocked": false,
-      "linkedName": "in depot"
+      "linkedName": "Side Depot"
     },
     {
       "anchor": {
-        "x": 3.2432530120481924,
-        "y": 3.958506024096385
+        "x": 2.719315263908701,
+        "y": 4.947175463623396
       },
       "prevControl": {
-        "x": 1.4948192771084317,
-        "y": 3.9147951807228916
+        "x": 2.344094151212553,
+        "y": 5.839942938659058
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": "at hub Rbump"
+      "linkedName": "After depot Pass"
     }
   ],
-  "rotationTargets": [],
+  "rotationTargets": [
+    {
+      "waypointRelativePos": 0.4669509594882673,
+      "rotationDegrees": 179.35231336206965
+    }
+  ],
   "constraintZones": [],
   "pointTowardsZones": [],
   "eventMarkers": [],
@@ -42,10 +47,10 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": 0.0
+    "rotation": -27.339271342006075
   },
   "reversed": false,
-  "folder": "Right Bump Paths",
+  "folder": null,
   "idealStartingState": {
     "velocity": 0,
     "rotation": 180.0

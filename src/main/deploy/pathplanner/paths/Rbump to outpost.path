@@ -8,8 +8,8 @@
       },
       "prevControl": null,
       "nextControl": {
-        "x": 0.5329111111111113,
-        "y": 2.2907444444444436
+        "x": 1.7747931526390865,
+        "y": 1.104393723252497
       },
       "isLocked": false,
       "linkedName": "infront of Rbump"
@@ -20,8 +20,8 @@
         "y": 0.57
       },
       "prevControl": {
-        "x": 2.2610120481927725,
-        "y": 0.57
+        "x": 2.150014265335235,
+        "y": 0.7809272467902997
       },
       "nextControl": null,
       "isLocked": false,
