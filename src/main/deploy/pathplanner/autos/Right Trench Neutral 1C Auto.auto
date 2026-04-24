@@ -79,9 +79,9 @@
           }
         },
         {
-          "type": "named",
+          "type": "path",
           "data": {
-            "name": "Drive to 1C"
+            "pathName": "1C Climb"
           }
         },
         {

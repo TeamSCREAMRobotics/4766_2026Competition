@@ -3,43 +3,38 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 1.6145444444444443,
-        "y": 5.360244444444445
+        "x": 1.6324679029957196,
+        "y": 5.9
       },
       "prevControl": null,
       "nextControl": {
-        "x": 1.9751589022757692,
-        "y": 4.256545649263723
+        "x": 1.3359448254638486,
+        "y": 5.907699352278236
       },
       "isLocked": false,
-      "linkedName": "shoot"
+      "linkedName": "Depot- Begin Pass"
     },
     {
       "anchor": {
-        "x": 0.6,
-        "y": 0.57
+        "x": 0.9855349500713262,
+        "y": 5.9
       },
       "prevControl": {
-        "x": 1.2775180722891566,
-        "y": 0.7776265060240962
+        "x": 1.2579355791407105,
+        "y": 5.896972920071393
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": "Rbump at outpost"
+      "linkedName": "in depot"
     }
   ],
-  "rotationTargets": [
-    {
-      "waypointRelativePos": 0.6431535269709523,
-      "rotationDegrees": 179.98118530832065
-    }
-  ],
+  "rotationTargets": [],
   "constraintZones": [],
   "pointTowardsZones": [],
   "eventMarkers": [],
   "globalConstraints": {
-    "maxVelocity": 4.0,
-    "maxAcceleration": 5.5,
+    "maxVelocity": 1.0,
+    "maxAcceleration": 2.0,
     "maxAngularVelocity": 540.0,
     "maxAngularAcceleration": 720.0,
     "nominalVoltage": 12.0,
@@ -47,13 +42,13 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": 179.72988400671753
+    "rotation": 180.0
   },
   "reversed": false,
   "folder": null,
   "idealStartingState": {
     "velocity": 0,
-    "rotation": -21.46576142493133
+    "rotation": 180.0
   },
-  "useDefaultConstraints": true
+  "useDefaultConstraints": false
 }

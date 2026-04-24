@@ -3,29 +3,29 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 0.8690870185449355,
-        "y": 5.904636233951498
+        "x": 2.1,
+        "y": 4.05
       },
       "prevControl": null,
       "nextControl": {
-        "x": 1.1186001631656577,
-        "y": 5.889041662412703
+        "x": 1.9750888888888891,
+        "y": 4.864555555555555
       },
       "isLocked": false,
-      "linkedName": "Side Depot"
+      "linkedName": "Depot Shooting"
     },
     {
       "anchor": {
-        "x": 2.719315263908701,
-        "y": 4.947175463623396
+        "x": 1.6324679029957196,
+        "y": 5.8999999999999995
       },
       "prevControl": {
-        "x": 2.344094151212553,
-        "y": 5.839942938659058
+        "x": 2.518316095766804,
+        "y": 5.6270838018741625
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": "After depot Pass"
+      "linkedName": "Depot- Begin Pass"
     }
   ],
   "rotationTargets": [
@@ -34,7 +34,21 @@
       "rotationDegrees": 179.35231336206965
     }
   ],
-  "constraintZones": [],
+  "constraintZones": [
+    {
+      "name": "Constraints Zone",
+      "minWaypointRelativePos": 0.6719602977667489,
+      "maxWaypointRelativePos": 1.0,
+      "constraints": {
+        "maxVelocity": 1.0,
+        "maxAcceleration": 2.0,
+        "maxAngularVelocity": 540.0,
+        "maxAngularAcceleration": 720.0,
+        "nominalVoltage": 12.0,
+        "unlimited": false
+      }
+    }
+  ],
   "pointTowardsZones": [],
   "eventMarkers": [],
   "globalConstraints": {
@@ -47,13 +61,13 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": -27.339271342006075
+    "rotation": 180.0
   },
   "reversed": false,
   "folder": null,
   "idealStartingState": {
     "velocity": 0,
-    "rotation": 180.0
+    "rotation": 1.0228669362270444
   },
   "useDefaultConstraints": true
 }

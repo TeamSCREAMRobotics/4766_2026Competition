@@ -51,7 +51,7 @@
         {
           "type": "path",
           "data": {
-            "pathName": "Rbump outpost to hub"
+            "pathName": "outpost shoot"
           }
         },
         {
@@ -75,7 +75,7 @@
         {
           "type": "named",
           "data": {
-            "name": "Drive to 1A"
+            "name": "Drive To 1A"
           }
         },
         {

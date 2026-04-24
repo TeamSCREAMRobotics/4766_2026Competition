@@ -5,12 +5,6 @@
     "data": {
       "commands": [
         {
-          "type": "path",
-          "data": {
-            "pathName": "Backup from Rbump"
-          }
-        },
-        {
           "type": "named",
           "data": {
             "name": "Intake Down"
@@ -31,7 +25,7 @@
         {
           "type": "path",
           "data": {
-            "pathName": "Rbump outpost to hub"
+            "pathName": "outpost shoot"
           }
         },
         {

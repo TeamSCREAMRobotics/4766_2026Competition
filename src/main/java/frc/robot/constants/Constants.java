@@ -36,7 +36,7 @@ public class Constants {
     public static final int intakePivotID = 12;
     public static final int intakeFollowerID = 18;
 
-    public static final double intakePivotForwardSoftLimit = 11.3;
+    public static final double intakePivotForwardSoftLimit = 9.0;
     public static final double intakePivotReverseSoftLimit = -0.3;
 
     public static final double kP = 3.0;

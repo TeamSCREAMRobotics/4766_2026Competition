@@ -3,44 +3,60 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 1.6145444444444443,
-        "y": 5.360244444444445
+        "x": 1.6324679029957196,
+        "y": 5.8999999999999995
       },
       "prevControl": null,
       "nextControl": {
-        "x": 2.3685564926372153,
-        "y": 6.584148058902277
+        "x": 1.2816679029957196,
+        "y": 6.893933333333333
       },
       "isLocked": false,
-      "linkedName": "shoot"
+      "linkedName": "Depot- Begin Pass"
     },
     {
       "anchor": {
-        "x": 1.0631669044222536,
-        "y": 5.943452211126962
+        "x": 1.4878666666666667,
+        "y": 7.026544444444443
       },
       "prevControl": {
-        "x": 2.3777814310021816,
-        "y": 6.25899960469553
+        "x": 0.48786666666666667,
+        "y": 7.026544444444443
+      },
+      "nextControl": {
+        "x": 2.4878666666666667,
+        "y": 7.026544444444443
+      },
+      "isLocked": false,
+      "linkedName": null
+    },
+    {
+      "anchor": {
+        "x": 2.1,
+        "y": 4.0
+      },
+      "prevControl": {
+        "x": 1.9714833333333335,
+        "y": 5.110866666666667
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": "Side Depot"
+      "linkedName": null
     }
   ],
   "rotationTargets": [
     {
-      "waypointRelativePos": 0.5756929637526652,
-      "rotationDegrees": 178.7824487235969
+      "waypointRelativePos": 0.3228215767634836,
+      "rotationDegrees": 90.0
     }
   ],
   "constraintZones": [
     {
       "name": "Constraints Zone",
-      "minWaypointRelativePos": 0.5455773126266016,
-      "maxWaypointRelativePos": 1.0,
+      "minWaypointRelativePos": 0,
+      "maxWaypointRelativePos": 0.7444168734491022,
       "constraints": {
-        "maxVelocity": 2.0,
+        "maxVelocity": 1.0,
         "maxAcceleration": 5.5,
         "maxAngularVelocity": 540.0,
         "maxAngularAcceleration": 720.0,
@@ -60,14 +76,14 @@
     "unlimited": false
   },
   "goalEndState": {
-    "velocity": 0.0,
-    "rotation": 180.0
+    "velocity": 0,
+    "rotation": 0.7939664101182253
   },
   "reversed": false,
-  "folder": "Hub Paths",
+  "folder": null,
   "idealStartingState": {
     "velocity": 0,
-    "rotation": -21.46576142493133
+    "rotation": 180.0
   },
   "useDefaultConstraints": true
 }

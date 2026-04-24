@@ -73,9 +73,9 @@
           }
         },
         {
-          "type": "named",
+          "type": "path",
           "data": {
-            "name": "Drive to 1A"
+            "pathName": "1A climb"
           }
         },
         {
