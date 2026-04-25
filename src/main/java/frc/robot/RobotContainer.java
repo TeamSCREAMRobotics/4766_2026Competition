@@ -220,7 +220,8 @@ public class RobotContainer {
                                                 new Rotation2d(Degrees.of(0.0))), // <- blue side
                                             new Pose2d(
                                                 new Translation2d(15.1, 4.8),
-                                                new Rotation2d(Degrees.of(180.0))))).withTimeout(2)
+                                                new Rotation2d(Degrees.of(180.0)))))
+                                .withTimeout(2)
                                 .andThen(
                                     Commands.runOnce(
                                         () ->
