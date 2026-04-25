@@ -3,13 +3,13 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 4.674300000000001,
-        "y": 7.416322222222221
+        "x": 4.42,
+        "y": 7.416
       },
       "prevControl": null,
       "nextControl": {
-        "x": 5.872866666666668,
-        "y": 7.533255555555554
+        "x": 5.618566666666666,
+        "y": 7.532933333333333
       },
       "isLocked": false,
       "linkedName": "Lbump at LTrench"

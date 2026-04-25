@@ -3,39 +3,39 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 0.7,
-        "y": 0.52
+        "x": 1.0883444444444443,
+        "y": 6.695233333333333
       },
       "prevControl": null,
       "nextControl": {
-        "x": 3.0300444444444423,
-        "y": 2.6207777777777785
+        "x": 0.9324333333333334,
+        "y": 6.3931555555555555
       },
       "isLocked": false,
-      "linkedName": "Rbump at outpost"
+      "linkedName": "Left Depot Pass Start"
     },
     {
       "anchor": {
-        "x": 1.068855555555556,
-        "y": 5.467433333333333
+        "x": 0.9324333333333334,
+        "y": 5.545388888888888
       },
       "prevControl": {
-        "x": 2.988511111111108,
-        "y": 4.619666666666666
+        "x": 0.6303555555555558,
+        "y": 5.623344444444444
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": "Depot- Begin Pass"
+      "linkedName": "Left Trench Depot end"
     }
   ],
   "rotationTargets": [],
   "constraintZones": [
     {
       "name": "Constraints Zone",
-      "minWaypointRelativePos": 0.9220843672456597,
+      "minWaypointRelativePos": 0,
       "maxWaypointRelativePos": 1.0,
       "constraints": {
-        "maxVelocity": 1.0,
+        "maxVelocity": 0.75,
         "maxAcceleration": 2.0,
         "maxAngularVelocity": 540.0,
         "maxAngularAcceleration": 720.0,
@@ -55,14 +55,14 @@
     "unlimited": false
   },
   "goalEndState": {
-    "velocity": 2.0,
-    "rotation": 149.4524282510929
+    "velocity": 0.0,
+    "rotation": -170.96051719664487
   },
   "reversed": false,
   "folder": null,
   "idealStartingState": {
     "velocity": 0,
-    "rotation": 179.72988400671753
+    "rotation": -143.27977427958453
   },
   "useDefaultConstraints": true
 }

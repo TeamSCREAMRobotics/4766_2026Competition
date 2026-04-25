@@ -11,7 +11,7 @@
               {
                 "type": "named",
                 "data": {
-                  "name": "Shoot"
+                  "name": "shoot"
                 }
               },
               {
@@ -24,65 +24,58 @@
           }
         },
         {
-          "type": "parallel",
+          "type": "named",
+          "data": {
+            "name": "Intake Down"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "Left Trench to Depot"
+          }
+        },
+        {
+          "type": "race",
           "data": {
             "commands": [
               {
                 "type": "path",
                 "data": {
-                  "pathName": "trench to neutral"
+                  "pathName": "Left Trench Depot Pass Through"
                 }
               },
               {
-                "type": "sequential",
+                "type": "named",
                 "data": {
-                  "commands": [
-                    {
-                      "type": "wait",
-                      "data": {
-                        "waitTime": 1.0
-                      }
-                    },
-                    {
-                      "type": "named",
-                      "data": {
-                        "name": "Intake Down"
-                      }
-                    },
-                    {
-                      "type": "named",
-                      "data": {
-                        "name": "Run Intake"
-                      }
-                    }
-                  ]
+                  "name": "Run Intake"
                 }
               }
             ]
           }
         },
         {
-          "type": "named",
+          "type": "path",
           "data": {
-            "name": "Stop Intake"
+            "pathName": "Left Trench Depot to Outpost"
+          }
+        },
+        {
+          "type": "wait",
+          "data": {
+            "waitTime": 1.75
           }
         },
         {
           "type": "path",
           "data": {
-            "pathName": "Right Trench Netueral to shoot "
+            "pathName": "Left Trench Outpost shoot in depot"
           }
         },
         {
           "type": "named",
           "data": {
             "name": "Shoot"
-          }
-        },
-        {
-          "type": "named",
-          "data": {
-            "name": "Intake Up"
           }
         },
         {
@@ -98,7 +91,7 @@
               {
                 "type": "named",
                 "data": {
-                  "name": "Drive To 1C"
+                  "name": "Drive To 1A"
                 }
               },
               {
@@ -120,6 +113,6 @@
     }
   },
   "resetOdom": true,
-  "folder": "Right Trench Autos",
+  "folder": "Left Trench Autos",
   "choreoAuto": false
 }

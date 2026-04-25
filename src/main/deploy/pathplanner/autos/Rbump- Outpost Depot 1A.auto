@@ -45,7 +45,7 @@
         {
           "type": "wait",
           "data": {
-            "waitTime": 2.0
+            "waitTime": 1.75
           }
         },
         {
@@ -55,28 +55,9 @@
           }
         },
         {
-          "type": "race",
+          "type": "path",
           "data": {
-            "commands": [
-              {
-                "type": "named",
-                "data": {
-                  "name": "Run Intake"
-                }
-              },
-              {
-                "type": "path",
-                "data": {
-                  "pathName": "Into Depot"
-                }
-              }
-            ]
-          }
-        },
-        {
-          "type": "named",
-          "data": {
-            "name": "Stop Intake"
+            "pathName": "Into Depot"
           }
         },
         {

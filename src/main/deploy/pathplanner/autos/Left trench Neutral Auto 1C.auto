@@ -9,6 +9,25 @@
           "data": {
             "commands": [
               {
+                "type": "named",
+                "data": {
+                  "name": "Shoot"
+                }
+              },
+              {
+                "type": "wait",
+                "data": {
+                  "waitTime": 0.001
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "race",
+          "data": {
+            "commands": [
+              {
                 "type": "path",
                 "data": {
                   "pathName": "left trench neutral"
@@ -29,12 +48,6 @@
                       "data": {
                         "name": "Intake Down"
                       }
-                    },
-                    {
-                      "type": "named",
-                      "data": {
-                        "name": "Run Intake"
-                      }
                     }
                   ]
                 }
@@ -51,19 +64,7 @@
         {
           "type": "named",
           "data": {
-            "name": "Stop Intake"
-          }
-        },
-        {
-          "type": "named",
-          "data": {
             "name": "Shoot"
-          }
-        },
-        {
-          "type": "named",
-          "data": {
-            "name": "Intake Up"
           }
         },
         {
@@ -73,9 +74,22 @@
           }
         },
         {
-          "type": "path",
+          "type": "race",
           "data": {
-            "pathName": "1C Climb"
+            "commands": [
+              {
+                "type": "named",
+                "data": {
+                  "name": "Drive To 1C"
+                }
+              },
+              {
+                "type": "wait",
+                "data": {
+                  "waitTime": 2.0
+                }
+              }
+            ]
           }
         },
         {

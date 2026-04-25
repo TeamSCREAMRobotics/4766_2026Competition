@@ -13,6 +13,8 @@ import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
+import edu.wpi.first.wpilibj2.command.Commands;
+
 import java.util.function.DoubleSupplier;
 
 public class Robot extends TimedRobot {
@@ -88,6 +90,8 @@ public class Robot extends TimedRobot {
   public void autonomousInit() {
     m_autonomousCommand = m_robotContainer.getAutonomousCommand();
 
+    m_robotContainer.m_intake.setDefaultCommand(Commands.run(()-> m_robotContainer.m_intakeRoller.runIntake(10), m_robotContainer.m_intake));
+
     if (m_autonomousCommand != null) {
       CommandScheduler.getInstance().schedule(m_autonomousCommand);
     }
@@ -104,6 +108,8 @@ public class Robot extends TimedRobot {
     if (m_autonomousCommand != null) {
       CommandScheduler.getInstance().cancel(m_autonomousCommand);
     }
+
+    m_robotContainer.m_intake.setDefaultCommand(Commands.run(() -> m_robotContainer.m_intakeRoller.runIntake(0), m_robotContainer.m_intake));
   }
 
   @Override

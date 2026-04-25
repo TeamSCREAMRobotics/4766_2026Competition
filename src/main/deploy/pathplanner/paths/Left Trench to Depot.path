@@ -3,45 +3,48 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 0.7,
-        "y": 0.52
+        "x": 3.62,
+        "y": 7.61
       },
       "prevControl": null,
       "nextControl": {
-        "x": 1.7,
-        "y": 0.52
+        "x": 2.257677777777778,
+        "y": 7.2799000000000005
       },
       "isLocked": false,
-      "linkedName": "Rbump at outpost"
+      "linkedName": "Left Trench Depot Start"
     },
     {
       "anchor": {
-        "x": 2.4,
-        "y": 4.05
+        "x": 1.0883444444444443,
+        "y": 6.695233333333333
       },
       "prevControl": {
-        "x": 2.452566666666667,
-        "y": 2.4174222222222226
+        "x": 1.8255894243641233,
+        "y": 7.459194645247657
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": "shoot in depot paths"
+      "linkedName": "Left Depot Pass Start"
     }
   ],
   "rotationTargets": [],
-  "constraintZones": [],
-  "pointTowardsZones": [
+  "constraintZones": [
     {
-      "fieldPosition": {
-        "x": 4.62,
-        "y": 4.06
-      },
-      "rotationOffset": 0.0,
-      "minWaypointRelativePos": 0.5330024813895746,
+      "name": "Constraints Zone",
+      "minWaypointRelativePos": 0.7275434243176209,
       "maxWaypointRelativePos": 1.0,
-      "name": "Point Towards Zone"
+      "constraints": {
+        "maxVelocity": 2.0,
+        "maxAcceleration": 5.5,
+        "maxAngularVelocity": 540.0,
+        "maxAngularAcceleration": 720.0,
+        "nominalVoltage": 12.0,
+        "unlimited": false
+      }
     }
   ],
+  "pointTowardsZones": [],
   "eventMarkers": [],
   "globalConstraints": {
     "maxVelocity": 4.0,
@@ -53,13 +56,13 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": 0.6254806239219787
+    "rotation": -143.27977427958453
   },
   "reversed": false,
   "folder": null,
   "idealStartingState": {
     "velocity": 0,
-    "rotation": 179.72988400671753
+    "rotation": 180.0
   },
   "useDefaultConstraints": true
 }

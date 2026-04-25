@@ -32,7 +32,7 @@
         {
           "type": "path",
           "data": {
-            "pathName": null
+            "pathName": "outpost to shoot"
           }
         },
         {
@@ -54,9 +54,22 @@
           }
         },
         {
-          "type": "named",
+          "type": "race",
           "data": {
-            "name": "Drive To 1C"
+            "commands": [
+              {
+                "type": "named",
+                "data": {
+                  "name": "Drive To 1C"
+                }
+              },
+              {
+                "type": "wait",
+                "data": {
+                  "waitTime": 2.0
+                }
+              }
+            ]
           }
         },
         {

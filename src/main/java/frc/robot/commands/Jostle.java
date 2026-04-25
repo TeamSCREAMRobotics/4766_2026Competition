@@ -8,19 +8,22 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.constants.Constants.IntakeConstants;
 import frc.robot.subsystems.Intake;
+import frc.robot.subsystems.IntakeRoller;
 
 /* You should consider using the more terse Command factories API instead https://docs.wpilib.org/en/stable/docs/software/commandbased/organizing-command-based.html#defining-commands */
 public class Jostle extends Command {
   Intake m_Intake;
+  IntakeRoller m_intakeRoller;
   int timer;
   int intTimer;
 
   /** Creates a new Jostle. */
-  public Jostle(Intake intake) {
+  public Jostle(Intake intake, IntakeRoller intakeRoller) {
     m_Intake = intake;
+    m_intakeRoller = intakeRoller;
 
     // Use addRequirements() here to declare subsystem dependencies.
-    addRequirements(intake);
+    addRequirements(intake, intakeRoller);
   }
 
   // Called when the command is initially scheduled.
@@ -34,7 +37,7 @@ public class Jostle extends Command {
   @Override
   public void execute() {
     SmartDashboard.putNumber("timer", timer);
-    m_Intake.runIntake(8);
+    m_intakeRoller.runIntake(8);
     if (intTimer > 70) {
       if (timer > 24) {
         m_Intake.IntakeGoToSetpoint(IntakeConstants.intakeJostleLowSetpoint);
@@ -54,7 +57,7 @@ public class Jostle extends Command {
   @Override
   public void end(boolean interrupted) {
     m_Intake.IntakeGoToSetpoint(IntakeConstants.intakePivotDownSetpoint);
-    m_Intake.runIntake(0);
+    m_intakeRoller.runIntake(0);
   }
 
   // Returns true when the command should end.

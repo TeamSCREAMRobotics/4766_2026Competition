@@ -3,13 +3,13 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 3.0957,
-        "y": 5.662322222222222
+        "x": 3.836277777777778,
+        "y": 7.513766666666667
       },
       "prevControl": null,
       "nextControl": {
-        "x": 0.9429409638554214,
-        "y": 4.664201740294511
+        "x": 1.6835187416331996,
+        "y": 6.515646184738957
       },
       "isLocked": false,
       "linkedName": "shooting under trench"

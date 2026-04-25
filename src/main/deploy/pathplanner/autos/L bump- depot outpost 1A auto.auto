@@ -36,22 +36,9 @@
           }
         },
         {
-          "type": "race",
+          "type": "path",
           "data": {
-            "commands": [
-              {
-                "type": "path",
-                "data": {
-                  "pathName": "Copy of Into Depot"
-                }
-              },
-              {
-                "type": "named",
-                "data": {
-                  "name": "Run Intake"
-                }
-              }
-            ]
+            "pathName": "Copy of Into Depot"
           }
         },
         {
@@ -61,15 +48,9 @@
           }
         },
         {
-          "type": "named",
-          "data": {
-            "name": "Stop Intake"
-          }
-        },
-        {
           "type": "wait",
           "data": {
-            "waitTime": 2.0
+            "waitTime": 1.75
           }
         },
         {

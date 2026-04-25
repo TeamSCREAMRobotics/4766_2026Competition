@@ -24,12 +24,6 @@
           }
         },
         {
-          "type": "named",
-          "data": {
-            "name": "Run Intake"
-          }
-        },
-        {
           "type": "path",
           "data": {
             "pathName": "left depot"
@@ -50,19 +44,38 @@
         {
           "type": "named",
           "data": {
-            "name": "Stop Intake"
-          }
-        },
-        {
-          "type": "named",
-          "data": {
             "name": "Shoot"
           }
         },
         {
           "type": "named",
           "data": {
-            "name": "Drive To 1C"
+            "name": "Climber to max"
+          }
+        },
+        {
+          "type": "race",
+          "data": {
+            "commands": [
+              {
+                "type": "named",
+                "data": {
+                  "name": "Drive To 1C"
+                }
+              },
+              {
+                "type": "wait",
+                "data": {
+                  "waitTime": 2.0
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Climber down"
           }
         }
       ]

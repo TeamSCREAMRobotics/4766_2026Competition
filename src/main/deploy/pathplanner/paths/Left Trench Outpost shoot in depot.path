@@ -3,34 +3,45 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 2.3746111111111112,
-        "y": 3.9180666666666664
+        "x": 0.9,
+        "y": 0.52
       },
       "prevControl": null,
       "nextControl": {
-        "x": 2.126387948937957,
-        "y": 3.8883133179348013
+        "x": 1.9000000000000004,
+        "y": 0.52
       },
       "isLocked": false,
-      "linkedName": "Hub-at hub"
+      "linkedName": "Left Trench Outpost"
     },
     {
       "anchor": {
-        "x": 1.44,
-        "y": 3.3
+        "x": 2.1,
+        "y": 4.05
       },
       "prevControl": {
-        "x": 1.6871300095549298,
-        "y": 3.337772455273391
+        "x": 2.152566666666667,
+        "y": 2.4174222222222226
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": null
+      "linkedName": "Depot Shooting"
     }
   ],
   "rotationTargets": [],
   "constraintZones": [],
-  "pointTowardsZones": [],
+  "pointTowardsZones": [
+    {
+      "fieldPosition": {
+        "x": 4.62,
+        "y": 4.06
+      },
+      "rotationOffset": 0.0,
+      "minWaypointRelativePos": 0.5330024813895746,
+      "maxWaypointRelativePos": 1.0,
+      "name": "Point Towards Zone"
+    }
+  ],
   "eventMarkers": [],
   "globalConstraints": {
     "maxVelocity": 4.0,
@@ -42,13 +53,13 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": 0.0
+    "rotation": 1.0228669362270444
   },
   "reversed": false,
-  "folder": "Hub Paths",
+  "folder": null,
   "idealStartingState": {
     "velocity": 0,
-    "rotation": -0.2754583561352369
+    "rotation": 179.72988400671753
   },
   "useDefaultConstraints": true
 }

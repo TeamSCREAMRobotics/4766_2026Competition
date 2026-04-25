@@ -47,6 +47,7 @@ import frc.robot.subsystems.Climber;
 import frc.robot.subsystems.CommandSwerveDrivetrain;
 import frc.robot.subsystems.Indexer;
 import frc.robot.subsystems.Intake;
+import frc.robot.subsystems.IntakeRoller;
 import frc.robot.subsystems.ShooterSubFolder.Flywheel;
 import frc.robot.subsystems.ShooterSubFolder.FlywheelConfig;
 import java.util.function.DoubleSupplier;
@@ -73,7 +74,8 @@ public class RobotContainer {
 
   private final Telemetry logger = new Telemetry(MaxSpeed);
   public final Climber m_climber = new Climber();
-  private final Intake m_intake = new Intake();
+  final Intake m_intake = new Intake();
+  final IntakeRoller m_intakeRoller = new IntakeRoller();
   private final Indexer m_indexer = new Indexer();
 
   Field2d field = new Field2d();
@@ -308,7 +310,7 @@ public class RobotContainer {
         .whileTrue(
             Commands.parallel(
                 Commands.runEnd(
-                    () -> m_intake.runIntake(-10), () -> m_intake.runIntake(0), m_intake),
+                    () -> m_intakeRoller.runIntake(-10), () -> m_intakeRoller.runIntake(0), m_intake),
                 Commands.runEnd(
                     () -> m_indexer.runIndexer(-10), () -> m_indexer.runIndexer(0), m_indexer)));
 
@@ -324,7 +326,7 @@ public class RobotContainer {
                     m_flywheel)
                 .alongWith(new Shoot(m_flywheel, m_indexer, getDesiredShooterVelocity))
                 .alongWith(drivetrain.applyRequest(() -> brake))
-                .alongWith(new Jostle(m_intake)));
+                .alongWith(new Jostle(m_intake, m_intakeRoller)));
 
     driverController
         .a()
@@ -342,7 +344,7 @@ public class RobotContainer {
     driverController
         .rightBumper()
         .whileTrue(
-            Commands.runEnd(() -> m_intake.runIntake(9.0), () -> m_intake.runIntake(0), m_intake)
+            Commands.runEnd(() -> m_intakeRoller.runIntake(9.0), () -> m_intakeRoller.runIntake(0), m_intake)
                 .alongWith(
                     drivetrain.applyRequest(
                         () ->
@@ -391,7 +393,7 @@ public class RobotContainer {
                         m_climber))
                 .alongWith(new StopAllRollers(m_flywheel, m_indexer)));
 
-    operatorController.leftTrigger().whileTrue(new QuickJostle(m_intake));
+    operatorController.leftTrigger().whileTrue(new QuickJostle(m_intake, m_intakeRoller));
 
     operatorController
         .povDown()
@@ -414,7 +416,7 @@ public class RobotContainer {
                             ShooterConstants.FERRY_VELOCITY_MAP.get(getFerryDistance())),
                     m_flywheel)
                 .alongWith(new Ferry(m_flywheel, m_indexer, getDesiredFerryVelocity))
-                .alongWith(new Jostle(m_intake)));
+                .alongWith(new Jostle(m_intake, m_intakeRoller)));
 
     // m_indexer.setDefaultCommand(Commands.run(() -> m_indexer.runIndexer(-2), m_indexer));
 
@@ -443,14 +445,14 @@ public class RobotContainer {
         Commands.runOnce(
                 () -> m_intake.IntakeGoToSetpoint(IntakeConstants.intakePivotDownSetpoint),
                 m_intake)
-            .withTimeout(1.5));
+            .withTimeout(1));
     NamedCommands.registerCommand(
         "Intake Up",
         Commands.runOnce(
                 () -> m_intake.IntakeGoToSetpoint(IntakeConstants.intakePivotUpSetpoint), m_intake)
             .withTimeout(1));
 
-    NamedCommands.registerCommand("Run Intake", new RunIntake(m_intake, 10));
+    NamedCommands.registerCommand("Run Intake", new RunIntake(m_intakeRoller, 10));
     NamedCommands.registerCommand("Run Indexer", new Index(m_indexer, -1));
 
     NamedCommands.registerCommand(
@@ -460,8 +462,8 @@ public class RobotContainer {
                 m_flywheel)
             .alongWith(new Shoot(m_flywheel, m_indexer, getDesiredShooterVelocity))
             .alongWith(drivetrain.applyRequest(() -> brake))
-            .alongWith(new Jostle(m_intake))
-            .withTimeout(5));
+            .alongWith(new Jostle(m_intake, m_intakeRoller))
+            .withTimeout(4.75));
     NamedCommands.registerCommand(
         "Shoot Preload",
         Commands.run(
@@ -469,7 +471,7 @@ public class RobotContainer {
                 m_flywheel)
             .alongWith(new Shoot(m_flywheel, m_indexer, getDesiredShooterVelocity))
             .alongWith(drivetrain.applyRequest(() -> brake))
-            .alongWith(new Jostle(m_intake))
+            .alongWith(new Jostle(m_intake, m_intakeRoller))
             .withTimeout(5));
 
     NamedCommands.registerCommand(
