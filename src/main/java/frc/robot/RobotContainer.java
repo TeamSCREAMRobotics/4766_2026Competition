@@ -311,7 +311,9 @@ public class RobotContainer {
         .whileTrue(
             Commands.parallel(
                 Commands.runEnd(
-                    () -> m_intakeRoller.runIntake(-10), () -> m_intakeRoller.runIntake(0), m_intake),
+                    () -> m_intakeRoller.runIntake(-10),
+                    () -> m_intakeRoller.runIntake(0),
+                    m_intake),
                 Commands.runEnd(
                     () -> m_indexer.runIndexer(-10), () -> m_indexer.runIndexer(0), m_indexer)));
 
@@ -345,7 +347,10 @@ public class RobotContainer {
     driverController
         .rightBumper()
         .whileTrue(
-            Commands.runEnd(() -> m_intakeRoller.runIntake(9.0), () -> m_intakeRoller.runIntake(0), m_intake)
+            Commands.runEnd(
+                    () -> m_intakeRoller.runIntake(9.0),
+                    () -> m_intakeRoller.runIntake(0),
+                    m_intake)
                 .alongWith(
                     drivetrain.applyRequest(
                         () ->

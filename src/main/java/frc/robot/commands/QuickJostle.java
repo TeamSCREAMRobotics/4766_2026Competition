@@ -8,7 +8,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.constants.Constants.IntakeConstants;
 import frc.robot.subsystems.Intake;
-import frc.robot.subsystems.IntakeRoller;;
+import frc.robot.subsystems.IntakeRoller;
 
 /* You should consider using the more terse Command factories API instead https://docs.wpilib.org/en/stable/docs/software/commandbased/organizing-command-based.html#defining-commands */
 public class QuickJostle extends Command {

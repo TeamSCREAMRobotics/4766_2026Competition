@@ -19,7 +19,7 @@ import frc.robot.constants.Constants.IntakeConstants;
 
 public class Intake extends SubsystemBase {
   private TalonFX intakePivot = new TalonFX(Constants.IntakeConstants.intakePivotID);
-  
+
   private MotionMagicVoltage m_magicrequest = new MotionMagicVoltage(0);
 
   private TalonFXConfiguration intakeConfig = new TalonFXConfiguration();
@@ -60,7 +60,6 @@ public class Intake extends SubsystemBase {
   }
 
   // Runs intake from voltage
-  
 
   public void IntakeGoToSetpoint(double setpoint) {
     intakePivot.setControl(m_magicrequest.withPosition(setpoint));
