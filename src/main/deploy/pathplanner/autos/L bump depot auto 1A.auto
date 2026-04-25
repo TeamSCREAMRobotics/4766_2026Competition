@@ -5,39 +5,52 @@
     "data": {
       "commands": [
         {
-          "type": "path",
+          "type": "race",
           "data": {
-            "pathName": "Lbump infront"
+            "commands": [
+              {
+                "type": "wait",
+                "data": {
+                  "waitTime": 0.001
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "Shoot"
+                }
+              }
+            ]
           }
         },
         {
           "type": "named",
           "data": {
-            "name": "Intake Down"
+            "name": "Run Intake"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "left depot"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "Into Depot"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "Depot To Shoot"
           }
         },
         {
           "type": "named",
           "data": {
-            "name": "Shoot Preload"
-          }
-        },
-        {
-          "type": "path",
-          "data": {
-            "pathName": "Lbump- bump to outpost"
-          }
-        },
-        {
-          "type": "wait",
-          "data": {
-            "waitTime": 3.0
-          }
-        },
-        {
-          "type": "path",
-          "data": {
-            "pathName": "Lbump- Outpost to Hub"
+            "name": "Stop Intake"
           }
         },
         {
@@ -47,9 +60,9 @@
           }
         },
         {
-          "type": "path",
+          "type": "named",
           "data": {
-            "pathName": "1A back climb"
+            "name": "Drive To 1A"
           }
         }
       ]

@@ -11,35 +11,59 @@
               {
                 "type": "named",
                 "data": {
-                  "name": "Shoot"
+                  "name": "shoot"
                 }
               },
               {
                 "type": "wait",
                 "data": {
-                  "waitTime": 0.1
+                  "waitTime": 0.001
                 }
               }
             ]
           }
         },
         {
-          "type": "parallel",
+          "type": "named",
+          "data": {
+            "name": "Intake Down"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "Copy of Lbump- bump to depot"
+          }
+        },
+        {
+          "type": "race",
           "data": {
             "commands": [
               {
                 "type": "path",
                 "data": {
-                  "pathName": "Rbump to outpost"
+                  "pathName": "Copy of Into Depot"
                 }
               },
               {
                 "type": "named",
                 "data": {
-                  "name": "Intake Down"
+                  "name": "Run Intake"
                 }
               }
             ]
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "Lbump to outpost"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Stop Intake"
           }
         },
         {
@@ -51,7 +75,7 @@
         {
           "type": "path",
           "data": {
-            "pathName": "outpost to shoot"
+            "pathName": "Outpost shoot in depot"
           }
         },
         {
@@ -63,7 +87,26 @@
         {
           "type": "named",
           "data": {
-            "name": "Drive To 1A"
+            "name": "Climber to max"
+          }
+        },
+        {
+          "type": "race",
+          "data": {
+            "commands": [
+              {
+                "type": "named",
+                "data": {
+                  "name": "Drive To 1A"
+                }
+              },
+              {
+                "type": "wait",
+                "data": {
+                  "waitTime": 2.0
+                }
+              }
+            ]
           }
         },
         {
@@ -76,6 +119,6 @@
     }
   },
   "resetOdom": true,
-  "folder": "Right Bump Autos",
+  "folder": "Left bump Autos",
   "choreoAuto": false
 }

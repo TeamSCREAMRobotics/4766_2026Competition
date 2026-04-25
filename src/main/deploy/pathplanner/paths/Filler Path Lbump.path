@@ -3,25 +3,25 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 2.6640843373493976,
-        "y": 4.974783132530121
+        "x": 3.6219,
+        "y": 6.061844444444444
       },
       "prevControl": null,
       "nextControl": {
-        "x": 2.5207583991784053,
-        "y": 4.769947404573778
+        "x": 3.4785740618290077,
+        "y": 5.857008716488101
       },
       "isLocked": false,
       "linkedName": "infront of Lbump"
     },
     {
       "anchor": {
-        "x": 2.2160481927710847,
-        "y": 3.630674698795181
+        "x": 1.799688888888889,
+        "y": 1.374766666666667
       },
       "prevControl": {
-        "x": 2.321434136546186,
-        "y": 3.86099156626506
+        "x": 1.9050748326639901,
+        "y": 1.6050835341365461
       },
       "nextControl": null,
       "isLocked": false,
@@ -42,13 +42,13 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": 7.920739901641071
+    "rotation": 180.0
   },
   "reversed": false,
   "folder": "Left bump Paths",
   "idealStartingState": {
     "velocity": 0,
-    "rotation": -25.319686910309663
+    "rotation": -179.630354938153
   },
   "useDefaultConstraints": true
 }

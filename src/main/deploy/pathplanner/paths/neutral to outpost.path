@@ -8,8 +8,8 @@
       },
       "prevControl": null,
       "nextControl": {
-        "x": 5.432328246318609,
-        "y": 3.6499518072289154
+        "x": 5.432328246318608,
+        "y": 3.649951807228915
       },
       "isLocked": false,
       "linkedName": "in neutral zone"
@@ -33,11 +33,11 @@
     {
       "anchor": {
         "x": 0.6,
-        "y": 0.5700000000000001
+        "y": 0.54
       },
       "prevControl": {
         "x": 0.8042419658161895,
-        "y": 0.4258292006003349
+        "y": 0.3958292006003349
       },
       "nextControl": null,
       "isLocked": false,

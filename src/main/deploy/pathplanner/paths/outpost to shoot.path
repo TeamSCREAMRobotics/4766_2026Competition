@@ -3,25 +3,25 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 1.799688888888889,
-        "y": 1.374766666666667
+        "x": 0.6,
+        "y": 0.54
       },
       "prevControl": null,
       "nextControl": {
-        "x": 1.5514657267157346,
-        "y": 1.3450133179348018
+        "x": 1.6,
+        "y": 0.5400000000000004
       },
       "isLocked": false,
-      "linkedName": "Hub-at hub"
+      "linkedName": "Rbump at outpost"
     },
     {
       "anchor": {
-        "x": 1.44,
-        "y": 3.3
+        "x": 2.472055555555556,
+        "y": 4.025255555555555
       },
       "prevControl": {
-        "x": 1.6871300095549298,
-        "y": 3.337772455273391
+        "x": 2.715666666666667,
+        "y": 1.8619888888888885
       },
       "nextControl": null,
       "isLocked": false,
@@ -45,10 +45,10 @@
     "rotation": 0.0
   },
   "reversed": false,
-  "folder": "Hub Paths",
+  "folder": null,
   "idealStartingState": {
     "velocity": 0,
-    "rotation": 180.0
+    "rotation": 179.72988400671753
   },
   "useDefaultConstraints": true
 }

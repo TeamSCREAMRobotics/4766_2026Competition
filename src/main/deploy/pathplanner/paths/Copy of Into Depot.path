@@ -3,40 +3,40 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 1.799688888888889,
-        "y": 1.374766666666667
+        "x": 0.8837111111111111,
+        "y": 5.428455555555555
       },
       "prevControl": null,
       "nextControl": {
-        "x": 2.799688888888889,
-        "y": 1.374766666666667
+        "x": 0.5036777777777781,
+        "y": 5.516155555555555
       },
       "isLocked": false,
-      "linkedName": "Hub-at hub"
+      "linkedName": "copy of depot"
     },
     {
       "anchor": {
-        "x": 1.37,
-        "y": 4.29
+        "x": 0.9129444444444446,
+        "y": 6.295711111111111
       },
       "prevControl": {
-        "x": 2.1407444444444446,
-        "y": 4.356566666666666
+        "x": 0.8837111111111116,
+        "y": 5.8767
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": "1C climb"
+      "linkedName": "in depot"
     }
   ],
   "rotationTargets": [],
   "constraintZones": [
     {
       "name": "Constraints Zone",
-      "minWaypointRelativePos": 0.6183622828784073,
+      "minWaypointRelativePos": 0,
       "maxWaypointRelativePos": 1.0,
       "constraints": {
-        "maxVelocity": 2.0,
-        "maxAcceleration": 3.0,
+        "maxVelocity": 0.5,
+        "maxAcceleration": 2.0,
         "maxAngularVelocity": 540.0,
         "maxAngularAcceleration": 720.0,
         "nominalVoltage": 12.0,
@@ -47,8 +47,8 @@
   "pointTowardsZones": [],
   "eventMarkers": [],
   "globalConstraints": {
-    "maxVelocity": 4.0,
-    "maxAcceleration": 5.5,
+    "maxVelocity": 1.0,
+    "maxAcceleration": 2.0,
     "maxAngularVelocity": 540.0,
     "maxAngularAcceleration": 720.0,
     "nominalVoltage": 12.0,
@@ -56,13 +56,13 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": 0.0
+    "rotation": -179.10482628978895
   },
   "reversed": false,
   "folder": null,
   "idealStartingState": {
     "velocity": 0,
-    "rotation": 180.0
+    "rotation": 150.5241109967543
   },
-  "useDefaultConstraints": true
+  "useDefaultConstraints": false
 }

@@ -3,25 +3,25 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 1.6324679029957196,
-        "y": 5.9
+        "x": 1.068855555555556,
+        "y": 5.467433333333333
       },
       "prevControl": null,
       "nextControl": {
-        "x": 1.3359448254638486,
-        "y": 5.907699352278236
+        "x": 0.6888222222222229,
+        "y": 5.555133333333333
       },
       "isLocked": false,
       "linkedName": "Depot- Begin Pass"
     },
     {
       "anchor": {
-        "x": 0.9855349500713262,
-        "y": 5.9
+        "x": 0.9129444444444446,
+        "y": 6.295711111111111
       },
       "prevControl": {
-        "x": 1.2579355791407105,
-        "y": 5.896972920071393
+        "x": 0.8837111111111116,
+        "y": 5.8767
       },
       "nextControl": null,
       "isLocked": false,
@@ -29,7 +29,21 @@
     }
   ],
   "rotationTargets": [],
-  "constraintZones": [],
+  "constraintZones": [
+    {
+      "name": "Constraints Zone",
+      "minWaypointRelativePos": 0,
+      "maxWaypointRelativePos": 1.0,
+      "constraints": {
+        "maxVelocity": 0.5,
+        "maxAcceleration": 2.0,
+        "maxAngularVelocity": 540.0,
+        "maxAngularAcceleration": 720.0,
+        "nominalVoltage": 12.0,
+        "unlimited": false
+      }
+    }
+  ],
   "pointTowardsZones": [],
   "eventMarkers": [],
   "globalConstraints": {
@@ -42,13 +56,13 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": 180.0
+    "rotation": -179.10482628978895
   },
   "reversed": false,
   "folder": null,
   "idealStartingState": {
     "velocity": 0,
-    "rotation": 180.0
+    "rotation": 149.4524282510929
   },
   "useDefaultConstraints": false
 }

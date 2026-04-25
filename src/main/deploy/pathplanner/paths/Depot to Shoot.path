@@ -3,13 +3,13 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 0.9855349500713262,
-        "y": 5.9
+        "x": 0.9129444444444446,
+        "y": 6.295711111111111
       },
       "prevControl": null,
       "nextControl": {
-        "x": 1.2350480946920483,
-        "y": 5.884405428461205
+        "x": 1.1624575890651667,
+        "y": 6.280116539572316
       },
       "isLocked": false,
       "linkedName": "in depot"
@@ -25,7 +25,7 @@
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": null
+      "linkedName": "shoot in depot paths"
     }
   ],
   "rotationTargets": [
@@ -53,7 +53,7 @@
   "folder": null,
   "idealStartingState": {
     "velocity": 0,
-    "rotation": 180.0
+    "rotation": -179.10482628978895
   },
   "useDefaultConstraints": true
 }

@@ -214,11 +214,11 @@ public class RobotContainer {
                                     () ->
                                         AllianceFlipUtil.get(
                                             new Pose2d(
-                                                new Translation2d(1.370, 3.270),
+                                                new Translation2d(1.41, 3.270),
                                                 new Rotation2d(Degrees.of(0.0))), // <- blue side
                                             new Pose2d(
                                                 new Translation2d(15.1, 4.8),
-                                                new Rotation2d(Degrees.of(180.0)))))
+                                                new Rotation2d(Degrees.of(180.0))))).withTimeout(2)
                                 .andThen(
                                     Commands.runOnce(
                                         () ->
@@ -342,7 +342,7 @@ public class RobotContainer {
     driverController
         .rightBumper()
         .whileTrue(
-            Commands.runEnd(() -> m_intake.runIntake(10.0), () -> m_intake.runIntake(0), m_intake)
+            Commands.runEnd(() -> m_intake.runIntake(9.0), () -> m_intake.runIntake(0), m_intake)
                 .alongWith(
                     drivetrain.applyRequest(
                         () ->
@@ -461,7 +461,7 @@ public class RobotContainer {
             .alongWith(new Shoot(m_flywheel, m_indexer, getDesiredShooterVelocity))
             .alongWith(drivetrain.applyRequest(() -> brake))
             .alongWith(new Jostle(m_intake))
-            .withTimeout(4));
+            .withTimeout(5));
     NamedCommands.registerCommand(
         "Shoot Preload",
         Commands.run(
@@ -504,7 +504,7 @@ public class RobotContainer {
                     () ->
                         AllianceFlipUtil.get(
                             new Pose2d(
-                                new Translation2d(1.370, 3.270),
+                                new Translation2d(1.415, 3.270),
                                 new Rotation2d(Degrees.of(0.0))), // <- blue side
                             new Pose2d(
                                 new Translation2d(15.1, 4.8),
@@ -515,7 +515,7 @@ public class RobotContainer {
                 drivetrain,
                 () ->
                     AllianceFlipUtil.get(
-                        new Pose2d(new Translation2d(2.1, 4.1), new Rotation2d(Degrees.of(0.0))),
+                        new Pose2d(new Translation2d(2.1, 4.15), new Rotation2d(Degrees.of(0.0))),
                         new Pose2d(
                             new Translation2d(14.3, 3.9), new Rotation2d(Degrees.of(180.0)))))
             .andThen(
@@ -524,7 +524,7 @@ public class RobotContainer {
                     () ->
                         AllianceFlipUtil.get(
                             new Pose2d(
-                                new Translation2d(1.370, 4.1), new Rotation2d(Degrees.of(0.0))),
+                                new Translation2d(1.370, 4.15), new Rotation2d(Degrees.of(0.0))),
                             new Pose2d(
                                 new Translation2d(15.1, 3.9),
                                 new Rotation2d(Degrees.of(180.0)))))));

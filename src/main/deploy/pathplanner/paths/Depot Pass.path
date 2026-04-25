@@ -3,13 +3,13 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 1.6324679029957196,
-        "y": 5.8999999999999995
+        "x": 1.068855555555556,
+        "y": 5.467433333333333
       },
       "prevControl": null,
       "nextControl": {
-        "x": 1.2816679029957196,
-        "y": 6.893933333333333
+        "x": 0.7180555555555559,
+        "y": 6.461366666666667
       },
       "isLocked": false,
       "linkedName": "Depot- Begin Pass"
@@ -83,7 +83,7 @@
   "folder": null,
   "idealStartingState": {
     "velocity": 0,
-    "rotation": 180.0
+    "rotation": 149.4524282510929
   },
   "useDefaultConstraints": true
 }

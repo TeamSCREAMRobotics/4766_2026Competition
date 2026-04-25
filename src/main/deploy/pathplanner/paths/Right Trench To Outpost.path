@@ -3,25 +3,25 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 4.645066666666667,
-        "y": 0.5659777777777777
+        "x": 3.6024111111111115,
+        "y": 0.43929999999999947
       },
       "prevControl": null,
       "nextControl": {
-        "x": 3.1054444444444447,
-        "y": 0.5952111111111106
+        "x": 2.0627888888888894,
+        "y": 0.46853333333333236
       },
       "isLocked": false,
-      "linkedName": "At Right Trench"
+      "linkedName": null
     },
     {
       "anchor": {
         "x": 0.6,
-        "y": 0.57
+        "y": 0.54
       },
       "prevControl": {
         "x": 1.3417,
-        "y": 0.6244444444444435
+        "y": 0.5944444444444436
       },
       "nextControl": null,
       "isLocked": false,

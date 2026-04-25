@@ -3,13 +3,13 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 1.6145444444444443,
-        "y": 5.360244444444445
+        "x": 2.686433333333334,
+        "y": 4.151933333333333
       },
       "prevControl": null,
       "nextControl": {
-        "x": 2.3685564926372153,
-        "y": 6.584148058902277
+        "x": 3.440445381526105,
+        "y": 5.375836947791165
       },
       "isLocked": false,
       "linkedName": "shoot"
@@ -67,7 +67,7 @@
   "folder": "Hub Paths",
   "idealStartingState": {
     "velocity": 0,
-    "rotation": -21.46576142493133
+    "rotation": -1.0609116902642162
   },
   "useDefaultConstraints": true
 }

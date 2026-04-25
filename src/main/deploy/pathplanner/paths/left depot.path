@@ -3,29 +3,29 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 1.1997710843373495,
-        "y": 5.903638554216868
+        "x": 3.6219,
+        "y": 6.0521
       },
       "prevControl": null,
       "nextControl": {
-        "x": 2.4712750663671637,
-        "y": 6.138553468109728
+        "x": 2.2937568874060057,
+        "y": 6.0521
       },
       "isLocked": false,
-      "linkedName": "Lbump to depot"
+      "linkedName": null
     },
     {
       "anchor": {
-        "x": 2.2160481927710847,
-        "y": 3.630674698795181
+        "x": 1.068855555555556,
+        "y": 5.467433333333333
       },
       "prevControl": {
-        "x": 1.0249277108433743,
-        "y": 3.5978915662650603
+        "x": 1.849976541448725,
+        "y": 5.473366666666666
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": "Hub-at hub"
+      "linkedName": "Depot- Begin Pass"
     }
   ],
   "rotationTargets": [],
@@ -42,13 +42,13 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": 7.920739901641071
+    "rotation": 149.4524282510929
   },
   "reversed": false,
   "folder": "Left bump Paths",
   "idealStartingState": {
     "velocity": 0,
-    "rotation": 179.34318778079552
+    "rotation": 180.0
   },
   "useDefaultConstraints": true
 }

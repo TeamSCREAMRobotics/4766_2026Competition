@@ -4,28 +4,28 @@
     {
       "anchor": {
         "x": 0.6,
-        "y": 0.5700000000000001
+        "y": 0.54
       },
       "prevControl": null,
       "nextControl": {
         "x": 1.6,
-        "y": 0.5700000000000003
+        "y": 0.54
       },
       "isLocked": false,
       "linkedName": "Rbump at outpost"
     },
     {
       "anchor": {
-        "x": 1.6145444444444443,
-        "y": 5.360244444444445
+        "x": 2.4,
+        "y": 4.05
       },
       "prevControl": {
-        "x": 1.0681589022757696,
-        "y": 4.573449263721553
+        "x": 2.452566666666667,
+        "y": 2.4174222222222226
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": "shoot"
+      "linkedName": "shoot in depot paths"
     }
   ],
   "rotationTargets": [],
@@ -41,8 +41,8 @@
     "unlimited": false
   },
   "goalEndState": {
-    "velocity": 0.0,
-    "rotation": -21.46576142493133
+    "velocity": 0,
+    "rotation": 0.6953276376409546
   },
   "reversed": false,
   "folder": null,

@@ -98,9 +98,22 @@
           }
         },
         {
-          "type": "named",
+          "type": "race",
           "data": {
-            "name": "Drive To 1C"
+            "commands": [
+              {
+                "type": "named",
+                "data": {
+                  "name": "Drive To 1A"
+                }
+              },
+              {
+                "type": "wait",
+                "data": {
+                  "waitTime": 2.0
+                }
+              }
+            ]
           }
         },
         {
