@@ -16,6 +16,7 @@ import frc.robot.constants.Constants;
 public class IntakeRoller extends SubsystemBase {
   /** Creates a new IntakeRoller. */
   private TalonFX intakeMotor = new TalonFX(Constants.IntakeConstants.intakeMotorID);
+
   private TalonFX intakeFollower = new TalonFX(Constants.IntakeConstants.intakeFollowerID);
 
   private VoltageOut m_request = new VoltageOut(0);

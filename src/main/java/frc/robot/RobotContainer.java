@@ -25,9 +25,13 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.Commands;
+import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
+import edu.wpi.first.wpilibj2.command.WaitCommand;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.RobotModeTriggers;
 import edu.wpi.first.wpilibj2.command.sysid.SysIdRoutine.Direction;
+import frc.robot.commands.AutoIntake;
+import frc.robot.commands.AutoJostle;
 import frc.robot.commands.DriveToPose;
 import frc.robot.commands.Ferry;
 import frc.robot.commands.Index;
@@ -163,7 +167,7 @@ public class RobotContainer {
                                                 new Translation2d(2.1, 4.05),
                                                 new Rotation2d(Degrees.of(0.0))),
                                             new Pose2d(
-                                                new Translation2d(14.3, 3.9),
+                                                new Translation2d(14.3, 3.95),
                                                 new Rotation2d(Degrees.of(180.0)))))
                                 .andThen(
                                     new DriveToPose(
@@ -175,7 +179,7 @@ public class RobotContainer {
                                                         new Rotation2d(
                                                             Degrees.of(0.0))), // <- blue side
                                                     new Pose2d(
-                                                        new Translation2d(15.1, 3.9),
+                                                        new Translation2d(15.22, 3.95),
                                                         new Rotation2d(Degrees.of(180.0)))))
                                         .andThen(
                                             Commands.runOnce(
@@ -202,7 +206,7 @@ public class RobotContainer {
                                                 new Translation2d(2.1, 3.270),
                                                 new Rotation2d(Degrees.of(0.0))),
                                             new Pose2d(
-                                                new Translation2d(14.3, 4.8),
+                                                new Translation2d(14.3, 4.85),
                                                 new Rotation2d(Degrees.of(180.0)))))
                                 .andThen(
                                     Commands.runOnce(
@@ -219,7 +223,7 @@ public class RobotContainer {
                                                 new Translation2d(1.41, 3.270),
                                                 new Rotation2d(Degrees.of(0.0))), // <- blue side
                                             new Pose2d(
-                                                new Translation2d(15.1, 4.8),
+                                                new Translation2d(15.1, 4.85),
                                                 new Rotation2d(Degrees.of(180.0)))))
                                 .withTimeout(2)
                                 .andThen(
@@ -311,7 +315,9 @@ public class RobotContainer {
         .whileTrue(
             Commands.parallel(
                 Commands.runEnd(
-                    () -> m_intakeRoller.runIntake(-10), () -> m_intakeRoller.runIntake(0), m_intake),
+                    () -> m_intakeRoller.runIntake(-10),
+                    () -> m_intakeRoller.runIntake(0),
+                    m_intake),
                 Commands.runEnd(
                     () -> m_indexer.runIndexer(-10), () -> m_indexer.runIndexer(0), m_indexer)));
 
@@ -345,7 +351,10 @@ public class RobotContainer {
     driverController
         .rightBumper()
         .whileTrue(
-            Commands.runEnd(() -> m_intakeRoller.runIntake(9.0), () -> m_intakeRoller.runIntake(0), m_intake)
+            Commands.runEnd(
+                    () -> m_intakeRoller.runIntake(9.0),
+                    () -> m_intakeRoller.runIntake(0),
+                    m_intake)
                 .alongWith(
                     drivetrain.applyRequest(
                         () ->
@@ -426,6 +435,8 @@ public class RobotContainer {
             () -> m_flywheel.setSetpointVelocity(getDesiredShooterVelocity.getAsDouble() * 0.40),
             m_flywheel));
 
+    m_intakeRoller.setDefaultCommand(new AutoIntake(m_intakeRoller));
+
     // Reset the field-centric heading on left bumper press.
     driverController
         .leftBumper()
@@ -448,6 +459,12 @@ public class RobotContainer {
                 m_intake)
             .withTimeout(1));
     NamedCommands.registerCommand(
+        "Intake Down Wait",
+        new SequentialCommandGroup(
+            new WaitCommand(1.0),
+            m_intake.run(
+                () -> m_intake.IntakeGoToSetpoint(IntakeConstants.intakePivotDownSetpoint))));
+    NamedCommands.registerCommand(
         "Intake Up",
         Commands.runOnce(
                 () -> m_intake.IntakeGoToSetpoint(IntakeConstants.intakePivotUpSetpoint), m_intake)
@@ -463,7 +480,7 @@ public class RobotContainer {
                 m_flywheel)
             .alongWith(new Shoot(m_flywheel, m_indexer, getDesiredShooterVelocity))
             .alongWith(drivetrain.applyRequest(() -> brake))
-            .alongWith(new Jostle(m_intake, m_intakeRoller))
+            .alongWith(new AutoJostle(m_intake))
             .withTimeout(4.75));
     NamedCommands.registerCommand(
         "Shoot Preload",
@@ -472,7 +489,7 @@ public class RobotContainer {
                 m_flywheel)
             .alongWith(new Shoot(m_flywheel, m_indexer, getDesiredShooterVelocity))
             .alongWith(drivetrain.applyRequest(() -> brake))
-            .alongWith(new Jostle(m_intake, m_intakeRoller))
+            .alongWith(new AutoJostle(m_intake))
             .withTimeout(5));
 
     NamedCommands.registerCommand(

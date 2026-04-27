@@ -3,25 +3,25 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 0.7,
+        "x": 0.61,
         "y": 0.52
       },
       "prevControl": null,
       "nextControl": {
-        "x": 3.9849999999999968,
-        "y": 1.4416999999999995
+        "x": 3.894999999999998,
+        "y": 1.4416999999999993
       },
       "isLocked": false,
       "linkedName": "Rbump at outpost"
     },
     {
       "anchor": {
-        "x": 1.068855555555556,
-        "y": 5.467
+        "x": 1.2929777777777778,
+        "y": 5.438199999999999
       },
       "prevControl": {
-        "x": 3.1931444444444432,
-        "y": 6.382977777777778
+        "x": 3.4172666666666647,
+        "y": 6.354177777777777
       },
       "nextControl": null,
       "isLocked": false,
@@ -56,7 +56,7 @@
   },
   "goalEndState": {
     "velocity": 4.0,
-    "rotation": 149.4524282510929
+    "rotation": 164.29136217098429
   },
   "reversed": false,
   "folder": null,
