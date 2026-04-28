@@ -36,7 +36,7 @@
               {
                 "type": "named",
                 "data": {
-                  "name": "Intake Down Wait"
+                  "name": "Intake Down"
                 }
               }
             ]

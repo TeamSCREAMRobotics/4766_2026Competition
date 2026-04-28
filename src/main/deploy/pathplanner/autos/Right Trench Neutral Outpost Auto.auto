@@ -69,6 +69,18 @@
         {
           "type": "wait",
           "data": {
+            "waitTime": 1.75
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "swipe outpsot shoot"
+          }
+        },
+        {
+          "type": "wait",
+          "data": {
             "waitTime": 2.0
           }
         },

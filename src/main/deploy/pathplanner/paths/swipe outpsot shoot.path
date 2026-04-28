@@ -3,29 +3,29 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 3.836277777777778,
-        "y": 7.513766666666667
+        "x": 0.61,
+        "y": 0.52
       },
       "prevControl": null,
       "nextControl": {
-        "x": 4.214600000000001,
-        "y": 7.6160000000000005
+        "x": 3.6901111111111113,
+        "y": 0.42955555555555525
       },
       "isLocked": false,
-      "linkedName": "shooting under trench"
+      "linkedName": "Rbump at outpost"
     },
     {
       "anchor": {
-        "x": 3.6219,
-        "y": 7.6112111111111105
+        "x": 2.666944444444445,
+        "y": 4.015511111111111
       },
       "prevControl": {
-        "x": 3.378148156622167,
-        "y": 7.555667985074594
+        "x": 1.6669444444444448,
+        "y": 4.015511111111111
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": "start of left trench neutral"
+      "linkedName": null
     }
   ],
   "rotationTargets": [],
@@ -42,13 +42,13 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": -90.0
+    "rotation": 0.0
   },
   "reversed": false,
-  "folder": "Left Trench Paths",
+  "folder": "Right Bump Paths",
   "idealStartingState": {
     "velocity": 0,
-    "rotation": -45.0
+    "rotation": 179.72988400671753
   },
   "useDefaultConstraints": true
 }

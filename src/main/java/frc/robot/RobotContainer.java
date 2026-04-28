@@ -458,12 +458,12 @@ public class RobotContainer {
                 () -> m_intake.IntakeGoToSetpoint(IntakeConstants.intakePivotDownSetpoint),
                 m_intake)
             .withTimeout(1));
-    NamedCommands.registerCommand(
-        "Intake Down Wait",
-        new SequentialCommandGroup(
-            new WaitCommand(1.0),
-            m_intake.run(
-                () -> m_intake.IntakeGoToSetpoint(IntakeConstants.intakePivotDownSetpoint))));
+    // NamedCommands.registerCommand(
+    //     "Intake Down Wait",
+    //     new SequentialCommandGroup(
+    //         new WaitCommand(1.0),
+    //         m_intake.run(
+    //             () -> m_intake.IntakeGoToSetpoint(IntakeConstants.intakePivotDownSetpoint))));
     NamedCommands.registerCommand(
         "Intake Up",
         Commands.runOnce(
