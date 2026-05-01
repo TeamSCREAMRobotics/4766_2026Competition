@@ -27,7 +27,7 @@ public class StopAllRollers extends Command {
 
   @Override
   public void execute() {
-    m_Flywheel.setSetpointVelocity(0);
+    // m_Flywheel.setSetpointVelocity(0);
     m_Indexer.runIndexer(0);
   }
 

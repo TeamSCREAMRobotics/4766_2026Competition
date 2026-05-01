@@ -3,13 +3,13 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 0.61,
-        "y": 0.52
+        "x": 0.6400999999999999,
+        "y": 0.6439333333333332
       },
       "prevControl": null,
       "nextControl": {
-        "x": 1.61,
-        "y": 0.5200000000000004
+        "x": 1.6401000000000021,
+        "y": 0.6439333333333321
       },
       "isLocked": false,
       "linkedName": "Rbump at outpost"

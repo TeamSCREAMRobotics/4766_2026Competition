@@ -56,7 +56,7 @@ import java.util.function.DoubleSupplier;
 
 public class RobotContainer {
   private double MaxSpeed =
-      0.6 * TunerConstants.kSpeedAt12Volts.in(MetersPerSecond); // kSpeedAt12Volts desired top speed
+      TunerConstants.kSpeedAt12Volts.in(MetersPerSecond) * 0.6; // kSpeedAt12Volts desired top speed
   private double MaxAngularRate =
       RotationsPerSecond.of(0.75)
           .in(RadiansPerSecond); // 3/4 of a rotation per second max angular velocity
@@ -162,10 +162,10 @@ public class RobotContainer {
                                     () ->
                                         AllianceFlipUtil.get(
                                             new Pose2d(
-                                                new Translation2d(2.1, 4.05),
+                                                new Translation2d(2.1, 4.29),
                                                 new Rotation2d(Degrees.of(0.0))),
                                             new Pose2d(
-                                                new Translation2d(14.3, 3.95),
+                                                new Translation2d(14.3, 4.95),
                                                 new Rotation2d(Degrees.of(180.0)))))
                                 .andThen(
                                     new DriveToPose(
@@ -173,11 +173,11 @@ public class RobotContainer {
                                             () ->
                                                 AllianceFlipUtil.get(
                                                     new Pose2d(
-                                                        new Translation2d(1.370, 4.05),
+                                                        new Translation2d(1.4, 4.29),
                                                         new Rotation2d(
                                                             Degrees.of(0.0))), // <- blue side
                                                     new Pose2d(
-                                                        new Translation2d(15.22, 3.95),
+                                                        new Translation2d(15.2, 4.2),
                                                         new Rotation2d(Degrees.of(180.0)))))
                                         .andThen(
                                             Commands.runOnce(
@@ -201,10 +201,10 @@ public class RobotContainer {
                                     () ->
                                         AllianceFlipUtil.get(
                                             new Pose2d(
-                                                new Translation2d(2.1, 3.270),
+                                                new Translation2d(2.1, 3.31),
                                                 new Rotation2d(Degrees.of(0.0))),
                                             new Pose2d(
-                                                new Translation2d(14.3, 4.85),
+                                                new Translation2d(14.55, 5.05),
                                                 new Rotation2d(Degrees.of(180.0)))))
                                 .andThen(
                                     Commands.runOnce(
@@ -218,10 +218,10 @@ public class RobotContainer {
                                     () ->
                                         AllianceFlipUtil.get(
                                             new Pose2d(
-                                                new Translation2d(1.41, 3.270),
+                                                new Translation2d(1.4, 3.31),
                                                 new Rotation2d(Degrees.of(0.0))), // <- blue side
                                             new Pose2d(
-                                                new Translation2d(15.1, 4.85),
+                                                new Translation2d(15.2, 5.05),
                                                 new Rotation2d(Degrees.of(180.0)))))
                                 .withTimeout(2)
                                 .andThen(
@@ -493,7 +493,8 @@ public class RobotContainer {
     NamedCommands.registerCommand(
         "Climber to 0",
         Commands.runOnce(
-            () -> m_climber.climberGoToSetpoint(ClimberConstants.climberRestSetpoint)));
+            () -> m_climber.climberGoToSetpoint(ClimberConstants.climberRestSetpoint))
+            .withTimeout(2));
     NamedCommands.registerCommand(
         "Climber to max",
         Commands.runOnce(
@@ -506,26 +507,27 @@ public class RobotContainer {
     NamedCommands.registerCommand(
         "Climber down",
         m_climber.runOnce(
-            () -> m_climber.climberGoToSetpoint(ClimberConstants.climberClimbSetpoint)));
+            () -> m_climber.climberGoToSetpoint(ClimberConstants.climberClimbSetpoint))
+            .withTimeout(2));
     NamedCommands.registerCommand(
         "Drive To 1A",
         new DriveToPose(
                 drivetrain,
                 () ->
                     AllianceFlipUtil.get(
-                        new Pose2d(new Translation2d(2.1, 3.270), new Rotation2d(Degrees.of(0.0))),
+                        new Pose2d(new Translation2d(2.1, 3.31), new Rotation2d(Degrees.of(0.0))),
                         new Pose2d(
-                            new Translation2d(14.3, 4.8), new Rotation2d(Degrees.of(180.0)))))
+                            new Translation2d(14.55, 5.05), new Rotation2d(Degrees.of(180.0)))))
             .andThen(
                 new DriveToPose(
                     drivetrain,
                     () ->
                         AllianceFlipUtil.get(
                             new Pose2d(
-                                new Translation2d(1.415, 3.270),
+                                new Translation2d(1.4, 3.31),
                                 new Rotation2d(Degrees.of(0.0))), // <- blue side
                             new Pose2d(
-                                new Translation2d(15.1, 4.8),
+                                new Translation2d(15.2, 5.05),
                                 new Rotation2d(Degrees.of(180.0))))))); // <- red side
     NamedCommands.registerCommand(
         "Drive To 1C",
@@ -533,18 +535,18 @@ public class RobotContainer {
                 drivetrain,
                 () ->
                     AllianceFlipUtil.get(
-                        new Pose2d(new Translation2d(2.1, 4.15), new Rotation2d(Degrees.of(0.0))),
+                        new Pose2d(new Translation2d(2.1, 4.19), new Rotation2d(Degrees.of(0.0))),
                         new Pose2d(
-                            new Translation2d(14.3, 3.9), new Rotation2d(Degrees.of(180.0)))))
+                            new Translation2d(14.3, 4.2), new Rotation2d(Degrees.of(180.0)))))
             .andThen(
                 new DriveToPose(
                     drivetrain,
                     () ->
                         AllianceFlipUtil.get(
                             new Pose2d(
-                                new Translation2d(1.370, 4.15), new Rotation2d(Degrees.of(0.0))),
+                                new Translation2d(1.4, 4.19), new Rotation2d(Degrees.of(0.0))),
                             new Pose2d(
-                                new Translation2d(15.1, 3.9),
+                                new Translation2d(15.2, 4.2),
                                 new Rotation2d(Degrees.of(180.0)))))));
   }
 

@@ -37,7 +37,7 @@ public class Climber extends SubsystemBase {
 
     climberConfigs.CurrentLimits.StatorCurrentLimit = 60;
     climberConfigs.CurrentLimits.StatorCurrentLimitEnable = true;
-    climberConfigs.CurrentLimits.SupplyCurrentLimit = 40;
+    climberConfigs.CurrentLimits.SupplyCurrentLimit = 30;
     climberConfigs.CurrentLimits.SupplyCurrentLimitEnable = true;
 
     climberPIDConfigs.kP = ClimberConstants.kP;
@@ -73,8 +73,8 @@ public class Climber extends SubsystemBase {
 
   // This tells you when the climber has finished going to the position given
   public boolean climberAtSetpoint(double setpoint) {
-    return climbermotor.getPosition().getValueAsDouble() >= setpoint - 0.05
-        && climbermotor.getPosition().getValueAsDouble() <= setpoint + 0.05;
+    return climbermotor.getPosition().getValueAsDouble() >= setpoint - 0.10
+        && climbermotor.getPosition().getValueAsDouble() <= setpoint + 0.10;
   }
 
   public Length rotationsToDistance() {
@@ -94,7 +94,7 @@ public class Climber extends SubsystemBase {
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
-    DogLog.log("Climber Pose: ", getClimberPose());
+    // DogLog.log("Climber Pose: ", getClimberPose());
     SmartDashboard.putNumber("Climber Pose", rotationsToDistance().getInches());
   }
 }

@@ -28,9 +28,7 @@ public class IntakeRoller extends SubsystemBase {
 
     intakeConfig.MotorOutput.NeutralMode = NeutralModeValue.Brake;
 
-    intakeConfig.CurrentLimits.StatorCurrentLimit = 60;
-    intakeConfig.CurrentLimits.StatorCurrentLimitEnable = true;
-    intakeConfig.CurrentLimits.SupplyCurrentLimit = 40;
+    intakeConfig.CurrentLimits.SupplyCurrentLimit = 30;
     intakeConfig.CurrentLimits.SupplyCurrentLimitEnable = true;
 
     intakeMotor.getConfigurator().apply(intakeConfig);

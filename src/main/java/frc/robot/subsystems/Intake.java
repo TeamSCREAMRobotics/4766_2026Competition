@@ -33,7 +33,7 @@ public class Intake extends SubsystemBase {
 
     intakeConfig.CurrentLimits.StatorCurrentLimit = 60;
     intakeConfig.CurrentLimits.StatorCurrentLimitEnable = true;
-    intakeConfig.CurrentLimits.SupplyCurrentLimit = 40;
+    intakeConfig.CurrentLimits.SupplyCurrentLimit = 30;
     intakeConfig.CurrentLimits.SupplyCurrentLimitEnable = true;
 
     intakePIDConfigs.kP = IntakeConstants.kP;
@@ -82,7 +82,7 @@ public class Intake extends SubsystemBase {
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
-    DogLog.log("Intake Pivot Pose", getPivotPose());
+    // DogLog.log("Intake Pivot Pose", getPivotPose());
     SmartDashboard.putNumber("Intake Pivot Pose", getPivotPose());
   }
 }

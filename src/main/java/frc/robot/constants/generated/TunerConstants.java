@@ -64,7 +64,7 @@ public class TunerConstants {
       new TalonFXConfiguration()
           .withCurrentLimits(
               new CurrentLimitsConfigs()
-                  .withSupplyCurrentLimit(Amps.of(40))
+                  .withSupplyCurrentLimit(Amps.of(30))
                   .withSupplyCurrentLimitEnable(true)
                   .withStatorCurrentLimit(Amps.of(60))
                   .withStatorCurrentLimitEnable(true));

@@ -39,9 +39,9 @@ public class Shoot extends Command {
     SmartDashboard.putNumber("Desired Velocity", desiredvelocity.getAsDouble());
     if (
     /*s_Flywheel.getVelocity() >= Dashboard.flywheelVelocity.get() - 1.5
-    && s_Flywheel.getVelocity() <= Dashboard.flywheelVelocity.get() + 1.0)*/
+    && s_Flywheel.getVelocity() <= Dashboard.flywheelVelocity.get() + 1.5)*/
     s_Flywheel.getVelocity() >= desiredvelocity.getAsDouble() - 1.5
-        && s_Flywheel.getVelocity() <= desiredvelocity.getAsDouble() + 1.0) {
+        && s_Flywheel.getVelocity() <= desiredvelocity.getAsDouble() + 1.5) {
       s_Indexer.runIndexer(12);
     } else {
       s_Indexer.runIndexer(0);

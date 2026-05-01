@@ -44,7 +44,7 @@ public class FlywheelConfig {
     //
     //
     FLYWHEEL_CONFIG.enableSupplyCurrentLimit = true;
-    FLYWHEEL_CONFIG.supplyCurrentLimit = 35;
+    FLYWHEEL_CONFIG.supplyCurrentLimit = 30;
     FLYWHEEL_CONFIG.neutralMode = NeutralModeValue.Coast;
   }
 }
