@@ -492,8 +492,7 @@ public class RobotContainer {
 
     NamedCommands.registerCommand(
         "Climber to 0",
-        Commands.runOnce(
-            () -> m_climber.climberGoToSetpoint(ClimberConstants.climberRestSetpoint))
+        Commands.runOnce(() -> m_climber.climberGoToSetpoint(ClimberConstants.climberRestSetpoint))
             .withTimeout(2));
     NamedCommands.registerCommand(
         "Climber to max",
@@ -506,8 +505,8 @@ public class RobotContainer {
             .withTimeout(2));
     NamedCommands.registerCommand(
         "Climber down",
-        m_climber.runOnce(
-            () -> m_climber.climberGoToSetpoint(ClimberConstants.climberClimbSetpoint))
+        m_climber
+            .runOnce(() -> m_climber.climberGoToSetpoint(ClimberConstants.climberClimbSetpoint))
             .withTimeout(2));
     NamedCommands.registerCommand(
         "Drive To 1A",
